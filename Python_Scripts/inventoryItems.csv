@@ -1,0 +1,46 @@
+Name,Stock,NumberNeeded,OrderChance,Units,Category,Servings,RestockCost
+shreddedLettuce,2,8,0.25,5 lb,base,50,25
+spinach,3,7,0.25,5 lb,base,50,25
+brownRice,3,7,0.25,50 lb,base,200,30
+whiteRice,3,7,0.25,50 lb,base,200,30
+chicken,10,0,0.2,160 oz,protein,16,100
+lamb,10,0,0.2,160 oz,protein,16,290
+falafel,10,0,0.2,160 oz,protein,16,100
+beef,6,4,0.2,160 oz,protein,16,290
+pork,10,0,0.2,160 oz,protein,16,290
+couscous,6,4,0.13333333333333333,80 oz,toppings,20,40
+onions,6,4,0.13333333333333333,80 oz,toppings,20,40
+bigTomatoes,3,7,0.13333333333333333,80 oz,toppings,20,40
+smallTomatoes,10,0,0.13333333333333333,80 oz,toppings,20,40
+pitaChips,6,4,0.13333333333333333,80 oz,toppings,20,40
+vegetableMedley,5,5,0.13333333333333333,80 oz,toppings,20,40
+olives,4,6,0.13333333333333333,80 oz,toppings,20,40
+pickledOnions,1,9,0.13333333333333333,80 oz,toppings,20,40
+cucumbers,6,4,0.13333333333333333,80 oz,toppings,20,40
+cauliflower,4,6,0.13333333333333333,80 oz,toppings,20,40
+peppers,3,7,0.13333333333333333,80 oz,toppings,20,40
+redCabbageSlaw,6,4,0.13333333333333333,80 oz,toppings,20,40
+garlicFries,10,0,0.13333333333333333,80 oz,toppings,20,40
+hummus,4,6,0.1111111111111111,16 oz,sauces,16,25
+spicyHummus,5,5,0.1111111111111111,16 oz,sauces,16,25
+jalapenoFeta,5,5,0.1111111111111111,16 oz,sauces,16,25
+tzatziki,10,0,0.1111111111111111,16 oz,sauces,16,25
+greekVinaigrette,5,5,0.1111111111111111,16 oz,sauces,16,25
+harrisaYogurt,1,9,0.1111111111111111,16 oz,sauces,16,25
+yogurtDill,10,0,0.1111111111111111,16 oz,sauces,16,25
+tahini,9,1,0.1111111111111111,16 oz,sauces,16,25
+pepsiSyrup,7,3,0.1,5 gallon,drinks,100,50
+sierraMistSyrup,7,3,0.1,5 gallon,drinks,100,50
+briskSyrup,6,4,0.1,5 gallon,drinks,100,50
+pepsiZeroSyrup,7,3,0.1,5 gallon,drinks,100,50
+pepsiDietSyrup,6,4,0.1,5 gallon,drinks,100,50
+gatoradeSyrup,5,5,0.1,5 gallon,drinks,100,50
+mtnDewSyrup,6,4,0.1,5 gallon,drinks,100,50
+drPepperSyrup,5,5,0.1,5 gallon,drinks,100,50
+cupDrink,10,0,0.5,500 count boxes,nonPerishable,500,20
+cupWater,10,0,0.5,500 count boxes,nonPerishable,500,20
+bowls,2,8,0.5,500 count boxes,nonPerishable,500,20
+straws,10,0,0.5,500 count boxes,nonPerishable,500,20
+cupLids,10,0,0.5,500 count boxes,nonPerishable,500,20
+bowlLids,2,8,0.5,500 count boxes,nonPerishable,500,20
+utensilPacks,2,8,0.5,500 count boxes,nonPerishable,500,20
