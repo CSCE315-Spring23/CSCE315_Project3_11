@@ -519,6 +519,8 @@ def generateZReport(date, zReportsFile, dailyTotal):
     line = "INSERT INTO \"ZReports\" (\"DateTimeGenerated\", \"Subtotal\", \"Total\") VALUES ('" + str(date) + "', " + str(dailyTotal) + ", " + str(dailyTotal * 1.0825) + ");\n"
     zReportsFile.write(line)
 
+# \copy cat from ‘cat_stock.csv' CSV HEADER
+
 
 generateEmployeeData()
 generateMenuTable()
