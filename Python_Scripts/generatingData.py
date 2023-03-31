@@ -85,15 +85,15 @@ def generateInventoryItems():
     #       servings (int)
     servings = 0
     restockCost = 0
-    bases = ["shreddedLettuce", "spinach", "brownRice", "whiteRice"]
-    protein = ["chicken", "lamb", "falafel", "beef", "pork"]
-    toppings = ["couscous", "onions", "bigTomatoes", "smallTomatoes", "pitaChips", "vegetableMedley", "olives",
-                "pickledOnions", "cucumbers", "cauliflower", "peppers", "redCabbageSlaw", "garlicFries"]
-    sauces = ["hummus", "spicyHummus", "jalapenoFeta", "tzatziki", "greekVinaigrette", "harrisaYogurt", "yogurtDill",
-              "tahini"]
-    drinks = ["pepsiSyrup", "sierraMistSyrup", "briskSyrup", "pepsiZeroSyrup", "pepsiDietSyrup", "gatoradeSyrup",
-              "mtnDewSyrup", "drPepperSyrup"]
-    nonPerishable = ["cupDrink", "cupWater", "bowls", "straws", "cupLids", "bowlLids", "utensilPacks"]
+    bases = ["Shredded Lettuce", "Spinach", "Brown Rice", "White Rice"]
+    protein = ["Chicken", "Lamb", "Falafel", "Beef", "Pork"]
+    toppings = ["Couscous", "Onions", "Big Tomatoes", "Small Tomatoes", "Pita Chips", "Vegetable Medley", "Olives",
+                "Pickled Onions", "Cucumbers", "Cauliflower", "Peppers", "Red Cabbage Coleslaw", "Garlic Fries"]
+    sauces = ["Hummus", "Spicy Hummus", "Jalapeno Feta", "Tzatziki", "Greek Vinaigrette", "Harrisa Yogurt", "Dill Yogurt",
+              "Tahini"]
+    drinks = ["Pepsi", "Sierra Mist", "Brisk", "Pepsi Zero", "Diet Pepsi", "Gatorade",
+              "Mtn Dew", "Dr. Pepper"]
+    nonPerishable = ["Cup Drink", "Cup Water", "Bowl", "Straw", "Cup Lid", "Bowl Lid", "Utensil Pack"]
     itemNames = bases + protein + toppings + sauces + drinks + nonPerishable
 
     for item in itemNames:
@@ -119,7 +119,7 @@ def generateInventoryItems():
             orderChance = 1/5
             servings = 16
             stock = 10
-            if "chicken" in item or "falafel" in item:
+            if "Chicken" in item or "Falafel" in item:
                 restockCost = 100
             else:
                 restockCost = 290
@@ -160,10 +160,10 @@ def generateInventoryItems():
 
 
 def generateMenuTable():
-    menu_items = [["ItemName", "Price"], ["Gyro", 8.09], ["Bowl", 8.09], ["Hummus & Pita", 3.49], ["Falafels", 3.49], ["Extra Protein", 2.49],
+    menu_items = [["Gyro", 8.09], ["Bowl", 8.09], ["Hummus & Pita", 3.49], ["Falafels", 3.49], ["Extra Protein", 2.49],
                   ["Extra Dressing", 0.39], ["Fountain Drink", 2.45]]
 
-    f = open("MenuItems.csv", "w")
+    f = open("MenuItems.csv", "w+")
     f.write("ItemName,Price\n")
 
     for item in menu_items:
@@ -192,15 +192,15 @@ def generateExpirationDates(itemCounts: list):
     expirationDate = ""
     remainingServings = 0
     loopNum = 0
-    bases = ["shreddedLettuce", "spinach", "brownRice", "whiteRice"]
-    protein = ["chicken", "lamb", "falafel", "beef", "pork"]
-    toppings = ["couscous", "onions", "bigTomatoes", "smallTomatoes", "pitaChips", "vegetableMedley", "olives",
-                "pickledOnions", "cucumbers", "cauliflower", "peppers", "redCabbageSlaw", "garlicFries"]
-    sauces = ["hummus", "spicyHummus", "jalapenoFeta", "tzatziki", "greekVinaigrette", "harrisaYogurt", "yogurtDill",
-              "tahini"]
-    drinks = ["pepsiSyrup", "sierraMistSyrup", "briskSyrup", "pepsiZeroSyrup", "pepsiDietSyrup", "gatoradeSyrup",
-              "mtnDewSyrup", "drPepperSyrup"]
-    nonPerishable = ["cupDrink", "cupWater", "bowls", "straws", "cupLids", "bowlLids", "utensilPacks"]
+    bases = ["Shredded Lettuce", "Spinach", "Brown Rice", "White Rice"]
+    protein = ["Chicken", "Lamb", "Falafel", "Beef", "Pork"]
+    toppings = ["Couscous", "Onions", "Big Tomatoes", "Small Tomatoes", "Pita Chips", "Vegetable Medley", "Olives",
+                "Pickled Onions", "Cucumbers", "Cauliflower", "Peppers", "Red Cabbage Coleslaw", "Garlic Fries"]
+    sauces = ["Hummus", "Spicy Hummus", "Jalapeno Feta", "Tzatziki", "Greek Vinaigrette", "Harrisa Yogurt", "Dill Yogurt",
+              "Tahini"]
+    drinks = ["Pepsi", "Sierra Mist", "Brisk", "Pepsi Zero", "Diet Pepsi", "Gatorade",
+              "Mtn Dew", "Dr. Pepper"]
+    nonPerishable = ["Cup Drink", "Cup Water", "Bowl", "Straw", "Cup Lid", "Bowl Lid", "Utensil Pack"]
     itemNames = bases + protein + toppings + sauces + drinks + nonPerishable
     for line in (restockOrdersFileCSV.readlines() [-5:]): # base expiration dates on last five restock orders
         elements = line.split(",")
@@ -227,7 +227,7 @@ def generateExpirationDates(itemCounts: list):
                 uniqueStr = itemName + expirationDate.strftime("%m/%d/%Y")
                 uniqueID = int.from_bytes(hashlib.sha256(uniqueStr.encode()).digest(), byteorder='big', signed=False) % (10 ** 14)
                 uniqueID %= 10000 # digits go past integer limit so have to limit the amount
-                if itemName == "cupDrink" or itemName == "cupWater" or itemName == "bowls" or itemName == "straws" or itemName == "cupLids" or itemName == "bowlLids" or itemName == "utensilPacks":
+                if itemName == "Cup Drink" or itemName == "Cup Water" or itemName == "Bowl" or itemName == "Straw" or itemName == "Cup Lid" or itemName == "Bowl Lid" or itemName == "Utensil Pack":
                     expirationDate = date + datetime.timedelta(weeks=260)
                 inventoryNum = itemNames.index(itemName)
                 remainingServings = itemCounts[inventoryNum]
@@ -237,7 +237,7 @@ def generateExpirationDates(itemCounts: list):
 
             itemName = itemsArray[i]
             expirationDate = date + datetime.timedelta(days=6)
-            if itemName == "cupDrink" or itemName == "cupWater" or itemName == "bowls" or itemName == "straws" or itemName == "cupLids" or itemName == "bowlLids" or itemName == "utensilPacks":
+            if itemName == "Cup Drink" or itemName == "Cup Water" or itemName == "Bowl" or itemName == "Straw" or itemName == "Cup Lid" or itemName == "Bowl Lid" or itemName == "Utensil Pack":
                 expirationDate = date + datetime.timedelta(weeks=260)
             uniqueStr = itemName + expirationDate.strftime("%m/%d/%Y")
             uniqueID = int.from_bytes(hashlib.sha256(uniqueStr.encode()).digest(), byteorder='big', signed=False) % (10 ** 14)
@@ -271,7 +271,7 @@ def makeOrder(itemCounts: list):
     for i in range(4):
         if i == 0:
             continue
-        new_line = menuLines[i].split(",")
+        new_line = menuLines[i+1].split(",")
         if i == chooseBetween:
             orderTotal += float(new_line[1])
             # determine what base to add to order
@@ -291,8 +291,8 @@ def makeOrder(itemCounts: list):
                 itemCounts[protienNum] -= 1
             if orderFalafel:
                 menuItems.append("Falafels")
-                itemsInOrder.append("falafel")
-                itemsInOrder.append("falafel")
+                itemsInOrder.append("Falafel")
+                itemsInOrder.append("Falafel")
                 orderTotal += 3.49
                 itemCounts[6] -= 2
             for j in range(10, 22):
@@ -317,26 +317,26 @@ def makeOrder(itemCounts: list):
                 itemCounts[sauceNum] -= 1
             if orderChipsAndHummus:
                 menuItems.append("Hummus & Pita")
-                itemsInOrder.append("pitaChips")
-                itemsInOrder.append("hummus")
+                itemsInOrder.append("Pita Chips")
+                itemsInOrder.append("Hummus")
                 orderTotal += 3.49
                 itemCounts[23] -= 1
                 itemCounts[14] -= 1
             if orderDrink:
                 drinkType = random.randint(0, 1)
                 if drinkType == 0:
-                    itemsInOrder.append("cupWater")
-                    itemsInOrder.append("straws")
-                    itemsInOrder.append("cupLids")
+                    itemsInOrder.append("Cup Water")
+                    itemsInOrder.append("Straw")
+                    itemsInOrder.append("Cup Lid")
                     itemCounts[40] -= 1
                     itemCounts[42] -= 1
                     itemCounts[43] -= 1
                 else:
                     menuItems.append("Fountain Drink")
                     orderTotal += 2.45
-                    itemsInOrder.append("cupDrink")
-                    itemsInOrder.append("straws")
-                    itemsInOrder.append("cupLids")
+                    itemsInOrder.append("Cup Drink")
+                    itemsInOrder.append("Straw")
+                    itemsInOrder.append("Cup Lid")
                     drinkNum = random.randint(31, 38)
                     itemsInOrder.append((inventoryLines[drinkNum].split(","))[0])
                     itemCounts[39] -= 1
@@ -344,11 +344,11 @@ def makeOrder(itemCounts: list):
                     itemCounts[43] -= 1
                     itemCounts[drinkNum] -= 1
         if i == 2:
-            itemsInOrder.append("bowls")
-            itemsInOrder.append("bowlLids")
+            itemsInOrder.append("Bowl")
+            itemsInOrder.append("Bowl Lid")
             itemCounts[41] -= 1
             itemCounts[44] -= 1
-    itemsInOrder.append("utensilPacks")
+    itemsInOrder.append("Utensil Pack")
     itemCounts[45] -= 1
 
     employees = ["0000", "0001", "0002", "0003", "0004"]
@@ -519,7 +519,8 @@ def generateZReport(date, zReportsFile, dailyTotal):
     line = "INSERT INTO \"ZReports\" (\"DateTimeGenerated\", \"Subtotal\", \"Total\") VALUES ('" + str(date) + "', " + str(dailyTotal) + ", " + str(dailyTotal * 1.0825) + ");\n"
     zReportsFile.write(line)
 
-generateHistory()
 
-# generateMenuTable()
-# generateInventoryItems()
+generateEmployeeData()
+generateMenuTable()
+generateInventoryItems()
+generateHistory()

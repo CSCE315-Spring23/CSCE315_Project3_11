@@ -1,314 +1,314 @@
 DateOrdered,DateReceived,Items,Cost
-2022-03-01 00:00:00, ['lamb'], 3190, 2022-03-04 00:00:00
-2022-03-02 00:00:00, ['lamb', 'falafel', 'hummus'], 5070, 2022-03-05 00:00:00
-2022-03-03 00:00:00, ['chicken', 'lamb', 'beef', 'pork'], 11360, 2022-03-06 00:00:00
-2022-03-04 00:00:00, ['lamb', 'pitaChips', 'hummus'], 3905, 2022-03-07 00:00:00
-2022-03-05 00:00:00, ['lamb', 'falafel', 'couscous', 'smallTomatoes', 'pickledOnions', 'cucumbers', 'peppers', 'redCabbageSlaw', 'spicyHummus', 'jalapenoFeta', 'tzatziki', 'greekVinaigrette', 'yogurtDill'], 8460, 2022-03-08 00:00:00
-2022-03-07 00:00:00, ['chicken', 'lamb', 'beef', 'pork', 'onions', 'bigTomatoes', 'vegetableMedley', 'olives', 'cauliflower', 'hummus', 'harrisaYogurt'], 14395, 2022-03-10 00:00:00
-2022-03-08 00:00:00, ['shreddedLettuce', 'spinach', 'lamb'], 3690, 2022-03-11 00:00:00
-2022-03-09 00:00:00, ['lamb', 'falafel', 'beef', 'pitaChips', 'hummus'], 8635, 2022-03-12 00:00:00
-2022-03-10 00:00:00, ['chicken', 'lamb', 'pork'], 8070, 2022-03-13 00:00:00
-2022-03-11 00:00:00, ['lamb', 'falafel', 'couscous', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'jalapenoFeta', 'tzatziki', 'greekVinaigrette', 'harrisaYogurt', 'yogurtDill'], 8030, 2022-03-14 00:00:00
-2022-03-12 00:00:00, ['lamb', 'beef', 'bigTomatoes', 'smallTomatoes', 'vegetableMedley', 'olives', 'pickledOnions', 'cauliflower'], 9770, 2022-03-15 00:00:00
-2022-03-14 00:00:00, ['chicken', 'lamb', 'pork', 'onions', 'pitaChips', 'hummus'], 9755, 2022-03-17 00:00:00
-2022-03-15 00:00:00, ['lamb', 'falafel', 'beef'], 7290, 2022-03-18 00:00:00
-2022-03-16 00:00:00, ['shreddedLettuce', 'spinach', 'lamb', 'hummus', 'greekVinaigrette'], 3950, 2022-03-19 00:00:00
-2022-03-17 00:00:00, ['chicken', 'lamb', 'pork', 'couscous', 'pitaChips', 'cucumbers', 'peppers', 'redCabbageSlaw', 'spicyHummus', 'jalapenoFeta', 'tzatziki', 'harrisaYogurt'], 12155, 2022-03-20 00:00:00
-2022-03-18 00:00:00, ['lamb', 'falafel', 'beef', 'bigTomatoes', 'olives', 'pickledOnions', 'cauliflower', 'hummus', 'yogurtDill'], 10085, 2022-03-21 00:00:00
-2022-03-19 00:00:00, ['lamb', 'pork', 'onions', 'smallTomatoes', 'vegetableMedley', 'bowls', 'bowlLids', 'utensilPacks'], 8260, 2022-03-22 00:00:00
-2022-03-21 00:00:00, ['chicken', 'lamb', 'beef', 'hummus'], 7980, 2022-03-24 00:00:00
-2022-03-22 00:00:00, ['lamb', 'falafel', 'pitaChips', 'tzatziki', 'greekVinaigrette'], 6095, 2022-03-25 00:00:00
-2022-03-23 00:00:00, ['spinach', 'lamb', 'pork', 'couscous', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'jalapenoFeta', 'harrisaYogurt', 'yogurtDill'], 10830, 2022-03-26 00:00:00
-2022-03-24 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'falafel', 'beef', 'olives', 'pickledOnions', 'cauliflower'], 10420, 2022-03-27 00:00:00
-2022-03-25 00:00:00, ['lamb', 'bigTomatoes', 'pitaChips', 'vegetableMedley', 'hummus', 'straws', 'cupLids'], 5195, 2022-03-28 00:00:00
-2022-03-26 00:00:00, ['lamb', 'beef', 'pork', 'onions', 'smallTomatoes', 'tzatziki'], 11280, 2022-03-29 00:00:00
-2022-03-28 00:00:00, ['chicken', 'lamb', 'falafel', 'hummus', 'jalapenoFeta', 'greekVinaigrette', 'harrisaYogurt', 'yogurtDill'], 7240, 2022-03-31 00:00:00
-2022-03-29 00:00:00, ['lamb', 'couscous', 'pitaChips', 'cucumbers', 'peppers', 'redCabbageSlaw', 'spicyHummus'], 5795, 2022-04-01 00:00:00
-2022-03-30 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'olives', 'hummus'], 12785, 2022-04-02 00:00:00
-2022-03-31 00:00:00, ['spinach', 'brownRice', 'chicken', 'lamb', 'vegetableMedley', 'pickledOnions', 'cauliflower', 'tzatziki'], 7380, 2022-04-03 00:00:00
-2022-04-01 00:00:00, ['shreddedLettuce', 'whiteRice', 'lamb', 'beef', 'pork', 'onions', 'bigTomatoes', 'smallTomatoes', 'hummus', 'harrisaYogurt'], 11910, 2022-04-04 00:00:00
-2022-04-02 00:00:00, ['lamb', 'falafel', 'pitaChips', 'jalapenoFeta', 'greekVinaigrette', 'yogurtDill'], 6185, 2022-04-05 00:00:00
-2022-04-04 00:00:00, ['chicken', 'lamb', 'couscous', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'spicyHummus'], 6505, 2022-04-07 00:00:00
-2022-04-05 00:00:00, ['lamb', 'beef', 'pork'], 11310, 2022-04-08 00:00:00
-2022-04-06 00:00:00, ['lamb', 'falafel', 'pitaChips', 'vegetableMedley', 'olives', 'pickledOnions', 'cauliflower', 'hummus', 'tzatziki', 'harrisaYogurt'], 7785, 2022-04-09 00:00:00
-2022-04-07 00:00:00, ['chicken', 'lamb', 'beef', 'pork', 'bigTomatoes'], 10830, 2022-04-10 00:00:00
-2022-04-08 00:00:00, ['spinach', 'lamb', 'onions', 'smallTomatoes', 'hummus', 'jalapenoFeta', 'greekVinaigrette', 'yogurtDill', 'bowls', 'bowlLids', 'utensilPacks'], 6045, 2022-04-11 00:00:00
-2022-04-09 00:00:00, ['shreddedLettuce', 'lamb', 'falafel', 'pork', 'cucumbers', 'peppers', 'redCabbageSlaw', 'spicyHummus'], 9455, 2022-04-12 00:00:00
-2022-04-11 00:00:00, ['chicken', 'lamb', 'beef', 'couscous', 'pitaChips', 'hummus', 'tzatziki', 'harrisaYogurt'], 10180, 2022-04-14 00:00:00
-2022-04-12 00:00:00, ['lamb', 'vegetableMedley', 'olives', 'pickledOnions', 'cauliflower'], 4580, 2022-04-15 00:00:00
-2022-04-13 00:00:00, ['lamb', 'falafel', 'pork', 'bigTomatoes', 'hummus', 'greekVinaigrette'], 9625, 2022-04-16 00:00:00
-2022-04-14 00:00:00, ['chicken', 'lamb', 'beef', 'onions', 'smallTomatoes', 'spicyHummus', 'jalapenoFeta', 'yogurtDill'], 9860, 2022-04-17 00:00:00
-2022-04-15 00:00:00, ['lamb', 'pitaChips', 'cucumbers', 'redCabbageSlaw', 'hummus', 'tzatziki', 'harrisaYogurt'], 5310, 2022-04-18 00:00:00
-2022-04-16 00:00:00, ['spinach', 'lamb', 'falafel', 'pork', 'couscous', 'peppers'], 10345, 2022-04-19 00:00:00
-2022-04-18 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'vegetableMedley', 'pickledOnions', 'cauliflower', 'hummus'], 9845, 2022-04-21 00:00:00
-2022-04-19 00:00:00, ['lamb', 'bigTomatoes', 'olives', 'greekVinaigrette', 'yogurtDill'], 4910, 2022-04-22 00:00:00
-2022-04-20 00:00:00, ['chicken', 'lamb', 'falafel', 'beef', 'pork', 'smallTomatoes', 'pitaChips', 'hummus', 'spicyHummus', 'jalapenoFeta'], 13995, 2022-04-23 00:00:00
-2022-04-21 00:00:00, ['lamb', 'onions', 'cucumbers', 'redCabbageSlaw', 'tzatziki', 'harrisaYogurt', 'cupDrink', 'cupWater', 'straws', 'cupLids'], 6070, 2022-04-24 00:00:00
-2022-04-22 00:00:00, ['chicken', 'lamb', 'couscous', 'peppers', 'hummus'], 5620, 2022-04-25 00:00:00
-2022-04-23 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'pickledOnions', 'cauliflower', 'yogurtDill', 'tahini'], 13395, 2022-04-26 00:00:00
-2022-04-25 00:00:00, ['spinach', 'lamb', 'bigTomatoes', 'pitaChips', 'vegetableMedley', 'olives', 'hummus', 'greekVinaigrette'], 6330, 2022-04-28 00:00:00
-2022-04-26 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'pork', 'smallTomatoes', 'spicyHummus', 'jalapenoFeta', 'tzatziki'], 9130, 2022-04-29 00:00:00
-2022-04-27 00:00:00, ['lamb', 'falafel', 'beef', 'onions', 'cucumbers', 'hummus', 'harrisaYogurt', 'bowls', 'bowlLids', 'utensilPacks'], 9960, 2022-04-30 00:00:00
-2022-04-28 00:00:00, ['lamb', 'peppers', 'redCabbageSlaw'], 4320, 2022-05-01 00:00:00
-2022-04-29 00:00:00, ['chicken', 'lamb', 'pork', 'couscous', 'pitaChips', 'cauliflower', 'hummus', 'yogurtDill'], 9990, 2022-05-02 00:00:00
-2022-04-30 00:00:00, ['lamb', 'falafel', 'beef', 'bigTomatoes', 'vegetableMedley', 'pickledOnions', 'jalapenoFeta', 'greekVinaigrette'], 10495, 2022-05-03 00:00:00
-2022-05-02 00:00:00, ['spinach', 'brownRice', 'chicken', 'lamb', 'smallTomatoes', 'olives', 'hummus', 'spicyHummus', 'tzatziki'], 7035, 2022-05-05 00:00:00
-2022-05-03 00:00:00, ['shreddedLettuce', 'whiteRice', 'pork', 'cucumbers', 'harrisaYogurt'], 5350, 2022-05-06 00:00:00
-2022-05-04 00:00:00, ['lamb', 'falafel', 'beef', 'onions', 'pitaChips', 'redCabbageSlaw', 'hummus', 'yogurtDill'], 12780, 2022-05-07 00:00:00
-2022-05-05 00:00:00, ['chicken', 'lamb', 'cauliflower', 'peppers', 'greekVinaigrette'], 6200, 2022-05-08 00:00:00
-2022-05-06 00:00:00, ['lamb', 'beef', 'pork', 'couscous', 'bigTomatoes', 'pickledOnions', 'hummus', 'jalapenoFeta', 'tzatziki'], 12255, 2022-05-09 00:00:00
-2022-05-07 00:00:00, ['chicken', 'lamb', 'falafel', 'smallTomatoes', 'pitaChips', 'vegetableMedley', 'olives', 'spicyHummus', 'harrisaYogurt'], 7655, 2022-05-10 00:00:00
-2022-05-09 00:00:00, ['lamb', 'hummus'], 3730, 2022-05-12 00:00:00
-2022-05-10 00:00:00, ['spinach', 'lamb', 'falafel', 'beef', 'pork', 'onions', 'cucumbers', 'redCabbageSlaw', 'yogurtDill'], 13560, 2022-05-13 00:00:00
-2022-05-11 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'peppers', 'hummus', 'tzatziki', 'greekVinaigrette'], 5965, 2022-05-14 00:00:00
-2022-05-12 00:00:00, ['lamb', 'falafel', 'pitaChips', 'pickledOnions', 'cauliflower', 'jalapenoFeta'], 6075, 2022-05-15 00:00:00
-2022-05-13 00:00:00, ['lamb', 'beef', 'pork', 'couscous', 'bigTomatoes', 'smallTomatoes', 'vegetableMedley', 'olives', 'hummus', 'spicyHummus', 'harrisaYogurt'], 13910, 2022-05-16 00:00:00
-2022-05-14 00:00:00, ['chicken', 'lamb'], 4780, 2022-05-17 00:00:00
-2022-05-16 00:00:00, ['lamb', 'falafel', 'pork', 'onions', 'cucumbers', 'hummus', 'yogurtDill'], 9060, 2022-05-19 00:00:00
-2022-05-17 00:00:00, ['spinach', 'lamb', 'beef', 'pitaChips', 'peppers', 'redCabbageSlaw', 'tzatziki', 'greekVinaigrette', 'mtnDewSyrup', 'bowls', 'straws', 'cupLids', 'bowlLids', 'utensilPacks'], 11185, 2022-05-20 00:00:00
-2022-05-18 00:00:00, ['chicken', 'lamb', 'pickledOnions', 'cauliflower', 'hummus', 'jalapenoFeta'], 6445, 2022-05-21 00:00:00
-2022-05-19 00:00:00, ['shreddedLettuce', 'lamb', 'falafel', 'pork', 'bigTomatoes', 'smallTomatoes', 'olives', 'spicyHummus', 'harrisaYogurt', 'drPepperSyrup'], 11215, 2022-05-22 00:00:00
-2022-05-20 00:00:00, ['lamb', 'beef', 'couscous', 'vegetableMedley', 'hummus'], 7535, 2022-05-23 00:00:00
-2022-05-21 00:00:00, ['chicken', 'lamb', 'pitaChips', 'tzatziki', 'greekVinaigrette', 'yogurtDill'], 5970, 2022-05-24 00:00:00
-2022-05-23 00:00:00, ['lamb', 'falafel', 'pork', 'onions', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'pepsiSyrup', 'gatoradeSyrup'], 11165, 2022-05-26 00:00:00
-2022-05-24 00:00:00, ['lamb', 'beef', 'cauliflower', 'jalapenoFeta', 'sierraMistSyrup', 'briskSyrup', 'pepsiDietSyrup'], 9450, 2022-05-27 00:00:00
-2022-05-25 00:00:00, ['spinach', 'chicken', 'lamb', 'bigTomatoes', 'olives', 'pickledOnions', 'hummus', 'spicyHummus', 'harrisaYogurt', 'pepsiZeroSyrup'], 7495, 2022-05-28 00:00:00
-2022-05-26 00:00:00, ['lamb', 'falafel', 'pork', 'smallTomatoes', 'pitaChips', 'vegetableMedley'], 9620, 2022-05-29 00:00:00
-2022-05-27 00:00:00, ['shreddedLettuce', 'lamb', 'beef', 'couscous', 'hummus', 'tzatziki', 'greekVinaigrette', 'yogurtDill'], 9265, 2022-05-30 00:00:00
-2022-05-28 00:00:00, ['chicken', 'lamb', 'pork', 'cucumbers', 'peppers', 'redCabbageSlaw', 'jalapenoFeta'], 8880, 2022-05-31 00:00:00
-2022-05-30 00:00:00, ['lamb', 'falafel', 'onions', 'pitaChips', 'cauliflower', 'hummus', 'spicyHummus'], 6495, 2022-06-02 00:00:00
-2022-05-31 00:00:00, ['lamb', 'beef', 'bigTomatoes', 'olives', 'pickledOnions', 'harrisaYogurt'], 8990, 2022-06-03 00:00:00
-2022-06-01 00:00:00, ['brownRice', 'chicken', 'lamb', 'pork', 'smallTomatoes', 'vegetableMedley', 'hummus', 'tzatziki'], 10300, 2022-06-04 00:00:00
-2022-06-02 00:00:00, ['spinach', 'lamb', 'falafel', 'couscous', 'jalapenoFeta', 'greekVinaigrette', 'yogurtDill'], 5965, 2022-06-05 00:00:00
-2022-06-03 00:00:00, ['whiteRice', 'lamb', 'beef', 'pork', 'pitaChips', 'cucumbers', 'peppers', 'hummus'], 11765, 2022-06-06 00:00:00
-2022-06-04 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'cauliflower', 'redCabbageSlaw', 'spicyHummus'], 6145, 2022-06-07 00:00:00
-2022-06-06 00:00:00, ['lamb', 'falafel', 'beef', 'onions', 'pickledOnions', 'hummus', 'harrisaYogurt', 'bowls', 'bowlLids', 'utensilPacks'], 10215, 2022-06-09 00:00:00
-2022-06-07 00:00:00, ['pork', 'bigTomatoes', 'smallTomatoes', 'vegetableMedley', 'olives', 'tzatziki'], 5765, 2022-06-10 00:00:00
-2022-06-08 00:00:00, ['chicken', 'lamb', 'falafel', 'couscous', 'pitaChips', 'hummus', 'jalapenoFeta', 'greekVinaigrette', 'yogurtDill', 'tahini'], 10280, 2022-06-11 00:00:00
-2022-06-09 00:00:00, ['lamb', 'beef', 'pork'], 9570, 2022-06-12 00:00:00
-2022-06-10 00:00:00, ['spinach', 'chicken', 'lamb', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'spicyHummus'], 6335, 2022-06-13 00:00:00
-2022-06-11 00:00:00, ['lamb', 'falafel', 'onions', 'cauliflower', 'tzatziki', 'harrisaYogurt', 'cupDrink', 'cupWater', 'straws', 'cupLids'], 7460, 2022-06-14 00:00:00
-2022-06-13 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'pork', 'bigTomatoes', 'smallTomatoes', 'pitaChips', 'olives', 'pickledOnions', 'hummus', 'jalapenoFeta', 'greekVinaigrette', 'yogurtDill'], 15360, 2022-06-16 00:00:00
-2022-06-14 00:00:00, ['lamb', 'couscous', 'vegetableMedley'], 4400, 2022-06-17 00:00:00
-2022-06-15 00:00:00, ['chicken', 'falafel', 'hummus'], 2725, 2022-06-18 00:00:00
-2022-06-16 00:00:00, ['lamb', 'beef', 'pork', 'peppers', 'redCabbageSlaw', 'spicyHummus', 'harrisaYogurt'], 15260, 2022-06-19 00:00:00
-2022-06-17 00:00:00, ['lamb', 'falafel', 'onions', 'pitaChips', 'cucumbers', 'cauliflower', 'hummus', 'tzatziki', 'greekVinaigrette', 'yogurtDill'], 6960, 2022-06-20 00:00:00
-2022-06-18 00:00:00, ['spinach', 'chicken', 'lamb', 'bigTomatoes', 'pickledOnions', 'jalapenoFeta'], 5880, 2022-06-21 00:00:00
-2022-06-20 00:00:00, ['lamb', 'beef', 'pork', 'couscous', 'smallTomatoes', 'olives', 'hummus'], 12245, 2022-06-23 00:00:00
-2022-06-21 00:00:00, ['shreddedLettuce', 'lamb', 'falafel', 'vegetableMedley', 'spicyHummus'], 5780, 2022-06-24 00:00:00
-2022-06-22 00:00:00, ['chicken', 'lamb', 'pitaChips', 'redCabbageSlaw', 'hummus', 'tzatziki', 'greekVinaigrette', 'harrisaYogurt', 'yogurtDill'], 6985, 2022-06-25 00:00:00
-2022-06-23 00:00:00, ['lamb', 'beef', 'pork', 'cucumbers', 'peppers'], 11900, 2022-06-26 00:00:00
-2022-06-24 00:00:00, ['lamb', 'falafel', 'onions', 'bigTomatoes', 'pickledOnions', 'cauliflower', 'hummus', 'jalapenoFeta', 'bowls', 'bowlLids', 'utensilPacks'], 7660, 2022-06-27 00:00:00
-2022-06-25 00:00:00, ['chicken', 'lamb', 'smallTomatoes', 'olives'], 5990, 2022-06-28 00:00:00
-2022-06-27 00:00:00, ['spinach', 'lamb', 'beef', 'pork', 'couscous', 'pitaChips', 'vegetableMedley', 'hummus', 'spicyHummus', 'tzatziki', 'harrisaYogurt'], 13175, 2022-06-30 00:00:00
-2022-06-28 00:00:00, ['shreddedLettuce', 'lamb', 'falafel', 'redCabbageSlaw', 'greekVinaigrette', 'yogurtDill'], 5955, 2022-07-01 00:00:00
-2022-06-29 00:00:00, ['chicken', 'lamb', 'cucumbers', 'peppers', 'hummus'], 5820, 2022-07-02 00:00:00
-2022-06-30 00:00:00, ['lamb', 'beef', 'pork', 'onions', 'pitaChips', 'pickledOnions', 'jalapenoFeta'], 12270, 2022-07-03 00:00:00
-2022-07-01 00:00:00, ['lamb', 'falafel', 'bigTomatoes', 'smallTomatoes', 'olives', 'cauliflower', 'hummus', 'tzatziki'], 7150, 2022-07-04 00:00:00
-2022-07-02 00:00:00, ['brownRice', 'chicken', 'lamb', 'couscous', 'vegetableMedley', 'spicyHummus', 'greekVinaigrette', 'harrisaYogurt', 'yogurtDill'], 6805, 2022-07-05 00:00:00
-2022-07-04 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'redCabbageSlaw', 'hummus'], 11975, 2022-07-07 00:00:00
-2022-07-05 00:00:00, ['spinach', 'whiteRice', 'lamb', 'pitaChips', 'cucumbers', 'peppers', 'jalapenoFeta'], 5310, 2022-07-08 00:00:00
-2022-07-06 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'onions', 'pickledOnions', 'hummus'], 6195, 2022-07-09 00:00:00
-2022-07-07 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'bigTomatoes', 'smallTomatoes', 'tzatziki', 'yogurtDill', 'straws', 'cupLids'], 14650, 2022-07-10 00:00:00
-2022-07-08 00:00:00, ['lamb', 'couscous', 'vegetableMedley', 'olives', 'cauliflower', 'hummus', 'spicyHummus', 'greekVinaigrette', 'harrisaYogurt'], 6085, 2022-07-11 00:00:00
-2022-07-09 00:00:00, ['chicken', 'lamb', 'beef', 'pitaChips'], 8700, 2022-07-12 00:00:00
-2022-07-11 00:00:00, ['lamb', 'falafel', 'pork', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'jalapenoFeta'], 10530, 2022-07-14 00:00:00
-2022-07-12 00:00:00, ['lamb', 'onions', 'pickledOnions'], 3990, 2022-07-15 00:00:00
-2022-07-13 00:00:00, ['spinach', 'chicken', 'lamb', 'falafel', 'beef', 'bigTomatoes', 'smallTomatoes', 'hummus', 'tzatziki', 'greekVinaigrette', 'yogurtDill'], 11575, 2022-07-16 00:00:00
-2022-07-14 00:00:00, ['shreddedLettuce', 'lamb', 'pork', 'couscous', 'pitaChips', 'vegetableMedley', 'cauliflower', 'spicyHummus', 'harrisaYogurt', 'bowls', 'bowlLids', 'utensilPacks'], 10370, 2022-07-17 00:00:00
-2022-07-15 00:00:00, ['lamb', 'beef', 'olives', 'hummus', 'jalapenoFeta'], 7080, 2022-07-18 00:00:00
-2022-07-16 00:00:00, ['chicken', 'lamb', 'falafel', 'onions'], 6870, 2022-07-19 00:00:00
-2022-07-18 00:00:00, ['lamb', 'pork', 'pitaChips', 'pickledOnions', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'greekVinaigrette'], 9670, 2022-07-21 00:00:00
-2022-07-19 00:00:00, ['lamb', 'beef', 'bigTomatoes', 'smallTomatoes', 'spicyHummus', 'tzatziki', 'yogurtDill'], 9155, 2022-07-22 00:00:00
-2022-07-20 00:00:00, ['chicken', 'lamb', 'falafel', 'pork', 'vegetableMedley', 'cauliflower', 'hummus', 'jalapenoFeta', 'harrisaYogurt'], 10995, 2022-07-23 00:00:00
-2022-07-21 00:00:00, ['spinach', 'lamb', 'couscous', 'olives'], 4320, 2022-07-24 00:00:00
-2022-07-22 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'onions', 'pitaChips', 'hummus', 'greekVinaigrette'], 9955, 2022-07-25 00:00:00
-2022-07-23 00:00:00, ['lamb', 'falafel', 'pork', 'pickledOnions', 'cucumbers', 'peppers', 'redCabbageSlaw', 'tzatziki'], 10000, 2022-07-26 00:00:00
-2022-07-25 00:00:00, ['lamb', 'bigTomatoes', 'smallTomatoes', 'hummus', 'spicyHummus', 'harrisaYogurt', 'yogurtDill'], 5380, 2022-07-28 00:00:00
-2022-07-26 00:00:00, ['chicken', 'lamb', 'beef', 'pitaChips', 'vegetableMedley', 'jalapenoFeta'], 9335, 2022-07-29 00:00:00
-2022-07-27 00:00:00, ['lamb', 'falafel', 'pork', 'couscous', 'olives', 'cauliflower', 'hummus'], 9885, 2022-07-30 00:00:00
-2022-07-28 00:00:00, ['spinach', 'chicken', 'lamb', 'onions', 'tzatziki', 'greekVinaigrette'], 5655, 2022-07-31 00:00:00
-2022-07-29 00:00:00, ['lamb', 'beef', 'pickledOnions', 'cucumbers', 'peppers', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'yogurtDill'], 9940, 2022-08-01 00:00:00
-2022-07-30 00:00:00, ['shreddedLettuce', 'lamb', 'falafel', 'pork', 'bigTomatoes', 'smallTomatoes', 'pitaChips', 'jalapenoFeta', 'harrisaYogurt', 'tahini'], 10770, 2022-08-02 00:00:00
-2022-08-01 00:00:00, ['chicken', 'lamb', 'beef', 'vegetableMedley', 'hummus'], 8090, 2022-08-04 00:00:00
-2022-08-02 00:00:00, ['lamb', 'falafel', 'couscous', 'olives', 'cauliflower', 'cupWater'], 6250, 2022-08-05 00:00:00
-2022-08-03 00:00:00, ['brownRice', 'lamb', 'pork', 'onions', 'hummus', 'tzatziki', 'greekVinaigrette', 'cupDrink', 'bowls', 'straws', 'cupLids', 'bowlLids', 'utensilPacks'], 9975, 2022-08-06 00:00:00
-2022-08-04 00:00:00, ['whiteRice', 'chicken', 'lamb', 'beef', 'pitaChips', 'pickledOnions', 'cucumbers', 'redCabbageSlaw', 'spicyHummus', 'jalapenoFeta', 'harrisaYogurt', 'yogurtDill'], 11605, 2022-08-07 00:00:00
-2022-08-05 00:00:00, ['spinach', 'lamb', 'falafel', 'pork', 'smallTomatoes', 'peppers', 'hummus'], 9350, 2022-08-08 00:00:00
-2022-08-06 00:00:00, ['lamb', 'bigTomatoes', 'vegetableMedley', 'drPepperSyrup'], 4530, 2022-08-09 00:00:00
-2022-08-08 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'couscous', 'cauliflower', 'hummus', 'tzatziki', 'greekVinaigrette'], 9945, 2022-08-11 00:00:00
-2022-08-09 00:00:00, ['falafel', 'pork', 'onions', 'pitaChips', 'olives'], 6490, 2022-08-12 00:00:00
-2022-08-10 00:00:00, ['chicken', 'lamb', 'cucumbers', 'hummus', 'spicyHummus', 'jalapenoFeta', 'harrisaYogurt', 'yogurtDill'], 8890, 2022-08-13 00:00:00
-2022-08-11 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'smallTomatoes', 'pickledOnions', 'peppers', 'redCabbageSlaw', 'briskSyrup', 'gatoradeSyrup', 'mtnDewSyrup'], 13750, 2022-08-14 00:00:00
-2022-08-12 00:00:00, ['lamb', 'pitaChips', 'vegetableMedley', 'hummus'], 4630, 2022-08-15 00:00:00
-2022-08-13 00:00:00, ['spinach', 'chicken', 'lamb', 'couscous', 'bigTomatoes', 'cauliflower', 'tzatziki', 'greekVinaigrette', 'pepsiZeroSyrup'], 7095, 2022-08-16 00:00:00
-2022-08-15 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'onions', 'hummus', 'spicyHummus', 'yogurtDill', 'pepsiSyrup', 'pepsiDietSyrup'], 14345, 2022-08-18 00:00:00
-2022-08-16 00:00:00, ['shreddedLettuce', 'lamb', 'pitaChips', 'olives', 'cucumbers', 'jalapenoFeta', 'harrisaYogurt'], 5545, 2022-08-19 00:00:00
-2022-08-17 00:00:00, ['chicken', 'lamb', 'beef', 'pickledOnions', 'peppers', 'redCabbageSlaw', 'hummus'], 9235, 2022-08-20 00:00:00
-2022-08-18 00:00:00, ['lamb', 'falafel', 'pork', 'smallTomatoes', 'vegetableMedley', 'tzatziki', 'greekVinaigrette'], 9375, 2022-08-21 00:00:00
-2022-08-19 00:00:00, ['lamb', 'beef', 'couscous', 'hummus'], 7055, 2022-08-22 00:00:00
-2022-08-20 00:00:00, ['chicken', 'lamb', 'pork', 'bigTomatoes', 'pitaChips', 'cauliflower', 'spicyHummus', 'yogurtDill'], 9450, 2022-08-23 00:00:00
-2022-08-22 00:00:00, ['spinach', 'lamb', 'falafel', 'onions', 'olives', 'cucumbers', 'hummus', 'jalapenoFeta', 'harrisaYogurt', 'sierraMistSyrup', 'bowls', 'bowlLids', 'utensilPacks'], 8500, 2022-08-25 00:00:00
-2022-08-23 00:00:00, ['shreddedLettuce', 'lamb', 'beef', 'pork', 'pickledOnions', 'peppers', 'redCabbageSlaw', 'tzatziki'], 11850, 2022-08-26 00:00:00
-2022-08-24 00:00:00, ['chicken', 'lamb', 'smallTomatoes', 'vegetableMedley', 'hummus', 'greekVinaigrette'], 6130, 2022-08-27 00:00:00
-2022-08-25 00:00:00, ['lamb', 'falafel', 'beef', 'pitaChips'], 8550, 2022-08-28 00:00:00
-2022-08-26 00:00:00, ['lamb', 'pork', 'couscous', 'cauliflower', 'hummus', 'spicyHummus', 'jalapenoFeta', 'yogurtDill'], 9505, 2022-08-29 00:00:00
-2022-08-27 00:00:00, ['chicken', 'lamb', 'bigTomatoes', 'olives', 'cucumbers', 'harrisaYogurt'], 5615, 2022-08-30 00:00:00
-2022-08-29 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'onions', 'pickledOnions', 'peppers', 'hummus', 'tzatziki', 'greekVinaigrette', 'straws', 'cupLids'], 13635, 2022-09-01 00:00:00
-2022-08-30 00:00:00, ['spinach', 'lamb', 'smallTomatoes', 'pitaChips', 'vegetableMedley', 'redCabbageSlaw'], 5740, 2022-09-02 00:00:00
-2022-08-31 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'hummus', 'spicyHummus', 'jalapenoFeta'], 6245, 2022-09-03 00:00:00
-2022-09-01 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'yogurtDill'], 12115, 2022-09-04 00:00:00
-2022-09-02 00:00:00, ['lamb', 'couscous', 'olives', 'cucumbers', 'cauliflower', 'hummus', 'tzatziki', 'harrisaYogurt'], 6250, 2022-09-05 00:00:00
-2022-09-03 00:00:00, ['brownRice', 'whiteRice', 'chicken', 'lamb', 'falafel', 'beef', 'onions', 'bigTomatoes', 'pitaChips', 'peppers', 'greekVinaigrette'], 10925, 2022-09-06 00:00:00
-2022-09-05 00:00:00, ['lamb', 'pork', 'smallTomatoes', 'vegetableMedley', 'pickledOnions', 'redCabbageSlaw', 'hummus', 'spicyHummus'], 10060, 2022-09-08 00:00:00
-2022-09-06 00:00:00, ['lamb', 'jalapenoFeta', 'yogurtDill'], 3425, 2022-09-09 00:00:00
-2022-09-07 00:00:00, ['spinach', 'chicken', 'lamb', 'falafel', 'beef', 'pork', 'pitaChips', 'hummus', 'harrisaYogurt'], 13885, 2022-09-10 00:00:00
-2022-09-08 00:00:00, ['shreddedLettuce', 'lamb', 'couscous', 'olives', 'cucumbers', 'cauliflower', 'tzatziki'], 5670, 2022-09-11 00:00:00
-2022-09-09 00:00:00, ['lamb', 'pork', 'onions', 'hummus', 'spicyHummus', 'greekVinaigrette'], 7290, 2022-09-12 00:00:00
-2022-09-10 00:00:00, ['chicken', 'lamb', 'falafel', 'beef', 'bigTomatoes', 'smallTomatoes', 'pitaChips', 'vegetableMedley', 'pickledOnions', 'peppers', 'bowls', 'bowlLids', 'utensilPacks'], 13260, 2022-09-13 00:00:00
-2022-09-12 00:00:00, ['lamb', 'redCabbageSlaw', 'hummus', 'jalapenoFeta', 'yogurtDill'], 5375, 2022-09-15 00:00:00
-2022-09-13 00:00:00, ['lamb', 'falafel', 'pork', 'harrisaYogurt'], 7945, 2022-09-16 00:00:00
-2022-09-14 00:00:00, ['chicken', 'lamb', 'beef', 'couscous', 'cucumbers', 'cauliflower', 'hummus', 'spicyHummus', 'tzatziki'], 10600, 2022-09-17 00:00:00
-2022-09-15 00:00:00, ['spinach', 'lamb', 'falafel', 'pitaChips', 'olives', 'greekVinaigrette', 'tahini'], 5595, 2022-09-18 00:00:00
-2022-09-16 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'pork', 'onions', 'bigTomatoes', 'smallTomatoes', 'vegetableMedley', 'peppers', 'hummus', 'jalapenoFeta', 'yogurtDill'], 14595, 2022-09-19 00:00:00
-2022-09-17 00:00:00, ['lamb', 'pickledOnions'], 3920, 2022-09-20 00:00:00
-2022-09-19 00:00:00, ['chicken', 'lamb', 'falafel', 'pitaChips', 'redCabbageSlaw', 'hummus', 'tzatziki', 'harrisaYogurt'], 7180, 2022-09-22 00:00:00
-2022-09-20 00:00:00, ['lamb', 'beef', 'pork', 'couscous', 'cucumbers', 'spicyHummus', 'greekVinaigrette'], 12635, 2022-09-23 00:00:00
-2022-09-21 00:00:00, ['lamb', 'cauliflower', 'hummus', 'jalapenoFeta'], 4470, 2022-09-24 00:00:00
-2022-09-22 00:00:00, ['chicken', 'lamb', 'falafel', 'onions', 'vegetableMedley', 'olives', 'yogurtDill'], 7860, 2022-09-25 00:00:00
-2022-09-23 00:00:00, ['spinach', 'lamb', 'beef', 'pork', 'bigTomatoes', 'smallTomatoes', 'pitaChips', 'pickledOnions', 'peppers', 'hummus', 'tzatziki', 'cupDrink', 'cupWater', 'straws', 'cupLids'], 14570, 2022-09-26 00:00:00
-2022-09-24 00:00:00, ['shreddedLettuce', 'lamb', 'redCabbageSlaw', 'harrisaYogurt'], 4720, 2022-09-27 00:00:00
-2022-09-26 00:00:00, ['chicken', 'lamb', 'falafel', 'couscous', 'cucumbers', 'hummus', 'spicyHummus', 'greekVinaigrette'], 7765, 2022-09-29 00:00:00
-2022-09-27 00:00:00, ['lamb', 'beef', 'pork', 'cauliflower', 'jalapenoFeta'], 11140, 2022-09-30 00:00:00
-2022-09-28 00:00:00, ['chicken', 'lamb', 'onions', 'pitaChips', 'olives', 'hummus', 'tzatziki', 'yogurtDill'], 6610, 2022-10-01 00:00:00
-2022-09-29 00:00:00, ['lamb', 'falafel', 'pork', 'bigTomatoes', 'smallTomatoes', 'vegetableMedley', 'pickledOnions', 'peppers'], 9470, 2022-10-02 00:00:00
-2022-09-30 00:00:00, ['spinach', 'lamb', 'beef', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'harrisaYogurt', 'bowls', 'bowlLids', 'utensilPacks'], 8470, 2022-10-03 00:00:00
-2022-10-01 00:00:00, ['chicken', 'lamb', 'falafel', 'pork', 'couscous', 'cucumbers', 'jalapenoFeta', 'greekVinaigrette'], 11245, 2022-10-04 00:00:00
-2022-10-03 00:00:00, ['shreddedLettuce', 'lamb', 'beef', 'pitaChips', 'cauliflower', 'hummus', 'tzatziki', 'yogurtDill'], 8135, 2022-10-06 00:00:00
-2022-10-04 00:00:00, ['whiteRice', 'lamb', 'onions', 'olives'], 4950, 2022-10-07 00:00:00
-2022-10-05 00:00:00, ['chicken', 'lamb', 'falafel', 'pork', 'bigTomatoes', 'smallTomatoes', 'vegetableMedley', 'pickledOnions', 'peppers', 'hummus', 'spicyHummus'], 13285, 2022-10-08 00:00:00
-2022-10-06 00:00:00, ['brownRice', 'lamb', 'beef', 'pitaChips', 'redCabbageSlaw', 'greekVinaigrette', 'harrisaYogurt'], 8625, 2022-10-09 00:00:00
-2022-10-07 00:00:00, ['lamb', 'hummus', 'jalapenoFeta', 'tzatziki'], 4280, 2022-10-10 00:00:00
-2022-10-08 00:00:00, ['spinach', 'chicken', 'lamb', 'falafel', 'pork', 'couscous', 'cucumbers', 'cauliflower', 'yogurtDill'], 12035, 2022-10-11 00:00:00
-2022-10-10 00:00:00, ['lamb', 'beef', 'onions', 'smallTomatoes', 'olives', 'hummus'], 9040, 2022-10-13 00:00:00
-2022-10-11 00:00:00, ['shreddedLettuce', 'lamb', 'pork', 'pitaChips', 'vegetableMedley', 'spicyHummus'], 7810, 2022-10-14 00:00:00
-2022-10-12 00:00:00, ['chicken', 'lamb', 'falafel', 'bigTomatoes', 'pickledOnions', 'peppers', 'redCabbageSlaw', 'hummus', 'greekVinaigrette', 'harrisaYogurt'], 9000, 2022-10-15 00:00:00
-2022-10-13 00:00:00, ['lamb', 'beef', 'pork', 'jalapenoFeta', 'tzatziki'], 11015, 2022-10-16 00:00:00
-2022-10-14 00:00:00, ['lamb', 'falafel', 'couscous', 'cucumbers', 'cauliflower', 'hummus', 'yogurtDill'], 6065, 2022-10-17 00:00:00
-2022-10-15 00:00:00, ['chicken', 'lamb', 'beef', 'onions', 'pitaChips', 'olives'], 9290, 2022-10-18 00:00:00
-2022-10-17 00:00:00, ['spinach', 'lamb', 'pork', 'smallTomatoes', 'vegetableMedley', 'hummus', 'spicyHummus', 'greekVinaigrette'], 8835, 2022-10-20 00:00:00
-2022-10-18 00:00:00, ['lamb', 'falafel', 'bigTomatoes', 'redCabbageSlaw', 'harrisaYogurt'], 5590, 2022-10-21 00:00:00
-2022-10-19 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'pork', 'pickledOnions', 'peppers', 'hummus', 'jalapenoFeta', 'tzatziki', 'bowls', 'straws', 'cupLids', 'bowlLids', 'utensilPacks'], 14370, 2022-10-22 00:00:00
-2022-10-20 00:00:00, ['lamb', 'couscous', 'pitaChips', 'cauliflower', 'yogurtDill'], 4470, 2022-10-23 00:00:00
-2022-10-21 00:00:00, ['lamb', 'falafel', 'pork', 'onions', 'olives', 'cucumbers', 'hummus', 'spicyHummus', 'greekVinaigrette'], 9645, 2022-10-24 00:00:00
-2022-10-22 00:00:00, ['chicken', 'lamb', 'beef', 'vegetableMedley', 'drPepperSyrup'], 9840, 2022-10-25 00:00:00
-2022-10-24 00:00:00, ['lamb', 'smallTomatoes', 'redCabbageSlaw', 'hummus', 'harrisaYogurt'], 5225, 2022-10-27 00:00:00
-2022-10-25 00:00:00, ['spinach', 'lamb', 'falafel', 'pork', 'bigTomatoes', 'pitaChips', 'pickledOnions', 'peppers', 'jalapenoFeta', 'tzatziki', 'yogurtDill'], 11005, 2022-10-28 00:00:00
-2022-10-26 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'couscous', 'olives', 'cauliflower', 'hummus'], 10035, 2022-10-29 00:00:00
-2022-10-27 00:00:00, ['lamb', 'falafel', 'pork', 'onions', 'cucumbers', 'spicyHummus', 'greekVinaigrette'], 9060, 2022-10-30 00:00:00
-2022-10-28 00:00:00, ['lamb', 'vegetableMedley', 'hummus'], 4195, 2022-10-31 00:00:00
-2022-10-29 00:00:00, ['chicken', 'lamb', 'beef', 'pitaChips', 'jalapenoFeta', 'tzatziki', 'harrisaYogurt'], 9580, 2022-11-01 00:00:00
-2022-10-31 00:00:00, ['lamb', 'falafel', 'pork', 'bigTomatoes', 'smallTomatoes', 'pickledOnions', 'peppers', 'redCabbageSlaw', 'hummus', 'yogurtDill'], 11105, 2022-11-03 00:00:00
-2022-11-01 00:00:00, ['spinach', 'lamb', 'couscous', 'olives', 'cauliflower', 'spicyHummus', 'briskSyrup', 'gatoradeSyrup'], 6470, 2022-11-04 00:00:00
-2022-11-02 00:00:00, ['chicken', 'lamb', 'beef', 'onions', 'cucumbers', 'hummus', 'greekVinaigrette'], 10015, 2022-11-05 00:00:00
-2022-11-03 00:00:00, ['shreddedLettuce', 'whiteRice', 'lamb', 'falafel', 'pork', 'pitaChips', 'vegetableMedley', 'harrisaYogurt', 'mtnDewSyrup'], 11295, 2022-11-06 00:00:00
-2022-11-04 00:00:00, ['lamb', 'hummus', 'jalapenoFeta', 'tzatziki', 'tahini', 'pepsiSyrup'], 5345, 2022-11-07 00:00:00
-2022-11-05 00:00:00, ['brownRice', 'chicken', 'lamb', 'beef', 'pork', 'bigTomatoes', 'smallTomatoes', 'olives', 'pickledOnions', 'peppers', 'yogurtDill', 'pepsiZeroSyrup'], 15965, 2022-11-08 00:00:00
-2022-11-07 00:00:00, ['lamb', 'falafel', 'couscous', 'pitaChips', 'cauliflower', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'greekVinaigrette'], 7130, 2022-11-10 00:00:00
-2022-11-08 00:00:00, ['chicken', 'lamb', 'onions', 'cucumbers', 'pepsiDietSyrup', 'bowls', 'bowlLids', 'utensilPacks'], 6710, 2022-11-11 00:00:00
-2022-11-09 00:00:00, ['spinach', 'lamb', 'beef', 'pork', 'vegetableMedley', 'hummus', 'jalapenoFeta', 'tzatziki', 'harrisaYogurt'], 13100, 2022-11-12 00:00:00
-2022-11-10 00:00:00, ['lamb', 'falafel', 'sierraMistSyrup'], 5180, 2022-11-13 00:00:00
-2022-11-11 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'pork', 'pitaChips', 'olives', 'pickledOnions', 'peppers', 'hummus', 'yogurtDill'], 10200, 2022-11-14 00:00:00
-2022-11-12 00:00:00, ['lamb', 'beef', 'couscous', 'bigTomatoes', 'smallTomatoes', 'cauliflower', 'redCabbageSlaw', 'spicyHummus', 'greekVinaigrette', 'cupDrink'], 9820, 2022-11-15 00:00:00
-2022-11-14 00:00:00, ['chicken', 'lamb', 'falafel', 'onions', 'cucumbers', 'hummus', 'harrisaYogurt', 'straws', 'cupLids'], 7240, 2022-11-17 00:00:00
-2022-11-15 00:00:00, ['lamb', 'pork', 'vegetableMedley', 'jalapenoFeta', 'tzatziki', 'cupWater'], 8955, 2022-11-18 00:00:00
-2022-11-16 00:00:00, ['chicken', 'lamb', 'beef', 'pitaChips', 'hummus'], 8980, 2022-11-19 00:00:00
-2022-11-17 00:00:00, ['spinach', 'lamb', 'falafel', 'pork', 'olives', 'pickledOnions', 'peppers', 'yogurtDill'], 9725, 2022-11-20 00:00:00
-2022-11-18 00:00:00, ['lamb', 'bigTomatoes', 'smallTomatoes', 'cauliflower', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'greekVinaigrette'], 6415, 2022-11-21 00:00:00
-2022-11-19 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'couscous', 'onions', 'pitaChips', 'jalapenoFeta', 'tzatziki', 'harrisaYogurt'], 10475, 2022-11-22 00:00:00
-2022-11-21 00:00:00, ['lamb', 'falafel', 'pork', 'vegetableMedley', 'cucumbers', 'hummus'], 9150, 2022-11-24 00:00:00
-2022-11-22 00:00:00, ['lamb', 'yogurtDill'], 3730, 2022-11-25 00:00:00
-2022-11-23 00:00:00, ['chicken', 'lamb', 'falafel', 'beef', 'pork', 'olives', 'pickledOnions', 'hummus', 'greekVinaigrette'], 13560, 2022-11-26 00:00:00
-2022-11-24 00:00:00, ['lamb', 'bigTomatoes', 'pitaChips', 'cauliflower', 'peppers', 'redCabbageSlaw', 'spicyHummus', 'tzatziki'], 6140, 2022-11-27 00:00:00
-2022-11-25 00:00:00, ['spinach', 'lamb', 'falafel', 'couscous', 'smallTomatoes', 'hummus', 'jalapenoFeta', 'harrisaYogurt'], 6435, 2022-11-28 00:00:00
-2022-11-26 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'pork', 'onions', 'cucumbers', 'yogurtDill', 'bowls', 'bowlLids', 'utensilPacks'], 14450, 2022-11-29 00:00:00
-2022-11-28 00:00:00, ['lamb', 'vegetableMedley', 'hummus'], 4245, 2022-12-01 00:00:00
-2022-11-29 00:00:00, ['lamb', 'falafel', 'pitaChips', 'olives', 'pickledOnions', 'tzatziki', 'greekVinaigrette'], 6690, 2022-12-02 00:00:00
-2022-11-30 00:00:00, ['chicken', 'lamb', 'beef', 'pork', 'bigTomatoes', 'cauliflower', 'peppers', 'hummus', 'spicyHummus', 'jalapenoFeta'], 14825, 2022-12-03 00:00:00
-2022-12-01 00:00:00, ['lamb', 'couscous', 'smallTomatoes', 'redCabbageSlaw', 'harrisaYogurt'], 4415, 2022-12-04 00:00:00
-2022-12-02 00:00:00, ['chicken', 'lamb', 'falafel', 'onions', 'cucumbers', 'hummus', 'yogurtDill'], 7195, 2022-12-05 00:00:00
-2022-12-03 00:00:00, ['spinach', 'lamb', 'beef', 'pork', 'pitaChips', 'vegetableMedley'], 12505, 2022-12-06 00:00:00
-2022-12-05 00:00:00, ['shreddedLettuce', 'whiteRice', 'lamb', 'pickledOnions', 'hummus', 'tzatziki', 'greekVinaigrette'], 5370, 2022-12-08 00:00:00
-2022-12-06 00:00:00, ['chicken', 'lamb', 'falafel', 'bigTomatoes', 'olives', 'cauliflower', 'peppers', 'spicyHummus', 'jalapenoFeta'], 7895, 2022-12-09 00:00:00
-2022-12-07 00:00:00, ['brownRice', 'lamb', 'beef', 'pork', 'redCabbageSlaw', 'hummus', 'harrisaYogurt', 'yogurtDill'], 12860, 2022-12-10 00:00:00
-2022-12-08 00:00:00, ['lamb', 'couscous', 'onions', 'smallTomatoes', 'pitaChips', 'cucumbers'], 5640, 2022-12-11 00:00:00
-2022-12-09 00:00:00, ['chicken', 'lamb', 'falafel', 'vegetableMedley', 'hummus'], 7110, 2022-12-12 00:00:00
-2022-12-10 00:00:00, ['lamb', 'beef', 'pork', 'jalapenoFeta', 'tzatziki', 'greekVinaigrette', 'straws', 'cupLids'], 11980, 2022-12-13 00:00:00
-2022-12-12 00:00:00, ['shreddedLettuce', 'spinach', 'chicken', 'lamb', 'pickledOnions', 'cauliflower', 'peppers', 'hummus', 'spicyHummus'], 7140, 2022-12-15 00:00:00
-2022-12-13 00:00:00, ['lamb', 'falafel', 'pork', 'bigTomatoes', 'pitaChips', 'olives', 'redCabbageSlaw', 'harrisaYogurt', 'yogurtDill'], 10115, 2022-12-16 00:00:00
-2022-12-14 00:00:00, ['lamb', 'beef', 'couscous', 'onions', 'cucumbers', 'hummus'], 8765, 2022-12-17 00:00:00
-2022-12-15 00:00:00, ['chicken', 'lamb', 'smallTomatoes', 'vegetableMedley'], 5330, 2022-12-18 00:00:00
-2022-12-16 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'hummus', 'spicyHummus', 'jalapenoFeta', 'tzatziki', 'greekVinaigrette', 'bowls', 'bowlLids', 'utensilPacks'], 13210, 2022-12-19 00:00:00
-2022-12-17 00:00:00, ['lamb', 'pitaChips', 'pickledOnions', 'cauliflower'], 4800, 2022-12-20 00:00:00
-2022-12-19 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'pork', 'bigTomatoes', 'olives', 'peppers', 'redCabbageSlaw', 'hummus', 'harrisaYogurt', 'yogurtDill'], 13160, 2022-12-22 00:00:00
-2022-12-20 00:00:00, ['spinach', 'lamb', 'falafel', 'couscous', 'onions', 'cucumbers'], 5980, 2022-12-23 00:00:00
-2022-12-21 00:00:00, ['lamb', 'smallTomatoes', 'vegetableMedley', 'hummus', 'spicyHummus', 'tzatziki'], 4765, 2022-12-24 00:00:00
-2022-12-22 00:00:00, ['chicken', 'lamb', 'falafel', 'beef', 'pork', 'pitaChips', 'jalapenoFeta', 'greekVinaigrette'], 13995, 2022-12-25 00:00:00
-2022-12-23 00:00:00, ['lamb', 'pickledOnions', 'cauliflower', 'hummus', 'harrisaYogurt'], 4540, 2022-12-26 00:00:00
-2022-12-24 00:00:00, ['lamb', 'bigTomatoes', 'peppers', 'yogurtDill'], 4845, 2022-12-27 00:00:00
-2022-12-26 00:00:00, ['chicken', 'lamb', 'falafel', 'beef', 'pork', 'onions', 'olives', 'redCabbageSlaw', 'hummus', 'spicyHummus'], 16070, 2022-12-29 00:00:00
-2022-12-27 00:00:00, ['shreddedLettuce', 'lamb', 'couscous', 'smallTomatoes', 'pitaChips', 'vegetableMedley', 'cucumbers', 'jalapenoFeta', 'tzatziki'], 5810, 2022-12-30 00:00:00
-2022-12-28 00:00:00, ['spinach', 'chicken', 'lamb', 'hummus'], 5130, 2022-12-31 00:00:00
-2022-12-29 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'pickledOnions', 'cauliflower', 'greekVinaigrette', 'harrisaYogurt'], 13505, 2023-01-01 00:00:00
-2022-12-30 00:00:00, ['lamb', 'peppers', 'hummus', 'yogurtDill', 'tahini'], 4415, 2023-01-02 00:00:00
-2022-12-31 00:00:00, ['chicken', 'lamb', 'onions', 'bigTomatoes', 'pitaChips', 'olives', 'redCabbageSlaw', 'spicyHummus', 'jalapenoFeta'], 7410, 2023-01-03 00:00:00
-2023-01-02 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'couscous', 'smallTomatoes', 'vegetableMedley', 'cucumbers', 'hummus', 'tzatziki'], 14550, 2023-01-05 00:00:00
-2023-01-03 00:00:00, ['lamb', 'cupDrink'], 3970, 2023-01-06 00:00:00
-2023-01-04 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'pickledOnions', 'cauliflower', 'hummus', 'greekVinaigrette', 'harrisaYogurt'], 6945, 2023-01-07 00:00:00
-2023-01-05 00:00:00, ['spinach', 'whiteRice', 'lamb', 'falafel', 'beef', 'pork', 'pitaChips', 'olives', 'peppers', 'jalapenoFeta', 'yogurtDill', 'bowls', 'straws', 'cupLids', 'bowlLids', 'utensilPacks'], 15260, 2023-01-08 00:00:00
-2023-01-06 00:00:00, ['brownRice', 'lamb', 'onions', 'bigTomatoes', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'tzatziki'], 5845, 2023-01-09 00:00:00
-2023-01-07 00:00:00, ['chicken', 'lamb', 'beef', 'smallTomatoes', 'vegetableMedley', 'cupWater'], 8490, 2023-01-10 00:00:00
-2023-01-09 00:00:00, ['lamb', 'falafel', 'pork', 'couscous', 'pitaChips', 'cucumbers', 'hummus'], 9980, 2023-01-12 00:00:00
-2023-01-10 00:00:00, ['chicken', 'lamb', 'cauliflower', 'greekVinaigrette', 'harrisaYogurt', 'yogurtDill'], 5415, 2023-01-13 00:00:00
-2023-01-11 00:00:00, ['lamb', 'beef', 'olives', 'pickledOnions', 'peppers', 'hummus', 'jalapenoFeta'], 9130, 2023-01-14 00:00:00
-2023-01-12 00:00:00, ['shreddedLettuce', 'lamb', 'falafel', 'pork', 'onions', 'bigTomatoes', 'spicyHummus', 'tzatziki'], 10265, 2023-01-15 00:00:00
-2023-01-13 00:00:00, ['spinach', 'chicken', 'lamb', 'pitaChips', 'vegetableMedley', 'redCabbageSlaw', 'hummus', 'drPepperSyrup'], 7010, 2023-01-16 00:00:00
-2023-01-14 00:00:00, ['lamb', 'falafel', 'beef', 'pork', 'couscous', 'smallTomatoes', 'cucumbers'], 12140, 2023-01-17 00:00:00
-2023-01-16 00:00:00, ['lamb', 'cauliflower', 'hummus', 'greekVinaigrette', 'harrisaYogurt', 'yogurtDill'], 4740, 2023-01-19 00:00:00
-2023-01-17 00:00:00, ['chicken', 'lamb', 'beef', 'pickledOnions', 'peppers', 'spicyHummus', 'jalapenoFeta', 'tzatziki'], 9255, 2023-01-20 00:00:00
-2023-01-18 00:00:00, ['lamb', 'falafel', 'pork', 'onions', 'bigTomatoes', 'pitaChips', 'olives', 'hummus'], 10105, 2023-01-21 00:00:00
-2023-01-19 00:00:00, ['lamb', 'vegetableMedley', 'redCabbageSlaw'], 4280, 2023-01-22 00:00:00
-2023-01-20 00:00:00, ['shreddedLettuce', 'chicken', 'lamb', 'beef', 'pork', 'cucumbers', 'hummus', 'greekVinaigrette', 'briskSyrup', 'gatoradeSyrup'], 14545, 2023-01-23 00:00:00
-2023-01-21 00:00:00, ['spinach', 'lamb', 'falafel', 'couscous', 'smallTomatoes', 'tzatziki', 'harrisaYogurt', 'yogurtDill'], 6330, 2023-01-24 00:00:00
-2023-01-23 00:00:00, ['lamb', 'pork', 'pitaChips', 'pickledOnions', 'cauliflower', 'peppers', 'hummus', 'spicyHummus', 'jalapenoFeta'], 8990, 2023-01-26 00:00:00
-2023-01-24 00:00:00, ['chicken', 'lamb', 'beef', 'onions', 'bowls', 'bowlLids', 'utensilPacks'], 9360, 2023-01-27 00:00:00
-2023-01-25 00:00:00, ['lamb', 'falafel', 'bigTomatoes', 'vegetableMedley', 'olives', 'redCabbageSlaw', 'hummus', 'pepsiDietSyrup', 'mtnDewSyrup'], 7315, 2023-01-28 00:00:00
-2023-01-26 00:00:00, ['lamb', 'beef', 'pork', 'cucumbers', 'greekVinaigrette'], 11130, 2023-01-29 00:00:00
-2023-01-27 00:00:00, ['chicken', 'lamb', 'couscous', 'pitaChips', 'hummus', 'jalapenoFeta', 'tzatziki', 'yogurtDill', 'pepsiSyrup'], 6955, 2023-01-30 00:00:00
-2023-01-28 00:00:00, ['shreddedLettuce', 'lamb', 'falafel', 'smallTomatoes', 'pickledOnions', 'peppers', 'spicyHummus', 'harrisaYogurt'], 7260, 2023-01-31 00:00:00
-2023-01-30 00:00:00, ['spinach', 'lamb', 'beef', 'pork', 'onions', 'cauliflower', 'hummus'], 12185, 2023-02-02 00:00:00
-2023-01-31 00:00:00, ['chicken', 'lamb', 'bigTomatoes', 'pitaChips', 'vegetableMedley', 'olives', 'greekVinaigrette', 'sierraMistSyrup', 'straws', 'cupLids'], 7610, 2023-02-03 00:00:00
-2023-02-01 00:00:00, ['lamb', 'falafel', 'beef', 'cucumbers', 'redCabbageSlaw', 'hummus', 'tzatziki', 'yogurtDill', 'pepsiZeroSyrup'], 10500, 2023-02-04 00:00:00
-2023-02-02 00:00:00, ['lamb', 'pork', 'couscous', 'jalapenoFeta'], 8240, 2023-02-05 00:00:00
-2023-02-03 00:00:00, ['chicken', 'lamb', 'smallTomatoes', 'pickledOnions', 'peppers', 'hummus', 'spicyHummus', 'harrisaYogurt'], 7010, 2023-02-06 00:00:00
-2023-02-04 00:00:00, ['lamb', 'falafel', 'beef', 'onions', 'pitaChips', 'cauliflower', 'greekVinaigrette'], 9680, 2023-02-07 00:00:00
-2023-02-06 00:00:00, ['shreddedLettuce', 'spinach', 'whiteRice', 'lamb', 'pork', 'bigTomatoes', 'vegetableMedley', 'olives', 'hummus', 'tzatziki'], 10235, 2023-02-09 00:00:00
-2023-02-07 00:00:00, ['brownRice', 'chicken', 'lamb', 'cucumbers', 'yogurtDill'], 5755, 2023-02-10 00:00:00
-2023-02-08 00:00:00, ['lamb', 'falafel', 'beef', 'couscous', 'redCabbageSlaw', 'hummus', 'jalapenoFeta', 'harrisaYogurt'], 10065, 2023-02-11 00:00:00
-2023-02-09 00:00:00, ['chicken', 'lamb', 'pork', 'pitaChips', 'pickledOnions', 'spicyHummus', 'greekVinaigrette'], 9615, 2023-02-12 00:00:00
-2023-02-10 00:00:00, ['lamb', 'beef', 'smallTomatoes', 'cauliflower', 'peppers', 'hummus'], 7725, 2023-02-13 00:00:00
-2023-02-11 00:00:00, ['lamb', 'falafel', 'onions', 'bigTomatoes', 'olives', 'tzatziki'], 6685, 2023-02-14 00:00:00
-2023-02-13 00:00:00, ['chicken', 'lamb', 'pork', 'vegetableMedley', 'hummus', 'harrisaYogurt', 'yogurtDill', 'bowls', 'bowlLids', 'utensilPacks'], 10515, 2023-02-16 00:00:00
-2023-02-14 00:00:00, ['shreddedLettuce', 'spinach', 'lamb', 'beef', 'couscous', 'pitaChips', 'cucumbers', 'redCabbageSlaw', 'jalapenoFeta'], 9890, 2023-02-17 00:00:00
-2023-02-15 00:00:00, ['lamb', 'falafel', 'pork', 'hummus', 'spicyHummus', 'greekVinaigrette'], 8970, 2023-02-18 00:00:00
-2023-02-16 00:00:00, ['chicken', 'lamb', 'smallTomatoes', 'pickledOnions'], 5620, 2023-02-19 00:00:00
-2023-02-17 00:00:00, ['lamb', 'beef', 'bigTomatoes', 'olives', 'peppers', 'hummus', 'tzatziki', 'harrisaYogurt', 'yogurtDill'], 9235, 2023-02-20 00:00:00
-2023-02-18 00:00:00, ['chicken', 'lamb', 'falafel', 'pork', 'onions', 'pitaChips', 'cauliflower'], 10910, 2023-02-21 00:00:00
-2023-02-20 00:00:00, ['lamb', 'beef', 'couscous', 'vegetableMedley', 'cucumbers', 'redCabbageSlaw', 'hummus', 'spicyHummus', 'jalapenoFeta', 'greekVinaigrette'], 9185, 2023-02-23 00:00:00
-2023-02-21 00:00:00, ['lamb', 'tahini'], 4020, 2023-02-24 00:00:00
-2023-02-22 00:00:00, ['shreddedLettuce', 'spinach', 'chicken', 'lamb', 'falafel', 'pork', 'smallTomatoes', 'pitaChips', 'pickledOnions', 'hummus', 'tzatziki', 'yogurtDill'], 12980, 2023-02-25 00:00:00
-2023-02-23 00:00:00, ['lamb', 'beef', 'bigTomatoes', 'peppers', 'harrisaYogurt', 'cupDrink'], 8525, 2023-02-26 00:00:00
-2023-02-24 00:00:00, ['lamb', 'falafel', 'pork', 'olives', 'cauliflower', 'hummus'], 8245, 2023-02-27 00:00:00
-2023-02-25 00:00:00, ['chicken', 'lamb', 'couscous', 'onions', 'vegetableMedley', 'cucumbers', 'redCabbageSlaw', 'spicyHummus', 'jalapenoFeta', 'greekVinaigrette', 'straws', 'cupLids'], 8085, 2023-02-28 00:00:00
-2023-02-27 00:00:00, ['lamb', 'beef', 'pitaChips', 'hummus'], 7990, 2023-03-02 00:00:00
-2023-02-28 00:00:00, ['chicken', 'lamb', 'falafel', 'pork', 'smallTomatoes', 'tzatziki', 'yogurtDill', 'cupWater'], 11305, 2023-03-03 00:00:00
+2022-03-01 00:00:00, ['Lamb'], 4350, 2022-03-04 00:00:00
+2022-03-02 00:00:00, ['Hummus'], 300, 2022-03-05 00:00:00
+2022-03-03 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Beef', 'Pork'], 16320, 2022-03-06 00:00:00
+2022-03-04 00:00:00, ['Lamb', 'Pita Chips', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette'], 4470, 2022-03-07 00:00:00
+2022-03-05 00:00:00, ['Lamb', 'Beef', 'Couscous', 'Big Tomatoes', 'Small Tomatoes', 'Cucumbers', 'Cauliflower', 'Jalapeno Feta', 'Tzatziki', 'Harrisa Yogurt', 'Dill Yogurt'], 9455, 2022-03-08 00:00:00
+2022-03-07 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pork', 'Onions', 'Vegetable Medley', 'Olives', 'Pickled Onions', 'Peppers', 'Red Cabbage Coleslaw', 'Hummus'], 13370, 2022-03-10 00:00:00
+2022-03-08 00:00:00, ['Shredded Lettuce', 'Spinach', 'Lamb'], 3980, 2022-03-11 00:00:00
+2022-03-09 00:00:00, ['Lamb', 'Beef', 'Pita Chips', 'Hummus', 'Spicy Hummus'], 8395, 2022-03-12 00:00:00
+2022-03-10 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pork', 'Tzatziki', 'Greek Vinaigrette', 'Harrisa Yogurt', 'Dill Yogurt'], 10810, 2022-03-13 00:00:00
+2022-03-11 00:00:00, ['Lamb', 'Big Tomatoes', 'Small Tomatoes', 'Cucumbers', 'Hummus', 'Jalapeno Feta'], 5305, 2022-03-14 00:00:00
+2022-03-12 00:00:00, ['Lamb', 'Beef', 'Pork', 'Couscous', 'Onions', 'Vegetable Medley', 'Pickled Onions', 'Cauliflower', 'Peppers', 'Red Cabbage Coleslaw'], 12780, 2022-03-15 00:00:00
+2022-03-14 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pita Chips', 'Olives', 'Hummus'], 6820, 2022-03-17 00:00:00
+2022-03-15 00:00:00, ['Shredded Lettuce', 'Lamb', 'Beef', 'Spicy Hummus', 'Greek Vinaigrette', 'Dill Yogurt'], 7670, 2022-03-18 00:00:00
+2022-03-16 00:00:00, ['Spinach', 'Lamb', 'Pork', 'Hummus', 'Jalapeno Feta', 'Tzatziki', 'Harrisa Yogurt'], 8600, 2022-03-19 00:00:00
+2022-03-17 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Cucumbers'], 6190, 2022-03-20 00:00:00
+2022-03-18 00:00:00, ['Lamb', 'Beef', 'Couscous', 'Big Tomatoes', 'Small Tomatoes', 'Pita Chips', 'Pickled Onions', 'Peppers', 'Hummus'], 9530, 2022-03-21 00:00:00
+2022-03-19 00:00:00, ['Lamb', 'Pork', 'Onions', 'Vegetable Medley', 'Olives', 'Cauliflower', 'Red Cabbage Coleslaw', 'Dill Yogurt', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 10590, 2022-03-22 00:00:00
+2022-03-21 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Beef', 'Hummus', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette'], 10395, 2022-03-24 00:00:00
+2022-03-22 00:00:00, ['Lamb', 'Pita Chips', 'Jalapeno Feta', 'Harrisa Yogurt'], 4455, 2022-03-25 00:00:00
+2022-03-23 00:00:00, ['Shredded Lettuce', 'Lamb', 'Pork', 'Hummus'], 7800, 2022-03-26 00:00:00
+2022-03-24 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Falafel', 'Beef', 'Couscous', 'Big Tomatoes', 'Small Tomatoes', 'Pickled Onions', 'Cucumbers', 'Peppers', 'Dill Yogurt'], 12910, 2022-03-27 00:00:00
+2022-03-25 00:00:00, ['Lamb', 'Onions', 'Vegetable Medley', 'Olives', 'Cauliflower', 'Hummus', 'Tzatziki'], 5960, 2022-03-28 00:00:00
+2022-03-26 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Pita Chips', 'Red Cabbage Coleslaw', 'Spicy Hummus', 'Jalapeno Feta', 'Greek Vinaigrette', 'Straw', 'Cup Lid'], 10095, 2022-03-29 00:00:00
+2022-03-28 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Hummus', 'Harrisa Yogurt'], 8445, 2022-03-31 00:00:00
+2022-03-29 00:00:00, ['Lamb', 'Pork'], 6380, 2022-04-01 00:00:00
+2022-03-30 00:00:00, ['Chicken', 'Lamb', 'Couscous', 'Small Tomatoes', 'Pickled Onions', 'Hummus', 'Tzatziki', 'Dill Yogurt'], 6595, 2022-04-02 00:00:00
+2022-03-31 00:00:00, ['Shredded Lettuce', 'Spinach', 'Brown Rice', 'White Rice', 'Lamb', 'Falafel', 'Beef', 'Onions', 'Big Tomatoes', 'Pita Chips', 'Vegetable Medley', 'Olives', 'Cucumbers', 'Cauliflower', 'Peppers'], 13445, 2022-04-03 00:00:00
+2022-04-01 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Hummus', 'Spicy Hummus', 'Jalapeno Feta', 'Greek Vinaigrette'], 9045, 2022-04-04 00:00:00
+2022-04-02 00:00:00, ['Lamb', 'Red Cabbage Coleslaw', 'Harrisa Yogurt'], 3905, 2022-04-05 00:00:00
+2022-04-04 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Hummus', 'Dill Yogurt'], 12000, 2022-04-07 00:00:00
+2022-04-05 00:00:00, ['Chicken', 'Lamb', 'Small Tomatoes', 'Pita Chips', 'Pickled Onions', 'Tzatziki'], 6195, 2022-04-08 00:00:00
+2022-04-06 00:00:00, ['Lamb', 'Pork', 'Couscous', 'Vegetable Medley', 'Olives', 'Cucumbers', 'Cauliflower', 'Peppers', 'Hummus', 'Spicy Hummus', 'Jalapeno Feta', 'Greek Vinaigrette'], 9950, 2022-04-09 00:00:00
+2022-04-07 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Onions', 'Big Tomatoes', 'Harrisa Yogurt'], 9680, 2022-04-10 00:00:00
+2022-04-08 00:00:00, ['Shredded Lettuce', 'Spinach', 'Chicken', 'Pita Chips', 'Red Cabbage Coleslaw', 'Hummus', 'Dill Yogurt', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 3775, 2022-04-11 00:00:00
+2022-04-09 00:00:00, ['Lamb', 'Beef', 'Pork'], 12470, 2022-04-12 00:00:00
+2022-04-11 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Small Tomatoes', 'Pickled Onions', 'Hummus', 'Tzatziki'], 7135, 2022-04-14 00:00:00
+2022-04-12 00:00:00, ['Lamb', 'Vegetable Medley', 'Olives', 'Cauliflower', 'Spicy Hummus', 'Jalapeno Feta', 'Greek Vinaigrette', 'Harrisa Yogurt'], 6085, 2022-04-15 00:00:00
+2022-04-13 00:00:00, ['Lamb', 'Beef', 'Pork', 'Couscous', 'Big Tomatoes', 'Pita Chips', 'Cucumbers', 'Peppers', 'Hummus'], 13575, 2022-04-16 00:00:00
+2022-04-14 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Onions', 'Red Cabbage Coleslaw', 'Dill Yogurt'], 6880, 2022-04-17 00:00:00
+2022-04-15 00:00:00, ['Lamb', 'Hummus', 'Tzatziki'], 4345, 2022-04-18 00:00:00
+2022-04-16 00:00:00, ['Shredded Lettuce', 'Spinach', 'Lamb', 'Beef', 'Pork', 'Small Tomatoes', 'Pickled Onions', 'Jalapeno Feta'], 12345, 2022-04-19 00:00:00
+2022-04-18 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Couscous', 'Pita Chips', 'Olives', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette', 'Harrisa Yogurt', 'Tahini'], 9065, 2022-04-21 00:00:00
+2022-04-19 00:00:00, ['Lamb', 'Beef', 'Vegetable Medley', 'Cauliflower'], 6970, 2022-04-22 00:00:00
+2022-04-20 00:00:00, ['Lamb', 'Pork', 'Big Tomatoes', 'Cucumbers', 'Peppers', 'Red Cabbage Coleslaw', 'Hummus', 'Tzatziki', 'Dill Yogurt'], 9740, 2022-04-23 00:00:00
+2022-04-21 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Onions', 'Cup Drink', 'Cup Water', 'Straw', 'Cup Lid'], 7130, 2022-04-24 00:00:00
+2022-04-22 00:00:00, ['Beef', 'Small Tomatoes', 'Pita Chips', 'Pickled Onions', 'Hummus', 'Jalapeno Feta'], 5600, 2022-04-25 00:00:00
+2022-04-23 00:00:00, ['Lamb', 'Pork', 'Couscous', 'Olives', 'Spicy Hummus', 'Greek Vinaigrette', 'Harrisa Yogurt'], 11825, 2022-04-26 00:00:00
+2022-04-25 00:00:00, ['Shredded Lettuce', 'Spinach', 'Chicken', 'Lamb', 'Falafel', 'Cauliflower', 'Hummus'], 7280, 2022-04-28 00:00:00
+2022-04-26 00:00:00, ['Lamb', 'Beef', 'Onions', 'Big Tomatoes', 'Vegetable Medley', 'Cucumbers', 'Peppers', 'Red Cabbage Coleslaw', 'Tzatziki', 'Dill Yogurt'], 9425, 2022-04-29 00:00:00
+2022-04-27 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Pita Chips', 'Hummus', 'Jalapeno Feta', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 10080, 2022-04-30 00:00:00
+2022-04-28 00:00:00, ['Chicken', 'Lamb', 'Pickled Onions', 'Harrisa Yogurt'], 5620, 2022-05-01 00:00:00
+2022-04-29 00:00:00, ['Lamb', 'Beef', 'Couscous', 'Small Tomatoes', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette'], 8675, 2022-05-02 00:00:00
+2022-04-30 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Olives', 'Cauliflower', 'Dill Yogurt'], 9740, 2022-05-03 00:00:00
+2022-05-02 00:00:00, ['Brown Rice', 'White Rice', 'Chicken', 'Lamb', 'Beef', 'Onions', 'Pita Chips', 'Vegetable Medley', 'Peppers', 'Red Cabbage Coleslaw', 'Hummus', 'Jalapeno Feta', 'Tzatziki'], 11410, 2022-05-05 00:00:00
+2022-05-03 00:00:00, ['Shredded Lettuce', 'Spinach', 'Lamb', 'Big Tomatoes', 'Cucumbers', 'Harrisa Yogurt'], 4820, 2022-05-06 00:00:00
+2022-05-04 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Pickled Onions', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette'], 9220, 2022-05-07 00:00:00
+2022-05-05 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Couscous', 'Small Tomatoes', 'Dill Yogurt'], 9410, 2022-05-08 00:00:00
+2022-05-06 00:00:00, ['Lamb', 'Pork', 'Pita Chips', 'Olives', 'Hummus'], 7940, 2022-05-09 00:00:00
+2022-05-07 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Onions', 'Vegetable Medley', 'Cauliflower', 'Peppers', 'Jalapeno Feta', 'Tzatziki', 'Harrisa Yogurt'], 7985, 2022-05-10 00:00:00
+2022-05-09 00:00:00, ['Lamb', 'Beef', 'Red Cabbage Coleslaw', 'Hummus'], 7940, 2022-05-12 00:00:00
+2022-05-10 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Big Tomatoes', 'Pickled Onions', 'Cucumbers', 'Spicy Hummus', 'Greek Vinaigrette', 'Dill Yogurt'], 10330, 2022-05-13 00:00:00
+2022-05-11 00:00:00, ['Shredded Lettuce', 'Spinach', 'Chicken', 'Lamb', 'Couscous', 'Small Tomatoes', 'Pita Chips', 'Hummus'], 6885, 2022-05-14 00:00:00
+2022-05-12 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Jalapeno Feta'], 8210, 2022-05-15 00:00:00
+2022-05-13 00:00:00, ['Lamb', 'Pork', 'Onions', 'Vegetable Medley', 'Olives', 'Peppers', 'Hummus', 'Tzatziki', 'Harrisa Yogurt'], 9730, 2022-05-16 00:00:00
+2022-05-14 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Cauliflower', 'Red Cabbage Coleslaw'], 8420, 2022-05-17 00:00:00
+2022-05-16 00:00:00, ['Lamb', 'Falafel', 'Big Tomatoes', 'Pita Chips', 'Pickled Onions', 'Cucumbers', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette', 'Dill Yogurt'], 7825, 2022-05-19 00:00:00
+2022-05-17 00:00:00, ['Lamb', 'Pork', 'Couscous', 'Small Tomatoes', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 8980, 2022-05-20 00:00:00
+2022-05-18 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Hummus', 'Jalapeno Feta', 'Tzatziki', 'Straw', 'Cup Lid'], 10090, 2022-05-21 00:00:00
+2022-05-19 00:00:00, ['Shredded Lettuce', 'Spinach', 'Lamb', 'Falafel', 'Onions', 'Vegetable Medley', 'Olives', 'Peppers', 'Harrisa Yogurt', 'Diet Pepsi', 'Mtn Dew'], 8320, 2022-05-22 00:00:00
+2022-05-20 00:00:00, ['Lamb', 'Pork', 'Pita Chips', 'Cauliflower', 'Red Cabbage Coleslaw', 'Hummus', 'Dill Yogurt', 'Sierra Mist', 'Gatorade'], 9830, 2022-05-23 00:00:00
+2022-05-21 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Big Tomatoes', 'Pickled Onions', 'Cucumbers', 'Spicy Hummus', 'Greek Vinaigrette'], 10920, 2022-05-24 00:00:00
+2022-05-23 00:00:00, ['Lamb', 'Falafel', 'Couscous', 'Small Tomatoes', 'Hummus', 'Tzatziki', 'Pepsi', 'Brisk'], 6425, 2022-05-26 00:00:00
+2022-05-24 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Pork', 'Jalapeno Feta', 'Pepsi Zero'], 11320, 2022-05-27 00:00:00
+2022-05-25 00:00:00, ['Lamb', 'Falafel', 'Pita Chips', 'Vegetable Medley', 'Olives', 'Peppers', 'Hummus', 'Harrisa Yogurt'], 7130, 2022-05-28 00:00:00
+2022-05-26 00:00:00, ['Lamb', 'Onions', 'Cauliflower', 'Dill Yogurt', 'Dr. Pepper'], 5120, 2022-05-29 00:00:00
+2022-05-27 00:00:00, ['Shredded Lettuce', 'Spinach', 'Chicken', 'Lamb', 'Beef', 'Pork', 'Pickled Onions', 'Cucumbers', 'Red Cabbage Coleslaw', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette'], 14535, 2022-05-30 00:00:00
+2022-05-28 00:00:00, ['Lamb', 'Falafel', 'Couscous', 'Big Tomatoes', 'Small Tomatoes', 'Tzatziki'], 6395, 2022-05-31 00:00:00
+2022-05-30 00:00:00, ['Chicken', 'Lamb', 'Pita Chips', 'Vegetable Medley', 'Hummus', 'Jalapeno Feta'], 5275, 2022-06-02 00:00:00
+2022-05-31 00:00:00, ['Lamb', 'Beef', 'Pork', 'Peppers', 'Harrisa Yogurt'], 11695, 2022-06-03 00:00:00
+2022-06-01 00:00:00, ['White Rice', 'Chicken', 'Lamb', 'Falafel', 'Onions', 'Olives', 'Cauliflower', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette', 'Dill Yogurt'], 9015, 2022-06-04 00:00:00
+2022-06-02 00:00:00, ['Brown Rice', 'Lamb', 'Beef', 'Pickled Onions', 'Red Cabbage Coleslaw', 'Tzatziki'], 7770, 2022-06-05 00:00:00
+2022-06-03 00:00:00, ['Shredded Lettuce', 'Lamb', 'Falafel', 'Pork', 'Couscous', 'Pita Chips', 'Cucumbers', 'Hummus'], 10490, 2022-06-06 00:00:00
+2022-06-04 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Big Tomatoes', 'Small Tomatoes', 'Jalapeno Feta', 'Harrisa Yogurt'], 6560, 2022-06-07 00:00:00
+2022-06-06 00:00:00, ['Lamb', 'Beef', 'Vegetable Medley', 'Hummus', 'Dill Yogurt', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 8790, 2022-06-09 00:00:00
+2022-06-07 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Onions', 'Olives', 'Cauliflower', 'Peppers', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette'], 10540, 2022-06-10 00:00:00
+2022-06-08 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Pita Chips', 'Red Cabbage Coleslaw', 'Hummus'], 9190, 2022-06-11 00:00:00
+2022-06-09 00:00:00, ['Lamb', 'Couscous', 'Pickled Onions', 'Cucumbers', 'Jalapeno Feta'], 4970, 2022-06-12 00:00:00
+2022-06-10 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Big Tomatoes', 'Small Tomatoes', 'Hummus', 'Harrisa Yogurt', 'Tahini'], 10280, 2022-06-13 00:00:00
+2022-06-11 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Beef', 'Vegetable Medley', 'Tzatziki', 'Dill Yogurt', 'Cup Drink'], 10090, 2022-06-14 00:00:00
+2022-06-13 00:00:00, ['Spinach', 'Lamb', 'Onions', 'Pita Chips', 'Cauliflower', 'Peppers', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette', 'Cup Water', 'Straw', 'Cup Lid'], 7505, 2022-06-16 00:00:00
+2022-06-14 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Olives', 'Red Cabbage Coleslaw'], 9200, 2022-06-17 00:00:00
+2022-06-15 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Couscous', 'Pickled Onions', 'Cucumbers', 'Hummus', 'Jalapeno Feta'], 10240, 2022-06-18 00:00:00
+2022-06-16 00:00:00, ['Lamb', 'Big Tomatoes', 'Small Tomatoes', 'Tzatziki', 'Harrisa Yogurt'], 4845, 2022-06-19 00:00:00
+2022-06-17 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pork', 'Pita Chips', 'Vegetable Medley', 'Hummus', 'Spicy Hummus', 'Dill Yogurt'], 11395, 2022-06-20 00:00:00
+2022-06-18 00:00:00, ['Shredded Lettuce', 'Lamb', 'Beef', 'Onions', 'Cauliflower', 'Peppers', 'Greek Vinaigrette'], 8765, 2022-06-21 00:00:00
+2022-06-20 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Hummus', 'Jalapeno Feta'], 5475, 2022-06-23 00:00:00
+2022-06-21 00:00:00, ['Spinach', 'Lamb', 'Beef', 'Pork', 'Olives', 'Red Cabbage Coleslaw', 'Harrisa Yogurt'], 11530, 2022-06-24 00:00:00
+2022-06-22 00:00:00, ['Lamb', 'Couscous', 'Big Tomatoes', 'Small Tomatoes', 'Pita Chips', 'Pickled Onions', 'Cucumbers', 'Hummus', 'Spicy Hummus', 'Tzatziki', 'Dill Yogurt'], 6535, 2022-06-25 00:00:00
+2022-06-23 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Vegetable Medley'], 7160, 2022-06-26 00:00:00
+2022-06-24 00:00:00, ['Lamb', 'Beef', 'Pork', 'Onions', 'Cauliflower', 'Peppers', 'Hummus', 'Greek Vinaigrette', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 12870, 2022-06-27 00:00:00
+2022-06-25 00:00:00, ['Lamb', 'Jalapeno Feta'], 3755, 2022-06-28 00:00:00
+2022-06-27 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Falafel', 'Pita Chips', 'Red Cabbage Coleslaw', 'Hummus', 'Spicy Hummus', 'Harrisa Yogurt'], 7745, 2022-06-30 00:00:00
+2022-06-28 00:00:00, ['Spinach', 'Lamb', 'Beef', 'Pork', 'Couscous', 'Big Tomatoes', 'Olives', 'Pickled Onions', 'Cucumbers', 'Tzatziki', 'Dill Yogurt'], 14230, 2022-07-01 00:00:00
+2022-06-29 00:00:00, ['Lamb', 'Small Tomatoes', 'Vegetable Medley', 'Hummus', 'Greek Vinaigrette'], 5160, 2022-07-02 00:00:00
+2022-06-30 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Onions', 'Cauliflower', 'Peppers', 'Jalapeno Feta'], 7860, 2022-07-03 00:00:00
+2022-07-01 00:00:00, ['Lamb', 'Beef', 'Pork', 'Pita Chips', 'Hummus', 'Harrisa Yogurt'], 11695, 2022-07-04 00:00:00
+2022-07-02 00:00:00, ['Brown Rice', 'White Rice', 'Lamb', 'Red Cabbage Coleslaw', 'Spicy Hummus', 'Dill Yogurt'], 4690, 2022-07-05 00:00:00
+2022-07-04 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Big Tomatoes', 'Olives', 'Cucumbers', 'Hummus', 'Tzatziki', 'Greek Vinaigrette'], 8280, 2022-07-07 00:00:00
+2022-07-05 00:00:00, ['Shredded Lettuce', 'Lamb', 'Beef', 'Pork', 'Couscous', 'Small Tomatoes', 'Pita Chips', 'Vegetable Medley', 'Pickled Onions'], 12730, 2022-07-08 00:00:00
+2022-07-06 00:00:00, ['Spinach', 'Lamb', 'Onions', 'Cauliflower', 'Peppers', 'Hummus', 'Jalapeno Feta', 'Harrisa Yogurt'], 5490, 2022-07-09 00:00:00
+2022-07-07 00:00:00, ['Chicken', 'Lamb', 'Falafel'], 5890, 2022-07-10 00:00:00
+2022-07-08 00:00:00, ['Lamb', 'Beef', 'Pork', 'Red Cabbage Coleslaw', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette', 'Dill Yogurt', 'Straw', 'Cup Lid'], 12605, 2022-07-11 00:00:00
+2022-07-09 00:00:00, ['Chicken', 'Lamb', 'Big Tomatoes', 'Pita Chips', 'Olives', 'Cucumbers', 'Tzatziki'], 6105, 2022-07-12 00:00:00
+2022-07-11 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Couscous', 'Small Tomatoes', 'Vegetable Medley', 'Pickled Onions', 'Hummus', 'Jalapeno Feta'], 10500, 2022-07-14 00:00:00
+2022-07-12 00:00:00, ['Lamb', 'Pork', 'Onions', 'Cauliflower', 'Peppers', 'Harrisa Yogurt'], 9030, 2022-07-15 00:00:00
+2022-07-13 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Pita Chips', 'Hummus'], 5530, 2022-07-16 00:00:00
+2022-07-14 00:00:00, ['Spinach', 'Lamb', 'Falafel', 'Beef', 'Red Cabbage Coleslaw', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette', 'Dill Yogurt', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 10420, 2022-07-17 00:00:00
+2022-07-15 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Big Tomatoes', 'Olives', 'Hummus'], 9060, 2022-07-18 00:00:00
+2022-07-16 00:00:00, ['Lamb', 'Couscous', 'Pita Chips', 'Vegetable Medley', 'Cucumbers', 'Jalapeno Feta'], 5475, 2022-07-19 00:00:00
+2022-07-18 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Onions', 'Small Tomatoes', 'Pickled Onions', 'Cauliflower', 'Hummus', 'Harrisa Yogurt'], 14245, 2022-07-21 00:00:00
+2022-07-19 00:00:00, ['Chicken', 'Lamb', 'Peppers', 'Tzatziki', 'Greek Vinaigrette'], 5430, 2022-07-22 00:00:00
+2022-07-20 00:00:00, ['Lamb', 'Hummus', 'Spicy Hummus', 'Dill Yogurt'], 3990, 2022-07-23 00:00:00
+2022-07-21 00:00:00, ['Shredded Lettuce', 'Lamb', 'Falafel', 'Beef', 'Pork', 'Big Tomatoes', 'Pita Chips', 'Olives', 'Red Cabbage Coleslaw'], 14640, 2022-07-24 00:00:00
+2022-07-22 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Couscous', 'Hummus', 'Jalapeno Feta'], 5765, 2022-07-25 00:00:00
+2022-07-23 00:00:00, ['Lamb', 'Small Tomatoes', 'Vegetable Medley', 'Pickled Onions', 'Cucumbers', 'Cauliflower', 'Harrisa Yogurt'], 5915, 2022-07-26 00:00:00
+2022-07-25 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Onions', 'Hummus', 'Tzatziki', 'Greek Vinaigrette'], 13105, 2022-07-28 00:00:00
+2022-07-26 00:00:00, ['Chicken', 'Lamb', 'Pita Chips', 'Peppers', 'Spicy Hummus', 'Dill Yogurt'], 5955, 2022-07-29 00:00:00
+2022-07-27 00:00:00, ['Lamb', 'Big Tomatoes', 'Red Cabbage Coleslaw', 'Hummus', 'Jalapeno Feta'], 5200, 2022-07-30 00:00:00
+2022-07-28 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Couscous', 'Olives', 'Harrisa Yogurt'], 14055, 2022-07-31 00:00:00
+2022-07-29 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Small Tomatoes', 'Vegetable Medley', 'Cucumbers', 'Hummus', 'Tzatziki', 'Greek Vinaigrette'], 7300, 2022-08-01 00:00:00
+2022-07-30 00:00:00, ['Spinach', 'Lamb', 'Onions', 'Pita Chips', 'Pickled Onions', 'Cauliflower', 'Spicy Hummus', 'Dill Yogurt', 'Tahini'], 6305, 2022-08-02 00:00:00
+2022-08-01 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Peppers', 'Hummus'], 13675, 2022-08-04 00:00:00
+2022-08-02 00:00:00, ['Chicken', 'Lamb', 'Big Tomatoes', 'Red Cabbage Coleslaw', 'Jalapeno Feta', 'Harrisa Yogurt'], 5980, 2022-08-05 00:00:00
+2022-08-03 00:00:00, ['Brown Rice', 'White Rice', 'Lamb', 'Olives', 'Hummus', 'Cup Drink', 'Bowl', 'Straw', 'Cup Lid', 'Bowl Lid', 'Utensil Pack'], 5690, 2022-08-06 00:00:00
+2022-08-04 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Couscous', 'Pita Chips', 'Vegetable Medley', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette', 'Cup Water'], 14995, 2022-08-07 00:00:00
+2022-08-05 00:00:00, ['Chicken', 'Lamb', 'Onions', 'Small Tomatoes', 'Cucumbers', 'Hummus', 'Dill Yogurt'], 6695, 2022-08-08 00:00:00
+2022-08-06 00:00:00, ['Shredded Lettuce', 'Lamb', 'Pickled Onions', 'Cauliflower', 'Peppers', 'Jalapeno Feta', 'Harrisa Yogurt'], 5245, 2022-08-09 00:00:00
+2022-08-08 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Falafel', 'Beef', 'Pork', 'Red Cabbage Coleslaw', 'Hummus'], 14420, 2022-08-11 00:00:00
+2022-08-09 00:00:00, ['Lamb', 'Big Tomatoes', 'Pita Chips', 'Olives'], 4510, 2022-08-12 00:00:00
+2022-08-10 00:00:00, ['Lamb', 'Beef', 'Couscous', 'Hummus', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette', 'Sierra Mist', 'Gatorade'], 8930, 2022-08-13 00:00:00
+2022-08-11 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pork', 'Small Tomatoes', 'Vegetable Medley', 'Cucumbers', 'Harrisa Yogurt', 'Dill Yogurt', 'Brisk', 'Diet Pepsi'], 12075, 2022-08-14 00:00:00
+2022-08-12 00:00:00, ['Lamb', 'Onions', 'Pickled Onions', 'Cauliflower', 'Peppers', 'Hummus', 'Jalapeno Feta'], 6040, 2022-08-15 00:00:00
+2022-08-13 00:00:00, ['Lamb', 'Beef', 'Pita Chips', 'Red Cabbage Coleslaw'], 8130, 2022-08-16 00:00:00
+2022-08-15 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Falafel', 'Pork', 'Olives', 'Hummus', 'Dr. Pepper'], 11945, 2022-08-18 00:00:00
+2022-08-16 00:00:00, ['Spinach', 'Lamb', 'Beef', 'Couscous', 'Big Tomatoes', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette', 'Dill Yogurt', 'Pepsi', 'Mtn Dew'], 9385, 2022-08-19 00:00:00
+2022-08-17 00:00:00, ['Lamb', 'Small Tomatoes', 'Vegetable Medley', 'Hummus', 'Harrisa Yogurt'], 5185, 2022-08-20 00:00:00
+2022-08-18 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pork', 'Pita Chips', 'Pickled Onions', 'Cucumbers', 'Peppers', 'Jalapeno Feta', 'Pepsi Zero'], 12280, 2022-08-21 00:00:00
+2022-08-19 00:00:00, ['Lamb', 'Beef', 'Onions', 'Cauliflower', 'Red Cabbage Coleslaw', 'Hummus'], 8555, 2022-08-22 00:00:00
+2022-08-20 00:00:00, ['Lamb', 'Olives', 'Spicy Hummus', 'Greek Vinaigrette'], 4090, 2022-08-23 00:00:00
+2022-08-22 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pork', 'Couscous', 'Big Tomatoes', 'Pita Chips', 'Hummus', 'Tzatziki', 'Harrisa Yogurt', 'Dill Yogurt', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 13645, 2022-08-25 00:00:00
+2022-08-23 00:00:00, ['Shredded Lettuce', 'Lamb', 'Beef', 'Small Tomatoes'], 7650, 2022-08-26 00:00:00
+2022-08-24 00:00:00, ['Spinach', 'Lamb', 'Falafel', 'Vegetable Medley', 'Pickled Onions', 'Peppers', 'Hummus', 'Jalapeno Feta'], 6205, 2022-08-27 00:00:00
+2022-08-25 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Onions', 'Cucumbers', 'Cauliflower', 'Spicy Hummus'], 9560, 2022-08-28 00:00:00
+2022-08-26 00:00:00, ['Lamb', 'Beef', 'Pita Chips', 'Olives', 'Red Cabbage Coleslaw', 'Hummus', 'Greek Vinaigrette'], 8830, 2022-08-29 00:00:00
+2022-08-27 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Couscous', 'Big Tomatoes', 'Tzatziki', 'Harrisa Yogurt', 'Dill Yogurt'], 9925, 2022-08-30 00:00:00
+2022-08-29 00:00:00, ['Chicken', 'Lamb', 'Small Tomatoes', 'Hummus', 'Jalapeno Feta', 'Straw', 'Cup Lid'], 5575, 2022-09-01 00:00:00
+2022-08-30 00:00:00, ['Lamb', 'Beef', 'Vegetable Medley', 'Pickled Onions', 'Peppers'], 8860, 2022-09-02 00:00:00
+2022-08-31 00:00:00, ['Shredded Lettuce', 'Spinach', 'Lamb', 'Falafel', 'Pork', 'Pita Chips', 'Cucumbers', 'Cauliflower', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette'], 10990, 2022-09-03 00:00:00
+2022-09-01 00:00:00, ['Chicken', 'Lamb', 'Onions', 'Red Cabbage Coleslaw', 'Harrisa Yogurt', 'Dill Yogurt'], 6160, 2022-09-04 00:00:00
+2022-09-02 00:00:00, ['Brown Rice', 'Lamb', 'Beef', 'Couscous', 'Olives', 'Hummus', 'Tzatziki'], 8700, 2022-09-05 00:00:00
+2022-09-03 00:00:00, ['White Rice', 'Lamb', 'Falafel', 'Pork', 'Big Tomatoes', 'Small Tomatoes', 'Jalapeno Feta'], 9735, 2022-09-06 00:00:00
+2022-09-05 00:00:00, ['Chicken', 'Lamb', 'Pita Chips', 'Vegetable Medley', 'Pickled Onions', 'Peppers', 'Hummus'], 6385, 2022-09-08 00:00:00
+2022-09-06 00:00:00, ['Lamb', 'Beef', 'Cucumbers', 'Cauliflower', 'Spicy Hummus', 'Greek Vinaigrette'], 8285, 2022-09-09 00:00:00
+2022-09-07 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Onions', 'Red Cabbage Coleslaw', 'Hummus', 'Harrisa Yogurt', 'Dill Yogurt'], 10330, 2022-09-10 00:00:00
+2022-09-08 00:00:00, ['Shredded Lettuce', 'Spinach', 'Chicken', 'Lamb', 'Couscous', 'Pita Chips', 'Olives', 'Jalapeno Feta', 'Tzatziki'], 7110, 2022-09-11 00:00:00
+2022-09-09 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Big Tomatoes', 'Small Tomatoes', 'Hummus'], 9690, 2022-09-12 00:00:00
+2022-09-10 00:00:00, ['Lamb', 'Pork', 'Vegetable Medley', 'Pickled Onions', 'Peppers', 'Greek Vinaigrette', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 9300, 2022-09-13 00:00:00
+2022-09-12 00:00:00, ['Chicken', 'Lamb', 'Hummus', 'Spicy Hummus', 'Dill Yogurt'], 5630, 2022-09-15 00:00:00
+2022-09-13 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Onions', 'Pita Chips', 'Cucumbers', 'Cauliflower', 'Red Cabbage Coleslaw', 'Harrisa Yogurt'], 10635, 2022-09-16 00:00:00
+2022-09-14 00:00:00, ['Lamb', 'Pork', 'Couscous', 'Olives', 'Hummus', 'Jalapeno Feta', 'Tzatziki'], 9015, 2022-09-17 00:00:00
+2022-09-15 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Big Tomatoes', 'Small Tomatoes'], 7010, 2022-09-18 00:00:00
+2022-09-16 00:00:00, ['Shredded Lettuce', 'Spinach', 'Lamb', 'Beef', 'Vegetable Medley', 'Pickled Onions', 'Peppers', 'Hummus', 'Greek Vinaigrette'], 9565, 2022-09-19 00:00:00
+2022-09-17 00:00:00, ['Lamb', 'Pork', 'Pita Chips', 'Spicy Hummus', 'Dill Yogurt'], 8910, 2022-09-20 00:00:00
+2022-09-19 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Onions', 'Cucumbers', 'Red Cabbage Coleslaw', 'Hummus', 'Harrisa Yogurt'], 7530, 2022-09-22 00:00:00
+2022-09-20 00:00:00, ['Lamb', 'Beef', 'Olives', 'Cauliflower', 'Jalapeno Feta', 'Tzatziki', 'Tahini'], 9180, 2022-09-23 00:00:00
+2022-09-21 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Couscous', 'Big Tomatoes', 'Small Tomatoes', 'Pita Chips', 'Hummus'], 9965, 2022-09-24 00:00:00
+2022-09-22 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pickled Onions', 'Peppers', 'Spicy Hummus', 'Greek Vinaigrette'], 8425, 2022-09-25 00:00:00
+2022-09-23 00:00:00, ['Spinach', 'Lamb', 'Vegetable Medley', 'Hummus', 'Harrisa Yogurt', 'Dill Yogurt', 'Cup Drink'], 5235, 2022-09-26 00:00:00
+2022-09-24 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Pork', 'Onions', 'Cucumbers', 'Tzatziki', 'Cup Water', 'Straw', 'Cup Lid'], 10275, 2022-09-27 00:00:00
+2022-09-26 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pita Chips', 'Olives', 'Cauliflower', 'Red Cabbage Coleslaw', 'Hummus', 'Jalapeno Feta'], 10470, 2022-09-29 00:00:00
+2022-09-27 00:00:00, ['Lamb', 'Pork', 'Couscous', 'Spicy Hummus'], 6740, 2022-09-30 00:00:00
+2022-09-28 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Big Tomatoes', 'Small Tomatoes', 'Pickled Onions', 'Peppers', 'Hummus', 'Greek Vinaigrette'], 9470, 2022-10-01 00:00:00
+2022-09-29 00:00:00, ['Lamb', 'Falafel', 'Vegetable Medley', 'Harrisa Yogurt', 'Dill Yogurt'], 5590, 2022-10-02 00:00:00
+2022-09-30 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Onions', 'Pita Chips', 'Cucumbers', 'Hummus', 'Jalapeno Feta', 'Tzatziki', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 11030, 2022-10-03 00:00:00
+2022-10-01 00:00:00, ['Spinach', 'Lamb', 'Beef', 'Olives', 'Cauliflower', 'Red Cabbage Coleslaw', 'Spicy Hummus'], 10440, 2022-10-04 00:00:00
+2022-10-03 00:00:00, ['Shredded Lettuce', 'Brown Rice', 'Chicken', 'Lamb', 'Falafel', 'Couscous', 'Hummus'], 6805, 2022-10-06 00:00:00
+2022-10-04 00:00:00, ['Lamb', 'Pork', 'Small Tomatoes', 'Vegetable Medley', 'Pickled Onions', 'Peppers', 'Greek Vinaigrette', 'Harrisa Yogurt', 'Dill Yogurt'], 10285, 2022-10-07 00:00:00
+2022-10-05 00:00:00, ['White Rice', 'Lamb', 'Beef', 'Big Tomatoes', 'Pita Chips', 'Hummus', 'Tzatziki'], 8835, 2022-10-08 00:00:00
+2022-10-06 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Cucumbers', 'Jalapeno Feta'], 6960, 2022-10-09 00:00:00
+2022-10-07 00:00:00, ['Lamb', 'Pork', 'Onions', 'Olives', 'Red Cabbage Coleslaw', 'Hummus', 'Spicy Hummus'], 8840, 2022-10-10 00:00:00
+2022-10-08 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Beef', 'Couscous', 'Cauliflower', 'Greek Vinaigrette', 'Harrisa Yogurt'], 9840, 2022-10-11 00:00:00
+2022-10-10 00:00:00, ['Lamb', 'Falafel', 'Pita Chips', 'Vegetable Medley', 'Pickled Onions', 'Hummus', 'Dill Yogurt'], 6610, 2022-10-13 00:00:00
+2022-10-11 00:00:00, ['Shredded Lettuce', 'Lamb', 'Beef', 'Pork', 'Big Tomatoes', 'Small Tomatoes', 'Peppers', 'Jalapeno Feta', 'Tzatziki'], 12890, 2022-10-14 00:00:00
+2022-10-12 00:00:00, ['Chicken', 'Lamb', 'Cucumbers', 'Hummus', 'Spicy Hummus'], 5730, 2022-10-15 00:00:00
+2022-10-13 00:00:00, ['Lamb', 'Falafel', 'Red Cabbage Coleslaw', 'Greek Vinaigrette'], 5595, 2022-10-16 00:00:00
+2022-10-14 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Pork', 'Couscous', 'Onions', 'Pita Chips', 'Olives', 'Cauliflower', 'Hummus', 'Harrisa Yogurt'], 13555, 2022-10-17 00:00:00
+2022-10-15 00:00:00, ['Lamb', 'Pickled Onions', 'Dill Yogurt'], 4155, 2022-10-18 00:00:00
+2022-10-17 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Falafel', 'Big Tomatoes', 'Small Tomatoes', 'Vegetable Medley', 'Peppers', 'Hummus', 'Jalapeno Feta', 'Tzatziki'], 8380, 2022-10-20 00:00:00
+2022-10-18 00:00:00, ['Lamb', 'Beef', 'Pork', 'Pita Chips', 'Spicy Hummus'], 11720, 2022-10-21 00:00:00
+2022-10-19 00:00:00, ['Shredded Lettuce', 'Lamb', 'Cucumbers', 'Hummus', 'Greek Vinaigrette', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 5130, 2022-10-22 00:00:00
+2022-10-20 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Beef', 'Couscous', 'Onions', 'Olives', 'Red Cabbage Coleslaw', 'Harrisa Yogurt', 'Straw', 'Cup Lid'], 11335, 2022-10-23 00:00:00
+2022-10-21 00:00:00, ['Lamb', 'Pork', 'Pita Chips', 'Cauliflower', 'Hummus', 'Dill Yogurt'], 8375, 2022-10-24 00:00:00
+2022-10-22 00:00:00, ['Chicken', 'Lamb', 'Small Tomatoes', 'Pickled Onions', 'Spicy Hummus', 'Jalapeno Feta', 'Tzatziki'], 6185, 2022-10-25 00:00:00
+2022-10-24 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Big Tomatoes', 'Vegetable Medley', 'Peppers', 'Hummus'], 10400, 2022-10-27 00:00:00
+2022-10-25 00:00:00, ['Spinach', 'Pork', 'Pita Chips', 'Greek Vinaigrette', 'Harrisa Yogurt'], 5235, 2022-10-28 00:00:00
+2022-10-26 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Beef', 'Couscous', 'Onions', 'Cucumbers', 'Red Cabbage Coleslaw', 'Hummus', 'Dill Yogurt'], 13105, 2022-10-29 00:00:00
+2022-10-27 00:00:00, ['Shredded Lettuce', 'Lamb', 'Olives', 'Cauliflower', 'Spicy Hummus'], 5175, 2022-10-30 00:00:00
+2022-10-28 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Small Tomatoes', 'Hummus', 'Jalapeno Feta', 'Tzatziki'], 11505, 2022-10-31 00:00:00
+2022-10-29 00:00:00, ['Chicken', 'Lamb', 'Big Tomatoes', 'Pita Chips', 'Pickled Onions', 'Greek Vinaigrette'], 6210, 2022-11-01 00:00:00
+2022-10-31 00:00:00, ['Lamb', 'Vegetable Medley', 'Peppers', 'Hummus', 'Harrisa Yogurt', 'Dill Yogurt', 'Sierra Mist', 'Brisk'], 5655, 2022-11-03 00:00:00
+2022-11-01 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Beef', 'Pork', 'Couscous', 'Onions'], 14610, 2022-11-04 00:00:00
+2022-11-02 00:00:00, ['Spinach', 'Lamb', 'Pita Chips', 'Olives', 'Cucumbers', 'Red Cabbage Coleslaw', 'Hummus', 'Spicy Hummus', 'Jalapeno Feta', 'Gatorade'], 7090, 2022-11-05 00:00:00
+2022-11-03 00:00:00, ['Shredded Lettuce', 'Brown Rice', 'Lamb', 'Falafel', 'Beef', 'Small Tomatoes', 'Cauliflower', 'Tzatziki', 'Dr. Pepper'], 8965, 2022-11-06 00:00:00
+2022-11-04 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Big Tomatoes', 'Pickled Onions', 'Hummus', 'Greek Vinaigrette', 'Pepsi'], 10715, 2022-11-07 00:00:00
+2022-11-05 00:00:00, ['White Rice', 'Lamb', 'Falafel', 'Beef', 'Couscous', 'Vegetable Medley', 'Peppers', 'Harrisa Yogurt', 'Dill Yogurt', 'Tahini', 'Diet Pepsi'], 11535, 2022-11-08 00:00:00
+2022-11-07 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Onions', 'Pita Chips', 'Hummus', 'Spicy Hummus', 'Jalapeno Feta', 'Pepsi Zero'], 9095, 2022-11-10 00:00:00
+2022-11-08 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Olives', 'Cucumbers', 'Red Cabbage Coleslaw', 'Tzatziki', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 9510, 2022-11-11 00:00:00
+2022-11-09 00:00:00, ['Spinach', 'Lamb', 'Big Tomatoes', 'Cauliflower', 'Hummus', 'Greek Vinaigrette'], 5475, 2022-11-12 00:00:00
+2022-11-10 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Pork', 'Small Tomatoes', 'Pita Chips', 'Dill Yogurt', 'Mtn Dew'], 13270, 2022-11-13 00:00:00
+2022-11-11 00:00:00, ['Shredded Lettuce', 'Lamb', 'Falafel', 'Vegetable Medley', 'Pickled Onions', 'Peppers', 'Hummus', 'Harrisa Yogurt'], 6405, 2022-11-14 00:00:00
+2022-11-12 00:00:00, ['Lamb', 'Beef', 'Pork', 'Couscous', 'Onions', 'Spicy Hummus', 'Jalapeno Feta', 'Tzatziki'], 10960, 2022-11-15 00:00:00
+2022-11-14 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Olives', 'Hummus', 'Cup Drink'], 6695, 2022-11-17 00:00:00
+2022-11-15 00:00:00, ['Lamb', 'Pork', 'Big Tomatoes', 'Pita Chips', 'Cucumbers', 'Cauliflower', 'Red Cabbage Coleslaw', 'Greek Vinaigrette', 'Dill Yogurt', 'Cup Water', 'Straw', 'Cup Lid'], 9135, 2022-11-18 00:00:00
+2022-11-16 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Beef', 'Small Tomatoes', 'Hummus'], 9200, 2022-11-19 00:00:00
+2022-11-17 00:00:00, ['Lamb', 'Falafel', 'Vegetable Medley', 'Pickled Onions', 'Peppers', 'Spicy Hummus', 'Harrisa Yogurt'], 5950, 2022-11-20 00:00:00
+2022-11-18 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Pork', 'Couscous', 'Onions', 'Hummus', 'Jalapeno Feta', 'Tzatziki'], 12825, 2022-11-21 00:00:00
+2022-11-19 00:00:00, ['Shredded Lettuce', 'Lamb', 'Pita Chips', 'Olives', 'Dill Yogurt'], 4885, 2022-11-22 00:00:00
+2022-11-21 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Big Tomatoes', 'Cucumbers', 'Cauliflower', 'Red Cabbage Coleslaw', 'Hummus', 'Greek Vinaigrette'], 10600, 2022-11-24 00:00:00
+2022-11-22 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Small Tomatoes'], 8950, 2022-11-25 00:00:00
+2022-11-23 00:00:00, ['Lamb', 'Pickled Onions', 'Hummus', 'Spicy Hummus', 'Harrisa Yogurt'], 4480, 2022-11-26 00:00:00
+2022-11-24 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Falafel', 'Pork', 'Couscous', 'Onions', 'Pita Chips', 'Vegetable Medley', 'Peppers', 'Jalapeno Feta', 'Tzatziki'], 12395, 2022-11-27 00:00:00
+2022-11-25 00:00:00, ['Lamb', 'Beef', 'Olives', 'Hummus', 'Greek Vinaigrette', 'Dill Yogurt'], 8715, 2022-11-28 00:00:00
+2022-11-26 00:00:00, ['Chicken', 'Lamb', 'Big Tomatoes', 'Cauliflower', 'Red Cabbage Coleslaw', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 6280, 2022-11-29 00:00:00
+2022-11-28 00:00:00, ['Shredded Lettuce', 'Lamb', 'Falafel', 'Beef', 'Pork', 'Small Tomatoes', 'Cucumbers', 'Hummus', 'Spicy Hummus'], 13670, 2022-12-01 00:00:00
+2022-11-29 00:00:00, ['Lamb', 'Pita Chips', 'Pickled Onions', 'Jalapeno Feta', 'Harrisa Yogurt'], 4635, 2022-12-02 00:00:00
+2022-11-30 00:00:00, ['Chicken', 'Lamb', 'Vegetable Medley', 'Peppers', 'Hummus', 'Tzatziki'], 5715, 2022-12-03 00:00:00
+2022-12-01 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Couscous', 'Onions', 'Olives', 'Greek Vinaigrette', 'Dill Yogurt'], 14040, 2022-12-04 00:00:00
+2022-12-02 00:00:00, ['Spinach', 'Lamb', 'Big Tomatoes', 'Pita Chips', 'Red Cabbage Coleslaw', 'Hummus'], 5320, 2022-12-05 00:00:00
+2022-12-03 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pork', 'Small Tomatoes', 'Cucumbers', 'Cauliflower', 'Spicy Hummus', 'Jalapeno Feta'], 9955, 2022-12-06 00:00:00
+2022-12-05 00:00:00, ['Shredded Lettuce', 'Brown Rice', 'Lamb', 'Beef', 'Pickled Onions', 'Hummus', 'Harrisa Yogurt'], 8435, 2022-12-08 00:00:00
+2022-12-06 00:00:00, ['White Rice', 'Chicken', 'Lamb', 'Vegetable Medley', 'Tzatziki', 'Dill Yogurt'], 5770, 2022-12-09 00:00:00
+2022-12-07 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Couscous', 'Onions', 'Pita Chips', 'Olives', 'Peppers', 'Hummus', 'Greek Vinaigrette'], 11510, 2022-12-10 00:00:00
+2022-12-08 00:00:00, ['Lamb', 'Beef', 'Red Cabbage Coleslaw', 'Jalapeno Feta'], 8770, 2022-12-11 00:00:00
+2022-12-09 00:00:00, ['Chicken', 'Lamb', 'Big Tomatoes', 'Cucumbers', 'Cauliflower', 'Hummus', 'Spicy Hummus', 'Harrisa Yogurt'], 6595, 2022-12-12 00:00:00
+2022-12-10 00:00:00, ['Spinach', 'Lamb', 'Falafel', 'Pork', 'Small Tomatoes', 'Straw', 'Cup Lid'], 9680, 2022-12-13 00:00:00
+2022-12-12 00:00:00, ['Lamb', 'Beef', 'Pita Chips', 'Vegetable Medley', 'Pickled Onions', 'Hummus', 'Tzatziki', 'Dill Yogurt'], 9065, 2022-12-15 00:00:00
+2022-12-13 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Couscous', 'Onions', 'Olives', 'Peppers', 'Greek Vinaigrette'], 7235, 2022-12-16 00:00:00
+2022-12-14 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Red Cabbage Coleslaw', 'Hummus', 'Jalapeno Feta'], 9650, 2022-12-17 00:00:00
+2022-12-15 00:00:00, ['Lamb', 'Beef', 'Big Tomatoes', 'Cucumbers', 'Cauliflower', 'Spicy Hummus', 'Harrisa Yogurt'], 9055, 2022-12-18 00:00:00
+2022-12-16 00:00:00, ['Chicken', 'Lamb', 'Pita Chips', 'Hummus', 'Dill Yogurt', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 6195, 2022-12-19 00:00:00
+2022-12-17 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Couscous', 'Small Tomatoes', 'Vegetable Medley', 'Tzatziki', 'Greek Vinaigrette'], 10570, 2022-12-20 00:00:00
+2022-12-19 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Beef', 'Pickled Onions', 'Peppers', 'Hummus'], 9705, 2022-12-22 00:00:00
+2022-12-20 00:00:00, ['Lamb', 'Onions', 'Olives', 'Red Cabbage Coleslaw', 'Spicy Hummus', 'Jalapeno Feta'], 5325, 2022-12-23 00:00:00
+2022-12-21 00:00:00, ['Shredded Lettuce', 'Lamb', 'Falafel', 'Pork', 'Pita Chips', 'Cucumbers', 'Cauliflower', 'Hummus', 'Harrisa Yogurt', 'Dill Yogurt'], 10930, 2022-12-24 00:00:00
+2022-12-22 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Big Tomatoes'], 8800, 2022-12-25 00:00:00
+2022-12-23 00:00:00, ['Lamb', 'Pork', 'Vegetable Medley', 'Hummus', 'Tzatziki', 'Greek Vinaigrette'], 7075, 2022-12-26 00:00:00
+2022-12-24 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Couscous', 'Small Tomatoes', 'Peppers', 'Spicy Hummus'], 9210, 2022-12-27 00:00:00
+2022-12-26 00:00:00, ['Chicken', 'Lamb', 'Onions', 'Pita Chips', 'Olives', 'Pickled Onions', 'Hummus', 'Jalapeno Feta'], 6890, 2022-12-29 00:00:00
+2022-12-27 00:00:00, ['Spinach', 'Lamb', 'Pork', 'Cucumbers', 'Red Cabbage Coleslaw', 'Harrisa Yogurt', 'Dill Yogurt'], 8335, 2022-12-30 00:00:00
+2022-12-28 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Big Tomatoes', 'Cauliflower', 'Hummus'], 9590, 2022-12-31 00:00:00
+2022-12-29 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette'], 6070, 2023-01-01 00:00:00
+2022-12-30 00:00:00, ['Lamb', 'Pork', 'Couscous', 'Pita Chips', 'Vegetable Medley', 'Hummus'], 9450, 2023-01-02 00:00:00
+2022-12-31 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Small Tomatoes', 'Olives', 'Pickled Onions', 'Peppers', 'Jalapeno Feta'], 10835, 2023-01-03 00:00:00
+2023-01-02 00:00:00, ['Chicken', 'Lamb', 'Onions', 'Red Cabbage Coleslaw', 'Hummus', 'Harrisa Yogurt', 'Dill Yogurt'], 6620, 2023-01-05 00:00:00
+2023-01-03 00:00:00, ['Lamb', 'Beef', 'Pork', 'Big Tomatoes', 'Cucumbers', 'Cauliflower', 'Greek Vinaigrette'], 11390, 2023-01-06 00:00:00
+2023-01-04 00:00:00, ['Spinach', 'Lamb', 'Falafel', 'Pita Chips', 'Hummus', 'Spicy Hummus', 'Tzatziki', 'Tahini', 'Cup Drink'], 6985, 2023-01-07 00:00:00
+2023-01-05 00:00:00, ['Brown Rice', 'White Rice', 'Chicken', 'Lamb', 'Couscous', 'Cup Water', 'Bowl', 'Straw', 'Cup Lid', 'Bowl Lid', 'Utensil Pack'], 7080, 2023-01-08 00:00:00
+2023-01-06 00:00:00, ['Shredded Lettuce', 'Lamb', 'Beef', 'Pork', 'Vegetable Medley', 'Olives', 'Pickled Onions', 'Peppers', 'Hummus', 'Jalapeno Feta'], 13195, 2023-01-09 00:00:00
+2023-01-07 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Small Tomatoes', 'Red Cabbage Coleslaw', 'Greek Vinaigrette', 'Harrisa Yogurt', 'Dill Yogurt'], 7095, 2023-01-10 00:00:00
+2023-01-09 00:00:00, ['Lamb', 'Onions', 'Big Tomatoes', 'Pita Chips', 'Cauliflower', 'Hummus', 'Spicy Hummus'], 6015, 2023-01-12 00:00:00
+2023-01-10 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Cucumbers', 'Tzatziki'], 12760, 2023-01-13 00:00:00
+2023-01-11 00:00:00, ['Chicken', 'Lamb', 'Couscous', 'Hummus'], 4925, 2023-01-14 00:00:00
+2023-01-12 00:00:00, ['Spinach', 'Lamb', 'Pork', 'Vegetable Medley', 'Olives', 'Pickled Onions', 'Peppers', 'Jalapeno Feta', 'Harrisa Yogurt', 'Dill Yogurt'], 9135, 2023-01-15 00:00:00
+2023-01-13 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pita Chips', 'Hummus', 'Spicy Hummus', 'Greek Vinaigrette'], 9375, 2023-01-16 00:00:00
+2023-01-14 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Big Tomatoes', 'Small Tomatoes', 'Cauliflower', 'Red Cabbage Coleslaw', 'Tzatziki'], 6770, 2023-01-17 00:00:00
+2023-01-16 00:00:00, ['Lamb', 'Beef', 'Pork', 'Onions', 'Cucumbers', 'Hummus'], 11620, 2023-01-19 00:00:00
+2023-01-17 00:00:00, ['Lamb', 'Falafel', 'Couscous'], 5670, 2023-01-20 00:00:00
+2023-01-18 00:00:00, ['Chicken', 'Lamb', 'Pita Chips', 'Vegetable Medley', 'Olives', 'Pickled Onions', 'Hummus', 'Jalapeno Feta', 'Harrisa Yogurt', 'Dill Yogurt'], 7625, 2023-01-21 00:00:00
+2023-01-19 00:00:00, ['Lamb', 'Beef', 'Pork', 'Peppers', 'Spicy Hummus', 'Greek Vinaigrette', 'Sierra Mist'], 12220, 2023-01-22 00:00:00
+2023-01-20 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Falafel', 'Big Tomatoes', 'Cauliflower', 'Red Cabbage Coleslaw', 'Hummus', 'Tzatziki'], 8100, 2023-01-23 00:00:00
+2023-01-21 00:00:00, ['Lamb', 'Onions', 'Small Tomatoes', 'Cucumbers', 'Brisk', 'Gatorade'], 5430, 2023-01-24 00:00:00
+2023-01-23 00:00:00, ['Shredded Lettuce', 'Lamb', 'Beef', 'Pork', 'Couscous', 'Pita Chips', 'Hummus', 'Jalapeno Feta'], 12790, 2023-01-26 00:00:00
+2023-01-24 00:00:00, ['Chicken', 'Lamb', 'Falafel', 'Pickled Onions', 'Harrisa Yogurt', 'Dill Yogurt', 'Dr. Pepper', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 8195, 2023-01-27 00:00:00
+2023-01-25 00:00:00, ['Lamb', 'Vegetable Medley', 'Olives', 'Peppers', 'Hummus', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette', 'Pepsi'], 6095, 2023-01-28 00:00:00
+2023-01-26 00:00:00, ['Lamb', 'Falafel', 'Beef', 'Pork', 'Cauliflower', 'Red Cabbage Coleslaw'], 12820, 2023-01-29 00:00:00
+2023-01-27 00:00:00, ['Chicken', 'Lamb', 'Onions', 'Big Tomatoes', 'Small Tomatoes', 'Pita Chips', 'Cucumbers', 'Hummus'], 7175, 2023-01-30 00:00:00
+2023-01-28 00:00:00, ['Spinach', 'Lamb', 'Couscous', 'Jalapeno Feta', 'Dill Yogurt', 'Pepsi Zero', 'Diet Pepsi'], 6035, 2023-01-31 00:00:00
+2023-01-30 00:00:00, ['Shredded Lettuce', 'Lamb', 'Falafel', 'Beef', 'Pork', 'Pickled Onions', 'Hummus', 'Tzatziki', 'Greek Vinaigrette', 'Harrisa Yogurt'], 14170, 2023-02-02 00:00:00
+2023-01-31 00:00:00, ['Chicken', 'Lamb', 'Pita Chips', 'Vegetable Medley', 'Olives', 'Peppers', 'Spicy Hummus', 'Straw', 'Cup Lid'], 7320, 2023-02-03 00:00:00
+2023-02-01 00:00:00, ['Lamb', 'Beef', 'Cauliflower', 'Red Cabbage Coleslaw', 'Hummus', 'Mtn Dew'], 7980, 2023-02-04 00:00:00
+2023-02-02 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Onions', 'Big Tomatoes', 'Cucumbers', 'Jalapeno Feta'], 10205, 2023-02-05 00:00:00
+2023-02-03 00:00:00, ['Chicken', 'Lamb', 'Couscous', 'Small Tomatoes', 'Hummus', 'Dill Yogurt'], 6155, 2023-02-06 00:00:00
+2023-02-04 00:00:00, ['Spinach', 'Lamb', 'Beef', 'Pork', 'Pita Chips', 'Spicy Hummus', 'Tzatziki', 'Greek Vinaigrette', 'Harrisa Yogurt'], 12800, 2023-02-07 00:00:00
+2023-02-06 00:00:00, ['Brown Rice', 'White Rice', 'Lamb', 'Falafel', 'Olives', 'Pickled Onions', 'Peppers', 'Hummus'], 6695, 2023-02-09 00:00:00
+2023-02-07 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Vegetable Medley', 'Cauliflower', 'Jalapeno Feta'], 6160, 2023-02-10 00:00:00
+2023-02-08 00:00:00, ['Lamb', 'Beef', 'Pork', 'Onions', 'Big Tomatoes', 'Pita Chips', 'Cucumbers', 'Red Cabbage Coleslaw', 'Hummus', 'Dill Yogurt'], 13015, 2023-02-11 00:00:00
+2023-02-09 00:00:00, ['Lamb', 'Falafel', 'Couscous', 'Small Tomatoes', 'Greek Vinaigrette'], 5855, 2023-02-12 00:00:00
+2023-02-10 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Hummus', 'Spicy Hummus', 'Tzatziki', 'Harrisa Yogurt'], 8855, 2023-02-13 00:00:00
+2023-02-11 00:00:00, ['Lamb', 'Pork', 'Pita Chips', 'Olives'], 7800, 2023-02-14 00:00:00
+2023-02-13 00:00:00, ['Spinach', 'Lamb', 'Falafel', 'Pickled Onions', 'Cauliflower', 'Peppers', 'Hummus', 'Jalapeno Feta', 'Dill Yogurt', 'Bowl', 'Bowl Lid', 'Utensil Pack'], 7470, 2023-02-16 00:00:00
+2023-02-14 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Onions', 'Big Tomatoes', 'Vegetable Medley', 'Cucumbers', 'Red Cabbage Coleslaw'], 10920, 2023-02-17 00:00:00
+2023-02-15 00:00:00, ['Shredded Lettuce', 'Lamb', 'Pork', 'Couscous', 'Small Tomatoes', 'Hummus', 'Greek Vinaigrette', 'Harrisa Yogurt'], 9140, 2023-02-18 00:00:00
+2023-02-16 00:00:00, ['Lamb', 'Falafel', 'Pita Chips', 'Spicy Hummus', 'Tzatziki'], 6450, 2023-02-19 00:00:00
+2023-02-17 00:00:00, ['Chicken', 'Lamb', 'Beef', 'Pork', 'Olives', 'Hummus', 'Jalapeno Feta'], 12375, 2023-02-20 00:00:00
+2023-02-18 00:00:00, ['Lamb', 'Pickled Onions', 'Cauliflower', 'Peppers', 'Dill Yogurt'], 4375, 2023-02-21 00:00:00
+2023-02-20 00:00:00, ['Lamb', 'Falafel', 'Pork', 'Onions', 'Big Tomatoes', 'Cucumbers', 'Red Cabbage Coleslaw', 'Hummus', 'Greek Vinaigrette', 'Harrisa Yogurt'], 9820, 2023-02-23 00:00:00
+2023-02-21 00:00:00, ['Spinach', 'Chicken', 'Lamb', 'Beef', 'Couscous', 'Small Tomatoes', 'Pita Chips', 'Vegetable Medley', 'Tahini'], 10975, 2023-02-24 00:00:00
+2023-02-22 00:00:00, ['Lamb', 'Falafel', 'Hummus', 'Spicy Hummus', 'Tzatziki'], 5620, 2023-02-25 00:00:00
+2023-02-23 00:00:00, ['Shredded Lettuce', 'Chicken', 'Lamb', 'Pork', 'Olives', 'Pickled Onions', 'Jalapeno Feta', 'Dill Yogurt'], 9850, 2023-02-26 00:00:00
+2023-02-24 00:00:00, ['Lamb', 'Beef', 'Cauliflower', 'Peppers', 'Hummus', 'Greek Vinaigrette'], 8350, 2023-02-27 00:00:00
+2023-02-25 00:00:00, ['Lamb', 'Falafel', 'Big Tomatoes', 'Pita Chips', 'Cucumbers', 'Red Cabbage Coleslaw', 'Harrisa Yogurt', 'Cup Drink', 'Straw', 'Cup Lid'], 7235, 2023-02-28 00:00:00
+2023-02-27 00:00:00, ['Chicken', 'Lamb', 'Pork', 'Onions', 'Small Tomatoes', 'Vegetable Medley', 'Hummus', 'Cup Water'], 10100, 2023-03-02 00:00:00
+2023-02-28 00:00:00, ['Lamb', 'Beef', 'Couscous', 'Olives', 'Spicy Hummus', 'Jalapeno Feta', 'Tzatziki'], 9230, 2023-03-03 00:00:00
