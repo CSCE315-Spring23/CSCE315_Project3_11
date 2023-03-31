@@ -1,46 +1,46 @@
 Name,Stock,NumberNeeded,OrderChance,Units,Category,Servings,RestockCost
-shreddedLettuce,2,8,0.25,5 lb,base,50,25
-spinach,3,7,0.25,5 lb,base,50,25
-brownRice,3,7,0.25,50 lb,base,200,30
-whiteRice,3,7,0.25,50 lb,base,200,30
-chicken,10,0,0.2,160 oz,protein,16,100
-lamb,10,0,0.2,160 oz,protein,16,290
-falafel,10,0,0.2,160 oz,protein,16,100
-beef,6,4,0.2,160 oz,protein,16,290
-pork,10,0,0.2,160 oz,protein,16,290
-couscous,6,4,0.13333333333333333,80 oz,toppings,20,40
-onions,6,4,0.13333333333333333,80 oz,toppings,20,40
-bigTomatoes,3,7,0.13333333333333333,80 oz,toppings,20,40
-smallTomatoes,10,0,0.13333333333333333,80 oz,toppings,20,40
-pitaChips,6,4,0.13333333333333333,80 oz,toppings,20,40
-vegetableMedley,5,5,0.13333333333333333,80 oz,toppings,20,40
-olives,4,6,0.13333333333333333,80 oz,toppings,20,40
-pickledOnions,1,9,0.13333333333333333,80 oz,toppings,20,40
-cucumbers,6,4,0.13333333333333333,80 oz,toppings,20,40
-cauliflower,4,6,0.13333333333333333,80 oz,toppings,20,40
-peppers,3,7,0.13333333333333333,80 oz,toppings,20,40
-redCabbageSlaw,6,4,0.13333333333333333,80 oz,toppings,20,40
-garlicFries,10,0,0.13333333333333333,80 oz,toppings,20,40
-hummus,4,6,0.1111111111111111,16 oz,sauces,16,25
-spicyHummus,5,5,0.1111111111111111,16 oz,sauces,16,25
-jalapenoFeta,5,5,0.1111111111111111,16 oz,sauces,16,25
-tzatziki,10,0,0.1111111111111111,16 oz,sauces,16,25
-greekVinaigrette,5,5,0.1111111111111111,16 oz,sauces,16,25
-harrisaYogurt,1,9,0.1111111111111111,16 oz,sauces,16,25
-yogurtDill,10,0,0.1111111111111111,16 oz,sauces,16,25
-tahini,9,1,0.1111111111111111,16 oz,sauces,16,25
-pepsiSyrup,7,3,0.1,5 gallon,drinks,100,50
-sierraMistSyrup,7,3,0.1,5 gallon,drinks,100,50
-briskSyrup,6,4,0.1,5 gallon,drinks,100,50
-pepsiZeroSyrup,7,3,0.1,5 gallon,drinks,100,50
-pepsiDietSyrup,6,4,0.1,5 gallon,drinks,100,50
-gatoradeSyrup,5,5,0.1,5 gallon,drinks,100,50
-mtnDewSyrup,6,4,0.1,5 gallon,drinks,100,50
-drPepperSyrup,5,5,0.1,5 gallon,drinks,100,50
-cupDrink,10,0,0.5,500 count boxes,nonPerishable,500,20
-cupWater,10,0,0.5,500 count boxes,nonPerishable,500,20
-bowls,2,8,0.5,500 count boxes,nonPerishable,500,20
-straws,10,0,0.5,500 count boxes,nonPerishable,500,20
-cupLids,10,0,0.5,500 count boxes,nonPerishable,500,20
-bowlLids,2,8,0.5,500 count boxes,nonPerishable,500,20
-utensilPacks,2,8,0.5,500 count boxes,nonPerishable,500,20
+Shredded Lettuce,4,6,0.25,5 lb,base,50,25
+Spinach,2,8,0.25,5 lb,base,50,25
+Brown Rice,3,7,0.25,50 lb,base,200,30
+White Rice,3,7,0.25,50 lb,base,200,30
+Chicken,6,4,0.2,160 oz,protein,16,100
+Lamb,10,0,0.2,160 oz,protein,16,290
+Falafel,1,9,0.2,160 oz,protein,16,100
+Beef,10,0,0.2,160 oz,protein,16,290
+Pork,6,4,0.2,160 oz,protein,16,290
+Couscous,10,0,0.13333333333333333,80 oz,toppings,20,40
+Onions,7,3,0.13333333333333333,80 oz,toppings,20,40
+Big Tomatoes,7,3,0.13333333333333333,80 oz,toppings,20,40
+Small Tomatoes,9,1,0.13333333333333333,80 oz,toppings,20,40
+Pita Chips,3,7,0.13333333333333333,80 oz,toppings,20,40
+Vegetable Medley,8,2,0.13333333333333333,80 oz,toppings,20,40
+Olives,10,0,0.13333333333333333,80 oz,toppings,20,40
+Pickled Onions,3,7,0.13333333333333333,80 oz,toppings,20,40
+Cucumbers,6,4,0.13333333333333333,80 oz,toppings,20,40
+Cauliflower,4,6,0.13333333333333333,80 oz,toppings,20,40
+Peppers,4,6,0.13333333333333333,80 oz,toppings,20,40
+Red Cabbage Coleslaw,6,4,0.13333333333333333,80 oz,toppings,20,40
+Garlic Fries,10,0,0.13333333333333333,80 oz,toppings,20,40
+Hummus,3,7,0.1111111111111111,16 oz,sauces,16,25
+Spicy Hummus,10,0,0.1111111111111111,16 oz,sauces,16,25
+Jalapeno Feta,10,0,0.1111111111111111,16 oz,sauces,16,25
+Tzatziki,10,0,0.1111111111111111,16 oz,sauces,16,25
+Greek Vinaigrette,3,7,0.1111111111111111,16 oz,sauces,16,25
+Harrisa Yogurt,5,5,0.1111111111111111,16 oz,sauces,16,25
+Dill Yogurt,3,7,0.1111111111111111,16 oz,sauces,16,25
+Tahini,9,1,0.1111111111111111,16 oz,sauces,16,25
+Pepsi,6,4,0.1,5 gallon,drinks,100,50
+Sierra Mist,6,4,0.1,5 gallon,drinks,100,50
+Brisk,6,4,0.1,5 gallon,drinks,100,50
+Pepsi Zero,7,3,0.1,5 gallon,drinks,100,50
+Diet Pepsi,7,3,0.1,5 gallon,drinks,100,50
+Gatorade,6,4,0.1,5 gallon,drinks,100,50
+Mtn Dew,7,3,0.1,5 gallon,drinks,100,50
+Dr. Pepper,6,4,0.1,5 gallon,drinks,100,50
+Cup Drink,10,0,0.5,500 count boxes,nonPerishable,500,20
+Cup Water,10,0,0.5,500 count boxes,nonPerishable,500,20
+Bowl,2,8,0.5,500 count boxes,nonPerishable,500,20
+Straw,9,1,0.5,500 count boxes,nonPerishable,500,20
+Cup Lid,9,1,0.5,500 count boxes,nonPerishable,500,20
+Bowl Lid,2,8,0.5,500 count boxes,nonPerishable,500,20
+Utensil Pack,2,8,0.5,500 count boxes,nonPerishable,500,20
