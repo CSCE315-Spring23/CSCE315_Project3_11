@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
     <h1>Login</h1>
-    <form method="POST" action="{% url 'login' %}">
+    {% if error %}
+    <p style="color:red">{{ error }}</p>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data" action="{% url 'login' %}">
         {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username"><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" name="employee_id"><br><br>
+        <label for="employee_pin">PIN:</label>
+        <input type="password" id="employee_pin" name="employee_pin"><br><br>
         <input type="submit" value="Log In">
     </form>
-</body>
-</html>
+{% endblock %}
