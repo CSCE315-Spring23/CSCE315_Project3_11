@@ -27,4 +27,4 @@ media/
 */migrations/
 
 # master login
-.bat
+*.bat
