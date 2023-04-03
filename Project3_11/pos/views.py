@@ -25,5 +25,5 @@ def employee_page(request):
         employee = get_object_or_404(Employee, EmployeeID=employee_id, EmployeePIN=employee_pin)
         return render(request, 'employee.html', {'employee': employee})
     else:
-        content = {'data':'test hi'}
+        content = {'data': 'test hi'}
         return render(request, 'employee.html', content)
