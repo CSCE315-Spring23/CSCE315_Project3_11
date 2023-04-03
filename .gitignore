@@ -25,3 +25,6 @@ media/
 
 # Ignore migrations directory
 */migrations/
+
+# master login
+*.bat
