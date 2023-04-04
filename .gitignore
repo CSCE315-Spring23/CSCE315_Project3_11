@@ -32,3 +32,6 @@ media/
 # gcloud configuration files
 .gcloudignore
 app.yaml
+
+# virtual environment
+/env
