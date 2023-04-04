@@ -1,8 +1,8 @@
 CREATE TABLE "MenuItems" (
     "ItemName" text PRIMARY KEY,
     "Price" numeric(28, 2),
-    "DefiniteItems" text[],
-    "PossibleItems" text[]
+    "DefiniteItems" jsonb DEFAULT '[]'::jsonb,
+    "PossibleItems" jsonb DEFAULT '[]'::jsonb
 );
 
 GRANT ALL PRIVILEGES ON "MenuItems" TO csce315331_pusey;
