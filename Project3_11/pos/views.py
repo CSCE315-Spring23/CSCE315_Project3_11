@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 
 from pos.models import *
 
@@ -27,15 +28,3 @@ def employee_page(request):
     else:
         content = {'data': 'test hi'}
         return render(request, 'employee.html', content)
-
-def database_info(request):
-    if request.method == 'GET':
-        employees = Employee.objects.all()
-        expiration_dates = ExpirationDate.objects.all()
-        inventory_items = InventoryItem.objects.all()
-        menu_items = MenuItem.objects.all()
-        orders = Order.objects.all()
-        restock_orders = RestockOrder.objects.all()
-        z_reports = ZReport.objects.all()
-        context = {'employees': employees, 'expiration_dates': expiration_dates, 'inventory_items': inventory_items, 'menu_items': menu_items, 'orders': orders, 'restock_orders': restock_orders, 'z_reports': z_reports}
-        return render(request, 'database_info.html', context)
