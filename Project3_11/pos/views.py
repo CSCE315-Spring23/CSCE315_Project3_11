@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
-from pos.models import Employee
-from pos.models import MenuItem
+from pos.models import *
 
 
 def login(request):
