@@ -1,10 +1,10 @@
 CREATE TABLE "Orders" (
     "DateTimePlaced" timestamp PRIMARY KEY,
     "EmployeeID" int,
-    "Items" text[],
+    "Items" jsonb DEFAULT '[]'::jsonb,
     "Subtotal" numeric(28, 2),
     "Total" numeric(28, 2),
-    "MenuItemsInOrder" text[]
+    "MenuItemsInOrder" jsonb DEFAULT '[]'::jsonb
 );
 
 GRANT ALL PRIVILEGES ON "Orders" TO csce315331_pusey;
