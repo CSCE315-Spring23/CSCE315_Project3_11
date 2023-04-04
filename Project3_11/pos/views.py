@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 
 from pos.models import Employee
+from pos.models import MenuItem
 
 
 def login(request):
@@ -27,3 +29,10 @@ def employee_page(request):
     else:
         content = {'data': 'test hi'}
         return render(request, 'employee.html', content)
+
+
+def menuItems(request):
+    fullMenu = MenuItem.objects.all().values()
+    print(fullMenu)
+    content = {'menuTest': fullMenu}
+    return HttpResponse(render(request, 'employee.html', content))
