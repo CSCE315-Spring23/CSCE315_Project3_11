@@ -27,3 +27,7 @@ def employee_page(request):
     else:
         content = {'data': 'test hi'}
         return render(request, 'employee.html', content)
+
+def order_page(request):
+        context = {'order': 'test order else'}
+        return render(request, 'order.html', context)

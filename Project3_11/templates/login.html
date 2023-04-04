@@ -15,4 +15,6 @@
         <input type="password" id="employee_pin" name="employee_pin"><br><br>
         <input type="submit" value="Log In">
     </form>
+    {% url 'order' as order_view %}
+    <a href="{{ order_view }}">Go to target page</a>
 {% endblock %}
