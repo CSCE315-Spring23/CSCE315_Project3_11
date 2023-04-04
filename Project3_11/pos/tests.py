@@ -3,10 +3,16 @@ import json
 from pos.models import Employee
 from pos.models import MenuItem
 
-# Create your tests here.
+# Print the name of an Employee given their ID
 employee1 = Employee.objects.get(EmployeeID=1)
 print(employee1.FirstName)
 
-menu_items = MenuItem.objects.all()
-for item in menu_items:
-    print(item.ItemName)
+# Change the price of a MenuItem given its name
+bowl_item = MenuItem.objects.get(ItemName="Bowl")
+bowl_item.Price = 9.99
+# bowl_item.save() # Updates the database with the new value
+
+# Getting the full menu
+full_menu = MenuItem.objects.all()
+for item in full_menu:
+    print(item.ItemName + " costs " + str(item.Price))
