@@ -11,3 +11,8 @@ print(employee1.FirstName)
 bowl_item = MenuItem.objects.get(ItemName="Bowl")
 bowl_item.Price = 9.99
 # bowl_item.save() # Updates the database with the new value
+
+# Getting the full menu
+full_menu = MenuItem.objects.all()
+for item in full_menu:
+    print(item.ItemName + " costs " + str(item.Price))

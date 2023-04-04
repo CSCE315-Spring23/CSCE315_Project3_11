@@ -32,3 +32,8 @@ media/
 # gcloud configuration files
 .gcloudignore
 app.yaml
+
+# virtual environment
+/Project3_11/env
+
+#test
