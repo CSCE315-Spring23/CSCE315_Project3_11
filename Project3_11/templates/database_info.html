@@ -28,4 +28,33 @@
                 {% endfor %}
             </tbody>
         </table>
+    <h1>Menu</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ItemName</th>
+                    <th>Price</th>
+                    <th>DefiniteItems</th>
+                    <th>PossibleItems</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for menu_item in menu_items %}
+                    <tr>
+                        <td>{{ menu_item.ItemName }}</td>
+                        <td>{{ menu_item.Price }}</td>
+                        <td>
+                            {% for item in menu_item.DefiniteItems %}
+                                {{ item }}{% if not forloop.last %}, {% endif %}
+                            {%  endfor %}
+                        </td>
+                        <td>
+                            {% for item in menu_item.PossibleItems %}
+                                {{ item }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 {% endblock %}
