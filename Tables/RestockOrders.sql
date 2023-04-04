@@ -1,7 +1,7 @@
 CREATE TABLE "RestockOrders" (
     "DateOrdered" date PRIMARY KEY,
     "DateReceived" date,
-    "Items" text[],
+    "Items" jsonb DEFAULT '[]'::jsonb,
     "Cost" numeric(28, 2)
 );
 
