@@ -23,8 +23,12 @@ media/
 .idea/
 .vscode/
 
-# Ignore migrations directory
+# Migrations directory
 */migrations/
 
-# master login
+# Master login
 *.bat
+
+# gcloud configuration files
+.gcloudignore
+app.yaml
