@@ -5,12 +5,9 @@
   <p><strong>Name:</strong> {{ employee.FirstName }} {{ employee.LastName }}</p>
   <p><strong>Position:</strong> {{ employee.PositionTitle }}</p>
     <p>{{ data }}</p>
-    <p>test before</p>
     <ul>
     {% for item in menuTest %}
-        <p>test in</p>
-        <li>{{ item.ItemName }} {{ item.Price }}</li>
+        <button>{{ item.ItemName }} {{ item.Price }}</button>
     {% endfor %}
     </ul>
-    <p>test after</p>
 {% endblock %}
