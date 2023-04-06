@@ -25,8 +25,8 @@ for item in full_menu:
     print(item.ItemName + " costs " + str(item.Price))
 
 # find an inventory item info by name
-item_dict = findInventoryItem("Spinach")
-print(item_dict["Stock"])
+# item_dict = findInventoryItem("Spinach")
+# print(item_dict["Stock"])
 
 # add an inventory item, specify whichever fields you want - the others will be put to null values
 # addInventoryItem(name="Test", order_chance=0.5)
@@ -38,6 +38,11 @@ print(item_dict["Stock"])
 start_date = timezone.make_aware(datetime.datetime(2022, 3, 1, 0, 0), timezone.get_current_timezone())
 end_date = timezone.make_aware(datetime.datetime(2022, 3, 3, 0, 0), timezone.get_current_timezone())
 
-report = generateSalesReport(start_date, end_date)
-print("sales report total:", report)
+items, counts, total = generateSalesReport(start_date, end_date)
+
+# sql command to check functionality:
+# SELECT SUM("Total") AS total_sales, JSONB_ARRAY_ELEMENTS("MenuItemsInOrder") AS item, COUNT(*) AS item_count FROM "Orders" WHERE "DateTimePlaced" BETWEEN '2022-03-01' AND '2022-03-03' GROUP BY item;
+print("sales report total:", total)
+print("items:", items)
+print("counts:", counts)
 
