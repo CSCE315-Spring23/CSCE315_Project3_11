@@ -271,9 +271,9 @@ def makeOrder(itemCounts: list):
     for i in range(4):
         if i == 0:
             continue
-        new_line = menuLines[i+1].split(",")
+        new_line = menuLines[i].split(",")
         if i == chooseBetween:
-            orderTotal += float(new_line[1])
+            orderTotal += 8.09
             # determine what base to add to order
             baseNum = random.randint(1,4)
             itemsInOrder.append((inventoryLines[baseNum].split(","))[0])
@@ -287,7 +287,7 @@ def makeOrder(itemCounts: list):
                 menuItems.append("Extra Protein") 
                 protienNum = random.randint(5, 9)
                 itemsInOrder.append((inventoryLines[protienNum].split(","))[0])
-                orderTotal += float(menuLines[4].split(",")[1])
+                orderTotal += 2.49
                 itemCounts[protienNum] -= 1
             if orderFalafel:
                 menuItems.append("Falafels")
