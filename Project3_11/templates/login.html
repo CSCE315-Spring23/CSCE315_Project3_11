@@ -29,9 +29,13 @@
     <a class="btn btn-primary" href="{{ order_view }}" role="button">Orders Testing</a>
 
 
+
+    <a href="{{ order_view }}">Go to order(style test) page</a>
+    {% url 'menuItems' as menuItems %}
+    <a href="{{ menuItems }}">Go to menu items page</a>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
             integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-{#    <a href="{{ order_view }}">Go to target page</a>#}
 {% endblock %}

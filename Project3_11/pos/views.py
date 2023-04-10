@@ -48,7 +48,7 @@ def menuItems(request):
     fullMenu = MenuItem.objects.all().values()
     print(fullMenu)
     content = {'menuTest': fullMenu}
-    return HttpResponse(render(request, 'employee.html', content))
+    return HttpResponse(render(request, 'menuItems.html', content))
 
 
 def database_info(request):
@@ -63,3 +63,9 @@ def database_info(request):
         context = {'employees': employees, 'expiration_dates': expiration_dates, 'inventory_items': inventory_items,
                    'menu_items': menu_items, 'orders': orders, 'restock_orders': restock_orders, 'z_reports': z_reports}
         return render(request, 'database_info.html', context)
+
+
+def addItemToOrder(request):
+    content = {'items': 'test hi'}
+    return render(request, 'menuItems.html', content)
+
