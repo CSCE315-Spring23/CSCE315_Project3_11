@@ -49,7 +49,9 @@ for item in full_menu:
 # print("items:", items)
 # print("counts:", counts)
 
-print("X report:", generateXReport())
+# print("X report:", generateXReport())
+
+# generateZReport()
 
 
 
