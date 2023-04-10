@@ -16,5 +16,7 @@
         <input type="submit" value="Log In">
     </form>
     {% url 'order' as order_view %}
-    <a href="{{ order_view }}">Go to target page</a>
+    <a href="{{ order_view }}">Go to order(style test) page</a>
+    {% url 'menuItems' as menuItems %}
+    <a href="{{ menuItems }}">Go to menu items page</a>
 {% endblock %}
