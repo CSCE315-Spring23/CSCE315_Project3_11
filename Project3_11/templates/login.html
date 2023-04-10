@@ -3,6 +3,14 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Orders Screen</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    </head>
+
     <h1>Login</h1>
     {% if error %}
     <p style="color:red">{{ error }}</p>
@@ -15,6 +23,15 @@
         <input type="password" id="employee_pin" name="employee_pin"><br><br>
         <input type="submit" value="Log In">
     </form>
+
+
     {% url 'order' as order_view %}
-    <a href="{{ order_view }}">Go to target page</a>
+    <a class="btn btn-primary" href="{{ order_view }}" role="button">Orders Testing</a>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+{#    <a href="{{ order_view }}">Go to target page</a>#}
 {% endblock %}

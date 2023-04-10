@@ -33,6 +33,17 @@ def order_page(request):
         context = {'order': 'test order else'}
         return render(request, 'order.html', context)
 
+
+def inventory_page(request):
+    context = {'inventory': 'test order else'}
+    return render(request, 'inventoryItems.html ', context)
+
+def reports_page(request):
+    context = {'reports': 'test order else'}
+    return render(request, 'reports.html', context)
+
+
+
 def menuItems(request):
     fullMenu = MenuItem.objects.all().values()
     print(fullMenu)
