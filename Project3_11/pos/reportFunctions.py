@@ -1,4 +1,4 @@
-from pos.models import Order, ZReport
+from pos.models import Order, ZReport, InventoryItem
 from collections import defaultdict
 from django.utils import timezone
 from django.db.models import Sum
@@ -44,3 +44,10 @@ def generateZReport():
 
     z_report.save()
     print("Z report generated")
+
+def generateRestockReport(threshold):
+    restock_items = []
+    for item in InventoryItem.objects.all():
+        if item.Stock < threshold:
+            restock_items.append(item)
+    return restock_items

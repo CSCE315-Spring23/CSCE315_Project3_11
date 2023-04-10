@@ -53,5 +53,9 @@ for item in full_menu:
 
 # generateZReport()
 
+restock_report = generateRestockReport(3)
+for i in range(len(restock_report)):
+    print(restock_report[i].Name)
+
 
 
