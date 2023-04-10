@@ -2,13 +2,11 @@ from django.test import TestCase
 import json
 
 import pos.inventoryFunctions
-from pos.models import Employee
-from pos.models import MenuItem
+from datetime import datetime
+from pos.models import *
 from pos.inventoryFunctions import *
 from pos.reportFunctions import *
 from django.utils import timezone
-import datetime
-
 
 # Print the name of an Employee given their ID
 # employee1 = Employee.objects.get(EmployeeID=1)
@@ -23,6 +21,16 @@ import datetime
 # full_menu = MenuItem.objects.all()
 # for item in full_menu:
 #     print(item.ItemName + " costs " + str(item.Price))
+
+# Placing an order
+# custom_item1 = MenuItem.objects.get(ItemName="Bowl")
+# custom_item1.select_items(["Spinach", "Brown Rice", "Cucumbers", "Greek Vinaigrette"])
+# custom_item2 = MenuItem.objects.get(ItemName="Fountain Drink")
+# custom_item2.select_items(["Gatorade"])
+# order_items = [custom_item1, custom_item2]
+# new_order = Order(EmployeeID=employee1.EmployeeID)
+# new_order.add_to_order(order_items)
+# new_order.save()
 
 # find an inventory item info by name
 # item_dict = findInventoryItem("Spinach")
@@ -61,7 +69,7 @@ import datetime
 # for i in range(len(excess_report)):
 #     print(excess_report[i].Name)
 
-start_date = timezone.make_aware(datetime.datetime(2022, 4, 1, 0, 0), timezone.get_current_timezone())
-end_date = timezone.make_aware(datetime.datetime(2022, 4, 4, 0, 0), timezone.get_current_timezone())
-pairs = whatSalesTogether(start_date, end_date)
-print(pairs)
+# start_date = timezone.make_aware(datetime.datetime(2022, 4, 1, 0, 0), timezone.get_current_timezone())
+# end_date = timezone.make_aware(datetime.datetime(2022, 4, 4, 0, 0), timezone.get_current_timezone())
+# pairs = whatSalesTogether(start_date, end_date)
+# print(pairs)
