@@ -57,8 +57,11 @@ import datetime
 # for i in range(len(restock_report)):
 #     print(restock_report[i].Name)
 
-excess_report = generateExcessReport(timezone.make_aware(datetime.datetime(2023, 2, 25, 0, 0), timezone.get_current_timezone()))
-for i in range(len(excess_report)):
-    print(excess_report[i].Name)
+# excess_report = generateExcessReport(timezone.make_aware(datetime.datetime(2023, 2, 25, 0, 0), timezone.get_current_timezone()))
+# for i in range(len(excess_report)):
+#     print(excess_report[i].Name)
 
-
+start_date = timezone.make_aware(datetime.datetime(2022, 4, 1, 0, 0), timezone.get_current_timezone())
+end_date = timezone.make_aware(datetime.datetime(2022, 4, 4, 0, 0), timezone.get_current_timezone())
+pairs = whatSalesTogether(start_date, end_date)
+print(pairs)

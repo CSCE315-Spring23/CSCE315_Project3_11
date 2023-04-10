@@ -1,7 +1,8 @@
 from pos.models import Order, ZReport, InventoryItem
 from collections import defaultdict
 from django.utils import timezone
-from django.db.models import Sum, F, ExpressionWrapper, FloatField
+from django.db.models import Sum
+from itertools import combinations
 
 def generateSalesReport(startDate, endDate):
     sales = defaultdict(int)
@@ -72,3 +73,16 @@ def generateExcessReport(date):
             excess_items.append(item)
 
     return excess_items
+
+def whatSalesTogether(time_start, time_end):
+    # Query for all orders within the given time window
+    pairs = defaultdict(int)
+    orders = Order.objects.filter(DateTimePlaced__range=(time_start, time_end))
+    for order in orders:
+        items = order.MenuItemsInOrder
+        for pair in combinations(items, 2):
+            pair_str = ','.join(sorted(pair))
+            pairs[pair_str] += 1
+    sorted_pairs = sorted(pairs.items(), key=lambda x: x[1], reverse=True)
+
+    return sorted_pairs
