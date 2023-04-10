@@ -11,18 +11,18 @@ import datetime
 
 
 # Print the name of an Employee given their ID
-employee1 = Employee.objects.get(EmployeeID=1)
-print(employee1.FirstName)
+# employee1 = Employee.objects.get(EmployeeID=1)
+# print(employee1.FirstName)
 
 # Change the price of a MenuItem given its name
-bowl_item = MenuItem.objects.get(ItemName="Bowl")
-bowl_item.Price = 9.99
+# bowl_item = MenuItem.objects.get(ItemName="Bowl")
+# bowl_item.Price = 9.99
 # bowl_item.save() # Updates the database with the new value
 
 # Getting the full menu
-full_menu = MenuItem.objects.all()
-for item in full_menu:
-    print(item.ItemName + " costs " + str(item.Price))
+# full_menu = MenuItem.objects.all()
+# for item in full_menu:
+#     print(item.ItemName + " costs " + str(item.Price))
 
 # find an inventory item info by name
 # item_dict = findInventoryItem("Spinach")
@@ -53,9 +53,12 @@ for item in full_menu:
 
 # generateZReport()
 
-restock_report = generateRestockReport(3)
-for i in range(len(restock_report)):
-    print(restock_report[i].Name)
+# restock_report = generateRestockReport(3)
+# for i in range(len(restock_report)):
+#     print(restock_report[i].Name)
 
+excess_report = generateExcessReport(timezone.make_aware(datetime.datetime(2023, 2, 25, 0, 0), timezone.get_current_timezone()))
+for i in range(len(excess_report)):
+    print(excess_report[i].Name)
 
 

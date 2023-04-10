@@ -1,7 +1,7 @@
 from pos.models import Order, ZReport, InventoryItem
 from collections import defaultdict
 from django.utils import timezone
-from django.db.models import Sum
+from django.db.models import Sum, F, ExpressionWrapper, FloatField
 
 def generateSalesReport(startDate, endDate):
     sales = defaultdict(int)
@@ -51,3 +51,24 @@ def generateRestockReport(threshold):
         if item.Stock < threshold:
             restock_items.append(item)
     return restock_items
+
+
+def generateExcessReport(date):
+    orders = Order.objects.filter(DateTimePlaced__gt=date)
+
+    # Initialize a dictionary to keep track of inventory item servings sold
+    servings_sold = defaultdict(int)
+
+    # Parse the orders' item JSONB array and decrement servings sold for each inventory item
+    for order in orders:
+        items = order.Items
+        for item in items:
+            servings_sold[item] += 1
+
+    # Get the inventory items that have sold less than their servings
+    excess_items = []
+    for item in InventoryItem.objects.all():
+        if servings_sold[item.Name] < item.Servings:
+            excess_items.append(item)
+
+    return excess_items
