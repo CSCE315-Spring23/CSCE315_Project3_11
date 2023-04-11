@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <ul>
+    {% for item in menuTest %}
+        <button name="item.ItemName" onclick="location.href='{% url "addItemToOrder" %}'">{{ item.ItemName }} {{ item.Price }}</button>
+    {% endfor %}
+    </ul>
+    <div class="itemsInOrder">
+    <p>testingggg</p>
+        <p>{{ items }}</p>
+    </div>
+{% endblock %}

@@ -15,23 +15,22 @@
 
         <h4 class="text-center py-5">Navigate</h4>
         <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Order</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inventory Items</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Menu Items</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Reports</a>
-          </li>
+
+            <a class="btn btn-primary btn-lg" role="button">Order</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'inventory' %}" role="button">Inventory Items</a>
+{#            <a class="btn btn-primary" href="{% url 'menu' %}" role="button">Menu Items</a>#}
+            <a class="btn btn-primary btn-lg" href="{% url 'reports' %}" role="button">Reports</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Log Out</a>
         </ul>
       </div>
       <!-- Main Content -->
       <div class="col-md-5">
         <h4 class="text-center py-5">All Orders</h4>
+          <ul>
+            {% for item in menuTest %}
+                <button>{{ item.ItemName }} {{ item.Price }}</button>
+            {% endfor %}
+          </ul>
       </div>
 {#        Orders Table#}
         <div class="col-md-4 bg-light">

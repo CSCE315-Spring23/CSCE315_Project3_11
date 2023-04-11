@@ -1,4 +1,7 @@
 from django.db import models
+from datetime import datetime
+from datetime import timedelta
+from decimal import Decimal
 
 
 class Employee(models.Model):
@@ -43,21 +46,41 @@ class MenuItem(models.Model):
     Price = models.DecimalField(max_digits=28, decimal_places=2)
     DefiniteItems = models.JSONField(default=list)
     PossibleItems = models.JSONField(default=list)
+    selected_items = []
 
     class Meta:
         db_table = "MenuItems"
 
+    def select_items(self, selected_items):
+        self.selected_items = selected_items
+
 
 class Order(models.Model):
     DateTimePlaced = models.DateTimeField(primary_key=True)
-    EmployeeID = models.IntegerField()
+    EmployeeID = models.IntegerField(default=-1)
     Items = models.JSONField(default=list)
-    Subtotal = models.DecimalField(max_digits=28, decimal_places=2)
-    Total = models.DecimalField(max_digits=28, decimal_places=2)
+    Subtotal = models.DecimalField(max_digits=28, decimal_places=2, default=0)
+    Total = models.DecimalField(max_digits=28, decimal_places=2, default=0)
     MenuItemsInOrder = models.JSONField(default=list)
 
     class Meta:
         db_table = "Orders"
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            utc_now = datetime.utcnow()
+            central_offset = timedelta(hours=-5)  # UTC-5 for Central Time
+            central_now = utc_now + central_offset
+            central_now = central_now.replace(microsecond=0)  # remove decimal of seconds
+            self.DateTimePlaced = central_now
+        super().save(*args, **kwargs)
+
+    def add_to_order(self, menu_items):
+        for item in menu_items:
+            self.Items += item.selected_items
+            self.MenuItemsInOrder += [item.ItemName]
+            self.Subtotal += Decimal(str(item.Price))
+        self.Total = self.Subtotal * Decimal(str(1.0825))
 
 
 class RestockOrder(models.Model):
