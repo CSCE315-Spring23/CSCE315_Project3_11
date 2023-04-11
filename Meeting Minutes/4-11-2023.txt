@@ -1,0 +1,36 @@
+SCRUM Meeting 1 for Project 3
+Prepared by: Anthony Noyes
+Meeting Date: 4/11/2023
+
+Meeting Attendees
+ Anthony Noyes
+ Drew Pusey
+ Stanley Lee
+ Alex Gonce
+
+Meeting Agenda Items
+Review deliverables due tonight
+Prepare for team meeting tomorrow
+Give status updates on project
+
+Status Update Since Last Meeting
+Accomplishments:
+Anthony- finished all backend functions assigned
+Drew- made it so orders are tracked in table
+
+Tasks Completed:
+Task Description, Assigned to, Completed? (yes/no)
+Create order view in GUI, Stanley (no)
+Figure out how to add/remove items from database, Drew/Anthony (yes)
+
+Before The Next Meeting
+Plans:
+Make more progress on front end
+
+Task Assignments:
+Create order view in GUI, Stanley/Alex
+Explore how to integrate our APIs into our website, Anthony
+
+Minutes from Previous Meeting
+We discussed our basic assignments that we wanted to complete by today's meeting
+We planned on making individual progress and updating each other on it today
