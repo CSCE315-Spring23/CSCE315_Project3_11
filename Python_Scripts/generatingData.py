@@ -231,7 +231,7 @@ def generateExpirationDates(itemCounts: list):
                     expirationDate = date + datetime.timedelta(weeks=260)
                 inventoryNum = itemNames.index(itemName)
                 remainingServings = itemCounts[inventoryNum]
-                line = f"{uniqueID}, {itemName}, {expirationDate}, {remainingServings}\n"
+                line = f"{uniqueID},{itemName},{expirationDate},{remainingServings}\n"
                 expirationDatesFile.write(line)
                 continue
 
@@ -244,7 +244,7 @@ def generateExpirationDates(itemCounts: list):
             uniqueID %= 10000
             inventoryNum = itemNames.index(itemName)
             remainingServings = idealItemCounts[inventoryNum]
-            line = f"{uniqueID}, {itemName}, {expirationDate}, {remainingServings}\n"
+            line = f"{uniqueID},{itemName},{expirationDate},{remainingServings}\n"
             expirationDatesFile.write(line)
         loopNum += 1
 
