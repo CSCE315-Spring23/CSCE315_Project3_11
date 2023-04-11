@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from datetime import datetime
 from datetime import timedelta
@@ -67,16 +68,37 @@ class Order(models.Model):
         db_table = "Orders"
 
     def save(self, *args, **kwargs):
+        # Set current datetime as primary key
         if not self.pk:
             utc_now = datetime.utcnow()
             central_offset = timedelta(hours=-5)  # UTC-5 for Central Time
             central_now = utc_now + central_offset
             central_now = central_now.replace(microsecond=0)  # remove decimal of seconds
             self.DateTimePlaced = central_now
+
+        # Update InventoryItems/ExpirationDates table
+        for item in self.Items:
+            try:
+                closest_item = ExpirationDate.objects.filter(ItemName=item).order_by('ExpirationDate').first()
+                if closest_item:
+                    closest_item.RemainingServings -= 1
+                    if closest_item.RemainingServings == 0:
+                        closest_item.delete()
+                        try:
+                            inventory_listing = InventoryItem.objects.get(Name=item)
+                            inventory_listing.Stock -= 1
+                        except ObjectDoesNotExist:
+                            print("No inventory item found in InventoryItems with name%s\n" % item)
+                else:
+                    print("No item: %s in ExpirationDates\n" % item)
+            except ObjectDoesNotExist:
+                print("No inventory item found in ExpirationDates with name %s\n" % item)
+
         super().save(*args, **kwargs)
 
     def add_to_order(self, menu_items):
         for item in menu_items:
+            self.Items += item.DefiniteItems
             self.Items += item.selected_items
             self.MenuItemsInOrder += [item.ItemName]
             self.Subtotal += Decimal(str(item.Price))
