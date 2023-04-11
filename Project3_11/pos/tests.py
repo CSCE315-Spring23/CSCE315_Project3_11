@@ -7,6 +7,7 @@ from pos.models import *
 from pos.inventoryFunctions import *
 from pos.reportFunctions import *
 from django.utils import timezone
+from pos.menu_functions import *
 
 # Print the name of an Employee given their ID
 # employee1 = Employee.objects.get(EmployeeID=1)
@@ -21,6 +22,9 @@ from django.utils import timezone
 # full_menu = MenuItem.objects.all()
 # for item in full_menu:
 #     print(item.ItemName + " costs " + str(item.Price))
+
+# Adding a new item to the menu
+# add_to_menu("Smoothie", 4.69, ["Cup Drink", "Straw", "Cup Lid"], ["Spinach", "Dr. Pepper", "Diet Pepsi"])
 
 # Placing an order
 # custom_item1 = MenuItem.objects.get(ItemName="Bowl")
