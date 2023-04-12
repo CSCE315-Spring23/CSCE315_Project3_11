@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
     <ul>
-    {% for item in menuTest %}
-        <button name="item.ItemName" onclick="location.href='{% url "addItemToOrder" %}'">{{ item.ItemName }} {{ item.Price }}</button>
-    {% endfor %}
+    <form method="post" action="{% url 'addItemToOrder' %}">
+        {% csrf_token %}
+        {% for item in menuTest %}
+            <button type="submit" name="buttonTesting" value="{{ item.ItemName }} {{ item.Price }}">{{ item.ItemName }} {{ item.Price }}</button>
+        {% endfor %}
+    </form>
     </ul>
-    <div class="itemsInOrder">
-    <p>testingggg</p>
-        <p>{{ items }}</p>
+    <div name="addItemToOrder">
+        <p>testingggg</p>
+        <p>{{ text }}</p>
     </div>
 {% endblock %}
