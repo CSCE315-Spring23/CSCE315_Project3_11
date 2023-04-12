@@ -77,3 +77,24 @@ from pos.menu_functions import *
 # end_date = timezone.make_aware(datetime.datetime(2022, 4, 4, 0, 0), timezone.get_current_timezone())
 # pairs = whatSalesTogether(start_date, end_date)
 # print(pairs)
+
+#---------------------------------------------------------------
+# Weather API stuff
+# uses Anthony's API key so don't run until we find a workaround
+
+# from bs4 import BeautifulSoup
+# import requests
+#
+# APIURLcurrent = r"https://api.openweathermap.org/data/2.5/weather?lat=30.627979&lon=-96.334412&appid=b564f1dbb4cd614c0ee84abe3f4c820c&units=imperial&mode=xml"
+# r = requests.get(APIURLcurrent)
+# content = BeautifulSoup(r.content, features="xml")
+#
+# bigSectionTemp = content.findAll('temperature')
+# bigSectionWeather = content.findAll('weather')
+#
+# for element in bigSectionWeather:
+#     print(element.get('value'))
+#
+# for element in bigSectionTemp:
+#     print(element.get('value'))
+#---------------------------------------------------------------
