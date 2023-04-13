@@ -1,0 +1,38 @@
+SCRUM Meeting 5 for Project 3
+Prepared by: Anthony Noyes
+Meeting Date: 4/13/2023
+
+Meeting Attendees
+ Anthony Noyes
+ Drew Pusey
+ Stanley Lee
+ Alex Gonce
+
+Meeting Agenda Items
+Discuss any updates we have and what we are stuck on
+
+Status Update Since Last Meeting
+Accomplishments:
+Anthony- Connected to weather API and can query data
+Drew- connected google translate to project
+Stanley- making progress on order screen
+Alex- 
+
+Tasks Completed:
+Task Description, Assigned to, Completed? (yes/no)
+Make more progress on front end, Stanley, yes
+Connect to google translate, Drew, yes
+Connect to weather API, Anthony, yes
+
+Before The Next Meeting
+Plans:
+look into OAuth
+figure out how to get text to appear on screen when button is pressed
+
+Task Assignments:
+Finish order screen by the weekend (Stanley)
+Research OAuth (Drew/Anthony)
+
+Minutes from Previous Meeting
+We worked on the deliverables due that night
+We created a reasonable timeline for the remainder of the sprint and talked about what we were struggling with

@@ -1,4 +1,4 @@
-SCRUM Meeting 1 for Project 3
+SCRUM Meeting 4 for Project 3
 Prepared by: Anthony Noyes
 Meeting Date: 4/11/2023
 
@@ -17,6 +17,7 @@ Status Update Since Last Meeting
 Accomplishments:
 Anthony- finished all backend functions assigned
 Drew- made it so orders are tracked in table
+Alex- created order view
 
 Tasks Completed:
 Task Description, Assigned to, Completed? (yes/no)
