@@ -66,15 +66,19 @@ def database_info(request):
 
 
 def addItemToOrder(request):
-    if request.method == 'POST':
-        button_name = request.POST.get('buttonTesting', '')
-        # Logic to add text to the website based on the button name
-        text = ":P {}".format(button_name)
-        context = {'text': text}
-        return render(request, 'menuItems.html', context)
-    else:
-        # Handle GET request
-        return render(request, 'menuItems.html')
+    # if request.method == 'POST':
+    #     button_name = request.POST.get('buttonTesting', '')
+    #     # Logic to add text to the website based on the button name
+    #     text = ":P {}".format(button_name)
+    #     context = {'text': text}
+    #     return render(request, 'menuItems.html', context)
+    # else:
+    #     # Handle GET request
+    #     return render(request, 'menuItems.html')
     # content = {'items': 'test hi'}
     # return render(request, 'menuItems.html', content)
+    return HttpResponse(render(request, 'menuItems.html'))
 
+
+def submitOrder(request):
+    return HttpResponse(render(request, 'menuItems.html'))

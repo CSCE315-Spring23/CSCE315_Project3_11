@@ -10,5 +10,6 @@ urlpatterns = [
     path('reports/', views.reports_page, name='reports'),
     path('menuItems/', views.menuItems, name='menuItems'),
     path('database_info/', views.database_info, name='database_info'),
-    path('addItemsToOrder/', views.addItemToOrder, name='addItemToOrder')
+    path('menuItems/', views.addItemToOrder),
+    path('menuItems/submitOrder', views.submitOrder),
 ]
