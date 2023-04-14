@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from google.cloud import translate_v2 as translate
-
+from django.conf import settings
+from django.shortcuts import redirect
 from pos.models import *
 
 
@@ -30,19 +31,20 @@ def employee_page(request):
         content = {'data': 'test hi'}
         return render(request, 'employee.html', content)
 
+
 def order_page(request):
-        context = {'order': 'test order else'}
-        return render(request, 'order.html', context)
+    context = {'order': 'test order else'}
+    return render(request, 'order.html', context)
 
 
 def inventory_page(request):
     context = {'inventory': 'test order else'}
     return render(request, 'inventoryItems.html ', context)
 
+
 def reports_page(request):
     context = {'reports': 'test order else'}
     return render(request, 'reports.html', context)
-
 
 
 def menuItems(request):
@@ -55,7 +57,7 @@ def menuItems(request):
 def database_info(request):
     if request.method == 'GET':
         client = translate.Client()
-        target_language = 'es'
+        target_language = request.session.get(settings.LANGUAGE_SESSION_KEY, 'en')
 
         # Get database information
         employees = Employee.objects.all()
@@ -112,3 +114,14 @@ def addItemToOrder(request):
 
 def submitOrder(request):
     return HttpResponse(render(request, 'menuItems.html'))
+
+
+def set_language(request):
+    language = request.POST.get('language')
+
+    # Store the language in the session
+    request.session[settings.LANGUAGE_SESSION_KEY] = language
+
+    if language:
+        request.session['django_language'] = language
+    return redirect(request.META.get('HTTP_REFERER', '/'))

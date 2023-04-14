@@ -12,4 +12,5 @@ urlpatterns = [
     path('database_info/', views.database_info, name='database_info'),
     path('menuItems/', views.addItemToOrder),
     path('menuItems/submitOrder', views.submitOrder),
+    path('set-language/', views.set_language, name='set_language'),
 ]
