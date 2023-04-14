@@ -1,0 +1,30 @@
+SCRUM Meeting 6 for Project 3
+Prepared by: Anthony Noyes
+Meeting Date: 4/14/2023
+
+Meeting Attendees
+ Anthony Noyes
+ Drew Pusey
+ Alex Gonce
+ (Stanley is sick)
+
+Meeting Agenda Items
+Discuss our weekend work plans
+
+Status Update Since Last Meeting
+Accomplishments:
+OAuth research begun
+
+Tasks Completed:
+Task Description, Assigned to, Completed? (yes/no)
+Reserach OAuth, (Drew/Anthony), no
+
+Before The Next Meeting
+Plans:
+Research OAuth
+
+Task Assignments:
+Research OAuth, (Drew/Anthony)
+
+Minutes from Previous Meeting
+We gave status updates and talked about our plans to get stuff done before the end of the sprint
