@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from google.cloud import translate_v2 as translate
 
 from pos.models import *
 
@@ -53,15 +54,44 @@ def menuItems(request):
 
 def database_info(request):
     if request.method == 'GET':
+        client = translate.Client()
+        target_language = 'es'
+
+        # Get database information
         employees = Employee.objects.all()
-        expiration_dates = ExpirationDate.objects.all()
-        inventory_items = InventoryItem.objects.all()
         menu_items = MenuItem.objects.all()
-        orders = Order.objects.all()
-        restock_orders = RestockOrder.objects.all()
-        z_reports = ZReport.objects.all()
-        context = {'employees': employees, 'expiration_dates': expiration_dates, 'inventory_items': inventory_items,
-                   'menu_items': menu_items, 'orders': orders, 'restock_orders': restock_orders, 'z_reports': z_reports}
+
+        # Set other text
+        employee_header = 'Employees'
+        menu_header = 'Menu'
+        employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position', 'Hours Worked']
+        menu_table_headers = ['Item Name', 'Price', 'Definite Items', 'Possible Items']
+
+        # Translate if necessary
+        if target_language != 'en':
+            # Translate other text
+            employee_header = client.translate(employee_header, target_language=target_language)['translatedText']
+            menu_header = client.translate(menu_header, target_language=target_language)['translatedText']
+            employee_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in employee_table_headers]
+            menu_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in menu_table_headers]
+
+            # Translate employees
+            for employee in employees:
+                employee.PositionTitle = client.translate(employee.PositionTitle, target_language=target_language)['translatedText']
+
+            # Translate menu items
+            for menu_item in menu_items:
+                menu_item.ItemName = client.translate(menu_item.ItemName, target_language=target_language)['translatedText']
+                translated_definite_items = []
+                for definite_item in menu_item.DefiniteItems:
+                    translated_definite_items += [client.translate(definite_item, target_language=target_language)['translatedText']]
+                menu_item.DefiniteItems = translated_definite_items
+                translated_possible_items = []
+                for possible_item in menu_item.PossibleItems:
+                    translated_possible_items += [client.translate(possible_item, target_language=target_language)['translatedText']]
+                menu_item.PossibleItems = translated_possible_items
+
+        context = {'employees': employees, 'menu_items': menu_items,'employee_header': employee_header, 'menu_header': menu_header, 'employee_headers': employee_table_headers, 'menu_headers': menu_table_headers}
         return render(request, 'database_info.html', context)
 
 

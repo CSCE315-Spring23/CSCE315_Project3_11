@@ -1,17 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Employees</h1>
+    <h1>{{ employee_header }}</h1>
         <table>
             <thead>
                 <tr>
-                    <th>EmployeeID</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Hire Date</th>
-                    <th>EmployeePIN</th>
-                    <th>Position Title</th>
-                    <th>Hours Worked</th>
+                    {% for e in employee_table_headers %}
+                        <th>{{ e }}</th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
@@ -28,14 +24,13 @@
                 {% endfor %}
             </tbody>
         </table>
-    <h1>Menu</h1>
+    <h1>{{ menu_header }}</h1>
         <table>
             <thead>
                 <tr>
-                    <th>ItemName</th>
-                    <th>Price</th>
-                    <th>DefiniteItems</th>
-                    <th>PossibleItems</th>
+                    {% for m in menu_table_headers %}
+                        <th>{{ m }}</th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
