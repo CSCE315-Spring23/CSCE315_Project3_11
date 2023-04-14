@@ -93,7 +93,7 @@ def database_info(request):
                     translated_possible_items += [client.translate(possible_item, target_language=target_language)['translatedText']]
                 menu_item.PossibleItems = translated_possible_items
 
-        context = {'employees': employees, 'menu_items': menu_items,'employee_header': employee_header, 'menu_header': menu_header, 'employee_headers': employee_table_headers, 'menu_headers': menu_table_headers}
+        context = {'employees': employees, 'menu_items': menu_items,'employee_header': employee_header, 'menu_header': menu_header, 'employee_headers': employee_table_headers, 'menu_headers': menu_table_headers, 'target_language': target_language}
         return render(request, 'database_info.html', context)
 
 
