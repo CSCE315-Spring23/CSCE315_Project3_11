@@ -6,7 +6,6 @@ Meeting Attendees
  Anthony Noyes
  Drew Pusey
  Stanley Lee
- Alex Gonce
 
 Meeting Agenda Items
 Discuss any updates we have and what we are stuck on
@@ -16,7 +15,6 @@ Accomplishments:
 Anthony- Connected to weather API and can query data
 Drew- connected google translate to project
 Stanley- making progress on order screen
-Alex- 
 
 Tasks Completed:
 Task Description, Assigned to, Completed? (yes/no)
