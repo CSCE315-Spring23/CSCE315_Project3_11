@@ -17,7 +17,7 @@ OAuth research begun
 
 Tasks Completed:
 Task Description, Assigned to, Completed? (yes/no)
-Reserach OAuth, (Drew/Anthony), no
+Research OAuth, (Drew/Anthony), no
 
 Before The Next Meeting
 Plans:
