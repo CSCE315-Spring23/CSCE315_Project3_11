@@ -56,7 +56,7 @@ def menuItems(request):
 
 def database_info(request):
     if request.method == 'GET':
-        client = translate.Client()
+        client = translate.Client(credentials=settings.CREDENTIALS)
         target_language = request.session.get(settings.LANGUAGE_SESSION_KEY, 'en')
 
         # Get database information
