@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1>Order Total: {{ order_total }}</h1>
     <form method="post" action="{% url 'button_testing' %}">
         {% csrf_token %}
-        <button type="submit" name="button_clicked" value="increment">Increment</button>
-        <button type="submit" name="button_clicked" value="decrement">Decrement</button>
+        <button type="submit" name="button_clicked" value="reset">Reset</button>
     </form>
-    <h1>Number: {{ number }}</h1>
+    <br>
+    {% for item in menu %}
+        <form method="post" action="{% url 'button_testing' %}">
+            {% csrf_token %}
+            <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button>
+        </form>
+    {% endfor %}
 {% endblock %}

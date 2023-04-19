@@ -128,12 +128,16 @@ def set_language(request):
 
 
 def button_testing(request):
-    number = request.session.get('number', 0)
+    order_total = request.session.get('order_total', 0)
+    menu = MenuItem.objects.all()
     if request.method == 'POST':
         button_clicked = request.POST.get('button_clicked', None)
-        if button_clicked == 'increment':
-            number += 1
-        elif button_clicked == 'decrement':
-            number -= 1
-        request.session['number'] = number
-    return render(request, 'button_testing.html', {'number': number})
+        if button_clicked == 'reset':
+            order_total = '0'
+        else:
+            item_clicked = request.POST.get('item_clicked', None)
+            if item_clicked:
+                item = MenuItem.objects.get(ItemName=item_clicked)
+                order_total = str(Decimal(order_total) + item.Price)
+        request.session['order_total'] = order_total
+    return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
