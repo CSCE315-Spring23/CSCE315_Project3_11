@@ -141,3 +141,17 @@ def button_testing(request):
                 order_total = str(Decimal(order_total) + item.Price)
         request.session['order_total'] = order_total
     return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
+
+def order_testing(request):
+    order = Order(EmployeeID=2)
+    menu = MenuItem.objects.all()
+    if request.method == 'POST':
+        button_clicked = request.POST.get('button_clicked', None)
+        if button_clicked == 'reset':
+            order.clear_order()
+        else:
+            item_clicked = request.POST.get('item_clicked', None)
+            if item_clicked:
+                item = MenuItem.objects.get(ItemName=item_clicked)
+                order.add_to_order([item])
+    return render(request, 'order_testing.html', {'order': order, 'menu': menu})

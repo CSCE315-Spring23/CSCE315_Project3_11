@@ -63,6 +63,7 @@ class Order(models.Model):
     Subtotal = models.DecimalField(max_digits=28, decimal_places=2, default=0)
     Total = models.DecimalField(max_digits=28, decimal_places=2, default=0)
     MenuItemsInOrder = models.JSONField(default=list)
+    order_items = []
 
     class Meta:
         db_table = "Orders"
@@ -102,7 +103,15 @@ class Order(models.Model):
             self.Items += item.selected_items
             self.MenuItemsInOrder += [item.ItemName]
             self.Subtotal += Decimal(str(item.Price))
-        self.Total = self.Subtotal * Decimal(str(1.0825))
+            self.order_items += [item]
+        self.Total = (self.Subtotal * Decimal(str(1.0825))).quantize(Decimal('.01'))
+
+    def clear_order(self):
+        self.Items = []
+        self.Subtotal = 0
+        self.Total = 0
+        self.MenuItemsInOrder = []
+        self.order_items = []
 
 
 class RestockOrder(models.Model):

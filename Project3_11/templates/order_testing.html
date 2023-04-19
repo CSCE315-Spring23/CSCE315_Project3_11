@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="button_clicked" value="reset">Reset</button>
+    </form>
+    <br>
+    {% for item in menu %}
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button>
+        </form>
+    {% endfor %}
+    {% if order.order_items %}
+        <h2>Order Items:</h2>
+        {% for item in order.order_items %}
+            <li>{{ item.ItemName }} - ${{ item.Price }}</li>
+        {% endfor %}
+    {% endif %}
+    <h1>Subtotal: ${{ order.Subtotal }}</h1>
+    <h1>Total: ${{ order.Total }}</h1>
+{% endblock %}
