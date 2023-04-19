@@ -13,4 +13,5 @@ urlpatterns = [
     path('menuItems/', views.addItemToOrder),
     path('menuItems/submitOrder', views.submitOrder),
     path('set-language/', views.set_language, name='set_language'),
+    path('button_testing/', views.button_testing, name='button_testing'),
 ]

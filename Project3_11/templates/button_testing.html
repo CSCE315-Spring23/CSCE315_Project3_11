@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" action="{% url 'button_testing' %}">
+        {% csrf_token %}
+        <button type="submit" name="button_clicked" value="increment">Increment</button>
+        <button type="submit" name="button_clicked" value="decrement">Decrement</button>
+    </form>
+    <h1>Number: {{ number }}</h1>
+{% endblock %}

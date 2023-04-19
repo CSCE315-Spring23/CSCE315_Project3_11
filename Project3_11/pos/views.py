@@ -125,3 +125,15 @@ def set_language(request):
     if language:
         request.session['django_language'] = language
     return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def button_testing(request):
+    number = request.session.get('number', 0)
+    if request.method == 'POST':
+        button_clicked = request.POST.get('button_clicked', None)
+        if button_clicked == 'increment':
+            number += 1
+        elif button_clicked == 'decrement':
+            number -= 1
+        request.session['number'] = number
+    return render(request, 'button_testing.html', {'number': number})
