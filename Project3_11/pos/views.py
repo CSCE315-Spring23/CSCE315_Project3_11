@@ -1,12 +1,13 @@
 import datetime
 
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
 from pos.models import *
-import reportFunctions
+from pos.reportFunctions import *
 
 
 def login(request):
@@ -196,8 +197,15 @@ def whatSalesTogetherReport(request):
 
 def salesReportGeneration(request):
     if request.method == 'POST':
-        sales, salesValues, total_value = reportFunctions.generateSalesReport(datetime.datetime(2023, 2, 1, 0, 0, 0),
-                                                                              datetime.datetime(2023, 3, 1, 0, 0, 0))
+        sales, salesValues, total_value = generateSalesReport(timezone.make_aware(datetime.datetime(2022, 3, 1, 0, 0), timezone.get_current_timezone()),
+                                                                                timezone.make_aware(datetime.datetime(2022, 3, 3, 0, 0), timezone.get_current_timezone()))
+
+        # sales will be the list of menu items ordered
+        print(sales)
+        # salesValues will be the amount of times each menu item was ordered
+        print(salesValues)
+        # total_value will be the sum of all the sales in the time period
+        print(total_value)
         # TODO need to figure out how to call the report functions
         context = {'salesReportData': total_value}
         print("test")

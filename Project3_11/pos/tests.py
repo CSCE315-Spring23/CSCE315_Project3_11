@@ -47,10 +47,13 @@ from pos.menu_functions import *
 # removeInventoryItem("Test")
 
 # sales report given two dates
-# start_date = timezone.make_aware(datetime.datetime(2022, 3, 1, 0, 0), timezone.get_current_timezone())
-# end_date = timezone.make_aware(datetime.datetime(2022, 3, 3, 0, 0), timezone.get_current_timezone())
+# start_date = timezone.make_aware(datetime(2022, 3, 1, 0, 0), timezone.get_current_timezone())
+# end_date = timezone.make_aware(datetime(2022, 3, 3, 0, 0), timezone.get_current_timezone())
 #
 # items, counts, total = generateSalesReport(start_date, end_date)
+# print(items)
+# print(counts)
+# print(total)
 
 # sql command to check functionality (total is messed up)
 # SELECT SUM("Total") AS total_sales, JSONB_ARRAY_ELEMENTS("MenuItemsInOrder") AS item, COUNT(*) AS item_count FROM "Orders" WHERE "DateTimePlaced" BETWEEN '2022-03-01' AND '2022-03-03' GROUP BY item;
