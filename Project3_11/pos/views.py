@@ -39,12 +39,12 @@ def order_page(request):
 
 def inventory_page(request):
     context = {'inventory': 'test order else'}
-    return render(request, 'inventoryItems.html ', context)
+    return render(request, 'inventoryItems.html', context)
 
 
 def reports_page(request):
-    context = {'reports': 'test order else'}
-    return render(request, 'reports.html', context)
+    print("testing")
+    return render(request, 'reports.html')
 
 
 def menuItems(request):
@@ -155,3 +155,15 @@ def order_testing(request):
                 item = MenuItem.objects.get(ItemName=item_clicked)
                 order.add_to_order([item])
     return render(request, 'order_testing.html', {'order': order, 'menu': menu})
+
+
+def view1(request):
+    return render(request, 'xReport.html')
+
+
+def view2(request):
+    return render(request, 'view2.html')
+
+
+def view3(request):
+    return render(request, 'view3.html')

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <nav>
+      <ul>
+        <li><a href="{% url 'view1' %}">View 1</a></li>
+        <li><a href="{% url 'view2' %}">View 2</a></li>
+        <li><a href="{% url 'view3' %}">View 3</a></li>
+      </ul>
+    </nav>
+    <div id="content">
+      {% block content2 %}{% endblock %}
+    </div>
+{% endblock %}
