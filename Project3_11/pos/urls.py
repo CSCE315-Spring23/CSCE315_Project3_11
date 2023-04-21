@@ -16,7 +16,7 @@ urlpatterns = [
     path('button_testing/', views.button_testing, name='button_testing'),
     path('order_testing/', views.order_testing, name='order_testing'),
     path('reports/', views.reports_page, name='reports'),
-    path('view1/', views.view1, name='view1'),
-    path('view2/', views.view2, name='view2'),
-    path('view3/', views.view3, name='view3'),
+    path('salesReport/', views.salesReport, name='salesReport'),
+    path('xReport/', views.xReport, name='xReport'),
+    path('zReport/', views.zReport, name='zReport'),
 ]

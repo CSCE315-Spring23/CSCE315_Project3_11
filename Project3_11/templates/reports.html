@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
+{#   for reference #}
+{#        JButton salesReportGenerateButton = new JButton("Generate");#}
+{#        JButton xReportGenerateButton = new JButton("Generate");#}
+{#        JButton zReportGenerateButton = new JButton("Generate");#}
+{#        JButton excessGenerateButton = new JButton("Generate");#}
+{#        JButton restockGenerateButton = new JButton("Generate");#}
+{#        JButton whatSalesTogetherGenerateButton = new JButton("Generate");#}
+
     <nav>
       <ul>
-        <li><a href="{% url 'view1' %}">View 1</a></li>
-        <li><a href="{% url 'view2' %}">View 2</a></li>
-        <li><a href="{% url 'view3' %}">View 3</a></li>
+        <li><a href="{% url 'salesReport' %}">Sales Report</a></li>
+        <li><a href="{% url 'xReport' %}">X Report</a></li>
+        <li><a href="{% url 'zReport' %}">Z Report</a></li>
+{#        <li><a href="{% url 'view1' %}">Excess Report</a></li>#}
+{#        <li><a href="{% url 'view2' %}">Restock Report</a></li>#}
+{#        <li><a href="{% url 'view3' %}">What Sales Together Report</a></li>#}
       </ul>
     </nav>
     <div id="content">
-      {% block content2 %}{% endblock %}
+      {% block selectedReportContent %}{% endblock %}
     </div>
 {% endblock %}

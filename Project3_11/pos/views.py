@@ -157,13 +157,13 @@ def order_testing(request):
     return render(request, 'order_testing.html', {'order': order, 'menu': menu})
 
 
-def view1(request):
+def salesReport(request):
+    return render(request, 'salesReport.html')
+
+
+def xReport(request):
     return render(request, 'xReport.html')
 
 
-def view2(request):
-    return render(request, 'view2.html')
-
-
-def view3(request):
-    return render(request, 'view3.html')
+def zReport(request):
+    return render(request, 'zReport.html')
