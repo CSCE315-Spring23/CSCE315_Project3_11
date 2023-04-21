@@ -167,3 +167,15 @@ def xReport(request):
 
 def zReport(request):
     return render(request, 'zReport.html')
+
+
+def excessReport(request):
+    return render(request, 'excessReport.html')
+
+
+def restockReport(request):
+    return render(request, 'restockReport.html')
+
+
+def whatSalesTogetherReport(request):
+    return render(request, 'whatSalesTogetherReport.html')
