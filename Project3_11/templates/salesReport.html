@@ -3,4 +3,12 @@
 {% block selectedReportContent %}
   <h1>Sales Report</h1>
   <p>This is the content for View 1.</p>
+    <form method="POST" action="{% url 'salesReportGeneration' %}">
+        {% csrf_token %}
+        {# maybe has input #}
+        <button type="submit">Generate Sales Report</button>
+    </form>
+    {% block salesReportContent %}
+        {{ salesReportData }}
+    {% endblock %}
 {% endblock %}

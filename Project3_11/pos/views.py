@@ -1,9 +1,12 @@
+import datetime
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
 from pos.models import *
+import reportFunctions
 
 
 def login(request):
@@ -66,7 +69,8 @@ def database_info(request):
         # Set other text
         employee_header = 'Employees'
         menu_header = 'Menu'
-        employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position', 'Hours Worked']
+        employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
+                                  'Hours Worked']
         menu_table_headers = ['Item Name', 'Price', 'Definite Items', 'Possible Items']
 
         # Translate if necessary
@@ -74,26 +78,34 @@ def database_info(request):
             # Translate other text
             employee_header = client.translate(employee_header, target_language=target_language)['translatedText']
             menu_header = client.translate(menu_header, target_language=target_language)['translatedText']
-            employee_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in employee_table_headers]
-            menu_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in menu_table_headers]
+            employee_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for
+                                      header in employee_table_headers]
+            menu_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header
+                                  in menu_table_headers]
 
             # Translate employees
             for employee in employees:
-                employee.PositionTitle = client.translate(employee.PositionTitle, target_language=target_language)['translatedText']
+                employee.PositionTitle = client.translate(employee.PositionTitle, target_language=target_language)[
+                    'translatedText']
 
             # Translate menu items
             for menu_item in menu_items:
-                menu_item.ItemName = client.translate(menu_item.ItemName, target_language=target_language)['translatedText']
+                menu_item.ItemName = client.translate(menu_item.ItemName, target_language=target_language)[
+                    'translatedText']
                 translated_definite_items = []
                 for definite_item in menu_item.DefiniteItems:
-                    translated_definite_items += [client.translate(definite_item, target_language=target_language)['translatedText']]
+                    translated_definite_items += [
+                        client.translate(definite_item, target_language=target_language)['translatedText']]
                 menu_item.DefiniteItems = translated_definite_items
                 translated_possible_items = []
                 for possible_item in menu_item.PossibleItems:
-                    translated_possible_items += [client.translate(possible_item, target_language=target_language)['translatedText']]
+                    translated_possible_items += [
+                        client.translate(possible_item, target_language=target_language)['translatedText']]
                 menu_item.PossibleItems = translated_possible_items
 
-        context = {'employees': employees, 'menu_items': menu_items,'employee_header': employee_header, 'menu_header': menu_header, 'employee_headers': employee_table_headers, 'menu_headers': menu_table_headers, 'target_language': target_language}
+        context = {'employees': employees, 'menu_items': menu_items, 'employee_header': employee_header,
+                   'menu_header': menu_header, 'employee_headers': employee_table_headers,
+                   'menu_headers': menu_table_headers, 'target_language': target_language}
         return render(request, 'database_info.html', context)
 
 
@@ -142,6 +154,7 @@ def button_testing(request):
         request.session['order_total'] = order_total
     return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
 
+
 def order_testing(request):
     order = Order(EmployeeID=2)
     menu = MenuItem.objects.all()
@@ -179,3 +192,15 @@ def restockReport(request):
 
 def whatSalesTogetherReport(request):
     return render(request, 'whatSalesTogetherReport.html')
+
+
+def salesReportGeneration(request):
+    if request.method == 'POST':
+        sales, salesValues, total_value = reportFunctions.generateSalesReport(datetime.datetime(2023, 2, 1, 0, 0, 0),
+                                                                              datetime.datetime(2023, 3, 1, 0, 0, 0))
+        # TODO need to figure out how to call the report functions
+        context = {'salesReportData': total_value}
+        print("test")
+        return render(request, 'salesReport.html', context)
+    else:
+        return render(request, 'salesReport.html')
