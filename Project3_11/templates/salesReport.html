@@ -6,6 +6,10 @@
     <form method="POST" action="{% url 'salesReportGeneration' %}">
         {% csrf_token %}
         {# maybe has input #}
+        <label for="startDate">Start DateTime</label>
+        <input type="datetime-local" id="startDate" name="startDate">
+        <label for="endDate">End DateTime</label>
+        <input type="datetime-local" id="endDate" name="endDate">
         <button type="submit">Generate Sales Report</button>
     </form>
     {% block salesReportContent %}

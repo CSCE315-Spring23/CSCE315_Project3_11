@@ -8,7 +8,7 @@ from django.conf import settings
 from django.shortcuts import redirect
 from pos.models import *
 from pos.reportFunctions import *
-
+import datetime as dt
 
 def login(request):
     if request.method == 'POST':
@@ -197,8 +197,11 @@ def whatSalesTogetherReport(request):
 
 def salesReportGeneration(request):
     if request.method == 'POST':
-        sales, salesValues, total_value = generateSalesReport(timezone.make_aware(datetime.datetime(2022, 3, 1, 0, 0), timezone.get_current_timezone()),
-                                                                                timezone.make_aware(datetime.datetime(2022, 3, 3, 0, 0), timezone.get_current_timezone()))
+        startDate = request.POST['startDate']
+        endDate = request.POST['endDate']
+        sales, salesValues, total_value = generateSalesReport(
+            timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
+            timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
 
         # sales will be the list of menu items ordered
         print(sales)
