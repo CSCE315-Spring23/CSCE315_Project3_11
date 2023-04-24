@@ -158,15 +158,29 @@ def button_testing(request):
 
 
 def order_testing(request):
+    button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.all()
     if 'orderpk' in request.session:
         str_time = request.session['orderpk']
-        order = OrderInProgress.objects.get(DateTimeStarted=datetime.strptime(str_time, '%Y-%m-%d %H:%M:%S.%f'))
+        try:
+            order = OrderInProgress.objects.get(DateTimeStarted=datetime.strptime(str_time, '%Y-%m-%d %H:%M:%S.%f'))
+            if button_clicked == 'place_order':
+                items = []
+                menu_items_in_order = []
+                for customized_item in order.CustomizedItems:
+                    items += [customized_item[0]]
+                    menu_items_in_order += customized_item[2]
+                finished_order = Order(EmployeeID=order.EmployeeID, Items=items, Subtotal=order.Subtotal, Total=order.Total, MenuItemsInOrder=menu_items_in_order)
+                finished_order.save()
+                print("placed order at {}".format(finished_order.DateTimePlaced))
+                order.delete()
+                del request.session['orderpk']
+                return render(request, 'order_testing.html', {'order': OrderInProgress(), 'menu': menu})
+        except ValueError:
+            order = OrderInProgress()
     else:
         order = OrderInProgress()
-
     if request.method == 'POST':
-        button_clicked = request.POST.get('button_clicked', None)
         if button_clicked == 'reset':
             order.clear_order()
             order.save()
@@ -175,7 +189,7 @@ def order_testing(request):
             item_clicked = request.POST.get('item_clicked', None)
             if item_clicked:
                 item = MenuItem.objects.get(ItemName=item_clicked)
-                order.add_to_order(item)
+                order.add_to_order(item, [])
                 order.save()
             request.session['orderpk'] = str(order.DateTimeStarted)
             return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
