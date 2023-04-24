@@ -157,17 +157,25 @@ def button_testing(request):
 
 
 def order_testing(request):
-    order = Order(EmployeeID=2)
     menu = MenuItem.objects.all()
+    if 'orderpk' in request.session:
+        str_time = request.session['orderpk']
+        order = OrderInProgress.objects.get(DateTimeStarted=datetime.strptime(str_time, '%Y-%m-%d %H:%M:%S.%f'))
+    else:
+        order = OrderInProgress()
+
     if request.method == 'POST':
         button_clicked = request.POST.get('button_clicked', None)
         if button_clicked == 'reset':
             order.clear_order()
+            order.save()
         else:
             item_clicked = request.POST.get('item_clicked', None)
             if item_clicked:
                 item = MenuItem.objects.get(ItemName=item_clicked)
-                order.add_to_order([item])
+                order.add_to_order(item)
+                order.save()
+    request.session['orderpk'] = str(order.DateTimeStarted)
     return render(request, 'order_testing.html', {'order': order, 'menu': menu})
 
 

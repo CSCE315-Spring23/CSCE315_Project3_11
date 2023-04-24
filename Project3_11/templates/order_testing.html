@@ -13,11 +13,13 @@
             <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button>
         </form>
     {% endfor %}
-    {% if order.order_items %}
+    {% if order.CustomizedItems %}
         <h2>Order Items:</h2>
-        {% for item in order.order_items %}
-            <li>{{ item.ItemName }} - ${{ item.Price }}</li>
+        <ul>
+        {% for item in order.CustomizedItems %}
+            <li>{{ item.0 }} - ${{ item.1 }}</li>
         {% endfor %}
+        </ul>
     {% endif %}
     <h1>Subtotal: ${{ order.Subtotal }}</h1>
     <h1>Total: ${{ order.Total }}</h1>
