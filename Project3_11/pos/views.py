@@ -9,6 +9,7 @@ from django.shortcuts import redirect
 from pos.models import *
 from pos.reportFunctions import *
 import datetime as dt
+from django.http import HttpResponseRedirect
 
 def login(request):
     if request.method == 'POST':
@@ -169,14 +170,17 @@ def order_testing(request):
         if button_clicked == 'reset':
             order.clear_order()
             order.save()
+            return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
         else:
             item_clicked = request.POST.get('item_clicked', None)
             if item_clicked:
                 item = MenuItem.objects.get(ItemName=item_clicked)
                 order.add_to_order(item)
                 order.save()
-    request.session['orderpk'] = str(order.DateTimeStarted)
-    return render(request, 'order_testing.html', {'order': order, 'menu': menu})
+            request.session['orderpk'] = str(order.DateTimeStarted)
+            return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
+    else:
+        return render(request, 'order_testing.html', {'order': order, 'menu': menu})
 
 
 def salesReport(request):
