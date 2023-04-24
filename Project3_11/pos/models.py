@@ -114,6 +114,28 @@ class Order(models.Model):
         self.order_items = []
 
 
+class OrderInProgress(models.Model):
+    DateTimeStarted = models.DateTimeField(auto_now=True, primary_key=True)
+    EmployeeID = models.IntegerField(default=-1)
+    CustomizedItems = models.JSONField(default=list)
+    Subtotal = models.DecimalField(max_digits=28, decimal_places=2, default=0)
+    Total = models.DecimalField(max_digits=28, decimal_places=2, default=0)
+
+    class Meta:
+        db_table = "OrdersInProgress"
+
+    def add_to_order(self, item):
+        inventory_items = item.DefiniteItems + item.selected_items
+        self.CustomizedItems.append([item.ItemName, str(item.Price), inventory_items])
+        self.Subtotal += Decimal(str(item.Price))
+        self.Total = (self.Subtotal * Decimal(str(1.0825))).quantize(Decimal('.01'))
+
+    def clear_order(self):
+        self.CustomizedItems = []
+        self.Subtotal = 0
+        self.Total = 0
+
+
 class RestockOrder(models.Model):
     DateOrdered = models.DateField(primary_key=True)
     DateReceived = models.DateField(null=True, blank=True)
