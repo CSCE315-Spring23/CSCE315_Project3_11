@@ -57,7 +57,7 @@ class MenuItem(models.Model):
 
 
 class Order(models.Model):
-    DateTimePlaced = models.DateTimeField(primary_key=True)
+    DateTimePlaced = models.DateTimeField(auto_now=True, primary_key=True)
     EmployeeID = models.IntegerField(default=-1)
     Items = models.JSONField(default=list)
     Subtotal = models.DecimalField(max_digits=28, decimal_places=2, default=0)
@@ -124,8 +124,8 @@ class OrderInProgress(models.Model):
     class Meta:
         db_table = "OrdersInProgress"
 
-    def add_to_order(self, item):
-        inventory_items = item.DefiniteItems + item.selected_items
+    def add_to_order(self, item, selected_items):
+        inventory_items = item.DefiniteItems + selected_items
         self.CustomizedItems.append([item.ItemName, str(item.Price), inventory_items])
         self.Subtotal += Decimal(str(item.Price))
         self.Total = (self.Subtotal * Decimal(str(1.0825))).quantize(Decimal('.01'))
