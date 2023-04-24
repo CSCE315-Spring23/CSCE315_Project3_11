@@ -3,4 +3,16 @@
 {% block selectedReportContent %}
   <h1>What Sales Together Report</h1>
   <p>This is the content for View 1.</p>
+    <form method="POST" action="{% url 'whatSalesTogetherReportGeneration' %}">
+        {% csrf_token %}
+        {# maybe has input #}
+        <label for="startDate">Start DateTime</label>
+        <input type="datetime-local" id="startDate" name="startDate">
+        <label for="endDate">End DateTime</label>
+        <input type="datetime-local" id="endDate" name="endDate">
+        <button type="submit">Generate What Sales Together Report</button>
+    </form>
+    {% block whatSalesTogetherReportContent %}
+        {{ whatSalesTogetherReportData }}
+    {% endblock %}
 {% endblock %}
