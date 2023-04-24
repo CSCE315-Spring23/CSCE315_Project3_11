@@ -2,7 +2,7 @@
 
 {% block selectedReportContent %}
   <h1>Sales Report</h1>
-  <p>This is the content for View 1.</p>
+  <p>Input start and end times to generate a sales report between the two dates.</p>
     <form method="POST" action="{% url 'salesReportGeneration' %}">
         {% csrf_token %}
         {# maybe has input #}

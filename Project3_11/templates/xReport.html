@@ -2,7 +2,7 @@
 
 {% block selectedReportContent %}
   <h1>X Report</h1>
-  <p>This is the content for View 1.</p>
+  <p>Click the button to generate an X Report.</p>
     <form method="POST" action="{% url 'xReportGeneration' %}">
         {% csrf_token %}
         <button type="submit">Generate X Report</button>

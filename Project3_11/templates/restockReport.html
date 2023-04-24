@@ -2,7 +2,7 @@
 
 {% block selectedReportContent %}
   <h1>Restock Report</h1>
-  <p>This is the content for View 1.</p>
+  <p>Input a threshold amount to generate a restock report.</p>
     <form method="POST" action="{% url 'restockReportGeneration' %}">
         {% csrf_token %}
         {# maybe has input #}

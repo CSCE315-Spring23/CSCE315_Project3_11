@@ -11,6 +11,7 @@ from pos.reportFunctions import *
 import datetime as dt
 from django.http import HttpResponseRedirect
 
+
 def login(request):
     if request.method == 'POST':
         employee_id = request.POST['employee_id']
@@ -296,10 +297,10 @@ def excessReportGeneration(request):
 
 def restockReportGeneration(request):
     if request.method == 'POST':
-        threshold = request.POST['threshold']
-        try:
-            restock_items = generateRestockReport(int(threshold))
-        except ValueError:
+        threshold = int(request.POST['threshold'])
+        if threshold > 0:
+            restock_items = generateRestockReport(threshold)
+        else:
             context = {'restockReportData': 'Please input a valid number'}
             return render(request, 'restockReport.html', context)
         # total_value will be the sum of all the sales in the time period
