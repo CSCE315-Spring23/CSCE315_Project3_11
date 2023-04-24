@@ -3,4 +3,14 @@
 {% block selectedReportContent %}
   <h1>Excess Report</h1>
   <p>This is the content for View 1.</p>
+    <form method="POST" action="{% url 'excessReportGeneration' %}">
+        {% csrf_token %}
+        {# maybe has input #}
+        <label for="datePlaced">Datetime Placed</label>
+        <input type="datetime-local" id="datePlaced" name="datePlaced">
+        <button type="submit">Generate Excess Report</button>
+    </form>
+    {% block excessReportContent %}
+        {{ excessReportData }}
+    {% endblock %}
 {% endblock %}

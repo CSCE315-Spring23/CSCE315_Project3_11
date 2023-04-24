@@ -24,4 +24,6 @@ urlpatterns = [
     path('whatSalesTogetherReport/', views.whatSalesTogetherReport, name='whatSalesTogetherReport'),
     path('salesReportGeneration/', views.salesReportGeneration, name='salesReportGeneration'),
     path('xReportGeneration/', views.xReportGeneration, name='xReportGeneration'),
+    path('zReportGeneration/', views.zReportGeneration, name='zReportGeneration'),
+    path('excessReportGeneration/', views.excessReportGeneration, name='excessReportGeneration'),
 ]

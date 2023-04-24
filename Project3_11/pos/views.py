@@ -224,9 +224,7 @@ def salesReportGeneration(request):
         print(salesValues)
         # total_value will be the sum of all the sales in the time period
         print(total_value)
-        # TODO need to figure out how to call the report functions
         context = {'salesReportData': total_value}
-        print("test")
         return render(request, 'salesReport.html', context)
     else:
         return render(request, 'salesReport.html')
@@ -245,3 +243,35 @@ def xReportGeneration(request):
         return render(request, 'xReport.html', context)
     else:
         return render(request, 'xReport.html')
+
+
+def zReportGeneration(request):
+    if request.method == 'POST':
+        try:
+            total_sales = generateZReport()
+        except ValueError:
+            context = {'zReportData': 'Please input a valid datetime'}
+            return render(request, 'zReport.html', context)
+        # total_value will be the sum of all the sales in the time period
+        print(total_sales)
+        context = {'zReportData': total_sales}
+        return render(request, 'zReport.html', context)
+    else:
+        return render(request, 'zReport.html')
+
+
+def excessReportGeneration(request):
+    if request.method == 'POST':
+        datePlaced = request.POST['datePlaced']
+        try:
+            excess_items = generateExcessReport(
+                timezone.make_aware(dt.datetime.strptime(datePlaced, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
+        except ValueError:
+            context = {'excessReportData': 'Please input a valid datetime'}
+            return render(request, 'excessReport.html', context)
+        # total_value will be the sum of all the sales in the time period
+        print(excess_items)
+        context = {'excessReportData': excess_items}
+        return render(request, 'excessReport.html', context)
+    else:
+        return render(request, 'excessReport.html')
