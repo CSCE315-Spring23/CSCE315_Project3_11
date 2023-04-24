@@ -199,10 +199,13 @@ def salesReportGeneration(request):
     if request.method == 'POST':
         startDate = request.POST['startDate']
         endDate = request.POST['endDate']
-        sales, salesValues, total_value = generateSalesReport(
-            timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
-            timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
-
+        try:
+            sales, salesValues, total_value = generateSalesReport(
+                timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
+                timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
+        except ValueError:
+            context = {'salesReportData': 'Please input a valid datetime'}
+            return render(request, 'salesReport.html', context)
         # sales will be the list of menu items ordered
         print(sales)
         # salesValues will be the amount of times each menu item was ordered
@@ -215,3 +218,18 @@ def salesReportGeneration(request):
         return render(request, 'salesReport.html', context)
     else:
         return render(request, 'salesReport.html')
+
+
+def xReportGeneration(request):
+    if request.method == 'POST':
+        try:
+            total_sales = generateXReport()
+        except ValueError:
+            context = {'xReportData': 'Please input a valid datetime'}
+            return render(request, 'xReport.html', context)
+        # total_value will be the sum of all the sales in the time period
+        print(total_sales)
+        context = {'xReportData': total_sales}
+        return render(request, 'xReport.html', context)
+    else:
+        return render(request, 'xReport.html')

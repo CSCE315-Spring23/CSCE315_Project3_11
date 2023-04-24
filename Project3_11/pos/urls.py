@@ -23,4 +23,5 @@ urlpatterns = [
     path('restockReport/', views.restockReport, name='restockReport'),
     path('whatSalesTogetherReport/', views.whatSalesTogetherReport, name='whatSalesTogetherReport'),
     path('salesReportGeneration/', views.salesReportGeneration, name='salesReportGeneration'),
+    path('xReportGeneration/', views.xReportGeneration, name='xReportGeneration'),
 ]
