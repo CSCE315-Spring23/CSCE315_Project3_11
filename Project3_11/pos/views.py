@@ -271,7 +271,30 @@ def excessReportGeneration(request):
             return render(request, 'excessReport.html', context)
         # total_value will be the sum of all the sales in the time period
         print(excess_items)
-        context = {'excessReportData': excess_items}
+        excessItemNames = []
+        for item in excess_items:
+            excessItemNames.append(item.Name)
+        context = {'excessReportData': excessItemNames}
         return render(request, 'excessReport.html', context)
     else:
         return render(request, 'excessReport.html')
+
+
+def restockReportGeneration(request):
+    if request.method == 'POST':
+        datePlaced = request.POST['datePlaced']
+        try:
+            restock_items = generateRestockReport( #just needs a num input
+                timezone.make_aware(dt.datetime.strptime(datePlaced, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
+        except ValueError:
+            context = {'restockReportData': 'Please input a valid datetime'}
+            return render(request, 'restockReport.html', context)
+        # total_value will be the sum of all the sales in the time period
+        print(restock_items)
+        restockItemNames = []
+        for item in restock_items:
+            restockItemNames.append(item.Name)
+        context = {'restockReportData': restockItemNames}
+        return render(request, 'restockReport.html', context)
+    else:
+        return render(request, 'restockReport.html')

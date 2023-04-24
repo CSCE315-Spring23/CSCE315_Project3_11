@@ -3,4 +3,14 @@
 {% block selectedReportContent %}
   <h1>Restock Report</h1>
   <p>This is the content for View 1.</p>
+    <form method="POST" action="{% url 'restockReportGeneration' %}">
+        {% csrf_token %}
+        {# maybe has input #}
+        <label for="datePlaced">Datetime Placed</label>
+        <input type="datetime-local" id="datePlaced" name="datePlaced">
+        <button type="submit">Generate Restock Report</button>
+    </form>
+    {% block restockReportContent %}
+        {{ restockReportData }}
+    {% endblock %}
 {% endblock %}
