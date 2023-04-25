@@ -57,7 +57,7 @@ class MenuItem(models.Model):
 
 
 class Order(models.Model):
-    DateTimePlaced = models.DateTimeField(auto_now=True, primary_key=True)
+    DateTimePlaced = models.DateTimeField(primary_key=True)
     EmployeeID = models.IntegerField(default=-1)
     Items = models.JSONField(default=list)
     Subtotal = models.DecimalField(max_digits=28, decimal_places=2, default=0)
