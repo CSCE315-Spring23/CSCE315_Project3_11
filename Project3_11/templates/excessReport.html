@@ -2,7 +2,7 @@
 
 {% block selectedReportContent %}
   <h1>Excess Report</h1>
-  <p>This is the content for View 1.</p>
+  <p>Enter a date placed to generate an excess report for that day.</p>
     <form method="POST" action="{% url 'excessReportGeneration' %}">
         {% csrf_token %}
         {# maybe has input #}

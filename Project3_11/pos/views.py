@@ -12,6 +12,7 @@ from pos.reportFunctions import *
 import datetime as dt
 from django.http import HttpResponseRedirect
 
+
 def login(request):
     if request.method == 'POST':
         employee_id = request.POST['employee_id']
@@ -300,12 +301,11 @@ def excessReportGeneration(request):
 
 def restockReportGeneration(request):
     if request.method == 'POST':
-        datePlaced = request.POST['datePlaced']
-        try:
-            restock_items = generateRestockReport( #just needs a num input
-                timezone.make_aware(dt.datetime.strptime(datePlaced, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
-        except ValueError:
-            context = {'restockReportData': 'Please input a valid datetime'}
+        threshold = int(request.POST['threshold'])
+        if threshold > 0:
+            restock_items = generateRestockReport(threshold)
+        else:
+            context = {'restockReportData': 'Please input a valid number'}
             return render(request, 'restockReport.html', context)
         # total_value will be the sum of all the sales in the time period
         print(restock_items)
@@ -316,3 +316,23 @@ def restockReportGeneration(request):
         return render(request, 'restockReport.html', context)
     else:
         return render(request, 'restockReport.html')
+
+
+def whatSalesTogetherReportGeneration(request):
+    if request.method == 'POST':
+        startDate = request.POST['startDate']
+        endDate = request.POST['endDate']
+        try:
+            sorted_pairs = whatSalesTogether(
+                timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
+                timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
+        except ValueError:
+            context = {'whatSalesTogetherReportData': 'Please input a valid datetime'}
+            return render(request, 'whatSalesTogetherReport.html', context)
+        # sales will be the list of menu items ordered
+        print(sorted_pairs)
+
+        context = {'whatSalesTogetherReportData': sorted_pairs}
+        return render(request, 'whatSalesTogetherReport.html', context)
+    else:
+        return render(request, 'whatSalesTogetherReport.html')
