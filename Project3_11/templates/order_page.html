@@ -27,4 +27,8 @@
     {% endif %}
     <h1>Subtotal: ${{ order.Subtotal }}</h1>
     <h1>Total: ${{ order.Total }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="button_clicked" value="place_order">Place Order</button>
+    </form>
 {% endblock %}
