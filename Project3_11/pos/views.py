@@ -1,5 +1,6 @@
 import datetime
 
+from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
@@ -157,7 +158,7 @@ def button_testing(request):
     return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
 
 
-def order_testing(request):
+def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.all()
     if 'orderpk' in request.session:
@@ -172,10 +173,9 @@ def order_testing(request):
                     menu_items_in_order += customized_item[2]
                 finished_order = Order(EmployeeID=order.EmployeeID, Items=items, Subtotal=order.Subtotal, Total=order.Total, MenuItemsInOrder=menu_items_in_order)
                 finished_order.save()
-                print("placed order at {}".format(finished_order.DateTimePlaced))
                 order.delete()
                 del request.session['orderpk']
-                return render(request, 'order_testing.html', {'order': OrderInProgress(), 'menu': menu})
+                return render(request, 'order_page.html', {'order': OrderInProgress(), 'menu': menu})
         except ValueError:
             order = OrderInProgress()
     else:
@@ -189,12 +189,16 @@ def order_testing(request):
             item_clicked = request.POST.get('item_clicked', None)
             if item_clicked:
                 item = MenuItem.objects.get(ItemName=item_clicked)
-                order.add_to_order(item, [])
+                selected_items = []
+                toppings_clicked = request.POST.getlist('topping_clicked', None)
+                if toppings_clicked:
+                    selected_items = toppings_clicked
+                order.add_to_order(item, selected_items)
                 order.save()
             request.session['orderpk'] = str(order.DateTimeStarted)
             return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
     else:
-        return render(request, 'order_testing.html', {'order': order, 'menu': menu})
+        return render(request, 'order_page.html', {'order': order, 'menu': menu})
 
 
 def salesReport(request):

@@ -14,7 +14,7 @@ urlpatterns = [
     path('menuItems/submitOrder', views.submitOrder),
     path('set-language/', views.set_language, name='set_language'),
     path('button_testing/', views.button_testing, name='button_testing'),
-    path('order_testing/', views.order_testing, name='order_testing'),
+    path('order_page/', views.order_page, name='order_page'),
     path('reports/', views.reports_page, name='reports'),
     path('salesReport/', views.salesReport, name='salesReport'),
     path('xReport/', views.xReport, name='xReport'),

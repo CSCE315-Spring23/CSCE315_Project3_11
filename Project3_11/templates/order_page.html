@@ -10,7 +10,11 @@
     {% for item in menu %}
         <form method="post">
             {% csrf_token %}
-            <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button>
+            <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button><br>
+            {% for topping in item.PossibleItems %}
+                <input type="checkbox" id="{{ topping }}" name="topping_clicked" value="{{ topping }}">{{ topping }}
+                <label for="{{ topping.ItemName }}">{{ topping.ItemName }}</label>
+            {% endfor %}
         </form>
     {% endfor %}
     {% if order.CustomizedItems %}
