@@ -12,8 +12,8 @@
             {% csrf_token %}
             <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button><br>
             {% for topping in item.PossibleItems %}
-                <input type="checkbox" id="{{ topping }}" name="topping_clicked" value="{{ topping }}">{{ topping }}
-                <label for="{{ topping.ItemName }}">{{ topping.ItemName }}</label>
+                <input type="checkbox" id="{{ item.ItemName }} {{ topping }}" name="topping_clicked" value="{{ topping }}">
+                <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
             {% endfor %}
         </form>
     {% endfor %}
