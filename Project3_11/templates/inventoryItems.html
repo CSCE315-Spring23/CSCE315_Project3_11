@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Edit Inventory Items</h2>
+    <form method="POST" action="{% url 'editThisInventoryItem' %}">
+        {% csrf_token %}
     <table>
         <tr>
             <th>Name</th>
@@ -14,7 +16,14 @@
             <td>{{ item.Stock }}</td>
             <td>{{ item.NumberNeeded }}</td>
             <td>{{ item.Units }}</td>
+            <td>
+                <button type="submit" id="{{ item.Name }}">Edit {{ item.Name }}</button>
+            </td>
+            <td>
+                <button type="submit" id="itemName" name="{{ item.Name }}">{{ item.Name }}</button>
+            </td>
         </tr>
     {% endfor %}
     </table>
+    </form>
 {% endblock %}

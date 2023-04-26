@@ -335,3 +335,12 @@ def whatSalesTogetherReportGeneration(request):
 def editInventoryItems(request):
     menu_items = InventoryItem.objects.all()
     return render(request, 'inventoryItems.html', {'menuItems':menu_items})
+
+
+def editThisInventoryItem(request):
+    print(request.POST)
+    test = request.GET.get('id')
+    print(test)
+    test = request.POST.get('id')
+    print(test)
+    return render(request, 'editThisInventoryItem.html', {'inventoryItem':test})

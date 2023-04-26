@@ -27,4 +27,5 @@ urlpatterns = [
     path('restockReportGeneration/', views.restockReportGeneration, name='restockReportGeneration'),
     path('whatSalesTogetherReportGeneration/', views.whatSalesTogetherReportGeneration, name='whatSalesTogetherReportGeneration'),
     path('editInventoryItems/', views.editInventoryItems, name='editInventoryItems'),
+    path('editThisInventoryItem/', views.editThisInventoryItem, name='editThisInventoryItem'),
 ]
