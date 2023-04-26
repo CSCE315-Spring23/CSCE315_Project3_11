@@ -11,9 +11,27 @@
         <form method="post">
             {% csrf_token %}
             <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button><br>
-            {% for topping in item.PossibleItems %}
-                <input type="checkbox" id="{{ item.ItemName }} {{ topping }}" name="topping_clicked" value="{{ topping }}">
-                <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+            {% for category, toppings in item_categories.items %}
+                {% for topping in toppings %}
+                    {% if topping in item.PossibleItems %}
+                        {% if category == "base" %}
+                            <input type="radio" id="{{ item.ItemName}} {{ topping }}" name="base_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                        {% elif category == "protein" %}
+                            <input type="radio" id="{{ item.ItemName }} {{ topping }}" name="protein_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                        {% elif category == "toppings" %}
+                            <input type="checkbox" id="{{ item.ItemName }} {{ topping }}" name="toppings_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                        {% elif category == "sauces" %}
+                            <input type="radio" id="{{ item.ItemName }} {{ topping }}" name="sauce_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                        {% elif category == "drinks" %}
+                            <input type="radio" id="{{ item.ItemName }} {{ topping }}" name="drink_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
         </form>
     {% endfor %}

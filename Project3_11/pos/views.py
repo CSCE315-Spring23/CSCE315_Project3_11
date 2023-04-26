@@ -39,11 +39,6 @@ def employee_page(request):
         return render(request, 'employee.html', content)
 
 
-def order_page(request):
-    context = {'order': 'test order else'}
-    return render(request, 'order.html', context)
-
-
 def inventory_page(request):
     context = {'inventory': 'test order else'}
     return render(request, 'inventoryItems.html', context)
@@ -113,25 +108,6 @@ def database_info(request):
         return render(request, 'database_info.html', context)
 
 
-def addItemToOrder(request):
-    # if request.method == 'POST':
-    #     button_name = request.POST.get('buttonTesting', '')
-    #     # Logic to add text to the website based on the button name
-    #     text = ":P {}".format(button_name)
-    #     context = {'text': text}
-    #     return render(request, 'menuItems.html', context)
-    # else:
-    #     # Handle GET request
-    #     return render(request, 'menuItems.html')
-    # content = {'items': 'test hi'}
-    # return render(request, 'menuItems.html', content)
-    return HttpResponse(render(request, 'menuItems.html'))
-
-
-def submitOrder(request):
-    return HttpResponse(render(request, 'menuItems.html'))
-
-
 def set_language(request):
     language = request.POST.get('language')
 
@@ -162,6 +138,12 @@ def button_testing(request):
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.all()
+    inventory_items = InventoryItem.objects.all()
+    item_categories = {}
+    for item in inventory_items:
+        if item.Category not in item_categories:
+            item_categories[item.Category] = []
+        item_categories[item.Category].append(item.Name)
     if 'orderpk' in request.session:
         str_time = request.session['orderpk']
         try:
@@ -176,7 +158,7 @@ def order_page(request):
                 finished_order.save()
                 order.delete()
                 del request.session['orderpk']
-                return render(request, 'order_page.html', {'order': OrderInProgress(), 'menu': menu})
+                return render(request, 'order_page.html', {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories})
         except ValueError:
             order = OrderInProgress()
     else:
@@ -185,21 +167,33 @@ def order_page(request):
         if button_clicked == 'reset':
             order.clear_order()
             order.save()
-            return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
+            return HttpResponseRedirect(request.path_info)
         else:
             item_clicked = request.POST.get('item_clicked', None)
             if item_clicked:
                 item = MenuItem.objects.get(ItemName=item_clicked)
                 selected_items = []
-                toppings_clicked = request.POST.getlist('topping_clicked', None)
-                if toppings_clicked:
-                    selected_items = toppings_clicked
+                base_selected = request.POST.get('base_selected', None)
+                if base_selected:
+                    selected_items += [base_selected]
+                protein_selected = request.POST.get('protein_selected', None)
+                if protein_selected:
+                    selected_items += [protein_selected]
+                toppings_selected = request.POST.getlist('toppings_selected', None)
+                if toppings_selected:
+                    selected_items += toppings_selected
+                sauce_selected = request.POST.get('sauce_selected', None)
+                if sauce_selected:
+                    selected_items += [sauce_selected]
+                drink_selected = request.POST.get('drink_selected', None)
+                if drink_selected:
+                    selected_items += [drink_selected]
                 order.add_to_order(item, selected_items)
                 order.save()
             request.session['orderpk'] = str(order.DateTimeStarted)
-            return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
+            return HttpResponseRedirect(request.path_info)
     else:
-        return render(request, 'order_page.html', {'order': order, 'menu': menu})
+        return render(request, 'order_page.html', {'order': order, 'menu': menu, 'item_categories': item_categories})
 
 
 def salesReport(request):
