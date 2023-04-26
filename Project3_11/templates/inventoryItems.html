@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Edit Inventory Items</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Number Needed</th>
+            <th>Units</th>
+        </tr>
+    {% for item in menuItems %}
+        <tr>
+            <td>{{ item.Name }}</td>
+            <td>{{ item.Stock }}</td>
+            <td>{{ item.NumberNeeded }}</td>
+            <td>{{ item.Units }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

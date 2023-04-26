@@ -28,4 +28,5 @@ urlpatterns = [
     path('excessReportGeneration/', views.excessReportGeneration, name='excessReportGeneration'),
     path('restockReportGeneration/', views.restockReportGeneration, name='restockReportGeneration'),
     path('whatSalesTogetherReportGeneration/', views.whatSalesTogetherReportGeneration, name='whatSalesTogetherReportGeneration'),
+    path('editInventoryItems/', views.editInventoryItems, name='editInventoryItems'),
 ]

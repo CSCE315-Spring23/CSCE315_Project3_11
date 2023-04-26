@@ -336,3 +336,8 @@ def whatSalesTogetherReportGeneration(request):
         return render(request, 'whatSalesTogetherReport.html', context)
     else:
         return render(request, 'whatSalesTogetherReport.html')
+
+
+def editInventoryItems(request):
+    menu_items = InventoryItem.objects.all()
+    return render(request, 'inventoryItems.html', {'menuItems':menu_items})
