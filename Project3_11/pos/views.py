@@ -118,7 +118,6 @@ def set_language(request):
         request.session['django_language'] = language
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
-
 def button_testing(request):
     order_total = request.session.get('order_total', 0)
     menu = MenuItem.objects.all()
@@ -133,6 +132,13 @@ def button_testing(request):
                 order_total = str(Decimal(order_total) + item.Price)
         request.session['order_total'] = order_total
     return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
+
+
+def button_testing_page2(request):
+    # How to redirect to next page passing name of item to edit
+    edit_item = request.POST.get('edit_item', None)
+    return render(request, 'button_testing_page2.html', {'edit_item': edit_item})
+
 
 
 def order_page(request):
