@@ -140,7 +140,6 @@ def button_testing_page2(request):
     return render(request, 'button_testing_page2.html', {'edit_item': edit_item})
 
 
-
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.all()
@@ -175,7 +174,7 @@ def order_page(request):
             order.save()
             return HttpResponseRedirect(request.path_info)
         else:
-            item_clicked = request.POST.get('item_clicked', None)
+            item_clicked = request.POST.get('menu_item_selected', None)
             if item_clicked:
                 item = MenuItem.objects.get(ItemName=item_clicked)
                 selected_items = []
@@ -194,8 +193,9 @@ def order_page(request):
                 drink_selected = request.POST.get('drink_selected', None)
                 if drink_selected:
                     selected_items += [drink_selected]
-                order.add_to_order(item, selected_items)
-                order.save()
+                if button_clicked == 'add_to_order':
+                    order.add_to_order(item, selected_items)
+                    order.save()
             request.session['orderpk'] = str(order.DateTimeStarted)
             return HttpResponseRedirect(request.path_info)
     else:

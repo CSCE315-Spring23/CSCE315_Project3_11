@@ -7,34 +7,40 @@
         <button type="submit" name="button_clicked" value="reset">Reset</button>
     </form>
     <br>
+    <form method="post">
     {% for item in menu %}
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit" name="item_clicked" value="{{ item.ItemName }}">{{ item.ItemName }}</button><br>
-            {% for category, toppings in item_categories.items %}
+        {% csrf_token %}
+        <input type="radio" id="{{ item.ItemName }}" name="menu_item_selected" value="{{ item.ItemName }}">
+        <label for="{{ item.ItemName }}">{{ item.ItemName }}</label><br>
+        {% for category, toppings in item_categories.items %}
+            <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
                 {% for topping in toppings %}
                     {% if topping in item.PossibleItems %}
                         {% if category == "base" %}
-                            <input type="radio" id="{{ item.ItemName}} {{ topping }}" name="base_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="base_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
                         {% elif category == "protein" %}
-                            <input type="radio" id="{{ item.ItemName }} {{ topping }}" name="protein_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="protein_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
                         {% elif category == "toppings" %}
-                            <input type="checkbox" id="{{ item.ItemName }} {{ topping }}" name="toppings_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                            <input type="checkbox" id="{{ item.ItemName }}_{{ topping }}" name="toppings_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
                         {% elif category == "sauces" %}
-                            <input type="radio" id="{{ item.ItemName }} {{ topping }}" name="sauce_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="sauce_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
                         {% elif category == "drinks" %}
-                            <input type="radio" id="{{ item.ItemName }} {{ topping }}" name="drink_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }} {{ topping }}">{{ topping }}</label>
+                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="drink_selected" value="{{ topping }}">
+                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
-            {% endfor %}
-        </form>
+            </div>
+        {% endfor %}
+        <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
+            <br><button type="submit" name="button_clicked" value="add_to_order">Add to Order</button><br><br>
+        </div>
     {% endfor %}
+    </form>
     {% if order.CustomizedItems %}
         <h2>Order Items:</h2>
         <ul>
@@ -49,4 +55,24 @@
         {% csrf_token %}
         <button type="submit" name="button_clicked" value="place_order">Place Order</button>
     </form>
+    <script>
+    const menuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]');
+        menuItems.forEach(function(menuItem) {
+            menuItem.addEventListener('change', function() {
+                const menuItemName = this.value;
+                const addOnDivs = document.querySelectorAll('[id^="' + menuItemName + '"]');
+                addOnDivs.forEach(function(addOnDiv) {
+                addOnDiv.style.display = 'inline';
+            });
+            const otherMenuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]:not(:checked)');
+                otherMenuItems.forEach(function(otherMenuItem) {
+                const otherMenuItemName = otherMenuItem.value;
+                const otherAddOnDivs = document.querySelectorAll('[id^="' + otherMenuItemName + '"]');
+                    otherAddOnDivs.forEach(function(otherAddOnDiv) {
+                    otherAddOnDiv.style.display = 'none';
+                });
+            });
+        });
+    });
+    </script>
 {% endblock %}
