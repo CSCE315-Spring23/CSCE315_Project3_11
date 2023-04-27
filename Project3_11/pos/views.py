@@ -55,7 +55,7 @@ def menuItems(request):
     content = {'menuTest': fullMenu}
     return HttpResponse(render(request, 'menuItems.html', content))
 
-
+import base64
 def database_info(request):
     if request.method == 'GET':
         client = translate.Client(credentials=settings.CREDENTIALS)
@@ -70,7 +70,7 @@ def database_info(request):
         menu_header = 'Menu'
         employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
                                   'Hours Worked']
-        menu_table_headers = ['Item Name', 'Price', 'Definite Items', 'Possible Items']
+        menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
 
         # Translate if necessary
         if target_language != 'en':

@@ -6,7 +6,8 @@ CREATE TABLE "InventoryItems" (
     "Units" text,
     "Category" text,
     "Servings" int,
-    "RestockCost" int
+    "RestockCost" int,
+    "Image" bytea
 );
 
 GRANT ALL PRIVILEGES ON "InventoryItems" TO csce315331_pusey;

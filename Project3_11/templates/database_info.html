@@ -36,6 +36,7 @@
             <tbody>
                 {% for menu_item in menu_items %}
                     <tr>
+                        <td><img src="data:image/png;base64,{{ menu_item.Image|safe }}" alt="{{ menu_item.ItemName }}"></td>
                         <td>{{ menu_item.ItemName }}</td>
                         <td>{{ menu_item.Price }}</td>
                         <td>

@@ -102,4 +102,9 @@ from pos.menu_functions import *
 #     print(element.get('value'))
 #---------------------------------------------------------------
 
-
+# --------------------------------------------------------------
+# Encoding images to base64
+# items = InventoryItem.objects.all()
+# for item in items:
+#     print(item.Name)
+# --------------------------------------------------------------
