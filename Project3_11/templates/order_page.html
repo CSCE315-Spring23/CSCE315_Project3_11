@@ -34,6 +34,9 @@
                         {% endif %}
                     {% endif %}
                 {% endfor %}
+                {% if category in item.categories %}
+                    <br>
+                {% endif %}
             </div>
         {% endfor %}
         <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
@@ -65,10 +68,10 @@
                 addOnDiv.style.display = 'inline';
             });
             const otherMenuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]:not(:checked)');
-                otherMenuItems.forEach(function(otherMenuItem) {
+            otherMenuItems.forEach(function(otherMenuItem) {
                 const otherMenuItemName = otherMenuItem.value;
                 const otherAddOnDivs = document.querySelectorAll('[id^="' + otherMenuItemName + '"]');
-                    otherAddOnDivs.forEach(function(otherAddOnDiv) {
+                otherAddOnDivs.forEach(function(otherAddOnDiv) {
                     otherAddOnDiv.style.display = 'none';
                 });
             });

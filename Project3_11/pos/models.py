@@ -55,6 +55,25 @@ class MenuItem(models.Model):
     def select_items(self, selected_items):
         self.selected_items = selected_items
 
+    def update_categories(self):
+        self.categories = []
+        for possible_item in self.PossibleItems:
+            try:
+                inventory_item = InventoryItem.objects.get(Name=possible_item)
+                category = inventory_item.Category
+                if category not in self.categories:
+                    self.categories.append(category)
+            except ObjectDoesNotExist:
+                print("Does not exist: " + possible_item)
+
+    def save(self, *args, **kwargs):
+        self.update_categories()
+        super().save(*args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.update_categories()
+
 
 class Order(models.Model):
     DateTimePlaced = models.DateTimeField(primary_key=True)
