@@ -364,25 +364,42 @@ def editInventoryItems(request):
 
 def editThisInventoryItem(request):
     editItem = request.POST.get('inventoryItem', None)
-    print(editItem)
     editItem = InventoryItem.objects.get(Name=editItem)
-    print(editItem)
     return render(request, 'editThisInventoryItem.html', {'inventoryItem':editItem})
 
 
 def submitInventoryEdit(request):
     if request.method == 'POST':
-        editItem = request.POST.get('inventoryItem', None)
-        print(editItem)
-        # editItem = InventoryItem.objects.get(Name=editItem)
-        print(editItem)
-        print('test')
+        editItem = request.POST.get('passedInventoryItem', None)
+        editItem = InventoryItem.objects.get(Name=editItem)
         stock = request.POST.get('stock')
-        print(stock)
-        stock1 = request.POST['stock']
-        if stock1:
+        numberNeeded = request.POST.get('numNeeded')
+        orderChance = request.POST.get('orderChance')
+        units = request.POST.get('units')
+        category = request.POST.get('category')
+        servings = request.POST.get('servings')
+        restockCost = request.POST.get('restockCost')
+        print("test")
+        if stock:
+            print("test1")
+            editItem.Stock = int(stock)
+            print("test2")
+        if numberNeeded:
 
-            print(stock1)
+            editItem.NumberNeeded = int(numberNeeded)
+        if orderChance:
+            editItem.OrderChance = float(orderChance)
+        if units:
+            editItem.Units = units
+        if category:
+            editItem.Category = category
+        if servings:
+            editItem.Servings = int(servings)
+        if restockCost:
+            editItem.RestockCost = int(restockCost)
+        print("test3")
+        editItem.save()
+
         inventoryItems = InventoryItem.objects.all()
         return render(request, 'inventoryItems.html',{'inventoryItems':inventoryItems})
     else:
