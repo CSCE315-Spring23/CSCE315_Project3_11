@@ -38,10 +38,14 @@ class InventoryItem(models.Model):
     Category = models.TextField()
     Servings = models.IntegerField()
     RestockCost = models.IntegerField()
+    Image = models.BinaryField(null=True, blank=True)
 
     class Meta:
         db_table = "InventoryItems"
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.Image = bytes(self.Image).decode('utf-8')
 
 class MenuItem(models.Model):
     ItemName = models.TextField(primary_key=True)
@@ -75,7 +79,7 @@ class MenuItem(models.Model):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.update_categories()
-        self.Image = base64.b64encode(bytes(self.Image)).decode('utf-8')
+        self.Image = bytes(self.Image).decode('utf-8')
 
 
 class Order(models.Model):

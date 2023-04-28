@@ -64,23 +64,34 @@ def database_info(request):
         # Get database information
         employees = Employee.objects.all()
         menu_items = MenuItem.objects.all()
+        inventory_items = InventoryItem.objects.all()
+        for item in inventory_items:
+            print(item.Name)
+            print(item.Image)
+        for item in menu_items:
+            print(item.ItemName)
+            print(item.Image)
 
         # Set other text
         employee_header = 'Employees'
         menu_header = 'Menu'
+        inventory_header = 'Inventory'
         employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
                                   'Hours Worked']
         menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
+        inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category', 'Servings', 'RestockCost']
 
         # Translate if necessary
         if target_language != 'en':
             # Translate other text
             employee_header = client.translate(employee_header, target_language=target_language)['translatedText']
             menu_header = client.translate(menu_header, target_language=target_language)['translatedText']
+            inventory_header = client.translate(inventory_header, target_language=target_language)['translatedText']
             employee_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for
                                       header in employee_table_headers]
             menu_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header
                                   in menu_table_headers]
+            inventory_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in inventory_table_headers]
 
             # Translate employees
             for employee in employees:
@@ -102,8 +113,14 @@ def database_info(request):
                         client.translate(possible_item, target_language=target_language)['translatedText']]
                 menu_item.PossibleItems = translated_possible_items
 
-        context = {'employees': employees, 'menu_items': menu_items, 'employee_header': employee_header,
-                   'menu_header': menu_header, 'employee_headers': employee_table_headers,
+            # Translate inventory items
+            for inventory_item in inventory_items:
+                inventory_item.Name = client.translate(inventory_item.Name, target_language=target_language)['translatedText']
+                inventory_item.Units = client.translate(inventory_item.Units, target_language=target_language)['translatedText']
+                inventory_item.Category = client.translate(inventory_item.Category, target_language=target_language)['translatedText']
+
+        context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items, 'employee_header': employee_header, 'inventory_header': inventory_header,
+                   'menu_header': menu_header, 'employee_headers': employee_table_headers, 'inventory_table_headers': inventory_table_headers,
                    'menu_headers': menu_table_headers, 'target_language': target_language}
         return render(request, 'database_info.html', context)
 

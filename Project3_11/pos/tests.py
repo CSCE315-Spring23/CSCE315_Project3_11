@@ -1,3 +1,5 @@
+import os
+
 from django.test import TestCase
 import json
 
@@ -103,8 +105,29 @@ from pos.menu_functions import *
 #---------------------------------------------------------------
 
 # --------------------------------------------------------------
-# Encoding images to base64
+# Encoding images to base64 and creating SQL commands to update the database
 # items = InventoryItem.objects.all()
-# for item in items:
-#     print(item.Name)
+# with open ("pos/images/update_inventory_pictures.sql", "w") as sql_file:
+#     for item in items:
+#         item_image_file = "pos/images/Default Image.png"
+#         if os.path.isfile("pos/images/" + item.Name + ".png"):
+#             item_image_file = item.Name + ".png"
+#         with open(item_image_file, "rb") as image_file:
+#             image_str = str(base64.b64encode(image_file.read()))
+#             image_str = image_str[2:len(image_str) - 1]
+#             out_line = "UPDATE \"InventoryItems\" SET \"Image\" = '" + image_str + "' WHERE \"Name\" = '" + item.Name + "';\n"
+#             sql_file.write(out_line)
+#             print(out_line)
+# menu_items = MenuItem.objects.all()
+# with open ("pos/images/update_menu_pictures.sql", "w") as sql_file:
+#     for item in menu_items:
+#         item_image_file = "pos/images/Default Image.png"
+#         if os.path.isfile("pos/images/" + item.ItemName + ".png"):
+#             item_image_file = item.ItemName + ".png"
+#         with open(item_image_file, "rb") as image_file:
+#             image_str = str(base64.b64encode(image_file.read()))
+#             image_str = image_str[2:len(image_str) - 1]
+#             out_line = "UPDATE \"MenuItems\" SET \"Image\" = '" + image_str + "' WHERE \"ItemName\" = '" + item.ItemName + "';\n"
+#             sql_file.write(out_line)
+#             print(out_line)
 # --------------------------------------------------------------
