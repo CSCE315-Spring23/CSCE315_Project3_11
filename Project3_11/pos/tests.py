@@ -107,7 +107,12 @@ import requests
 access_token = '<your_access_token_here>'
 url = 'http://localhost:8000/validate_user/?access_token={}'.format(access_token)
 response = requests.get(url)
-
+# --------------------------------------------------------------
+# Encoding images to base64
+# items = InventoryItem.objects.all()
+# for item in items:
+#     print(item.Name)
+# --------------------------------------------------------------
 if response.status_code == 200:
     print('User validated successfully')
 else:

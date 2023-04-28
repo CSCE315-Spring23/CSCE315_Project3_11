@@ -2,5 +2,12 @@
 
 {% block selectedReportContent %}
   <h1>Z Report</h1>
-  <p>This is the content for View 1.</p>
+  <p>Click the button to generate an Z Report.</p>
+    <form method="POST" action="{% url 'zReportGeneration' %}">
+        {% csrf_token %}
+        <button type="submit">Generate Z Report</button>
+    </form>
+    {% block zReportContent %}
+        {{ zReportData }}
+    {% endblock %}
 {% endblock %}

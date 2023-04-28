@@ -1,3 +1,4 @@
+import base64
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from datetime import datetime
@@ -47,6 +48,7 @@ class MenuItem(models.Model):
     Price = models.DecimalField(max_digits=28, decimal_places=2)
     DefiniteItems = models.JSONField(default=list)
     PossibleItems = models.JSONField(default=list)
+    Image = models.BinaryField(null=True, blank=True)
     selected_items = []
 
     class Meta:
@@ -54,6 +56,26 @@ class MenuItem(models.Model):
 
     def select_items(self, selected_items):
         self.selected_items = selected_items
+
+    def update_categories(self):
+        self.categories = []
+        for possible_item in self.PossibleItems:
+            try:
+                inventory_item = InventoryItem.objects.get(Name=possible_item)
+                category = inventory_item.Category
+                if category not in self.categories:
+                    self.categories.append(category)
+            except ObjectDoesNotExist:
+                print("Does not exist: " + possible_item)
+
+    def save(self, *args, **kwargs):
+        self.update_categories()
+        super().save(*args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.update_categories()
+        self.Image = base64.b64encode(bytes(self.Image)).decode('utf-8')
 
 
 class Order(models.Model):
@@ -124,8 +146,8 @@ class OrderInProgress(models.Model):
     class Meta:
         db_table = "OrdersInProgress"
 
-    def add_to_order(self, item):
-        inventory_items = item.DefiniteItems + item.selected_items
+    def add_to_order(self, item, selected_items):
+        inventory_items = item.DefiniteItems + selected_items
         self.CustomizedItems.append([item.ItemName, str(item.Price), inventory_items])
         self.Subtotal += Decimal(str(item.Price))
         self.Total = (self.Subtotal * Decimal(str(1.0825))).quantize(Decimal('.01'))

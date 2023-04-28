@@ -45,6 +45,7 @@ def generateZReport():
 
     z_report.save()
     print("Z report generated")
+    return total_sales
 
 def generateRestockReport(threshold):
     restock_items = []

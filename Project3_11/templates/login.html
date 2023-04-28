@@ -28,14 +28,18 @@
     {% url 'order' as order_view %}
     <a class="btn btn-primary" href="{{ order_view }}" role="button">Orders Testing</a>
 
-
+    <br>
 
     <a href="{{ order_view }}">Go to order(style test) page</a>
+    <br>
     {% url 'menuItems' as menuItems %}
     <a href="{{ menuItems }}">Go to menu items page</a>
-
+    <br>
     {% url 'reports' as reports %}
     <a href="{{ reports }}">Go to reports page</a>
+    <br>
+    {% url 'editInventoryItems' as editInventoryItems %}
+    <a href="{{ editInventoryItems }}">Go to edit inventory items page</a>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"

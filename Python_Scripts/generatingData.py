@@ -74,8 +74,9 @@ def generateEmployeeData():
 
 
 def generateInventoryItems():
-    inventoryItemsFile = open(f"inventoryItems.csv", "w+")
-    inventoryItemsFile.write("Name,Stock,NumberNeeded,OrderChance,Units,Category,Servings,RestockCost\n")
+    # inventoryItemsFile = open(f"inventoryItems.csv", "w+")
+    inventoryItemsFile = open(f"populate_inventory_items.sql", "w+")
+    # inventoryItemsFile.write("Name,Stock,NumberNeeded,OrderChance,Units,Category,Servings,RestockCost\n")
     # PK:   itemName (string)
     #       stock (int)
     #       numNeeded (int)
@@ -153,7 +154,8 @@ def generateInventoryItems():
             restockCost = 20
         numNeeded = 10 - stock
 
-        itemLine = f"{item},{stock},{numNeeded},{orderChance},{units},{category},{servings},{restockCost}\n"
+        # itemLine = f"{item},{stock},{numNeeded},{orderChance},{units},{category},{servings},{restockCost}\n"
+        itemLine = f"INSERT INTO \"InventoryItems\" (\"Name\", \"Stock\", \"NumberNeeded\", \"OrderChance\", \"Units\", \"Category\", \"Servings\", \"RestockCost\") VALUES\" ('{item}', {stock}, {numNeeded}, {orderChance}, '{units}', '{category}', {servings}, {restockCost});\n"
         inventoryItemsFile.write(itemLine)
 
     inventoryItemsFile.close()

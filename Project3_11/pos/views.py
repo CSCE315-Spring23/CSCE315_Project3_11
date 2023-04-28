@@ -1,5 +1,6 @@
 import datetime
 
+from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
@@ -42,11 +43,6 @@ def employee_page(request):
         return render(request, 'employee.html', content)
 
 
-def order_page(request):
-    context = {'order': 'test order else'}
-    return render(request, 'order.html', context)
-
-
 def inventory_page(request):
     context = {'inventory': 'test order else'}
     return render(request, 'inventoryItems.html', context)
@@ -63,7 +59,7 @@ def menuItems(request):
     content = {'menuTest': fullMenu}
     return HttpResponse(render(request, 'menuItems.html', content))
 
-
+import base64
 def database_info(request):
     if request.method == 'GET':
         client = translate.Client(credentials=settings.CREDENTIALS)
@@ -78,7 +74,7 @@ def database_info(request):
         menu_header = 'Menu'
         employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
                                   'Hours Worked']
-        menu_table_headers = ['Item Name', 'Price', 'Definite Items', 'Possible Items']
+        menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
 
         # Translate if necessary
         if target_language != 'en':
@@ -116,25 +112,6 @@ def database_info(request):
         return render(request, 'database_info.html', context)
 
 
-def addItemToOrder(request):
-    # if request.method == 'POST':
-    #     button_name = request.POST.get('buttonTesting', '')
-    #     # Logic to add text to the website based on the button name
-    #     text = ":P {}".format(button_name)
-    #     context = {'text': text}
-    #     return render(request, 'menuItems.html', context)
-    # else:
-    #     # Handle GET request
-    #     return render(request, 'menuItems.html')
-    # content = {'items': 'test hi'}
-    # return render(request, 'menuItems.html', content)
-    return HttpResponse(render(request, 'menuItems.html'))
-
-
-def submitOrder(request):
-    return HttpResponse(render(request, 'menuItems.html'))
-
-
 def set_language(request):
     language = request.POST.get('language')
 
@@ -144,7 +121,6 @@ def set_language(request):
     if language:
         request.session['django_language'] = language
     return redirect(request.META.get('HTTP_REFERER', '/'))
-
 
 def button_testing(request):
     order_total = request.session.get('order_total', 0)
@@ -162,30 +138,72 @@ def button_testing(request):
     return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
 
 
-def order_testing(request):
+def button_testing_page2(request):
+    # How to redirect to next page passing name of item to edit
+    edit_item = request.POST.get('edit_item', None)
+    return render(request, 'button_testing_page2.html', {'edit_item': edit_item})
+
+
+def order_page(request):
+    button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.all()
+    inventory_items = InventoryItem.objects.all()
+    item_categories = {}
+    for item in inventory_items:
+        if item.Category not in item_categories:
+            item_categories[item.Category] = []
+        item_categories[item.Category].append(item.Name)
     if 'orderpk' in request.session:
         str_time = request.session['orderpk']
-        order = OrderInProgress.objects.get(DateTimeStarted=datetime.strptime(str_time, '%Y-%m-%d %H:%M:%S.%f'))
+        try:
+            order = OrderInProgress.objects.get(DateTimeStarted=datetime.strptime(str_time, '%Y-%m-%d %H:%M:%S.%f'))
+            if button_clicked == 'place_order':
+                items = []
+                menu_items_in_order = []
+                for customized_item in order.CustomizedItems:
+                    items += [customized_item[0]]
+                    menu_items_in_order += customized_item[2]
+                finished_order = Order(EmployeeID=order.EmployeeID, Items=items, Subtotal=order.Subtotal, Total=order.Total, MenuItemsInOrder=menu_items_in_order)
+                finished_order.save()
+                order.delete()
+                del request.session['orderpk']
+                return render(request, 'order_page.html', {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories})
+        except ValueError:
+            order = OrderInProgress()
     else:
         order = OrderInProgress()
-
     if request.method == 'POST':
-        button_clicked = request.POST.get('button_clicked', None)
         if button_clicked == 'reset':
             order.clear_order()
             order.save()
-            return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
+            return HttpResponseRedirect(request.path_info)
         else:
-            item_clicked = request.POST.get('item_clicked', None)
+            item_clicked = request.POST.get('menu_item_selected', None)
             if item_clicked:
                 item = MenuItem.objects.get(ItemName=item_clicked)
-                order.add_to_order(item)
-                order.save()
+                selected_items = []
+                base_selected = request.POST.get('base_selected', None)
+                if base_selected:
+                    selected_items += [base_selected]
+                protein_selected = request.POST.get('protein_selected', None)
+                if protein_selected:
+                    selected_items += [protein_selected]
+                toppings_selected = request.POST.getlist('toppings_selected', None)
+                if toppings_selected:
+                    selected_items += toppings_selected
+                sauce_selected = request.POST.get('sauce_selected', None)
+                if sauce_selected:
+                    selected_items += [sauce_selected]
+                drink_selected = request.POST.get('drink_selected', None)
+                if drink_selected:
+                    selected_items += [drink_selected]
+                if button_clicked == 'add_to_order':
+                    order.add_to_order(item, selected_items)
+                    order.save()
             request.session['orderpk'] = str(order.DateTimeStarted)
-            return HttpResponseRedirect(request.path_info)  # redirect to same page to avoid form resubmission
+            return HttpResponseRedirect(request.path_info)
     else:
-        return render(request, 'order_testing.html', {'order': order, 'menu': menu})
+        return render(request, 'order_page.html', {'order': order, 'menu': menu, 'item_categories': item_categories})
 
 
 def salesReport(request):
@@ -229,9 +247,7 @@ def salesReportGeneration(request):
         print(salesValues)
         # total_value will be the sum of all the sales in the time period
         print(total_value)
-        # TODO need to figure out how to call the report functions
         context = {'salesReportData': total_value}
-        print("test")
         return render(request, 'salesReport.html', context)
     else:
         return render(request, 'salesReport.html')
