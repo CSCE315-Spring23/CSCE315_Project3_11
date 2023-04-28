@@ -361,9 +361,6 @@ def editInventoryItems(request):
 
 
 def editThisInventoryItem(request):
-    print(request.POST)
-    test = request.GET.get('id')
-    print(test)
-    test = request.POST.get('id')
-    print(test)
-    return render(request, 'editThisInventoryItem.html', {'inventoryItem':test})
+    editItem = request.POST.get('inventoryItem', None)
+    editItem = InventoryItem.objects.get(Name=editItem)
+    return render(request, 'editThisInventoryItem.html', {'inventoryItem':editItem})
