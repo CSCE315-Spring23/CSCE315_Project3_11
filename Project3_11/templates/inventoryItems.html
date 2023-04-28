@@ -10,7 +10,7 @@
             <th>Number Needed</th>
             <th>Units</th>
         </tr>
-    {% for item in menuItems %}
+    {% for item in inventoryItems %}
         <tr>
             <td>{{ item.Name }}</td>
             <td>{{ item.Stock }}</td>
@@ -19,9 +19,9 @@
             <td>
                 <button type="submit" name="inventoryItem" value="{{ item.Name }}">Edit {{ item.Name }}</button>
             </td>
-            <td>
-                <button type="submit" id="{{ item.Name }}" name="{{ item.Name }}">{{ item.Name }}</button>
-            </td>
+{#            <td>#}
+{#                <button type="submit" id="{{ item.Name }}" name="{{ item.Name }}">{{ item.Name }}</button>#}
+{#            </td>#}
         </tr>
     {% endfor %}
     </table>
