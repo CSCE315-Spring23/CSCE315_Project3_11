@@ -186,7 +186,7 @@ def order_page(request):
     else:
         order = OrderInProgress()
     if request.method == 'POST':
-        if button_clicked == 'reset':
+        if button_clicked == 'clear_order':
             order.clear_order()
             order.save()
             return HttpResponseRedirect(request.path_info)
