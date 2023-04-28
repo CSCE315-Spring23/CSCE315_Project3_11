@@ -9,6 +9,8 @@ from django.conf import settings
 from django.shortcuts import redirect
 from pos.models import *
 from pos.reportFunctions import *
+from pos.inventoryFunctions import *
+from pos.menu_functions import *
 import datetime as dt
 from django.http import HttpResponseRedirect
 
@@ -356,11 +358,33 @@ def whatSalesTogetherReportGeneration(request):
 
 
 def editInventoryItems(request):
-    menu_items = InventoryItem.objects.all()
-    return render(request, 'inventoryItems.html', {'menuItems':menu_items})
+    inventoryItems = InventoryItem.objects.all()
+    return render(request, 'inventoryItems.html', {'inventoryItems':inventoryItems})
 
 
 def editThisInventoryItem(request):
     editItem = request.POST.get('inventoryItem', None)
+    print(editItem)
     editItem = InventoryItem.objects.get(Name=editItem)
+    print(editItem)
     return render(request, 'editThisInventoryItem.html', {'inventoryItem':editItem})
+
+
+def submitInventoryEdit(request):
+    if request.method == 'POST':
+        editItem = request.POST.get('inventoryItem', None)
+        print(editItem)
+        # editItem = InventoryItem.objects.get(Name=editItem)
+        print(editItem)
+        print('test')
+        stock = request.POST.get('stock')
+        print(stock)
+        stock1 = request.POST['stock']
+        if stock1:
+
+            print(stock1)
+        inventoryItems = InventoryItem.objects.all()
+        return render(request, 'inventoryItems.html',{'inventoryItems':inventoryItems})
+    else:
+        inventoryItems = InventoryItem.objects.all()
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
