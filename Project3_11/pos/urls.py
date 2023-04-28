@@ -29,4 +29,5 @@ urlpatterns = [
     path('whatSalesTogetherReportGeneration/', views.whatSalesTogetherReportGeneration, name='whatSalesTogetherReportGeneration'),
     path('editInventoryItems/', views.editInventoryItems, name='editInventoryItems'),
     path('editThisInventoryItem/', views.editThisInventoryItem, name='editThisInventoryItem'),
+    path('submitInventoryEdit/', views.submitInventoryEdit, name='submitInventoryEdit'),
 ]
