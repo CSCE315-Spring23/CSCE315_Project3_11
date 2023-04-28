@@ -31,14 +31,14 @@ from pos.menu_functions import *
 # add_to_menu("Smoothie", 4.69, ["Cup Drink", "Straw", "Cup Lid"], ["Spinach", "Dr. Pepper", "Diet Pepsi"])
 
 # Placing an order
-# custom_item1 = MenuItem.objects.get(ItemName="Bowl")
-# custom_item1.select_items(["Spinach", "Brown Rice", "Cucumbers", "Greek Vinaigrette"])
-# custom_item2 = MenuItem.objects.get(ItemName="Fountain Drink")
-# custom_item2.select_items(["Gatorade"])
-# order_items = [custom_item1, custom_item2]
-# new_order = Order(EmployeeID=employee1.EmployeeID)
-# new_order.add_to_order(order_items)
-# new_order.save()
+custom_item1 = MenuItem.objects.get(ItemName="Bowl")
+custom_item1.select_items(["Spinach", "Brown Rice", "Cucumbers", "Greek Vinaigrette"])
+custom_item2 = MenuItem.objects.get(ItemName="Fountain Drink")
+custom_item2.select_items(["Gatorade"])
+order_items = [custom_item1, custom_item2]
+new_order = Order(EmployeeID=employee1.EmployeeID)
+new_order.add_to_order(order_items)
+new_order.save()
 
 # find an inventory item info by name
 # item_dict = findInventoryItem("Spinach")
