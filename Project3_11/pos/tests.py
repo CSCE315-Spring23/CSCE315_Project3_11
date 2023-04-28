@@ -1,5 +1,7 @@
 import os
+import time
 
+from django.conf import settings
 from django.test import TestCase
 import json
 
@@ -131,3 +133,46 @@ from pos.menu_functions import *
 #             sql_file.write(out_line)
 #             print(out_line)
 # --------------------------------------------------------------
+
+# from google.cloud import translate_v2 as translate
+# client = translate.Client(credentials=settings.CREDENTIALS)
+# menu_items = MenuItem.objects.all()
+# start = time.time()
+# for item in menu_items:
+#     item.ItemName = client.translate(item.ItemName, target_language="es")["translatedText"]
+# end = time.time()
+# print("Translation time:", end - start)
+
+# from google.cloud import translate_v2 as translate
+# import time
+#
+# client = translate.Client(credentials=settings.CREDENTIALS)
+#
+# # Split menu items into batches of 100 (or less)
+# batch_size = 100
+# menu_items = MenuItem.objects.all()
+# num_batches = (len(menu_items) + batch_size - 1) // batch_size
+#
+# start = time.time()
+#
+# for i in range(num_batches):
+#     # Get a batch of menu items
+#     batch_start = i * batch_size
+#     batch_end = min(batch_start + batch_size, len(menu_items))
+#     batch_items = menu_items[batch_start:batch_end]
+#
+#     # Get a list of item names to be translated
+#     item_names = [item.ItemName for item in batch_items]
+#
+#     # Translate the item names
+#     translations = client.translate(item_names, target_language="es")
+#
+#     # Update the menu items with the translated names
+#     for j, item in enumerate(batch_items):
+#         item.ItemName = translations[j]["translatedText"]
+#
+# end = time.time()
+#
+# print("Translation time:", end - start)
+
+
