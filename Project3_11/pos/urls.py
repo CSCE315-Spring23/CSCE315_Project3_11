@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
-
+from .views import ValidateUserView
 
 urlpatterns = [
+    path('validate_user/', ValidateUserView.as_view(), name='validate_user'),
     path('', views.login, name='login'),
     path('employee/', views.employee_page, name='employee'),
     path('order/', views.order_page, name='order'),

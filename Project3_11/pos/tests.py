@@ -102,4 +102,13 @@ from pos.menu_functions import *
 #     print(element.get('value'))
 #---------------------------------------------------------------
 
+import requests
 
+access_token = '<your_access_token_here>'
+url = 'http://localhost:8000/validate_user/?access_token={}'.format(access_token)
+response = requests.get(url)
+
+if response.status_code == 200:
+    print('User validated successfully')
+else:
+    print('User validation failed: {}'.format(response.text))

@@ -9,7 +9,12 @@ from django.shortcuts import redirect
 from pos.models import *
 from pos.reportFunctions import *
 import datetime as dt
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseBadRequest, HttpResponseServerError
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate, login
+from oauth2_provider.views.generic import ProtectedResourceView
+from oauth2_provider.models import AccessToken
+from oauth2_provider.views.generic import ProtectedResourceView
 
 def login(request):
     if request.method == 'POST':
@@ -245,3 +250,18 @@ def xReportGeneration(request):
         return render(request, 'xReport.html', context)
     else:
         return render(request, 'xReport.html')
+
+class ValidateUserView(ProtectedResourceView):
+    @csrf_exempt
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            access_token = AccessToken.objects.get(token=request.GET.get('access_token'))
+        except AccessToken.DoesNotExist:
+            return HttpResponseBadRequest('Invalid access token')
+
+        user = authenticate(request=request, token=access_token)
+        if user is None:
+            return HttpResponseBadRequest('Invalid user')
+
+        login(request, user)
+        return HttpResponse('OK')
