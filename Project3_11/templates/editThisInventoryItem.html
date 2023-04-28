@@ -3,6 +3,50 @@
     <h2>Edit Inventory Items</h2>
 
     {% block inventoryItemContent %}
-        {{ inventoryItem }}
+        <h2>Editing {{ inventoryItem.Name }}</h2>
+        <form type="POST">
+            <table>
+                <tr>
+                    <th>Thing</th>
+                    <th>Current Value</th>
+                    <th>Value to Change to</th>
+                </tr>
+                <tr>
+                    <td>Stock</td>
+                    <td>{{ inventoryItem.Stock }}</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Number Needed</td>
+                    <td>{{ inventoryItem.NumberNeeded }}</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Order Chance</td>
+                    <td>{{ inventoryItem.OrderChance }}</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Units</td>
+                    <td>{{ inventoryItem.Units }}</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>{{ inventoryItem.Category }}</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Servings</td>
+                    <td>{{ inventoryItem.Servings }}</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Restock Cost</td>
+                    <td>{{ inventoryItem.RestockCost }}</td>
+                    <td><input type="number"></td>
+                </tr>
+            </table>
+        </form>
     {% endblock %}
 {% endblock %}

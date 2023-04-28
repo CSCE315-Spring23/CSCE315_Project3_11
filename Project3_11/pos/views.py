@@ -266,3 +266,88 @@ def xReportGeneration(request):
         return render(request, 'xReport.html', context)
     else:
         return render(request, 'xReport.html')
+
+
+def zReportGeneration(request):
+    if request.method == 'POST':
+        try:
+            total_sales = generateZReport()
+        except ValueError:
+            context = {'zReportData': 'Please input a valid datetime'}
+            return render(request, 'zReport.html', context)
+        # total_value will be the sum of all the sales in the time period
+        print(total_sales)
+        context = {'zReportData': total_sales}
+        return render(request, 'zReport.html', context)
+    else:
+        return render(request, 'zReport.html')
+
+
+def excessReportGeneration(request):
+    if request.method == 'POST':
+        datePlaced = request.POST['datePlaced']
+        try:
+            excess_items = generateExcessReport(
+                timezone.make_aware(dt.datetime.strptime(datePlaced, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
+        except ValueError:
+            context = {'excessReportData': 'Please input a valid datetime'}
+            return render(request, 'excessReport.html', context)
+        # total_value will be the sum of all the sales in the time period
+        print(excess_items)
+        excessItemNames = []
+        for item in excess_items:
+            excessItemNames.append(item.Name)
+        context = {'excessReportData': excessItemNames}
+        return render(request, 'excessReport.html', context)
+    else:
+        return render(request, 'excessReport.html')
+
+
+def restockReportGeneration(request):
+    if request.method == 'POST':
+        threshold = int(request.POST['threshold'])
+        if threshold > 0:
+            restock_items = generateRestockReport(threshold)
+        else:
+            context = {'restockReportData': 'Please input a valid number'}
+            return render(request, 'restockReport.html', context)
+        # total_value will be the sum of all the sales in the time period
+        print(restock_items)
+        restockItemNames = []
+        for item in restock_items:
+            restockItemNames.append(item.Name)
+        context = {'restockReportData': restockItemNames}
+        return render(request, 'restockReport.html', context)
+    else:
+        return render(request, 'restockReport.html')
+
+
+def whatSalesTogetherReportGeneration(request):
+    if request.method == 'POST':
+        startDate = request.POST['startDate']
+        endDate = request.POST['endDate']
+        try:
+            sorted_pairs = whatSalesTogether(
+                timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
+                timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
+        except ValueError:
+            context = {'whatSalesTogetherReportData': 'Please input a valid datetime'}
+            return render(request, 'whatSalesTogetherReport.html', context)
+        # sales will be the list of menu items ordered
+        print(sorted_pairs)
+
+        context = {'whatSalesTogetherReportData': sorted_pairs}
+        return render(request, 'whatSalesTogetherReport.html', context)
+    else:
+        return render(request, 'whatSalesTogetherReport.html')
+
+
+def editInventoryItems(request):
+    menu_items = InventoryItem.objects.all()
+    return render(request, 'inventoryItems.html', {'menuItems':menu_items})
+
+
+def editThisInventoryItem(request):
+    editItem = request.POST.get('inventoryItem', None)
+    editItem = InventoryItem.objects.get(Name=editItem)
+    return render(request, 'editThisInventoryItem.html', {'inventoryItem':editItem})

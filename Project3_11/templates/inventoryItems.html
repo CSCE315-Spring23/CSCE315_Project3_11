@@ -17,10 +17,10 @@
             <td>{{ item.NumberNeeded }}</td>
             <td>{{ item.Units }}</td>
             <td>
-                <button type="submit" id="{{ item.Name }}">Edit {{ item.Name }}</button>
+                <button type="submit" name="inventoryItem" value="{{ item.Name }}">Edit {{ item.Name }}</button>
             </td>
             <td>
-                <button type="submit" id="itemName" name="{{ item.Name }}">{{ item.Name }}</button>
+                <button type="submit" id="{{ item.Name }}" name="{{ item.Name }}">{{ item.Name }}</button>
             </td>
         </tr>
     {% endfor %}
