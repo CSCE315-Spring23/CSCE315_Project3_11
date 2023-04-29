@@ -161,7 +161,7 @@ def button_testing_page2(request):
 
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
-    menu = MenuItem.objects.all()
+    menu = MenuItem.objects.order_by('-Price')
     inventory_items = InventoryItem.objects.all()
     item_categories = {}
     for item in inventory_items:
@@ -358,14 +358,19 @@ def whatSalesTogetherReportGeneration(request):
 
 
 def editInventoryItems(request):
-    inventoryItems = InventoryItem.objects.all()
+    inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
     return render(request, 'inventoryItems.html', {'inventoryItems':inventoryItems})
 
 
 def editThisInventoryItem(request):
     editItem = request.POST.get('inventoryItem', None)
     editItem = InventoryItem.objects.get(Name=editItem)
-    return render(request, 'editThisInventoryItem.html', {'inventoryItem':editItem})
+    inventory_items = InventoryItem.objects.order_by('Category')
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+    return render(request, 'editThisInventoryItem.html', {'inventoryItem': editItem, 'categories': categories})
 
 
 def submitInventoryEdit(request):
@@ -403,7 +408,7 @@ def submitInventoryEdit(request):
         print("test3")
         editItem.save()
 
-        inventoryItems = InventoryItem.objects.all()
+        inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
         return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
     else:
         inventoryItems = InventoryItem.objects.all()

@@ -40,7 +40,14 @@
                 <tr>
                     <td>Category</td>
                     <td>{{ inventoryItem.Category }}</td>
-                    <td><input type="number" name="category" id="category"></td>
+{#                    <td><input type="number" name="category" id="category"></td>#}
+                    <td>
+                        <select name="category" id="category">
+                            {% for category in categories %}
+                                <option value="{{ category }}">{{ category }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>Servings</td>
