@@ -413,3 +413,38 @@ def submitInventoryEdit(request):
     else:
         inventoryItems = InventoryItem.objects.all()
         return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
+
+
+def edit_menu_items(request):
+    menu_items = MenuItem.objects.order_by('-Price')
+    return render(request, 'menu_items.html', {'menu_items': menu_items})
+
+
+def edit_this_menu_item(request):
+    edit_item = request.POST.get('menu_item', None)
+    edit_item = MenuItem.objects.get(ItemName=edit_item)
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+    print(inventory_items)
+    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items})
+
+
+def submit_menu_edit(request):
+    if request.method == 'POST':
+        edit_item = request.POST.get('passed_menu_item', None)
+        edit_item = MenuItem.objects.get(ItemName=edit_item)
+        image = request.FILES.get('image')
+        price = request.POST.get('price')
+        definite_items = request.POST.getlist('definite_items')
+        possible_items = request.POST.getlist('possible_items')
+        if image:
+            edit_item.Image = base64.b64encode(image.read()).decode('utf-8')
+        if price:
+            edit_item.Price = Decimal(price)
+        if definite_items:
+            edit_item.DefiniteItems = definite_items
+        if possible_items:
+            edit_item.PossibleItems = possible_items
+        edit_item.save()
+        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+    else:
+        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})

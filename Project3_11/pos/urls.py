@@ -30,4 +30,7 @@ urlpatterns = [
     path('editInventoryItems/', views.editInventoryItems, name='editInventoryItems'),
     path('editThisInventoryItem/', views.editThisInventoryItem, name='editThisInventoryItem'),
     path('submitInventoryEdit/', views.submitInventoryEdit, name='submitInventoryEdit'),
+    path('edit_menu_items/', views.edit_menu_items, name='edit_menu_items'),
+    path('edit_this_menu_item/', views.edit_this_menu_item, name='edit_this_menu_item'),
+    path('submit_menu_edit/', views.submit_menu_edit, name='submit_menu_edit'),
 ]

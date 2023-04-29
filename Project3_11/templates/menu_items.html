@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Edit Menu Items</h2>
+    <form method="POST" action="{% url 'edit_this_menu_item' %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Definite Items</th>
+                <th>Possible Items</th>
+            </tr>
+            {% for item in menu_items %}
+                <tr>
+                    <td><img src="data:image/png;base64,{{ item.Image|safe }}" alt="{{ item.ItemName }}" width=50px height=50px></td>
+                    <td>{{ item.ItemName }}</td>
+                    <td>{{ item.Price }}</td>
+                    <td>{{ item.DefiniteItems }}</td>
+                    <td>{{ item.PossibleItems }}</td>
+                    <td>
+                        <button type="submit" name="menu_item" value="{{ item.ItemName }}">Edit {{ item.ItemName }}</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+{% endblock %}
