@@ -57,7 +57,7 @@ def menuItems(request):
     content = {'menuTest': fullMenu}
     return HttpResponse(render(request, 'menuItems.html', content))
 
-import base64
+
 def database_info(request):
     if request.method == 'GET':
         client = translate.Client(credentials=settings.CREDENTIALS)
@@ -379,6 +379,7 @@ def submitInventoryEdit(request):
         category = request.POST.get('category')
         servings = request.POST.get('servings')
         restockCost = request.POST.get('restockCost')
+        image = request.FILES.get('image')
         print("test")
         if stock:
             print("test1")
@@ -397,11 +398,13 @@ def submitInventoryEdit(request):
             editItem.Servings = int(servings)
         if restockCost:
             editItem.RestockCost = int(restockCost)
+        if image:
+            editItem.Image = base64.b64encode(image.read()).decode('utf-8')
         print("test3")
         editItem.save()
 
         inventoryItems = InventoryItem.objects.all()
-        return render(request, 'inventoryItems.html',{'inventoryItems':inventoryItems})
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
     else:
         inventoryItems = InventoryItem.objects.all()
         return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
