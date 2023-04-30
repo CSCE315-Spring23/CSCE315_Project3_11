@@ -1,0 +1,31 @@
+SCRUM Meeting 8 for Project 3
+Prepared by: Anthony Noyes
+Meeting Date: 4/26/2023
+
+Meeting Attendees
+ Anthony Noyes
+ Drew Pusey
+ Alex Gonce
+ Stanley Lee
+
+Meeting Agenda Items
+Give updates on project status
+Complete deliverables due tonight
+
+Status Update Since Last Meeting
+Accomplishments:
+More frontend progress made (Alex)
+
+Tasks Completed:
+Task Description, Assigned to, Completed? (yes/no)
+Finalize front end without APIs, Alex/Stanley, no
+
+Before The Next Meeting
+Plans:
+Finalize front end without APIs
+
+Task Assignments:
+Complete front end with project 2 requirements, Alex/Stanley
+
+Minutes from Previous Meeting
+We completed the in class assignment and discussed what was holding us back from making progress	

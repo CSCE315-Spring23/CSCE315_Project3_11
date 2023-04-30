@@ -9,13 +9,15 @@ from django.conf import settings
 from django.shortcuts import redirect
 from pos.models import *
 from pos.reportFunctions import *
+from pos.inventoryFunctions import *
+from pos.menu_functions import *
 import datetime as dt
-from django.http import HttpResponseRedirect, HttpResponseBadRequest, HttpResponseServerError
+from django.http import HttpResponseBadRequest, HttpResponseServerError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from oauth2_provider.views.generic import ProtectedResourceView
 from oauth2_provider.models import AccessToken
-from oauth2_provider.views.generic import ProtectedResourceView
+
 
 def login(request):
     if request.method == 'POST':
@@ -59,7 +61,7 @@ def menuItems(request):
     content = {'menuTest': fullMenu}
     return HttpResponse(render(request, 'menuItems.html', content))
 
-import base64
+
 def database_info(request):
     if request.method == 'GET':
         client = translate.Client(credentials=settings.CREDENTIALS)
@@ -68,23 +70,34 @@ def database_info(request):
         # Get database information
         employees = Employee.objects.all()
         menu_items = MenuItem.objects.all()
+        inventory_items = InventoryItem.objects.all()
+        for item in inventory_items:
+            print(item.Name)
+            print(item.Image)
+        for item in menu_items:
+            print(item.ItemName)
+            print(item.Image)
 
         # Set other text
         employee_header = 'Employees'
         menu_header = 'Menu'
+        inventory_header = 'Inventory'
         employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
                                   'Hours Worked']
         menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
+        inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category', 'Servings', 'RestockCost']
 
         # Translate if necessary
         if target_language != 'en':
             # Translate other text
             employee_header = client.translate(employee_header, target_language=target_language)['translatedText']
             menu_header = client.translate(menu_header, target_language=target_language)['translatedText']
+            inventory_header = client.translate(inventory_header, target_language=target_language)['translatedText']
             employee_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for
                                       header in employee_table_headers]
             menu_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header
                                   in menu_table_headers]
+            inventory_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in inventory_table_headers]
 
             # Translate employees
             for employee in employees:
@@ -106,8 +119,14 @@ def database_info(request):
                         client.translate(possible_item, target_language=target_language)['translatedText']]
                 menu_item.PossibleItems = translated_possible_items
 
-        context = {'employees': employees, 'menu_items': menu_items, 'employee_header': employee_header,
-                   'menu_header': menu_header, 'employee_headers': employee_table_headers,
+            # Translate inventory items
+            for inventory_item in inventory_items:
+                inventory_item.Name = client.translate(inventory_item.Name, target_language=target_language)['translatedText']
+                inventory_item.Units = client.translate(inventory_item.Units, target_language=target_language)['translatedText']
+                inventory_item.Category = client.translate(inventory_item.Category, target_language=target_language)['translatedText']
+
+        context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items, 'employee_header': employee_header, 'inventory_header': inventory_header,
+                   'menu_header': menu_header, 'employee_headers': employee_table_headers, 'inventory_table_headers': inventory_table_headers,
                    'menu_headers': menu_table_headers, 'target_language': target_language}
         return render(request, 'database_info.html', context)
 
@@ -146,7 +165,7 @@ def button_testing_page2(request):
 
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
-    menu = MenuItem.objects.all()
+    menu = MenuItem.objects.order_by('-Price')
     inventory_items = InventoryItem.objects.all()
     item_categories = {}
     for item in inventory_items:
@@ -173,7 +192,7 @@ def order_page(request):
     else:
         order = OrderInProgress()
     if request.method == 'POST':
-        if button_clicked == 'reset':
+        if button_clicked == 'clear_order':
             order.clear_order()
             order.save()
             return HttpResponseRedirect(request.path_info)
@@ -343,14 +362,96 @@ def whatSalesTogetherReportGeneration(request):
 
 
 def editInventoryItems(request):
-    menu_items = InventoryItem.objects.all()
-    return render(request, 'inventoryItems.html', {'menuItems':menu_items})
+    inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
+    return render(request, 'inventoryItems.html', {'inventoryItems':inventoryItems})
 
 
 def editThisInventoryItem(request):
     editItem = request.POST.get('inventoryItem', None)
     editItem = InventoryItem.objects.get(Name=editItem)
-    return render(request, 'editThisInventoryItem.html', {'inventoryItem':editItem})
+    inventory_items = InventoryItem.objects.order_by('Category')
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+    return render(request, 'editThisInventoryItem.html', {'inventoryItem': editItem, 'categories': categories})
+
+
+def submitInventoryEdit(request):
+    if request.method == 'POST':
+        editItem = request.POST.get('passedInventoryItem', None)
+        editItem = InventoryItem.objects.get(Name=editItem)
+        stock = request.POST.get('stock')
+        numberNeeded = request.POST.get('numNeeded')
+        orderChance = request.POST.get('orderChance')
+        units = request.POST.get('units')
+        category = request.POST.get('category')
+        servings = request.POST.get('servings')
+        restockCost = request.POST.get('restockCost')
+        image = request.FILES.get('image')
+        print("test")
+        if stock:
+            print("test1")
+            editItem.Stock = int(stock)
+            print("test2")
+        if numberNeeded:
+
+            editItem.NumberNeeded = int(numberNeeded)
+        if orderChance:
+            editItem.OrderChance = float(orderChance)
+        if units:
+            editItem.Units = units
+        if category:
+            editItem.Category = category
+        if servings:
+            editItem.Servings = int(servings)
+        if restockCost:
+            editItem.RestockCost = int(restockCost)
+        if image:
+            editItem.Image = base64.b64encode(image.read()).decode('utf-8')
+        print("test3")
+        editItem.save()
+
+        inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
+    else:
+        inventoryItems = InventoryItem.objects.all()
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
+
+
+def edit_menu_items(request):
+    menu_items = MenuItem.objects.order_by('-Price')
+    return render(request, 'menu_items.html', {'menu_items': menu_items})
+
+
+def edit_this_menu_item(request):
+    edit_item = request.POST.get('menu_item', None)
+    edit_item = MenuItem.objects.get(ItemName=edit_item)
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+    print(inventory_items)
+    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items})
+
+
+def submit_menu_edit(request):
+    if request.method == 'POST':
+        edit_item = request.POST.get('passed_menu_item', None)
+        edit_item = MenuItem.objects.get(ItemName=edit_item)
+        image = request.FILES.get('image')
+        price = request.POST.get('price')
+        definite_items = request.POST.getlist('definite_items')
+        possible_items = request.POST.getlist('possible_items')
+        if image:
+            edit_item.Image = base64.b64encode(image.read()).decode('utf-8')
+        if price:
+            edit_item.Price = Decimal(price)
+        if definite_items:
+            edit_item.DefiniteItems = definite_items
+        if possible_items:
+            edit_item.PossibleItems = possible_items
+        edit_item.save()
+        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+    else:
+        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
 
 class ValidateUserView(ProtectedResourceView):
     def dispatch(self, request, *args, **kwargs):

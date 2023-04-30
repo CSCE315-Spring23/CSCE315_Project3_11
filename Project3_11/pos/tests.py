@@ -1,3 +1,7 @@
+import os
+import time
+
+from django.conf import settings
 from django.test import TestCase
 import json
 
@@ -102,18 +106,73 @@ from pos.menu_functions import *
 #     print(element.get('value'))
 #---------------------------------------------------------------
 
-import requests
-
 # --------------------------------------------------------------
-# Encoding images to base64
+# Encoding images to base64 and creating SQL commands to update the database
 # items = InventoryItem.objects.all()
-# for item in items:
-#     print(item.Name)
+# with open ("pos/images/update_inventory_pictures.sql", "w") as sql_file:
+#     for item in items:
+#         item_image_file = "pos/images/Default Image.png"
+#         if os.path.isfile("pos/images/" + item.Name + ".png"):
+#             item_image_file = item.Name + ".png"
+#         with open(item_image_file, "rb") as image_file:
+#             image_str = str(base64.b64encode(image_file.read()))
+#             image_str = image_str[2:len(image_str) - 1]
+#             out_line = "UPDATE \"InventoryItems\" SET \"Image\" = '" + image_str + "' WHERE \"Name\" = '" + item.Name + "';\n"
+#             sql_file.write(out_line)
+#             print(out_line)
+# menu_items = MenuItem.objects.all()
+# with open ("pos/images/update_menu_pictures.sql", "w") as sql_file:
+#     for item in menu_items:
+#         item_image_file = "pos/images/Default Image.png"
+#         if os.path.isfile("pos/images/" + item.ItemName + ".png"):
+#             item_image_file = item.ItemName + ".png"
+#         with open(item_image_file, "rb") as image_file:
+#             image_str = str(base64.b64encode(image_file.read()))
+#             image_str = image_str[2:len(image_str) - 1]
+#             out_line = "UPDATE \"MenuItems\" SET \"Image\" = '" + image_str + "' WHERE \"ItemName\" = '" + item.ItemName + "';\n"
+#             sql_file.write(out_line)
+#             print(out_line)
 # --------------------------------------------------------------
-# access_token = '<your_access_token_here>'
-# url = 'http://localhost:8000/validate_user/?access_token={}'.format(access_token)
-# response = requests.get(url)
-# if response.status_code == 200:
-#     print('User validated successfully')
-# else:
-#     print('User validation failed: {}'.format(response.text))
+
+# from google.cloud import translate_v2 as translate
+# client = translate.Client(credentials=settings.CREDENTIALS)
+# menu_items = MenuItem.objects.all()
+# start = time.time()
+# for item in menu_items:
+#     item.ItemName = client.translate(item.ItemName, target_language="es")["translatedText"]
+# end = time.time()
+# print("Translation time:", end - start)
+
+# from google.cloud import translate_v2 as translate
+# import time
+#
+# client = translate.Client(credentials=settings.CREDENTIALS)
+#
+# # Split menu items into batches of 100 (or less)
+# batch_size = 100
+# menu_items = MenuItem.objects.all()
+# num_batches = (len(menu_items) + batch_size - 1) // batch_size
+#
+# start = time.time()
+#
+# for i in range(num_batches):
+#     # Get a batch of menu items
+#     batch_start = i * batch_size
+#     batch_end = min(batch_start + batch_size, len(menu_items))
+#     batch_items = menu_items[batch_start:batch_end]
+#
+#     # Get a list of item names to be translated
+#     item_names = [item.ItemName for item in batch_items]
+#
+#     # Translate the item names
+#     translations = client.translate(item_names, target_language="es")
+#
+#     # Update the menu items with the translated names
+#     for j, item in enumerate(batch_items):
+#         item.ItemName = translations[j]["translatedText"]
+#
+# end = time.time()
+#
+# print("Translation time:", end - start)
+
+

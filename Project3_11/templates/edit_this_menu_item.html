@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        select[multiple] option:checked::before {
+            content: '\2713';
+            margin-right: 5px;
+        }
+    </style>
+    <h2>Editing {{ menu_item.ItemName }}</h2>
+    <form method="POST" action="{% url 'submit_menu_edit' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Current Value</th>
+                    <th>Value to Change to</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Image</td>
+                    <td><img src="data:image/png;base64,{{ menu_item.Image|safe }}" alt="{{ menu_item.ItemName }}" width=50px height=50px></td>
+                    <td><input type="file" name="image" id="image"></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>{{ menu_item.Price }}</td>
+                    <td><input type="number" name="price" id="price" step="0.01" min="0"></td>
+                </tr>
+                <tr>
+                    <td>Definite Items</td>
+                    <td>{{ menu_item.DefiniteItems }}</td>
+                    <td>
+                        <select name="definite_items" id="definite_items" multiple>
+                            {% for item in inventory_items %}
+                                <option value="{{ item.Name }}">{{ item.Name }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Possible Items</td>
+                    <td>{{ menu_item.PossibleItems }}</td>
+                    <td>
+                        <select name="possible_items" id="possible_items" multiple>
+                            {% for item in inventory_items %}
+                                <option value="{{ item.Name }}">{{ item.Name }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" name="passed_menu_item" value="{{ menu_item.ItemName }}">Submit</button>
+    </form>
+{% endblock %}

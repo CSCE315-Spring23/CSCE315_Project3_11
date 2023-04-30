@@ -4,49 +4,64 @@
 
     {% block inventoryItemContent %}
         <h2>Editing {{ inventoryItem.Name }}</h2>
-        <form type="POST">
+        <form method="POST" action="{% url 'submitInventoryEdit' %}" enctype="multipart/form-data">
+            {% csrf_token %}
             <table>
                 <tr>
-                    <th>Thing</th>
+                    <th>Trait</th>
                     <th>Current Value</th>
                     <th>Value to Change to</th>
                 </tr>
                 <tr>
+                    <td>Image</td>
+                    <td><img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px></td>
+                    <td><input type="file" name="image" id="image"></td>
+                </tr>
+                <tr>
                     <td>Stock</td>
                     <td>{{ inventoryItem.Stock }}</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" name="stock" id="stock"></td>
                 </tr>
                 <tr>
                     <td>Number Needed</td>
                     <td>{{ inventoryItem.NumberNeeded }}</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" name="numNeeded" id="numNeeded"></td>
                 </tr>
                 <tr>
                     <td>Order Chance</td>
                     <td>{{ inventoryItem.OrderChance }}</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" name="orderChance" id="orderChance"></td>
                 </tr>
                 <tr>
                     <td>Units</td>
                     <td>{{ inventoryItem.Units }}</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" name="units" id="units"></td>
                 </tr>
                 <tr>
                     <td>Category</td>
                     <td>{{ inventoryItem.Category }}</td>
-                    <td><input type="number"></td>
+{#                    <td><input type="number" name="category" id="category"></td>#}
+                    <td>
+                        <select name="category" id="category">
+                            {% for category in categories %}
+                                <option value="{{ category }}">{{ category }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>Servings</td>
                     <td>{{ inventoryItem.Servings }}</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" name="servings" id="servings"></td>
                 </tr>
                 <tr>
                     <td>Restock Cost</td>
                     <td>{{ inventoryItem.RestockCost }}</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" name="restockCost" id="restockCost"></td>
                 </tr>
             </table>
+{#            <input type="hidden" name="inventoryItem" value="{{ item.Name }}">#}
+        <button type="submit" name="passedInventoryItem" value="{{ inventoryItem.Name }}">Submit</button>
         </form>
     {% endblock %}
 {% endblock %}
