@@ -424,8 +424,42 @@ def edit_this_menu_item(request):
     edit_item = request.POST.get('menu_item', None)
     edit_item = MenuItem.objects.get(ItemName=edit_item)
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
-    print(inventory_items)
-    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items})
+
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+
+    count_dict = count_items_by_category(edit_item, categories, "DefiniteItems")
+    columns = len(categories)
+    rows = max(count_dict.values())
+    definite_items = [["" for i in range(columns)] for j in range(rows)]
+
+    for item_name in edit_item.DefiniteItems:
+        i = 0
+        for category in categories:
+            if get_category(item_name, inventory_items) == category:
+                for j in range(rows):
+                    if definite_items[j][i] == "":
+                        definite_items[j][i] = item_name
+                        break
+            i += 1
+
+    count_dict = count_items_by_category(edit_item, categories, "PossibleItems")
+    rows = max(count_dict.values())
+    possible_items = [["" for i in range(columns)] for j in range(rows)]
+
+    for item_name in edit_item.PossibleItems:
+        i = 0
+        for category in categories:
+            if get_category(item_name, inventory_items) == category:
+                for j in range(rows):
+                    if possible_items[j][i] == "":
+                        possible_items[j][i] = item_name
+                        break
+            i += 1
+
+    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'definite_items': definite_items, 'possible_items': possible_items})
 
 
 def submit_menu_edit(request):
