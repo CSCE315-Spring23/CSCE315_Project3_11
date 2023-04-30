@@ -421,7 +421,22 @@ def submitInventoryEdit(request):
 
 def edit_menu_items(request):
     menu_items = MenuItem.objects.order_by('-Price')
-    return render(request, 'menu_items.html', {'menu_items': menu_items})
+
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+
+    all_definite_items = []
+    all_sorted_items = []
+    for item in menu_items:
+        definite_items = get_sorted_items(item, inventory_items, categories, "DefiniteItems")
+        possible_items = get_sorted_items(item, inventory_items, categories, "PossibleItems")
+        all_definite_items.append(definite_items)
+        all_sorted_items.append(possible_items)
+
+    return render(request, 'menu_items.html', {'menu_items': menu_items, 'categories': categories, 'all_definite_items': all_definite_items, 'all_sorted_items': all_sorted_items})
 
 
 def edit_this_menu_item(request):
@@ -434,34 +449,8 @@ def edit_this_menu_item(request):
         if item.Category not in categories:
             categories.append(item.Category)
 
-    count_dict = count_items_by_category(edit_item, categories, "DefiniteItems")
-    columns = len(categories)
-    rows = max(count_dict.values())
-    definite_items = [["" for i in range(columns)] for j in range(rows)]
-
-    for item_name in edit_item.DefiniteItems:
-        i = 0
-        for category in categories:
-            if get_category(item_name, inventory_items) == category:
-                for j in range(rows):
-                    if definite_items[j][i] == "":
-                        definite_items[j][i] = item_name
-                        break
-            i += 1
-
-    count_dict = count_items_by_category(edit_item, categories, "PossibleItems")
-    rows = max(count_dict.values())
-    possible_items = [["" for i in range(columns)] for j in range(rows)]
-
-    for item_name in edit_item.PossibleItems:
-        i = 0
-        for category in categories:
-            if get_category(item_name, inventory_items) == category:
-                for j in range(rows):
-                    if possible_items[j][i] == "":
-                        possible_items[j][i] = item_name
-                        break
-            i += 1
+    definite_items = get_sorted_items(edit_item, inventory_items, categories, "DefiniteItems")
+    possible_items = get_sorted_items(edit_item, inventory_items, categories, "PossibleItems")
 
     return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'definite_items': definite_items, 'possible_items': possible_items})
 
