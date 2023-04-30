@@ -12,7 +12,11 @@ from pos.reportFunctions import *
 from pos.inventoryFunctions import *
 from pos.menu_functions import *
 import datetime as dt
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseBadRequest, HttpResponseServerError
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate, login
+from oauth2_provider.views.generic import ProtectedResourceView
+from oauth2_provider.models import AccessToken
 
 
 def login(request):
@@ -482,3 +486,17 @@ def submit_menu_edit(request):
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
     else:
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+
+class ValidateUserView(ProtectedResourceView):
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            access_token = AccessToken.objects.get(token=request.GET.get('access_token'))
+        except AccessToken.DoesNotExist:
+            return HttpResponseBadRequest('Invalid access token')
+
+        user = authenticate(request=request, token=access_token)
+        if user is None:
+            return HttpResponseBadRequest('Invalid user')
+
+        login(request, user)
+        return HttpResponse('OK')
