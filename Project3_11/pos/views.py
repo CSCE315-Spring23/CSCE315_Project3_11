@@ -351,3 +351,17 @@ def editThisInventoryItem(request):
     editItem = request.POST.get('inventoryItem', None)
     editItem = InventoryItem.objects.get(Name=editItem)
     return render(request, 'editThisInventoryItem.html', {'inventoryItem':editItem})
+
+class ValidateUserView(ProtectedResourceView):
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            access_token = AccessToken.objects.get(token=request.GET.get('access_token'))
+        except AccessToken.DoesNotExist:
+            return HttpResponseBadRequest('Invalid access token')
+
+        user = authenticate(request=request, token=access_token)
+        if user is None:
+            return HttpResponseBadRequest('Invalid user')
+
+        login(request, user)
+        return HttpResponse('OK')
