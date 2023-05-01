@@ -31,7 +31,26 @@
                 </tr>
                 <tr>
                     <td>Definite Items</td>
-                    <td>{{ menu_item.DefiniteItems }}</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    {% for category in categories %}
+                                        <th>{{ category }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in definite_items %}
+                                    <tr>
+                                        {% for item in row %}
+                                            <td>{{ item }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
                     <td>
                         <select name="definite_items" id="definite_items" multiple>
                             {% for item in inventory_items %}
@@ -42,7 +61,26 @@
                 </tr>
                 <tr>
                     <td>Possible Items</td>
-                    <td>{{ menu_item.PossibleItems }}</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    {% for category in categories %}
+                                        <th>{{ category }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in possible_items %}
+                                    <tr>
+                                        {% for item in row %}
+                                            <td>{{ item }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
                     <td>
                         <select name="possible_items" id="possible_items" multiple>
                             {% for item in inventory_items %}

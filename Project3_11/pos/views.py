@@ -3,7 +3,7 @@ import datetime
 from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
@@ -140,6 +140,7 @@ def set_language(request):
     if language:
         request.session['django_language'] = language
     return redirect(request.META.get('HTTP_REFERER', '/'))
+
 
 def button_testing(request):
     order_total = request.session.get('order_total', 0)
@@ -379,7 +380,10 @@ def editThisInventoryItem(request):
 
 def submitInventoryEdit(request):
     if request.method == 'POST':
-        editItem = request.POST.get('passedInventoryItem', None)
+        editItem = request.POST.get('passedInventoryItem')
+        deleteItem = request.POST.get('deleteInventoryItem')
+        if deleteItem and not editItem:
+            removeInventoryItem(deleteItem)
         editItem = InventoryItem.objects.get(Name=editItem)
         stock = request.POST.get('stock')
         numberNeeded = request.POST.get('numNeeded')
@@ -389,13 +393,9 @@ def submitInventoryEdit(request):
         servings = request.POST.get('servings')
         restockCost = request.POST.get('restockCost')
         image = request.FILES.get('image')
-        print("test")
         if stock:
-            print("test1")
             editItem.Stock = int(stock)
-            print("test2")
         if numberNeeded:
-
             editItem.NumberNeeded = int(numberNeeded)
         if orderChance:
             editItem.OrderChance = float(orderChance)
@@ -409,7 +409,6 @@ def submitInventoryEdit(request):
             editItem.RestockCost = int(restockCost)
         if image:
             editItem.Image = base64.b64encode(image.read()).decode('utf-8')
-        print("test3")
         editItem.save()
 
         inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
@@ -421,15 +420,38 @@ def submitInventoryEdit(request):
 
 def edit_menu_items(request):
     menu_items = MenuItem.objects.order_by('-Price')
-    return render(request, 'menu_items.html', {'menu_items': menu_items})
+
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+
+    all_definite_items = []
+    all_sorted_items = []
+    for item in menu_items:
+        definite_items = get_sorted_items(item, inventory_items, categories, "DefiniteItems")
+        possible_items = get_sorted_items(item, inventory_items, categories, "PossibleItems")
+        all_definite_items.append(definite_items)
+        all_sorted_items.append(possible_items)
+
+    return render(request, 'menu_items.html', {'menu_items': menu_items, 'categories': categories, 'all_definite_items': all_definite_items, 'all_sorted_items': all_sorted_items})
 
 
 def edit_this_menu_item(request):
     edit_item = request.POST.get('menu_item', None)
     edit_item = MenuItem.objects.get(ItemName=edit_item)
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
-    print(inventory_items)
-    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items})
+
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+
+    definite_items = get_sorted_items(edit_item, inventory_items, categories, "DefiniteItems")
+    possible_items = get_sorted_items(edit_item, inventory_items, categories, "PossibleItems")
+
+    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'definite_items': definite_items, 'possible_items': possible_items})
 
 
 def submit_menu_edit(request):
@@ -452,6 +474,7 @@ def submit_menu_edit(request):
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
     else:
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+
 
 class ValidateUserView(ProtectedResourceView):
         def temp(self):

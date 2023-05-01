@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Add An Inventory Item</h2>
+
+    {% block inventoryItemContent %}
+        <form method="POST" action="{% url 'submitInventoryAddition' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Trait</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Item Name</td>
+                    <td><input required type="text" name="itemName" id="itemName"></td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td><input required type="file" name="image" id="image"></td>
+                </tr>
+                <tr>
+                    <td>Stock</td>
+                    <td><input required type="number" name="stock" id="stock"></td>
+                </tr>
+                <tr>
+                    <td>Number Needed</td>
+                    <td><input required type="number" name="numNeeded" id="numNeeded"></td>
+                </tr>
+                <tr>
+                    <td>Order Chance</td>
+                    <td><input required type="number" name="orderChance" id="orderChance"></td>
+                </tr>
+                <tr>
+                    <td>Units</td>
+                    <td><input required type="text" name="units" id="units"></td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>
+                        <select required name="category" id="category">
+                            {% for category in categories %}
+                                <option value="{{ category }}">{{ category }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Servings</td>
+                    <td><input required type="number" name="servings" id="servings"></td>
+                </tr>
+                <tr>
+                    <td>Restock Cost</td>
+                    <td><input required type="number" name="restockCost" id="restockCost"></td>
+                </tr>
+            </table>
+        <button type="submit" name="passedInventoryItem">Submit Item</button>
+        </form>
+    {% endblock %}
+{% endblock %}

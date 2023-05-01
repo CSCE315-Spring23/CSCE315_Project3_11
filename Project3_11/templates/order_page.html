@@ -1,63 +1,100 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <br>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" name="button_clicked" value="clear_order">Clear Order</button>
-    </form>
-    <br>
-    <form method="post">
-    {% for item in menu %}
-        {% csrf_token %}
-        <input type="radio" id="{{ item.ItemName }}" name="menu_item_selected" value="{{ item.ItemName }}">
-        <label for="{{ item.ItemName }}">{{ item.ItemName }}</label><br>
-        {% for category, toppings in item_categories.items %}
-            <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
-                {% for topping in toppings %}
-                    {% if topping in item.PossibleItems %}
-                        {% if category == "base" %}
-                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="base_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                        {% elif category == "protein" %}
-                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="protein_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                        {% elif category == "toppings" %}
-                            <input type="checkbox" id="{{ item.ItemName }}_{{ topping }}" name="toppings_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                        {% elif category == "sauces" %}
-                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="sauce_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                        {% elif category == "drinks" %}
-                            <input type="radio" id="{{ item.ItemName }}_{{ topping }}" name="drink_selected" value="{{ topping }}">
-                            <label for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                        {% endif %}
-                    {% endif %}
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Orders Screen</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    </head>
+
+    <body>
+
+
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Sidebar -->
+          <div class="col-md-3 bg-light ">
+
+            <h4 class="text-center py-5">Navigate</h4>
+            <ul class="nav flex-column gap-3">
+
+                <a class="btn btn-primary btn-block btn-lg p-5" role="button">Order</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'inventory' %}" role="button">Inventory Items</a>
+    {#            <a class="btn btn-primary" href="{% url 'menu' %}" role="button">Menu Items</a>#}
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'login' %}" role="button">Log Out</a>
+            </ul>
+          </div>
+          <!-- Main Content -->
+          <div class="col-md-5">
+            <h4 class="text-center py-5">All Orders</h4>
+              <ul>
+                <form method="post">
+                {% for item in menu %}
+                    {% csrf_token %}
+                    <input class="btn-check" type="radio" id="{{ item.ItemName }}" name="menu_item_selected" value="{{ item.ItemName }}">
+                    <label class="btn btn-primary btn-block" for="{{ item.ItemName }}">{{ item.ItemName }}</label><br>
+                    {% for category, toppings in item_categories.items %}
+                        <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
+                            {% for topping in toppings %}
+                                {% if topping in item.PossibleItems %}
+                                    {% if category == "base" %}
+                                        <input type="radio" class="btn-check"  id="{{ item.ItemName }}_{{ topping }}" name="base_selected" value="{{ topping }}">
+                                        <label class="btn btn-warning py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
+                                    {% elif category == "protein" %}
+                                        <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="protein_selected" value="{{ topping }}">
+                                        <label class="btn btn-danger py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
+                                    {% elif category == "toppings" %}
+                                        <input type="checkbox" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="toppings_selected" value="{{ topping }}">
+                                        <label class="btn btn-success py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
+                                    {% elif category == "sauces" %}
+                                        <input type="radio"  class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="sauce_selected" value="{{ topping }}">
+                                        <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
+                                    {% elif category == "drinks" %}
+                                        <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="drink_selected" value="{{ topping }}">
+                                        <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if category in item.categories %}
+                                <br>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
+                        <a class="btn btn-success btn-block btn-lg " type="submit" value="add_to_order">Add to Order</a>
+                    </div>
                 {% endfor %}
-                {% if category in item.categories %}
-                    <br>
+                </form>
+              </ul>
+          </div>
+    {#        Orders Table#}
+            <div class="col-md-4 bg-light">
+                <h4 class="text-center py-3">Current Order</h4>
+                {% if order.CustomizedItems %}
+                    <h2>Order Items:</h2>
+                    <ul>
+                    {% for item in order.CustomizedItems %}
+                        <li>{{ item.0 }} - ${{ item.1 }}</li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
-            </div>
-        {% endfor %}
-        <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
-            <br><button type="submit" name="button_clicked" value="add_to_order">Add to Order</button><br><br>
+                <h1>Subtotal: ${{ order.Subtotal }}</h1>
+                <h1>Total: ${{ order.Total }}</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <a class="btn btn-success btn-block btn-lg " type="submit" value="place_order" role="button">Place Order</a>
+                    <a class="btn btn-secondary btn-block btn-lg " type="submit" value="clear_order">Clear Order</a>
+                </form>
+          </div>
         </div>
-    {% endfor %}
-    </form>
-    {% if order.CustomizedItems %}
-        <h2>Order Items:</h2>
-        <ul>
-        {% for item in order.CustomizedItems %}
-            <li>{{ item.0 }} - ${{ item.1 }}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
-    <h1>Subtotal: ${{ order.Subtotal }}</h1>
-    <h1>Total: ${{ order.Total }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" name="button_clicked" value="place_order">Place Order</button>
-    </form>
+      </div>
+
+
     <script>
     const menuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]');
         menuItems.forEach(function(menuItem) {
@@ -78,4 +115,10 @@
         });
     });
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
 {% endblock %}
