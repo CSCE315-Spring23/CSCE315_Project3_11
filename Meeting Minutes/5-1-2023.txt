@@ -1,0 +1,36 @@
+SCRUM Meeting 9 for Project 3
+Prepared by: Anthony Noyes
+Meeting Date: 5/1/2023
+
+Meeting Attendees
+ Anthony Noyes
+ Drew Pusey
+ Alex Gonce
+ Stanley Lee
+
+Meeting Agenda Items
+Give updates on project status
+Discuss our plans for finishing project
+
+Status Update Since Last Meeting
+Accomplishments:
+Order page, login, reports done (Alex/Stanley)
+Added support for images and new menu item page (Drew)
+Editing menu and inventory items using GUI (Drew)
+OAuth integration started (Anthony)
+
+Tasks Completed:
+Task Description, Assigned to, Completed? (yes/no)
+Finalize front end without APIs, Alex/Stanley, no
+
+Before The Next Meeting
+Plans:
+Finalize OAuth integration
+Finish front end
+
+Task Assignments:
+Finalize OAuth integration (Anthony)
+Try to be at least 95% complete with project by tomorrow (everyone)
+
+Minutes from Previous Meeting
+We discussed what we were going to try and get done over the weekend and started thinking about the end of the project	
