@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block content %}
-  <h1>OAuth</h1>
-  <p>Click the button to login.</p>
-    <form action="/validate_user/" method="GET">
-		<label for="access_token">Access Token:</label>
-		<input type="text" name="access_token" id="access_token" required>
-		<br><br>
-		<input type="submit" value="Validate">
-	</form>
-{% endblock %}
+{% load socialaccount %}
+<html>
+<body>
+<h1>My Google OAuth Project </h1>
+{% if user.is_authenticated %}
+  <p>Welcome, You are logged in as {{ user.username }}</p>
+{% else %}
+  <a href="{% provider_login_url 'google' %}">Login With Google</a>
+{% endif %}
+</body>
+</html>
