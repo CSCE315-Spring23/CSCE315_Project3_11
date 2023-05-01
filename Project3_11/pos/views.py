@@ -7,10 +7,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
-from Project3_11.pos.models import *
-from Project3_11.pos.reportFunctions import *
-from Project3_11.pos.inventoryFunctions import *
-from Project3_11.pos.menu_functions import *
+from pos.models import *
+from pos.reportFunctions import *
+from pos.inventoryFunctions import *
+from pos.menu_functions import *
 import datetime as dt
 from django.http import HttpResponseBadRequest, HttpResponseServerError
 from django.views.decorators.csrf import csrf_exempt
