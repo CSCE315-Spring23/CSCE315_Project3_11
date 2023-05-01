@@ -393,13 +393,9 @@ def submitInventoryEdit(request):
         servings = request.POST.get('servings')
         restockCost = request.POST.get('restockCost')
         image = request.FILES.get('image')
-        print("test")
         if stock:
-            print("test1")
             editItem.Stock = int(stock)
-            print("test2")
         if numberNeeded:
-
             editItem.NumberNeeded = int(numberNeeded)
         if orderChance:
             editItem.OrderChance = float(orderChance)
@@ -413,7 +409,6 @@ def submitInventoryEdit(request):
             editItem.RestockCost = int(restockCost)
         if image:
             editItem.Image = base64.b64encode(image.read()).decode('utf-8')
-        print("test3")
         editItem.save()
 
         inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
@@ -496,5 +491,32 @@ class ValidateUserView(ProtectedResourceView):
         return HttpResponse('OK')
 
 
-def addInventoryItem(request):
-    print('hi')
+def addInventoryItemPage(request):
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+    return render(request, 'addInventoryItem.html', {'categories': categories})
+
+
+def submitInventoryAddition(request):
+    if request.method == 'POST':
+        # itemToAdd = request.POST.get('passedInventoryItem')
+        itemName = request.POST.get('itemName')
+        stock = request.POST.get('stock')
+        numberNeeded = int(request.POST.get('numNeeded'))
+        orderChance = float(request.POST.get('orderChance'))
+        units = request.POST.get('units')
+        category = request.POST.get('category')
+        servings = int(request.POST.get('servings'))
+        restockCost = int(request.POST.get('restockCost'))
+        image = request.FILES.get('image')
+        image = base64.b64encode(image.read()).decode('utf-8')
+        addInventoryItem(itemName, stock, numberNeeded, orderChance, units, category, servings, restockCost, image)
+
+        inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
+    else:
+        inventoryItems = InventoryItem.objects.all()
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})

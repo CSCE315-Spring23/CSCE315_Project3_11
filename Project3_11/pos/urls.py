@@ -34,5 +34,6 @@ urlpatterns = [
     path('edit_menu_items/', views.edit_menu_items, name='edit_menu_items'),
     path('edit_this_menu_item/', views.edit_this_menu_item, name='edit_this_menu_item'),
     path('submit_menu_edit/', views.submit_menu_edit, name='submit_menu_edit'),
-    path('addInventoryItem/', views.addInventoryItem, name='addInventoryItem'),
+    path('addInventoryItemPage/', views.addInventoryItemPage, name='addInventoryItemPage'),
+    path('submitInventoryAddition/', views.submitInventoryAddition, name='submitInventoryAddition')
 ]

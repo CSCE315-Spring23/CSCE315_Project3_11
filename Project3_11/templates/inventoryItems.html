@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Edit Inventory Items</h2>
-    <a href="{% url 'addInventoryItem' %}">Add Item</a>
+    <a href="{% url 'addInventoryItemPage' %}">Add Item</a>
     <form method="POST" action="{% url 'editThisInventoryItem' %}">
         {% csrf_token %}
     <table>
