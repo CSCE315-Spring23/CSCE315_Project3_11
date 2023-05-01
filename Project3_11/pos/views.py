@@ -7,6 +7,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
+
+from pos.common_functions import get_sorted_inventory
 from pos.models import *
 from pos.reportFunctions import *
 from pos.inventoryFunctions import *
@@ -432,15 +434,11 @@ def edit_menu_items(request):
         if item.Category not in categories:
             categories.append(item.Category)
 
-    all_definite_items = []
-    all_sorted_items = []
     for item in menu_items:
-        definite_items = get_sorted_items(item, inventory_items, categories, "DefiniteItems")
-        possible_items = get_sorted_items(item, inventory_items, categories, "PossibleItems")
-        all_definite_items.append(definite_items)
-        all_sorted_items.append(possible_items)
+        item.set_sorted_items("DefiniteItems", inventory_items, categories)
+        item.set_sorted_items("PossibleItems", inventory_items, categories)
 
-    return render(request, 'menu_items.html', {'menu_items': menu_items, 'categories': categories, 'all_definite_items': all_definite_items, 'all_sorted_items': all_sorted_items})
+    return render(request, 'menu_items.html', {'menu_items': menu_items, 'categories': categories})
 
 
 def edit_this_menu_item(request):
@@ -453,10 +451,12 @@ def edit_this_menu_item(request):
         if item.Category not in categories:
             categories.append(item.Category)
 
-    definite_items = get_sorted_items(edit_item, inventory_items, categories, "DefiniteItems")
-    possible_items = get_sorted_items(edit_item, inventory_items, categories, "PossibleItems")
+    sorted_inventory = get_sorted_inventory(inventory_items, categories)
 
-    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'definite_items': definite_items, 'possible_items': possible_items})
+    edit_item.set_sorted_items("DefiniteItems", inventory_items, categories)
+    edit_item.set_sorted_items("PossibleItems", inventory_items, categories)
+
+    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'sorted_inventory': sorted_inventory})
 
 
 def submit_menu_edit(request):
@@ -465,8 +465,8 @@ def submit_menu_edit(request):
         edit_item = MenuItem.objects.get(ItemName=edit_item)
         image = request.FILES.get('image')
         price = request.POST.get('price')
-        definite_items = request.POST.getlist('definite_items')
-        possible_items = request.POST.getlist('possible_items')
+        definite_items = request.POST.getlist('selected_definite_items')
+        possible_items = request.POST.getlist('selected_possible_items')
         if image:
             edit_item.Image = base64.b64encode(image.read()).decode('utf-8')
         if price:

@@ -38,9 +38,3 @@ def removeInventoryItem(name):
         item.delete()
     except InventoryItem.DoesNotExist:
         print(f"Inventory item '{name}' not found in database.")
-
-
-def get_category(item_name, inventory):
-    for item in inventory:
-        if item.Name == item_name:
-            return item.Category
