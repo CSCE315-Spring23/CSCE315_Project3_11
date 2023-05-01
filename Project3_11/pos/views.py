@@ -494,3 +494,7 @@ class ValidateUserView(ProtectedResourceView):
 
         login(request, user)
         return HttpResponse('OK')
+
+
+def addInventoryItem(request):
+    print('hi')

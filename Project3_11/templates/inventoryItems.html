@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Edit Inventory Items</h2>
+    <a href="{% url 'addInventoryItem' %}">Add Item</a>
     <form method="POST" action="{% url 'editThisInventoryItem' %}">
         {% csrf_token %}
     <table>
@@ -19,11 +20,8 @@
             <td>{{ item.NumberNeeded }}</td>
             <td>{{ item.Units }}</td>
             <td>
-                <button type="submit" name="inventoryItem" value="{{ item.Name }}">Edit {{ item.Name }}</button>
+                <button type="submit" name="inventoryItem" value="{{ item.Name }}">Edit/Delete {{ item.Name }}</button>
             </td>
-{#            <td>#}
-{#                <button type="submit" id="{{ item.Name }}" name="{{ item.Name }}">{{ item.Name }}</button>#}
-{#            </td>#}
         </tr>
     {% endfor %}
     </table>
