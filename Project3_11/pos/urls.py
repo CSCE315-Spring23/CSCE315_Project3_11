@@ -1,8 +1,13 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from .views import ValidateUserView
+from django.views.generic import TemplateView
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name="oAuth.html")),
+    path('accounts/', include('allauth.urls')),
+    path('logout', LogoutView.as_view()),
     path('validate_user/', ValidateUserView.as_view(), name='validate_user'),
     path('', views.login, name='login'),
     path('employee/', views.employee_page, name='employee'),
@@ -34,4 +39,6 @@ urlpatterns = [
     path('edit_menu_items/', views.edit_menu_items, name='edit_menu_items'),
     path('edit_this_menu_item/', views.edit_this_menu_item, name='edit_this_menu_item'),
     path('submit_menu_edit/', views.submit_menu_edit, name='submit_menu_edit'),
+    path('addInventoryItemPage/', views.addInventoryItemPage, name='addInventoryItemPage'),
+    path('submitInventoryAddition/', views.submitInventoryAddition, name='submitInventoryAddition')
 ]

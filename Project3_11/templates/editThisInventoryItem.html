@@ -35,7 +35,7 @@
                 <tr>
                     <td>Units</td>
                     <td>{{ inventoryItem.Units }}</td>
-                    <td><input type="number" name="units" id="units"></td>
+                    <td><input type="text" name="units" id="units"></td>
                 </tr>
                 <tr>
                     <td>Category</td>
@@ -61,7 +61,7 @@
                 </tr>
             </table>
 {#            <input type="hidden" name="inventoryItem" value="{{ item.Name }}">#}
-        <button type="submit" name="passedInventoryItem" value="{{ inventoryItem.Name }}">Submit</button>
+        <button type="submit" name="passedInventoryItem" value="{{ inventoryItem.Name }}">Submit Changes</button>
         <button type="submit" name="deleteInventoryItem" value="{{ inventoryItem.Name }}">Delete</button>
         </form>
     {% endblock %}
