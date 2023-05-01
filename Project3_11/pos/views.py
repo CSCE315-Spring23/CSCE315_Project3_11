@@ -7,10 +7,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
-from pos.models import *
-from pos.reportFunctions import *
-from pos.inventoryFunctions import *
-from pos.menu_functions import *
+from Project3_11.pos.models import *
+from Project3_11.pos.reportFunctions import *
+from Project3_11.pos.inventoryFunctions import *
+from Project3_11.pos.menu_functions import *
 import datetime as dt
 from django.http import HttpResponseBadRequest, HttpResponseServerError
 from django.views.decorators.csrf import csrf_exempt
@@ -140,6 +140,7 @@ def set_language(request):
     if language:
         request.session['django_language'] = language
     return redirect(request.META.get('HTTP_REFERER', '/'))
+
 
 def button_testing(request):
     order_total = request.session.get('order_total', 0)
@@ -379,7 +380,10 @@ def editThisInventoryItem(request):
 
 def submitInventoryEdit(request):
     if request.method == 'POST':
-        editItem = request.POST.get('passedInventoryItem', None)
+        editItem = request.POST.get('passedInventoryItem')
+        deleteItem = request.POST.get('deleteInventoryItem')
+        if deleteItem and not editItem:
+            removeInventoryItem(deleteItem)
         editItem = InventoryItem.objects.get(Name=editItem)
         stock = request.POST.get('stock')
         numberNeeded = request.POST.get('numNeeded')
@@ -475,6 +479,7 @@ def submit_menu_edit(request):
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
     else:
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+
 
 class ValidateUserView(ProtectedResourceView):
     def dispatch(self, request, *args, **kwargs):
