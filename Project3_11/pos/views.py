@@ -3,7 +3,7 @@ import datetime
 from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
@@ -12,7 +12,11 @@ from pos.reportFunctions import *
 from pos.inventoryFunctions import *
 from pos.menu_functions import *
 import datetime as dt
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseBadRequest, HttpResponseServerError
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate, login
+from oauth2_provider.views.generic import ProtectedResourceView
+from oauth2_provider.models import AccessToken
 
 
 def login(request):
@@ -417,15 +421,38 @@ def submitInventoryEdit(request):
 
 def edit_menu_items(request):
     menu_items = MenuItem.objects.order_by('-Price')
-    return render(request, 'menu_items.html', {'menu_items': menu_items})
+
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+
+    all_definite_items = []
+    all_sorted_items = []
+    for item in menu_items:
+        definite_items = get_sorted_items(item, inventory_items, categories, "DefiniteItems")
+        possible_items = get_sorted_items(item, inventory_items, categories, "PossibleItems")
+        all_definite_items.append(definite_items)
+        all_sorted_items.append(possible_items)
+
+    return render(request, 'menu_items.html', {'menu_items': menu_items, 'categories': categories, 'all_definite_items': all_definite_items, 'all_sorted_items': all_sorted_items})
 
 
 def edit_this_menu_item(request):
     edit_item = request.POST.get('menu_item', None)
     edit_item = MenuItem.objects.get(ItemName=edit_item)
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
-    print(inventory_items)
-    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items})
+
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+
+    definite_items = get_sorted_items(edit_item, inventory_items, categories, "DefiniteItems")
+    possible_items = get_sorted_items(edit_item, inventory_items, categories, "PossibleItems")
+
+    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'definite_items': definite_items, 'possible_items': possible_items})
 
 
 def submit_menu_edit(request):
@@ -448,3 +475,17 @@ def submit_menu_edit(request):
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
     else:
         return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+
+class ValidateUserView(ProtectedResourceView):
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            access_token = AccessToken.objects.get(token=request.GET.get('access_token'))
+        except AccessToken.DoesNotExist:
+            return HttpResponseBadRequest('Invalid access token')
+
+        user = authenticate(request=request, token=access_token)
+        if user is None:
+            return HttpResponseBadRequest('Invalid user')
+
+        login(request, user)
+        return HttpResponse('OK')
