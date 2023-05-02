@@ -16,7 +16,6 @@ urlpatterns = [
     path('reports/', views.reports_page, name='reports'),
     path('menuItems/', views.menuItems, name='menuItems'),
     path('database_info/', views.database_info, name='database_info'),
-    path('set-language/', views.set_language, name='set_language'),
     path('button_testing/', views.button_testing, name='button_testing'),
     path('button_testing_page2/', views.button_testing_page2, name='button_testing_page2'),
     path('order_page/', views.order_page, name='order_page'),

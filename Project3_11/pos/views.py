@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from google.cloud import translate_v2 as translate
+# from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
 
@@ -66,9 +66,6 @@ def menuItems(request):
 
 def database_info(request):
     if request.method == 'GET':
-        client = translate.Client(credentials=settings.CREDENTIALS)
-        target_language = request.session.get(settings.LANGUAGE_SESSION_KEY, 'en')
-
         # Get database information
         employees = Employee.objects.all()
         menu_items = MenuItem.objects.all()
@@ -89,59 +86,10 @@ def database_info(request):
         menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
         inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category', 'Servings', 'RestockCost']
 
-        # Translate if necessary
-        if target_language != 'en':
-            # Translate other text
-            employee_header = client.translate(employee_header, target_language=target_language)['translatedText']
-            menu_header = client.translate(menu_header, target_language=target_language)['translatedText']
-            inventory_header = client.translate(inventory_header, target_language=target_language)['translatedText']
-            employee_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for
-                                      header in employee_table_headers]
-            menu_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header
-                                  in menu_table_headers]
-            inventory_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in inventory_table_headers]
-
-            # Translate employees
-            for employee in employees:
-                employee.PositionTitle = client.translate(employee.PositionTitle, target_language=target_language)[
-                    'translatedText']
-
-            # Translate menu items
-            for menu_item in menu_items:
-                menu_item.ItemName = client.translate(menu_item.ItemName, target_language=target_language)[
-                    'translatedText']
-                translated_definite_items = []
-                for definite_item in menu_item.DefiniteItems:
-                    translated_definite_items += [
-                        client.translate(definite_item, target_language=target_language)['translatedText']]
-                menu_item.DefiniteItems = translated_definite_items
-                translated_possible_items = []
-                for possible_item in menu_item.PossibleItems:
-                    translated_possible_items += [
-                        client.translate(possible_item, target_language=target_language)['translatedText']]
-                menu_item.PossibleItems = translated_possible_items
-
-            # Translate inventory items
-            for inventory_item in inventory_items:
-                inventory_item.Name = client.translate(inventory_item.Name, target_language=target_language)['translatedText']
-                inventory_item.Units = client.translate(inventory_item.Units, target_language=target_language)['translatedText']
-                inventory_item.Category = client.translate(inventory_item.Category, target_language=target_language)['translatedText']
-
         context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items, 'employee_header': employee_header, 'inventory_header': inventory_header,
                    'menu_header': menu_header, 'employee_headers': employee_table_headers, 'inventory_table_headers': inventory_table_headers,
-                   'menu_headers': menu_table_headers, 'target_language': target_language}
+                   'menu_headers': menu_table_headers}
         return render(request, 'database_info.html', context)
-
-
-def set_language(request):
-    language = request.POST.get('language')
-
-    # Store the language in the session
-    request.session[settings.LANGUAGE_SESSION_KEY] = language
-
-    if language:
-        request.session['django_language'] = language
-    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
 def button_testing(request):
