@@ -1,18 +1,32 @@
 {% extends 'reports.html' %}
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders Screen</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
 {% block selectedReportContent %}
-  <h1>What Sales Together Report</h1>
-  <p>Input start and end times to generate a report of what sells together between those dates</p>
+  <h1 class = "mt-5 text-center">What Sales Together Report</h1>
+  <p class = "text-center">Input start and end times to generate a report of what sells together between those dates.</p>
     <form method="POST" action="{% url 'whatSalesTogetherReportGeneration' %}">
         {% csrf_token %}
         {# maybe has input #}
-        <label for="startDate">Start DateTime</label>
-        <input type="datetime-local" id="startDate" name="startDate">
-        <label for="endDate">End DateTime</label>
-        <input type="datetime-local" id="endDate" name="endDate">
-        <button type="submit">Generate What Sales Together Report</button>
+
+        <div class="text-center"><label class= "mx-3" for="startDate">Start DateTime</label><input type="datetime-local" id="startDate" name="startDate"></div>
+
+        <div class="text-center my-3"><label class= "mx-3" for="endDate">&nbspEnd DateTime</label><input type="datetime-local" id="endDate" name="endDate"></div>
+    <div class="text-center my-3"><button class="btn btn-primary" type="submit">Generate What Sales Together Report</button></div>
     </form>
     {% block whatSalesTogetherReportContent %}
-        {{ whatSalesTogetherReportData }}
+
+        <div class="text-center"><label>Total: ${{ whatSalesTogetherReportData }}</label></div>
+
     {% endblock %}
 {% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+

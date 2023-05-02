@@ -1,13 +1,30 @@
 {% extends 'reports.html' %}
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders Screen</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
 {% block selectedReportContent %}
-  <h1>Z Report</h1>
-  <p>Click the button to generate an Z Report.</p>
+    <h1 class = "mt-5 text-center">Z Report</h1>
+  <p class = "text-center">Click the button to generate an Z Report.</p>
     <form method="POST" action="{% url 'zReportGeneration' %}">
         {% csrf_token %}
-        <button type="submit">Generate Z Report</button>
+        <div class="text-center my-3"><button type="submit">Generate Z Report</button></div>
     </form>
     {% block zReportContent %}
-        {{ zReportData }}
+        <div class="text-center"><label>Total: ${{ zReportData }}</label></div>
     {% endblock %}
 {% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
