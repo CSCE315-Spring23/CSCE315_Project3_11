@@ -6,6 +6,11 @@
 </head>
 <body>
     <header>
+        <p>hi</p>
+        {% if weather %}
+            <p>Current weather: {{ weather }}</p>
+        {% endif %}
+
         <form method="post" action="{% url 'set_language' %}">
             {% csrf_token %}
             <select name="language">

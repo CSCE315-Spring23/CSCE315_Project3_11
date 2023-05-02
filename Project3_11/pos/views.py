@@ -19,21 +19,44 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from oauth2_provider.views.generic import ProtectedResourceView
 from oauth2_provider.models import AccessToken
+from bs4 import BeautifulSoup
+import requests
+
+
+def getWeather():
+    print("in weatherData")
+    APIURLcurrent = r"https://api.openweathermap.org/data/2.5/weather?lat=30.627979&lon=-96.334412&appid=b564f1dbb4cd614c0ee84abe3f4c820c&units=imperial&mode=xml"
+    r = requests.get(APIURLcurrent)
+    content = BeautifulSoup(r.content, features="xml")
+
+    bigSectionTemp = content.findAll('temperature')
+    bigSectionWeather = content.findAll('weather')
+
+    for element in bigSectionWeather:
+        words = element.get('value')
+        print(words)
+
+    for element in bigSectionTemp:
+        temperature = element.get('value')
+        print(temperature)
+    # return {'weather':'test'}
+    return f'{words}, {temperature}'
 
 
 def login(request):
+    weather = getWeather()
     if request.method == 'POST':
         employee_id = request.POST['employee_id']
         employee_pin = request.POST['employee_pin']
         try:
             employee = Employee.objects.get(EmployeeID=employee_id, EmployeePIN=employee_pin)
-            context = {'employee': employee}
+            context = {'employee': employee, 'weather': weather}
             return render(request, 'employee.html', context)
         except Employee.DoesNotExist:
             error = 'Invalid employee ID or PIN'
-            context = {'error': error}
+            context = {'error': error, 'weather': weather}
             return render(request, 'login.html', context)
-    return render(request, 'login.html')
+    return render(request, 'login.html', {'weather': weather})
 
 
 def employee_page(request):
@@ -225,7 +248,7 @@ def order_page(request):
             request.session['orderpk'] = str(order.DateTimeStarted)
             return HttpResponseRedirect(request.path_info)
     else:
-        return render(request, 'order_page.html', {'order': order, 'menu': menu, 'item_categories': item_categories})
+        return render(request, 'order_page.html', {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather()})
 
 
 def salesReport(request):
