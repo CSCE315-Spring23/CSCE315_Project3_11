@@ -31,6 +31,8 @@ def getWeather():
 
     bigSectionTemp = content.findAll('temperature')
     bigSectionWeather = content.findAll('weather')
+    words = 'error'
+    temperature = 'error'
 
     for element in bigSectionWeather:
         words = element.get('value')
@@ -44,19 +46,18 @@ def getWeather():
 
 
 def login(request):
-    weather = getWeather()
     if request.method == 'POST':
         employee_id = request.POST['employee_id']
         employee_pin = request.POST['employee_pin']
         try:
             employee = Employee.objects.get(EmployeeID=employee_id, EmployeePIN=employee_pin)
-            context = {'employee': employee, 'weather': weather}
+            context = {'employee': employee, 'weather': getWeather()}
             return render(request, 'employee.html', context)
         except Employee.DoesNotExist:
             error = 'Invalid employee ID or PIN'
-            context = {'error': error, 'weather': weather}
+            context = {'error': error, 'weather': getWeather()}
             return render(request, 'login.html', context)
-    return render(request, 'login.html', {'weather': weather})
+    return render(request, 'login.html', {'weather': getWeather()})
 
 
 def employee_page(request):
