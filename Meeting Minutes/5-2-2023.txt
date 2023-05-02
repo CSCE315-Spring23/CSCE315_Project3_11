@@ -1,0 +1,34 @@
+SCRUM Meeting 10 for Project 3
+Prepared by: Anthony Noyes
+Meeting Date: 5/2/2023
+
+Meeting Attendees
+ Anthony Noyes
+ Drew Pusey
+ Alex Gonce
+ Stanley Lee
+
+Meeting Agenda Items
+Finish project
+
+Status Update Since Last Meeting
+Accomplishments:
+Can log out, log in working (Anthony)
+Better translation (Drew)
+Styled login and report (Stanley)
+Weather API showing on front end (Alex)
+
+Tasks Completed:
+Task Description, Assigned to, Completed? (yes/no)
+Finalize OAuth integration, Anthony, no
+Try to be done with 95% of project, everyone, yes
+
+Before The Next Meeting
+Plans:
+N/A
+
+Task Assignments:
+N/A
+
+Minutes from Previous Meeting
+We talked about what we were working on and reviewed our list of remaining tasks	
