@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Menu Board</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    </head>
+
+    <body>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Main Content -->
+          <div class="col-md-3">
+{#                <form method="post">#}
+                {% for item in menu %}
+{#                    {% csrf_token %}#}
+                    <input class="btn-check" type="radio" id="{{ item.ItemName }}" name="menu_item_selected" value="{{ item.ItemName }}">
+                    <label class="btn btn-primary btn-block" for="{{ item.ItemName }}">{{ item.ItemName }}</label><br>
+{#                    {% for category, toppings in item_categories.items %}#}
+{#                        <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">#}
+{#                            {% for topping in toppings %}#}
+{#                                {% if topping in item.PossibleItems %}#}
+{#                                    {% if category == "base" %}#}
+{#                                        <input type="radio" class="btn-check"  id="{{ item.ItemName }}_{{ topping }}" name="base_selected" value="{{ topping }}">#}
+{#                                        <label class="btn btn-warning py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>#}
+{#                                    {% elif category == "protein" %}#}
+{#                                        <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="protein_selected" value="{{ topping }}">#}
+{#                                        <label class="btn btn-danger py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>#}
+{#                                    {% elif category == "toppings" %}#}
+{#                                        <input type="checkbox" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="toppings_selected" value="{{ topping }}">#}
+{#                                        <label class="btn btn-success py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>#}
+{#                                    {% elif category == "sauces" %}#}
+{#                                        <input type="radio"  class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="sauce_selected" value="{{ topping }}">#}
+{#                                        <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>#}
+{#                                    {% elif category == "drinks" %}#}
+{#                                        <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="drink_selected" value="{{ topping }}">#}
+{#                                        <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>#}
+{#                                    {% endif %}#}
+{#                                {% endif %}#}
+{#                            {% endfor %}#}
+{#                            {% if category in item.categories %}#}
+{#                                <br>#}
+{#                            {% endif %}#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+                {% endfor %}
+{#                </form>#}
+          </div>
+        </div>
+      </div>
+
+
+    <script>
+    const menuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]');
+        menuItems.forEach(function(menuItem) {
+            menuItem.addEventListener('change', function() {
+                const menuItemName = this.value;
+                const addOnDivs = document.querySelectorAll('[id^="' + menuItemName + '"]');
+                addOnDivs.forEach(function(addOnDiv) {
+                addOnDiv.style.display = 'inline';
+            });
+            const otherMenuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]:not(:checked)');
+            otherMenuItems.forEach(function(otherMenuItem) {
+                const otherMenuItemName = otherMenuItem.value;
+                const otherAddOnDivs = document.querySelectorAll('[id^="' + otherMenuItemName + '"]');
+                otherAddOnDivs.forEach(function(otherAddOnDiv) {
+                    otherAddOnDiv.style.display = 'none';
+                });
+            });
+        });
+    });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}

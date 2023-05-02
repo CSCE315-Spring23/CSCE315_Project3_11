@@ -123,10 +123,13 @@ def database_info(request):
         employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
                                   'Hours Worked']
         menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
-        inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category', 'Servings', 'RestockCost']
+        inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category',
+                                   'Servings', 'RestockCost']
 
-        context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items, 'employee_header': employee_header, 'inventory_header': inventory_header,
-                   'menu_header': menu_header, 'employee_headers': employee_table_headers, 'inventory_table_headers': inventory_table_headers,
+        context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items,
+                   'employee_header': employee_header, 'inventory_header': inventory_header,
+                   'menu_header': menu_header, 'employee_headers': employee_table_headers,
+                   'inventory_table_headers': inventory_table_headers,
                    'menu_headers': menu_table_headers}
         return render(request, 'database_info.html', context)
 
@@ -173,11 +176,13 @@ def order_page(request):
                 for customized_item in order.CustomizedItems:
                     items += [customized_item[0]]
                     menu_items_in_order += customized_item[2]
-                finished_order = Order(EmployeeID=order.EmployeeID, Items=items, Subtotal=order.Subtotal, Total=order.Total, MenuItemsInOrder=menu_items_in_order)
+                finished_order = Order(EmployeeID=order.EmployeeID, Items=items, Subtotal=order.Subtotal,
+                                       Total=order.Total, MenuItemsInOrder=menu_items_in_order)
                 finished_order.save()
                 order.delete()
                 del request.session['orderpk']
-                return render(request, 'order_page.html', {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories, 'permission':permissions})
+                return render(request, 'order_page.html',
+                              {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories, 'permission':permissions})
         except ValueError:
             order = OrderInProgress()
     else:
@@ -213,7 +218,8 @@ def order_page(request):
             request.session['orderpk'] = str(order.DateTimeStarted)
             return HttpResponseRedirect(request.path_info)
     else:
-        return render(request, 'order_page.html', {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather()})
+        return render(request, 'order_page.html',
+                      {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather()})
 
 
 def salesReport(request):
@@ -298,7 +304,8 @@ def excessReportGeneration(request):
         datePlaced = request.POST['datePlaced']
         try:
             excess_items = generateExcessReport(
-                timezone.make_aware(dt.datetime.strptime(datePlaced, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
+                timezone.make_aware(dt.datetime.strptime(datePlaced, '%Y-%m-%dT%H:%M'),
+                                    timezone.get_current_timezone()))
         except ValueError:
             context = {'excessReportData': 'Please input a valid datetime'}
             return render(request, 'excessReport.html', context)
@@ -354,7 +361,7 @@ def whatSalesTogetherReportGeneration(request):
 
 def editInventoryItems(request):
     inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
-    return render(request, 'inventoryItems.html', {'inventoryItems':inventoryItems})
+    return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
 
 
 def editThisInventoryItem(request):
@@ -432,7 +439,9 @@ def edit_this_menu_item(request):
 
     sorted_inventory = get_sorted_inventory(inventory_items, categories)
 
-    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'sorted_inventory': sorted_inventory})
+    return render(request, 'edit_this_menu_item.html',
+                  {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories,
+                   'sorted_inventory': sorted_inventory})
 
 
 def submit_menu_edit(request):
@@ -458,8 +467,10 @@ def submit_menu_edit(request):
 
 
 class ValidateUserView(ProtectedResourceView):
-        def temp(self):
-            print()
+    def temp(self):
+        print()
+
+
 #     def dispatch(self, request, *args, **kwargs):
 #         try:
 #             access_token = AccessToken.objects.get(token=request.GET.get('access_token'))
@@ -504,3 +515,15 @@ def submitInventoryAddition(request):
         inventoryItems = InventoryItem.objects.all()
         return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
 
+
+def menuBoard(request):
+    menu = MenuItem.objects.order_by('-Price')
+    # inventory_items = InventoryItem.objects.all()
+    # item_categories = {}
+    # for item in inventory_items:
+    #     if item.Category not in item_categories:
+    #         item_categories[item.Category] = []
+    #     item_categories[item.Category].append(item.Name)
+    # # return render(request, 'menuBoard.html')
+    return render(request, 'menuBoard.html',
+                  {'menu': menu, 'weather': getWeather()})
