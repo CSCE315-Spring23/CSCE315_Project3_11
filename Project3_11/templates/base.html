@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Screen</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+
 </head>
 <body>
-    <header>
-        <form method="post" action="{% url 'set_language' %}">
+    <nav class="navbar navbar-light bg-dark justify-content-between">
+        <a class="navbar-brand">Navbar</a>
+        <img src="data:image/png;base64,{{ item.Image|safe }}" alt="Pom and Honey Logo" width=50px height=50px>
+        <form class="form-inline" method="post" action="{% url 'set_language' %}">
             {% csrf_token %}
-            <select name="language">
+            <select class="form-control dropdown-item bg-light" name="language">
+                <option value="en"{% if target_language == "en" %} selected{% endif %}>English</option>
                 <option value="af"{% if target_language == "af" %} selected{% endif %}>Afrikaans</option>
                 <option value="ak"{% if target_language == "ak" %} selected{% endif %}>Akan</option>
                 <option value="sq"{% if target_language == "sq" %} selected{% endif %}>Albanian</option>
@@ -37,7 +45,6 @@
                 <option value="dv"{% if target_language == "dv" %} selected{% endif %}>Divehi</option>
                 <option value="doi"{% if target_language == "doi" %} selected{% endif %}>Dogri</option>
                 <option value="nl"{% if target_language == "nl" %} selected{% endif %}>Dutch</option>
-                <option value="en"{% if target_language == "en" %} selected{% endif %}>English</option>
                 <option value="eo"{% if target_language == "eo" %} selected{% endif %}>Esperanto</option>
                 <option value="et"{% if target_language == "et" %} selected{% endif %}>Estonian</option>
                 <option value="ee"{% if target_language == "ee" %} selected{% endif %}>Ewe</option>
@@ -127,10 +134,20 @@
                 <option value="ta"{% if target_language == "ta" %} selected{% endif %}>Tamil</option>
                 <option value="zu"{% if target_language == "zu" %} selected{% endif %}>Zulu</option>
             </select>
-            <input type="submit" value="Submit">
+            <input class="form-control mr-sm-2" type="submit" value="Submit">
         </form>
+
+    </nav>
+
+    <header>
+
     </header>
     {% block content %}
     {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 </body>
 </html>
