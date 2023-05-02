@@ -6,6 +6,7 @@
 </head>
 <body>
     <header>
+<<<<<<< HEAD
         <p>hi</p>
         {% if weather %}
             <p>Current weather: {{ weather }}</p>
@@ -134,6 +135,10 @@
             </select>
             <input type="submit" value="Submit">
         </form>
+=======
+        {% load google_translate %}
+        {% google_translate type='vertical' language='en' %}
+>>>>>>> refs/remotes/origin/main
     </header>
     {% block content %}
     {% endblock %}
