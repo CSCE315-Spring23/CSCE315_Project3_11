@@ -14,6 +14,7 @@ class Employee(models.Model):
     HireDate = models.DateField()
     EmployeePIN = models.IntegerField()
     PositionTitle = models.CharField(max_length=50)
+    Email = models.CharField(max_length=50)
     HoursWorked = models.DecimalField(max_digits=28, decimal_places=2)
 
     class Meta:
