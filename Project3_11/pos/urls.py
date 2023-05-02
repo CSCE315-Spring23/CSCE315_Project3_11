@@ -3,11 +3,13 @@ from . import views
 from .views import ValidateUserView
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LogoutView
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # path('', TemplateView.as_view(template_name="oAuth.html")),
     path('accounts/', include('allauth.urls')),
-    path('logout', LogoutView.as_view()),
+    # path('logout', LogoutView.as_view()),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('validate_user/', ValidateUserView.as_view(), name='validate_user'),
     path('', views.login, name='login'),
     path('employee/', views.employee_page, name='employee'),
