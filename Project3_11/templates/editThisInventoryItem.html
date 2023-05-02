@@ -9,55 +9,65 @@
             <table>
                 <tr>
                     <th>Trait</th>
-                    <th>Current Value</th>
+{#                    <th>Current Value</th>#}
                     <th>Value to Change to</th>
                 </tr>
                 <tr>
                     <td>Image</td>
-                    <td><img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px></td>
-                    <td><input type="file" name="image" id="image"></td>
+                    <td>
+{#                        <img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px>#}
+
+                        <label for="image">
+                            <img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px>
+                        </label>
+                        <input type="file" name="image" id="image" hidden>
+                    </td>
                 </tr>
                 <tr>
                     <td>Stock</td>
-                    <td>{{ inventoryItem.Stock }}</td>
-                    <td><input type="number" name="stock" id="stock"></td>
+{#                    <td>{{ inventoryItem.Stock }}</td>#}
+                    <td><input type="number" name="stock" id="stock" placeholder="{{ inventoryItem.Stock }}"></td>
                 </tr>
                 <tr>
                     <td>Number Needed</td>
-                    <td>{{ inventoryItem.NumberNeeded }}</td>
-                    <td><input type="number" name="numNeeded" id="numNeeded"></td>
+{#                    <td>{{ inventoryItem.NumberNeeded }}</td>#}
+                    <td><input type="number" name="numNeeded" id="numNeeded" placeholder="{{ inventoryItem.NumberNeeded }}"></td>
                 </tr>
                 <tr>
                     <td>Order Chance</td>
-                    <td>{{ inventoryItem.OrderChance }}</td>
-                    <td><input type="number" name="orderChance" id="orderChance"></td>
+{#                    <td>{{ inventoryItem.OrderChance }}</td>#}
+                    <td><input type="number" name="orderChance" id="orderChance" placeholder="{{ inventoryItem.OrderChance }}"></td>
                 </tr>
                 <tr>
                     <td>Units</td>
-                    <td>{{ inventoryItem.Units }}</td>
-                    <td><input type="text" name="units" id="units"></td>
+{#                    <td>{{ inventoryItem.Units }}</td>#}
+                    <td><input type="text" name="units" id="units" placeholder="{{ inventoryItem.Units }}"></td>
                 </tr>
                 <tr>
                     <td>Category</td>
-                    <td>{{ inventoryItem.Category }}</td>
+{#                    <td>{{ inventoryItem.Category }}</td>#}
 {#                    <td><input type="number" name="category" id="category"></td>#}
                     <td>
                         <select name="category" id="category">
                             {% for category in categories %}
-                                <option value="{{ category }}">{{ category }}</option>
+                                {% if category == inventoryItem.Category %}
+                                    <option value="{{ category }}" selected>{{ category }}</option>
+                                {% else %}
+                                    <option value="{{ category }}">{{ category }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Servings</td>
-                    <td>{{ inventoryItem.Servings }}</td>
-                    <td><input type="number" name="servings" id="servings"></td>
+{#                    <td>{{ inventoryItem.Servings }}</td>#}
+                    <td><input type="number" name="servings" id="servings" placeholder="{{ inventoryItem.Servings }}"></td>
                 </tr>
                 <tr>
                     <td>Restock Cost</td>
-                    <td>{{ inventoryItem.RestockCost }}</td>
-                    <td><input type="number" name="restockCost" id="restockCost"></td>
+{#                    <td>{{ inventoryItem.RestockCost }}</td>#}
+                    <td><input type="number" name="restockCost" id="restockCost" placeholder="{{ inventoryItem.RestockCost }}"></td>
                 </tr>
             </table>
 {#            <input type="hidden" name="inventoryItem" value="{{ item.Name }}">#}
