@@ -4,9 +4,11 @@ from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from google.cloud import translate_v2 as translate
+# from google.cloud import translate_v2 as translate
 from django.conf import settings
 from django.shortcuts import redirect
+
+from pos.common_functions import get_sorted_inventory
 from pos.models import *
 from pos.reportFunctions import *
 from pos.inventoryFunctions import *
@@ -17,6 +19,30 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from oauth2_provider.views.generic import ProtectedResourceView
 from oauth2_provider.models import AccessToken
+from bs4 import BeautifulSoup
+import requests
+
+
+def getWeather():
+    print("in weatherData")
+    APIURLcurrent = r"https://api.openweathermap.org/data/2.5/weather?lat=30.627979&lon=-96.334412&appid=b564f1dbb4cd614c0ee84abe3f4c820c&units=imperial&mode=xml"
+    r = requests.get(APIURLcurrent)
+    content = BeautifulSoup(r.content, features="xml")
+
+    bigSectionTemp = content.findAll('temperature')
+    bigSectionWeather = content.findAll('weather')
+    words = 'error'
+    temperature = 'error'
+
+    for element in bigSectionWeather:
+        words = element.get('value')
+        print(words)
+
+    for element in bigSectionTemp:
+        temperature = element.get('value')
+        print(temperature)
+    # return {'weather':'test'}
+    return f'{words}, {temperature}'
 
 
 def login(request):
@@ -25,13 +51,13 @@ def login(request):
         employee_pin = request.POST['employee_pin']
         try:
             employee = Employee.objects.get(EmployeeID=employee_id, EmployeePIN=employee_pin)
-            context = {'employee': employee}
+            context = {'employee': employee, 'weather': getWeather()}
             return render(request, 'employee.html', context)
         except Employee.DoesNotExist:
             error = 'Invalid employee ID or PIN'
-            context = {'error': error}
+            context = {'error': error, 'weather': getWeather()}
             return render(request, 'login.html', context)
-    return render(request, 'login.html')
+    return render(request, 'login.html', {'weather': getWeather()})
 
 
 def employee_page(request):
@@ -64,9 +90,6 @@ def menuItems(request):
 
 def database_info(request):
     if request.method == 'GET':
-        client = translate.Client(credentials=settings.CREDENTIALS)
-        target_language = request.session.get(settings.LANGUAGE_SESSION_KEY, 'en')
-
         # Get database information
         employees = Employee.objects.all()
         menu_items = MenuItem.objects.all()
@@ -87,59 +110,11 @@ def database_info(request):
         menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
         inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category', 'Servings', 'RestockCost']
 
-        # Translate if necessary
-        if target_language != 'en':
-            # Translate other text
-            employee_header = client.translate(employee_header, target_language=target_language)['translatedText']
-            menu_header = client.translate(menu_header, target_language=target_language)['translatedText']
-            inventory_header = client.translate(inventory_header, target_language=target_language)['translatedText']
-            employee_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for
-                                      header in employee_table_headers]
-            menu_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header
-                                  in menu_table_headers]
-            inventory_table_headers = [client.translate(header, target_language=target_language)['translatedText'] for header in inventory_table_headers]
-
-            # Translate employees
-            for employee in employees:
-                employee.PositionTitle = client.translate(employee.PositionTitle, target_language=target_language)[
-                    'translatedText']
-
-            # Translate menu items
-            for menu_item in menu_items:
-                menu_item.ItemName = client.translate(menu_item.ItemName, target_language=target_language)[
-                    'translatedText']
-                translated_definite_items = []
-                for definite_item in menu_item.DefiniteItems:
-                    translated_definite_items += [
-                        client.translate(definite_item, target_language=target_language)['translatedText']]
-                menu_item.DefiniteItems = translated_definite_items
-                translated_possible_items = []
-                for possible_item in menu_item.PossibleItems:
-                    translated_possible_items += [
-                        client.translate(possible_item, target_language=target_language)['translatedText']]
-                menu_item.PossibleItems = translated_possible_items
-
-            # Translate inventory items
-            for inventory_item in inventory_items:
-                inventory_item.Name = client.translate(inventory_item.Name, target_language=target_language)['translatedText']
-                inventory_item.Units = client.translate(inventory_item.Units, target_language=target_language)['translatedText']
-                inventory_item.Category = client.translate(inventory_item.Category, target_language=target_language)['translatedText']
-
         context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items, 'employee_header': employee_header, 'inventory_header': inventory_header,
                    'menu_header': menu_header, 'employee_headers': employee_table_headers, 'inventory_table_headers': inventory_table_headers,
-                   'menu_headers': menu_table_headers, 'target_language': target_language}
+                   'menu_headers': menu_table_headers}
         return render(request, 'database_info.html', context)
 
-
-def set_language(request):
-    language = request.POST.get('language')
-
-    # Store the language in the session
-    request.session[settings.LANGUAGE_SESSION_KEY] = language
-
-    if language:
-        request.session['django_language'] = language
-    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 def button_testing(request):
     order_total = request.session.get('order_total', 0)
@@ -222,7 +197,7 @@ def order_page(request):
             request.session['orderpk'] = str(order.DateTimeStarted)
             return HttpResponseRedirect(request.path_info)
     else:
-        return render(request, 'order_page.html', {'order': order, 'menu': menu, 'item_categories': item_categories})
+        return render(request, 'order_page.html', {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather()})
 
 
 def salesReport(request):
@@ -379,7 +354,10 @@ def editThisInventoryItem(request):
 
 def submitInventoryEdit(request):
     if request.method == 'POST':
-        editItem = request.POST.get('passedInventoryItem', None)
+        editItem = request.POST.get('passedInventoryItem')
+        deleteItem = request.POST.get('deleteInventoryItem')
+        if deleteItem and not editItem:
+            removeInventoryItem(deleteItem)
         editItem = InventoryItem.objects.get(Name=editItem)
         stock = request.POST.get('stock')
         numberNeeded = request.POST.get('numNeeded')
@@ -389,13 +367,9 @@ def submitInventoryEdit(request):
         servings = request.POST.get('servings')
         restockCost = request.POST.get('restockCost')
         image = request.FILES.get('image')
-        print("test")
         if stock:
-            print("test1")
             editItem.Stock = int(stock)
-            print("test2")
         if numberNeeded:
-
             editItem.NumberNeeded = int(numberNeeded)
         if orderChance:
             editItem.OrderChance = float(orderChance)
@@ -409,7 +383,6 @@ def submitInventoryEdit(request):
             editItem.RestockCost = int(restockCost)
         if image:
             editItem.Image = base64.b64encode(image.read()).decode('utf-8')
-        print("test3")
         editItem.save()
 
         inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
@@ -428,15 +401,7 @@ def edit_menu_items(request):
         if item.Category not in categories:
             categories.append(item.Category)
 
-    all_definite_items = []
-    all_sorted_items = []
-    for item in menu_items:
-        definite_items = get_sorted_items(item, inventory_items, categories, "DefiniteItems")
-        possible_items = get_sorted_items(item, inventory_items, categories, "PossibleItems")
-        all_definite_items.append(definite_items)
-        all_sorted_items.append(possible_items)
-
-    return render(request, 'menu_items.html', {'menu_items': menu_items, 'categories': categories, 'all_definite_items': all_definite_items, 'all_sorted_items': all_sorted_items})
+    return render(request, 'edit_menu_items.html', {'menu_items': menu_items, 'categories': categories})
 
 
 def edit_this_menu_item(request):
@@ -449,10 +414,9 @@ def edit_this_menu_item(request):
         if item.Category not in categories:
             categories.append(item.Category)
 
-    definite_items = get_sorted_items(edit_item, inventory_items, categories, "DefiniteItems")
-    possible_items = get_sorted_items(edit_item, inventory_items, categories, "PossibleItems")
+    sorted_inventory = get_sorted_inventory(inventory_items, categories)
 
-    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'definite_items': definite_items, 'possible_items': possible_items})
+    return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'sorted_inventory': sorted_inventory})
 
 
 def submit_menu_edit(request):
@@ -461,8 +425,8 @@ def submit_menu_edit(request):
         edit_item = MenuItem.objects.get(ItemName=edit_item)
         image = request.FILES.get('image')
         price = request.POST.get('price')
-        definite_items = request.POST.getlist('definite_items')
-        possible_items = request.POST.getlist('possible_items')
+        definite_items = request.POST.getlist('selected_definite_items')
+        possible_items = request.POST.getlist('selected_possible_items')
         if image:
             edit_item.Image = base64.b64encode(image.read()).decode('utf-8')
         if price:
@@ -472,20 +436,55 @@ def submit_menu_edit(request):
         if possible_items:
             edit_item.PossibleItems = possible_items
         edit_item.save()
-        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+        return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
     else:
-        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+        return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+
 
 class ValidateUserView(ProtectedResourceView):
-    def dispatch(self, request, *args, **kwargs):
-        try:
-            access_token = AccessToken.objects.get(token=request.GET.get('access_token'))
-        except AccessToken.DoesNotExist:
-            return HttpResponseBadRequest('Invalid access token')
+        def temp(self):
+            print()
+#     def dispatch(self, request, *args, **kwargs):
+#         try:
+#             access_token = AccessToken.objects.get(token=request.GET.get('access_token'))
+#         except AccessToken.DoesNotExist:
+#             return HttpResponseBadRequest('Invalid access token')
+#
+#         user = authenticate(request=request, token=access_token)
+#         if user is None:
+#             return HttpResponseBadRequest('Invalid user')
+#
+#         login(request, user)
+#         return HttpResponse('OK')
 
-        user = authenticate(request=request, token=access_token)
-        if user is None:
-            return HttpResponseBadRequest('Invalid user')
 
-        login(request, user)
-        return HttpResponse('OK')
+def addInventoryItemPage(request):
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+    return render(request, 'addInventoryItem.html', {'categories': categories})
+
+
+def submitInventoryAddition(request):
+    if request.method == 'POST':
+        # itemToAdd = request.POST.get('passedInventoryItem')
+        itemName = request.POST.get('itemName')
+        stock = request.POST.get('stock')
+        numberNeeded = int(request.POST.get('numNeeded'))
+        orderChance = float(request.POST.get('orderChance'))
+        units = request.POST.get('units')
+        category = request.POST.get('category')
+        servings = int(request.POST.get('servings'))
+        restockCost = int(request.POST.get('restockCost'))
+        image = request.FILES.get('image')
+        image = base64.b64encode(image.read()).decode('utf-8')
+        addInventoryItem(itemName, stock, numberNeeded, orderChance, units, category, servings, restockCost, image)
+
+        inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
+    else:
+        inventoryItems = InventoryItem.objects.all()
+        return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
+

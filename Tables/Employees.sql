@@ -5,6 +5,7 @@ CREATE TABLE "Employees" (
     "HireDate" date,
     "EmployeePIN" int,
     "PositionTitle" text,
+    "Email" text,
     "HoursWorked" numeric(28, 2)
 );
 
