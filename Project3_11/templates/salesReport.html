@@ -7,19 +7,19 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
 </head>
 {% block selectedReportContent %}
-  <h1>Sales Report</h1>
-  <p>Input start and end times to generate a sales report between the two dates.</p>
+  <h1 class = "mt-5 text-center">Sales Report</h1>
+  <p class = "text-center">Input start and end times to generate a sales report between the two dates.</p>
     <form method="POST" action="{% url 'salesReportGeneration' %}">
         {% csrf_token %}
         {# maybe has input #}
-        <label for="startDate">Start DateTime</label>
-        <div class="text-center"><input id="startDate" name="startDate"></div>
-        <label for="endDate">End DateTime</label>
-        <div class="text-center"><input type="datetime-local" id="endDate" name="endDate"></div>
-    <div class="text-center"><button class="btn btn-primary" type="submit">Generate Sales Report</button></div>
+
+        <div class="text-center"><label class= "mx-3" for="startDate">Start DateTime</label><input type="datetime-local" id="startDate" name="startDate"></div>
+
+        <div class="text-center my-3"><label class= "mx-3" for="endDate">&nbspEnd DateTime</label><input type="datetime-local" id="endDate" name="endDate"></div>
+    <div class="text-center my-3"><button class="btn btn-primary" type="submit">Generate Sales Report</button></div>
     </form>
     {% block salesReportContent %}
-        ${{ salesReportData }}
+        <div class="text-center"><label>Total: ${{ salesReportData }}</label></div>
     {% endblock %}
 {% endblock %}
 

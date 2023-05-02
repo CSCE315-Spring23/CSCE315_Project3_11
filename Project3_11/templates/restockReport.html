@@ -1,16 +1,27 @@
 {% extends 'reports.html' %}
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
 {% block selectedReportContent %}
-  <h1>Restock Report</h1>
-  <p>Input a threshold amount to generate a restock report.</p>
+  <h1 class = "mt-5 text-center">Restock Report</h1>
+  <p class = "text-center">Input a threshold amount to generate a restock report.</p>
     <form method="POST" action="{% url 'restockReportGeneration' %}">
         {% csrf_token %}
         {# maybe has input #}
-        <label for="threshold">Threshold</label>
-        <input type="number" id="threshold" name="threshold">
-        <button type="submit">Generate Restock Report</button>
+        <div class="text-center"><label class= "mx-3" for="startDate">Threshold</label></div>
+        <div class="text-center"><input type="number" iid="threshold" name="threshold"></div>
+    <div class="text-center my-3"><button class="btn btn-primary" type="submit">Generate Restock Report</button></div>
     </form>
     {% block restockReportContent %}
-        {{ restockReportData }}
+        <div class="text-center"><label>Total: ${{ restockReportData }}</label></div>
     {% endblock %}
 {% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+
