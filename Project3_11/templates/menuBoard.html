@@ -16,8 +16,8 @@
 {#                <form method="post">#}
                 {% for item in menu %}
 {#                    {% csrf_token %}#}
-                    <input class="btn-check" type="radio" id="{{ item.ItemName }}" name="menu_item_selected" value="{{ item.ItemName }}">
-                    <label class="btn btn-primary btn-block" for="{{ item.ItemName }}">{{ item.ItemName }}</label><br>
+{#                    <input class="btn-check" type="radio" id="{{ item.ItemName }}" name="menu_item_selected" value="{{ item.ItemName }}">#}
+                    <p class="btn btn-primary btn-block" for="{{ item.ItemName }}">{{ item.ItemName }} {{ item.Price }}</p><br>
 {#                    {% for category, toppings in item_categories.items %}#}
 {#                        <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">#}
 {#                            {% for topping in toppings %}#}
