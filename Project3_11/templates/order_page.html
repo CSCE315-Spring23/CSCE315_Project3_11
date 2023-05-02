@@ -32,7 +32,6 @@
           <!-- Main Content -->
           <div class="col-md-5">
             <h4 class="text-center py-5">All Orders</h4>
-              <ul>
                 <form method="post">
                 {% for item in menu %}
                     {% csrf_token %}
@@ -66,11 +65,10 @@
                         </div>
                     {% endfor %}
                     <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
-                        <a class="btn btn-success btn-block btn-lg " type="submit" value="add_to_order">Add to Order</a>
+                        <button class="btn btn-success btn-block btn-lg " type="submit" name="button_clicked" value="add_to_order">Add to Order</button>
                     </div>
                 {% endfor %}
                 </form>
-              </ul>
           </div>
     {#        Orders Table#}
             <div class="col-md-4 bg-light">
@@ -87,8 +85,8 @@
                 <h1>Total: ${{ order.Total }}</h1>
                 <form method="post">
                     {% csrf_token %}
-                    <a class="btn btn-success btn-block btn-lg " type="submit" value="place_order" role="button">Place Order</a>
-                    <a class="btn btn-secondary btn-block btn-lg " type="submit" value="clear_order">Clear Order</a>
+                    <button class="btn btn-success btn-block btn-lg " type="submit" name="button_clicked" value="place_order" role="button">Place Order</button>
+                    <button class="btn btn-secondary btn-block btn-lg " type="submit" name="button_clicked" value="clear_order">Clear Order</button>
                 </form>
           </div>
         </div>
