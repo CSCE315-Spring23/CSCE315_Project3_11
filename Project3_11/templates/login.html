@@ -2,8 +2,6 @@
 
 {% load socialaccount %}
 {% block content %}
-<<<<<<< HEAD
-<<<<<<< HEAD
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,15 +61,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
             integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-{% endblock %}
 
-<h1>My Google OAuth Project </h1>
-{% if user.is_authenticated %}
-    <h1>Pom & Honey Employee Logout</h1>
-    <a href="{% url 'logout' %}">Logout from Google</a>
-{% else %}
-  <h1>Pom & Honey Employee Login </h1>
-  <a href="{% provider_login_url 'google' %}">Login with Google</a>
-{% endif %}
+    <h1>My Google OAuth Project </h1>
+    {% if user.is_authenticated %}
+        <h1>Pom & Honey Employee Logout</h1>
+        <a href="{% url 'logout' %}">Logout from Google</a>
+    {% else %}
+      <h1>Pom & Honey Employee Login </h1>
+      <a href="{% provider_login_url 'google' %}">Login with Google</a>
+    {% endif %}
 {% endblock %}
-
