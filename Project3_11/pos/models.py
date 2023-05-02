@@ -77,47 +77,6 @@ class MenuItem(models.Model):
             except ObjectDoesNotExist:
                 print("Does not exist: " + possible_item)
 
-    def count_items_by_category(self, categories, list_name):
-        inventory = InventoryItem.objects.all()
-        count_dict = {category: 0 for category in categories}
-        if list_name == "DefiniteItems":
-            for item in self.DefiniteItems:
-                for category in categories:
-                    if get_category(item, inventory) == category:
-                        count_dict[category] += 1
-        elif list_name == "PossibleItems":
-            for item in self.PossibleItems:
-                for category in categories:
-                    if get_category(item, inventory) == category:
-                        count_dict[category] += 1
-        return count_dict
-
-    def set_sorted_items(self, list_name, inventory_items, categories):
-        count_dict = self.count_items_by_category(categories, list_name)
-        columns = len(categories)
-        rows = max(count_dict.values())
-        sorted_items = [["" for i in range(columns)] for j in range(rows)]
-        items_list = []
-        if list_name == "DefiniteItems":
-            items_list = self.DefiniteItems
-        elif list_name == "PossibleItems":
-            items_list = self.PossibleItems
-
-        for item_name in items_list:
-            i = 0
-            for category in categories:
-                if get_category(item_name, inventory_items) == category:
-                    for j in range(rows):
-                        if sorted_items[j][i] == "":
-                            sorted_items[j][i] = item_name
-                            break
-                i += 1
-
-        if list_name == "DefiniteItems":
-            self.sorted_definite_items = sorted_items
-        elif list_name == "PossibleItems":
-            self.sorted_possible_items = sorted_items
-
     def save(self, *args, **kwargs):
         self.update_categories()
         self.Image = self.Image.encode('utf-8')

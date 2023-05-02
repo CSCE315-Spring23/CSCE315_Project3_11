@@ -429,11 +429,7 @@ def edit_menu_items(request):
         if item.Category not in categories:
             categories.append(item.Category)
 
-    for item in menu_items:
-        item.set_sorted_items("DefiniteItems", inventory_items, categories)
-        item.set_sorted_items("PossibleItems", inventory_items, categories)
-
-    return render(request, 'menu_items.html', {'menu_items': menu_items, 'categories': categories})
+    return render(request, 'edit_menu_items.html', {'menu_items': menu_items, 'categories': categories})
 
 
 def edit_this_menu_item(request):
@@ -447,9 +443,6 @@ def edit_this_menu_item(request):
             categories.append(item.Category)
 
     sorted_inventory = get_sorted_inventory(inventory_items, categories)
-
-    edit_item.set_sorted_items("DefiniteItems", inventory_items, categories)
-    edit_item.set_sorted_items("PossibleItems", inventory_items, categories)
 
     return render(request, 'edit_this_menu_item.html', {'menu_item': edit_item, 'inventory_items': inventory_items, 'categories': categories, 'sorted_inventory': sorted_inventory})
 
@@ -471,9 +464,9 @@ def submit_menu_edit(request):
         if possible_items:
             edit_item.PossibleItems = possible_items
         edit_item.save()
-        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+        return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
     else:
-        return render(request, 'menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+        return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
 
 
 class ValidateUserView(ProtectedResourceView):
