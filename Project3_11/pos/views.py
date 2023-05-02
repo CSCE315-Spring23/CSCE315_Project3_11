@@ -160,6 +160,7 @@ def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.order_by('-Price')
     permissions = checkPermissions(request.user.email)
+    print(permissions, type(permissions))
     inventory_items = InventoryItem.objects.all()
     item_categories = {}
     for item in inventory_items:
@@ -182,7 +183,7 @@ def order_page(request):
                 order.delete()
                 del request.session['orderpk']
                 return render(request, 'order_page.html',
-                              {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories, 'permission':permissions})
+                              {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories, 'permissions':permissions})
         except ValueError:
             order = OrderInProgress()
     else:
@@ -219,7 +220,7 @@ def order_page(request):
             return HttpResponseRedirect(request.path_info)
     else:
         return render(request, 'order_page.html',
-                      {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather()})
+                      {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather(), 'permissions':permissions})
 
 
 def salesReport(request):
