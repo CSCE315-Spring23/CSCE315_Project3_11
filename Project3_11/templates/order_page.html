@@ -20,9 +20,11 @@
             <ul class="nav flex-column gap-3">
 
                 <a class="btn btn-primary btn-block btn-lg p-5" role="button">Order</a>
-                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
-    {#            <a class="btn btn-primary" href="{% url 'menu' %}" role="button">Menu Items</a>#}
-                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
+                {% if permission %}
+                    <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
+    {#              <a class="btn btn-primary" href="{% url 'menu' %}" role="button">Menu Items</a>#}
+                    <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
+                {% endif %}
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'logout' %}" role="button">Log Out</a>
             </ul>
           </div>

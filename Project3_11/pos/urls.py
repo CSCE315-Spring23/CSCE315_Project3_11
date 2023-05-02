@@ -10,6 +10,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('validate_user/', ValidateUserView.as_view(), name='validate_user'),
     path('', views.login, name='login'),
+    path('checkPermissions/', views.checkPermissions, name='checkPermissions'),
     path('employee/', views.employee_page, name='employee'),
     path('order/', views.order_page, name='order'),
     path('reports/', views.reports_page, name='reports'),
@@ -38,5 +39,6 @@ urlpatterns = [
     path('edit_this_menu_item/', views.edit_this_menu_item, name='edit_this_menu_item'),
     path('submit_menu_edit/', views.submit_menu_edit, name='submit_menu_edit'),
     path('addInventoryItemPage/', views.addInventoryItemPage, name='addInventoryItemPage'),
-    path('submitInventoryAddition/', views.submitInventoryAddition, name='submitInventoryAddition')
+    path('submitInventoryAddition/', views.submitInventoryAddition, name='submitInventoryAddition'),
+    path('menuBoard/', views.menuBoard, name='menuBoard'),
 ]
