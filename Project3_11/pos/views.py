@@ -22,6 +22,21 @@ from oauth2_provider.models import AccessToken
 from bs4 import BeautifulSoup
 import requests
 
+def checkPermissions(user_email):
+    employee_emails = Employee.objects.values_list('Email', flat=True)
+    # user_email = request.user.email
+    if user_email in employee_emails:
+        # employee
+        employee = Employee.objects.get(Email=user_email)
+        if employee.PositionTitle == "Manager":
+            print("Manager")
+            return True
+        print("Employee")
+        return False
+    else:
+        # customer
+        print("Customer")
+        return False
 
 def getWeather():
     print("in weatherData")
@@ -141,6 +156,7 @@ def button_testing_page2(request):
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.order_by('-Price')
+    permissions = checkPermissions(request.user.email)
     inventory_items = InventoryItem.objects.all()
     item_categories = {}
     for item in inventory_items:
@@ -161,7 +177,7 @@ def order_page(request):
                 finished_order.save()
                 order.delete()
                 del request.session['orderpk']
-                return render(request, 'order_page.html', {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories})
+                return render(request, 'order_page.html', {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories, 'permission':permissions})
         except ValueError:
             order = OrderInProgress()
     else:
