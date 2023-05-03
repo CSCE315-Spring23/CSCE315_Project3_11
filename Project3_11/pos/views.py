@@ -66,6 +66,18 @@ def getWeather():
 
 
 def login(request):
+    """
+    Authenticates employee login information by checking if the POST request contains a valid Employee ID and Employee PIN
+    in the database. If authentication is successful, it renders the 'employee.html' template with a context containing
+    the authenticated employee and weather information retrieved by calling getWeather(). If authentication fails,
+    it renders the 'login.html' template with a context containing an error message and weather information retrieved
+    by calling getWeather(). If the request method is not POST, it renders the 'login.html' template with weather information
+    retrieved by calling getWeather().
+
+    :param request: HTTP request object.
+    :return: Rendered HTML template with context containing either authenticated employee and weather information, or an
+    error message and weather information, or just weather information.
+    """
     if request.method == 'POST':
         employee_id = request.POST['employee_id']
         employee_pin = request.POST['employee_pin']
@@ -81,6 +93,15 @@ def login(request):
 
 
 def employee_page(request):
+    """
+    Renders the employee page with the given employee ID and PIN. If the HTTP request method is POST, the employee ID and PIN
+    are retrieved from the request's POST parameters and used to query the Employee model. If the employee is found, the employee
+    page is rendered with the employee object passed as context. Otherwise, a 404 page is returned. If the HTTP request method is
+    not POST, the employee page is rendered with a test dictionary passed as context.
+
+    :param request: The HTTP request object.
+    :return: A rendered HTML template.
+    """
     if request.method == 'POST':
         employee_id = request.POST['EmployeeID']
         employee_pin = request.POST['EmployeePIN']
@@ -92,6 +113,19 @@ def employee_page(request):
 
 
 def inventory_page(request):
+    """
+    Renders the inventory page.
+
+    Parameters:
+    -----------
+    request : HttpRequest
+        The request sent to the server.
+
+    Returns:
+    --------
+    HttpResponse
+        The rendered HTML template with the inventory context.
+    """
     context = {'inventory': 'test order else'}
     return render(request, 'inventoryItems.html', context)
 
@@ -105,6 +139,25 @@ def reports_page(request):
 
 
 def order_page(request):
+    """
+    View function for the order page, where users can create a new order or modify an existing one.
+
+    Parameters:
+    - request: the HttpRequest object that contains the GET and POST data sent by the user.
+
+    Returns:
+    - HttpResponse object that renders the order page HTML template.
+
+    Behavior:
+    - When a GET request is sent, renders the order page template, showing an empty order form.
+    - When a POST request is sent, processes the user input data from the order form, and updates the order accordingly.
+      - If the "back_button" is clicked, redirects the user to the previous page.
+      - If the "clear_order" button is clicked, clears the current order and redirects the user to the order page.
+      - If a menu item is selected and the "add_to_order" button is clicked, adds the selected menu item to the order.
+      - If the "place_order" button is clicked, finalizes the order, creates a new Order object, and saves it to the database.
+    - The rendered HTML template displays the current order items, menu items, and inventory items, as well as options for the user to modify the current order or place the final order.
+
+    """
     button_clicked = request.POST.get('button_clicked', None)
     if button_clicked == 'back_button':
         return HttpResponseRedirect(request.path_info)
@@ -408,6 +461,16 @@ def submitInventoryEdit(request):
 
 
 def edit_menu_items(request):
+    """
+    Renders the "edit_menu_items.html" template to display a list of all the menu items in the database, sorted by price, as well as a list of all the categories for inventory items.
+
+    Context:
+    - menu_items: a QuerySet of all the MenuItem objects in the database, ordered by descending price.
+    - categories: a list of all the categories for InventoryItem objects in the database, in alphabetical order.
+
+    Template:
+    - "edit_menu_items.html"
+    """
     menu_items = MenuItem.objects.order_by('-Price')
 
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
@@ -420,6 +483,18 @@ def edit_menu_items(request):
 
 
 def edit_this_menu_item(request):
+    """
+    Display the page to edit a specific menu item and process the form submission to save the changes.
+
+    If the request method is POST, update the selected menu item with the new information and save the changes.
+    Otherwise, display the page with the information of the selected menu item.
+
+    Parameters:
+    - request: HttpRequest object containing information about the current request
+
+    Returns:
+    - HttpResponse object with the rendered HTML page displaying the selected menu item's information
+    """
     edit_item = request.POST.get('menu_item', None)
     edit_item = MenuItem.objects.get(ItemName=edit_item)
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
@@ -437,6 +512,21 @@ def edit_this_menu_item(request):
 
 
 def submit_menu_edit(request):
+    """
+    View that allows for editing of a menu item.
+
+    The view retrieves the menu item to be edited from the POST request, as well as any updates to the menu item's
+    image, price, and possible/definite ingredient items. If the delete button was clicked instead, the corresponding
+    menu item is deleted.
+
+    Parameters:
+    request(HttpRequest): The HTTP request object sent by the client
+
+    Returns:
+    HttpResponse: The HTTP response object that contains either the updated edit menu items page or the original
+    edit menu items page with the current menu items.
+
+    """
     if request.method == 'POST':
         edit_item = request.POST.get('passed_menu_item', None)
         delete_item = request.POST.get('delete_menu_item', None)
@@ -462,6 +552,9 @@ def submit_menu_edit(request):
 
 
 class ValidateUserView(ProtectedResourceView):
+    """
+    used for validating user login
+    """
     def temp(self):
         print()
 
