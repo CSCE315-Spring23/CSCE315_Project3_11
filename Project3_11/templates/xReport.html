@@ -11,7 +11,7 @@
   <p class = "text-center">Click the button to generate an X Report.</p>
     <form method="POST" action="{% url 'xReportGeneration' %}">
         {% csrf_token %}
-        <div class="text-center my-3"><button type="submit">Generate X Report</button></div>
+        <div class="text-center my-3"><button class="btn btn-secondary" type="submit">Generate X Report</button></div>
     </form>
     {% block xReportContent %}
         <div class="text-center"><label>Total: ${{ xReportData }}</label></div>

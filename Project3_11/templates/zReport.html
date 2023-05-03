@@ -11,7 +11,7 @@
   <p class = "text-center">Click the button to generate an Z Report.</p>
     <form method="POST" action="{% url 'zReportGeneration' %}">
         {% csrf_token %}
-        <div class="text-center my-3"><button type="submit">Generate Z Report</button></div>
+        <div class="text-center my-3"><button class="btn btn-secondary" type="submit">Generate Z Report</button></div>
     </form>
     {% block zReportContent %}
         <div class="text-center"><label>Total: ${{ zReportData }}</label></div>
