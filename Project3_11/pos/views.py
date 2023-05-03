@@ -407,6 +407,32 @@ def editInventoryItems(request):
 
 
 def editThisInventoryItem(request):
+    """
+    Display a form to edit a specific inventory item.
+
+    The view expects a POST request containing the name of the inventory item
+    to be edited in the 'inventoryItem' parameter. The view retrieves the item
+    from the database and renders the 'editThisInventoryItem.html' template,
+    which displays a form with the current values of the item's attributes.
+
+    The form allows the user to edit the item's category, name, quantity, unit,
+    and notes. The category and unit fields are populated with all existing
+    categories and units, respectively. The user can also delete the item.
+
+    After submitting the form via a POST request, the view saves the edited
+    item to the database and redirects to the 'inventoryItems' page.
+
+    Parameters:
+    -----------
+    request : HttpRequest
+        The request object containing the HTTP request data.
+
+    Returns:
+    --------
+    HttpResponse
+        The HTTP response object containing the rendered template with the
+        inventory item form.
+    """
     editItem = request.POST.get('inventoryItem', None)
     editItem = InventoryItem.objects.get(Name=editItem)
     inventory_items = InventoryItem.objects.order_by('Category')
@@ -552,6 +578,15 @@ def submit_menu_edit(request):
 
 
 def add_menu_item(request):
+    """
+    Render a template for adding a new menu item, including all inventory items and categories, sorted for display.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        A rendered HTML template for adding a new menu item, including all inventory items and categories, sorted for display.
+    """
     menu_items = MenuItem.objects.order_by('-Price')
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
 
@@ -566,6 +601,15 @@ def add_menu_item(request):
 
 
 def submit_menu_item_addition(request):
+    """
+    Handle a POST request to add a new menu item to the database.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        A rendered HTML template for editing menu items in the database.
+    """
     if request.method == 'POST':
         item_name = request.POST.get('item_name')
         price = request.POST.get('price')
