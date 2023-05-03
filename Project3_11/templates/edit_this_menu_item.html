@@ -76,7 +76,7 @@
                                 </thead>
                                 <tbody>
                                     {% for row in sorted_inventory %}
-                                        <tr>
+                                        <tr class = "text-center">
                                             {% for item_name in row %}
                                                 {% if item_name == "" %}
                                                     <td></td>
@@ -104,7 +104,7 @@
                         <td>
                             <table>
                                 <thead>
-                                    <tr>
+                                    <tr class = "text-center">
                                         {% for category in categories %}
                                             <th>{{ category }}</th>
                                         {% endfor %}

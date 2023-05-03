@@ -29,11 +29,11 @@
           <!-- Main Content -->
           <div class="col-md-8 justify-content-center">
             <h2 class = "mt-5 text-center">Edit Inventory Items</h2>
-                <a href="{% url 'addInventoryItemPage' %}">Add Item</a>
                 <form method="POST" action="{% url 'editThisInventoryItem' %}">
                     {% csrf_token %}
                 <div class="row justify-content-center">
                 <div class="col-auto">
+                <a class="btn btn-success" href="{% url 'addInventoryItemPage' %}">Add Item</a>
                 <table class="table d-block text-center">
                     <tr>
                         <th>Image</th>
