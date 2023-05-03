@@ -5,6 +5,20 @@ from django.db.models import Sum
 from itertools import combinations
 
 def generateSalesReport(startDate, endDate):
+    """
+    Generates a sales report for a given date range, including a list of sold menu items, the number of times each
+    menu item was sold, and the total value of all orders in the date range.
+
+    Parameters:
+    - startDate: a date object representing the start of the date range
+    - endDate: a date object representing the end of the date range
+
+    Returns:
+    - a tuple containing three elements:
+        - a list of sold menu items
+        - a list of the number of times each menu item was sold
+        - the total value of all orders in the date range
+    """
     sales = defaultdict(int)
     orders = Order.objects.filter(DateTimePlaced__gte=startDate, DateTimePlaced__lte=endDate)
     total_value = sum([order.Total for order in orders])
@@ -15,6 +29,12 @@ def generateSalesReport(startDate, endDate):
     return list(sales), list(sales.values()), total_value
 
 def generateXReport():
+    """
+    Generates an X report, which is a report of the total sales since the last Z report.
+
+    Returns:
+    - the total sales since the last Z report
+    """
     # Retrieve the most recent z report
     most_recent_z_report = ZReport.objects.order_by('-DateTimeGenerated').first()
 
@@ -26,6 +46,13 @@ def generateXReport():
     return total_sales
 
 def generateZReport():
+    """
+    Generates a Z report, which is a report of the total sales and subtotal since the last Z report. The function
+    also inserts a new row into the ZReport table with the calculated values.
+
+    Returns:
+    - the total sales since the last Z report
+    """
     # Retrieve the most recent z report
     most_recent_z_report = ZReport.objects.order_by('-DateTimeGenerated').first()
 
@@ -48,6 +75,15 @@ def generateZReport():
     return total_sales
 
 def generateRestockReport(threshold):
+    """
+    Generates a restock report, which is a list of inventory items that have stock levels below a given threshold.
+
+    Parameters:
+    - threshold: an integer representing the minimum stock level required for an item to not be restocked
+
+    Returns:
+    - a list of inventory items that have stock levels below the given threshold
+    """
     restock_items = []
     for item in InventoryItem.objects.all():
         if item.Stock < threshold:
@@ -56,6 +92,16 @@ def generateRestockReport(threshold):
 
 
 def generateExcessReport(date):
+    """
+    Generates an excess report, which is a list of inventory items that have not been sold in sufficient quantities
+    since a given date.
+
+    Parameters:
+    - date: a datetime object representing the date since which the items' sales will be compared
+
+    Returns:
+    - a list of inventory items that have not been sold in sufficient quantities since the given date
+    """
     orders = Order.objects.filter(DateTimePlaced__gt=date)
 
     # Initialize a dictionary to keep track of inventory item servings sold
@@ -76,6 +122,18 @@ def generateExcessReport(date):
     return excess_items
 
 def whatSalesTogether(time_start, time_end):
+    """
+    Generates a report of which menu item pairs are sold together most frequently within a given time window.
+
+    Parameters:
+    - time_start: a datetime object representing the start of the time window
+    - time_end: a datetime object representing the end of the time window
+
+    Returns:
+    - a list of tuples, where each tuple contains two menu item names and the number of times they were sold
+    together within the time window. The list is sorted in descending order of sales frequency.
+    """
+
     # Query for all orders within the given time window
     pairs = defaultdict(int)
     orders = Order.objects.filter(DateTimePlaced__range=(time_start, time_end))

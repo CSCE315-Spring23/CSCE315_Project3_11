@@ -1,103 +1,150 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Orders Screen</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    </head>
+
     <style>
-        select[multiple] option:checked::before {
-            content: '\2713';
-            margin-right: 5px;
+        .point-cursor {
+            cursor: pointer;
         }
     </style>
-    <h2>Editing {{ menu_item.ItemName }}</h2>
-    <form method="POST" action="{% url 'submit_menu_edit' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>
-                    <input type="file" name="image" id="image" hidden>
-                    <label for="image">
-                       <img src="data:image/png;base64,{{ menu_item.Image|safe }}" alt="{{ menu_item.ItemName }}" width=50px height=50px>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" name="price" id="price" step="0.01" min="0" placeholder="{{ menu_item.Price }}">
-                </td>
-            </tr>
-            <tr>
-                <th>Definite Items</th>
-            </tr>
-            <tr>
-                <td>
-                    <table>
-                        <thead>
-                            <tr>
-                                {% for category in categories %}
-                                    <th>{{ category }}</th>
-                                {% endfor %}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for row in sorted_inventory %}
-                                <tr>
-                                    {% for item_name in row %}
-                                        {% if item_name == "" %}
-                                            <td></td>
-                                        {% else %}
-                                            <td>
-                                                {% if item_name in menu_item.DefiniteItems %}
-                                                    <input type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="selected_definite_items" value="{{ item_name }}" checked>
+
+    <body>
+
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Sidebar -->
+          <div class="col-md-3 bg-light ">
+
+            <h4 class="text-center py-5">Navigate</h4>
+            <ul class="nav flex-column gap-3">
+
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order_page' %}" role="button">Order</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'edit_menu_items' %}" role="button">Menu Items</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'login' %}" role="button">Log Out</a>
+            </ul>
+          </div>
+          <!-- Main Content -->
+          <div class="col-md-8 justify-content-center">
+            <style>
+                select[multiple] option:checked::before {
+                    content: '\2713';
+                    margin-right: 5px;
+                }
+            </style>
+            <h2 class="text-center my-3">Editing {{ menu_item.ItemName }}</h2>
+            <form method="POST" action="{% url 'submit_menu_edit' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row justify-content-center">
+                <div class="col-auto">
+                <table class="table d-block">
+                    <tr>
+                        <td>
+                            <p class="font-weight-bold">Picture: </p>
+                            <input type="file" name="image" id="image" hidden>
+                            <label class="point-cursor" for="image">
+                               <img src="data:image/png;base64,{{ menu_item.Image|safe }}" alt="{{ menu_item.ItemName }}" width=50px height=50px>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="font-weight-bold">Price: </p>
+                            <input type="number" name="price" id="price" step="0.01" min="0" placeholder="{{ menu_item.Price }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Definite Items</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        {% for category in categories %}
+                                            <th class="text-center">{{ category }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for row in sorted_inventory %}
+                                        <tr>
+                                            {% for item_name in row %}
+                                                {% if item_name == "" %}
+                                                    <td></td>
                                                 {% else %}
-                                                    <input type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="selected_definite_items" value="{{ item_name }}">
+                                                    <td>
+                                                        {% if item_name in menu_item.DefiniteItems %}
+                                                            <input class="form-check-input" type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="selected_definite_items" value="{{ item_name }}" checked>
+                                                        {% else %}
+                                                            <input class="form-check-input" type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="selected_definite_items" value="{{ item_name }}">
+                                                        {% endif %}
+                                                        <label for="{{ menu_item.ItemName }}_{{ item_name }}">{{ item_name }}</label>
+                                                    </td>
                                                 {% endif %}
-                                                <label for="{{ menu_item.ItemName }}_{{ item_name }}">{{ item_name }}</label>
-                                            </td>
-                                        {% endif %}
+                                            {% endfor %}
+                                        </tr>
                                     {% endfor %}
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <th>Possible Items</th>
-            </tr>
-            <tr>
-                <td>
-                    <table>
-                        <thead>
-                            <tr>
-                                {% for category in categories %}
-                                    <th>{{ category }}</th>
-                                {% endfor %}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for row in sorted_inventory %}
-                                <tr>
-                                    {% for item_name in row %}
-                                        {% if item_name == "" %}
-                                            <td></td>
-                                        {% else %}
-                                            <td>
-                                                {% if item_name in menu_item.PossibleItems %}
-                                                    <input type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="possible_items_selected" value="{{ item_name }}" checked>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Possible Items</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        {% for category in categories %}
+                                            <th>{{ category }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for row in sorted_inventory %}
+                                        <tr>
+                                            {% for item_name in row %}
+                                                {% if item_name == "" %}
+                                                    <td></td>
                                                 {% else %}
-                                                    <input type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="possible_items_selected" value="{{ item_name }}">
+                                                    <td>
+                                                        {% if item_name in menu_item.PossibleItems %}
+                                                            <input class="form-check-input" type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="possible_items_selected" value="{{ item_name }}" checked>
+                                                        {% else %}
+                                                            <input class="form-check-input"class="form-check-input" type="checkbox" id="{{ menu_item.ItemName }}_{{ item_name }}" name="possible_items_selected" value="{{ item_name }}">
+                                                        {% endif %}
+                                                        <label for="{{ menu_item.ItemName }}_{{ item_name }}">{{ item_name }}</label>
+                                                    </td>
                                                 {% endif %}
-                                                <label for="{{ menu_item.ItemName }}_{{ item_name }}">{{ item_name }}</label>
-                                            </td>
-                                        {% endif %}
+                                            {% endfor %}
+                                        </tr>
                                     {% endfor %}
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </table>
-        <button type="submit" name="passed_menu_item" value="{{ menu_item.ItemName }}">Submit Changes</button>
-        <button type="submit" name="delete_menu_item" value="{{ menu_item.ItemName }}">Delete Item</button>
-    </form>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <button class= "btn btn-success btn-block" type="submit" name="passed_menu_item" value="{{ menu_item.ItemName }}">Submit Changes</button>
+                <button class= "btn btn-danger btn-block" type="submit" name="delete_menu_item" value="{{ menu_item.ItemName }}">Delete Item</button>
+                </div>
+                </div>
+            </form>
+        </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
 {% endblock %}

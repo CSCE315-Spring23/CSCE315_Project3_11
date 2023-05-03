@@ -108,6 +108,26 @@ class InventoryItem(models.Model):
         self.Image = bytes(self.Image).decode('utf-8')
 
 class MenuItem(models.Model):
+    """
+    A model representing a menu item.
+    Attributes:
+
+    -ItemName: A string representing the name of the menu item.
+    -Price: A decimal representing the price of the menu item.
+    -DefiniteItems: A list of strings representing the definite items included in the menu item.
+    -PossibleItems: A list of strings representing the possible items that can be included in the menu item.
+    -Image: A binary field representing the image of the menu item.
+    -selected_items: An empty list to store the selected items.
+    Methods:
+
+    -select_items(selected_items): Updates the selected_items list with the given list of selected items.
+    -update_categories(): Updates the categories list with the categories of the possible items by querying the InventoryItem model.
+    -save(*args, **kwargs): Overrides the save method to update the categories and encode the Image field before saving.
+    -init(*args, **kwargs): Overrides the init method to update the categories and decode the Image field.
+    Meta:
+
+    -db_table: The name of the database table to use for this model.
+    """
     ItemName = models.TextField(primary_key=True)
     Price = models.DecimalField(max_digits=28, decimal_places=2)
     DefiniteItems = models.JSONField(default=list)
@@ -144,6 +164,21 @@ class MenuItem(models.Model):
 
 
 class Order(models.Model):
+    """
+    A model representing an order made by a customer or employee.
+    Attributes:
+
+    -DateTimePlaced: A DateTimeField representing the time the order was placed.
+    -EmployeeID: An integer representing the ID of the employee who took the order.
+    -Items: A JSONField representing the items in the order.
+    -Subtotal: A decimal representing the subtotal of the order.
+    -Total: A decimal representing the total cost of the order (subtotal + tax).
+    -MenuItemsInOrder: A JSONField representing the menu items in the order.
+    -order_items: A list of the menu items in the order.
+    Meta:
+
+    -db_table: The name of the database table to use for this model.
+    """
     DateTimePlaced = models.DateTimeField(primary_key=True)
     EmployeeID = models.IntegerField(default=-1)
     Items = models.JSONField(default=list)
@@ -202,6 +237,18 @@ class Order(models.Model):
 
 
 class OrderInProgress(models.Model):
+    """
+    A model representing an order that is currently in progress.
+    Attributes:
+    - DateTimeStarted: A datetime field representing the date and time when the order was started.
+    - EmployeeID: An integer representing the ID of the employee who started the order.
+    - CustomizedItems: A JSON field representing the customized items in the order.
+    - Subtotal: A decimal field representing the subtotal of the order.
+    - Total: A decimal field representing the total cost of the order after tax.
+
+    Meta:
+    - db_table: The name of the database table to use for this model.
+    """
     DateTimeStarted = models.DateTimeField(auto_now=True, primary_key=True)
     EmployeeID = models.IntegerField(default=-1)
     CustomizedItems = models.JSONField(default=list)
@@ -224,6 +271,19 @@ class OrderInProgress(models.Model):
 
 
 class RestockOrder(models.Model):
+    """
+    Model representing a restock order for inventory items.
+
+    Attributes:
+
+    -DateOrdered (DateField): The date the restock order was placed (primary key).
+    -DateReceived (DateField): The date the restock order was received (nullable).
+    -Items (JSONField): The list of items to be restocked and their quantities.
+    -Cost (DecimalField): The total cost of the restock order.
+    Meta:
+
+    -db_table (str): The name of the database table to use for storing RestockOrder instances.
+    """
     DateOrdered = models.DateField(primary_key=True)
     DateReceived = models.DateField(null=True, blank=True)
     Items = models.JSONField(default=list)
@@ -234,6 +294,18 @@ class RestockOrder(models.Model):
 
 
 class ZReport(models.Model):
+    """
+    Model representing a Z report, a summary of financial transactions in a cash register at the end of a shift.
+
+    Attributes:
+    -DateTimeGenerated (DateTimeField): The date and time the Z report was generated.
+    -Subtotal (DecimalField): The subtotal of all transactions in the cash register during the shift.
+    -Total (DecimalField): The total amount of money in the cash register at the end of the shift, including tax and any additional fees.
+
+    Meta:
+    -db_table (str): The name of the database table to use for this model.
+    """
+
     DateTimeGenerated = models.DateTimeField(primary_key=True)
     Subtotal = models.DecimalField(max_digits=28, decimal_places=2)
     Total = models.DecimalField(max_digits=28, decimal_places=2)
