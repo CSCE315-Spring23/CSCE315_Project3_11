@@ -308,7 +308,7 @@ def excessReportGeneration(request):
                 timezone.make_aware(dt.datetime.strptime(datePlaced, '%Y-%m-%dT%H:%M'),
                                     timezone.get_current_timezone()))
         except ValueError:
-            context = {'excessReportData': 'Please input a valid datetime'}
+            context = {'excessReportData': ['Please input a valid datetime']}
             return render(request, 'excessReport.html', context)
         # total_value will be the sum of all the sales in the time period
         print(excess_items)
@@ -327,7 +327,7 @@ def restockReportGeneration(request):
         if threshold > 0:
             restock_items = generateRestockReport(threshold)
         else:
-            context = {'restockReportData': 'Please input a valid number'}
+            context = {'restockReportData': ['Please input a valid number']}
             return render(request, 'restockReport.html', context)
         # total_value will be the sum of all the sales in the time period
         print(restock_items)
@@ -349,7 +349,7 @@ def whatSalesTogetherReportGeneration(request):
                 timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
                 timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
         except ValueError:
-            context = {'whatSalesTogetherReportData': 'Please input a valid datetime'}
+            context = {'whatSalesTogetherReportData': [['Please input a valid datetime','']]}
             return render(request, 'whatSalesTogetherReport.html', context)
 
         context = {'whatSalesTogetherReportData': sorted_pairs[0:5]}
