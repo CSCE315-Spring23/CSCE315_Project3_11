@@ -22,7 +22,11 @@ from oauth2_provider.models import AccessToken
 from bs4 import BeautifulSoup
 import requests
 
+
 def checkPermissions(user_email):
+    '''
+    checks permissions of the users email
+    '''
     employee_emails = Employee.objects.values_list('Email', flat=True)
     # user_email = request.user.email
     if user_email in employee_emails:
@@ -38,8 +42,12 @@ def checkPermissions(user_email):
         print("Customer")
         return False
 
+
 def getWeather():
-    print("in weatherData")
+    """
+        This function is used when weather data needs to be found for the website.
+        It makes a call to the open weather api and returns the kind of weather and temperature.
+    """
     APIURLcurrent = r"https://api.openweathermap.org/data/2.5/weather?lat=30.627979&lon=-96.334412&appid=b564f1dbb4cd614c0ee84abe3f4c820c&units=imperial&mode=xml"
     r = requests.get(APIURLcurrent)
     content = BeautifulSoup(r.content, features="xml")
@@ -51,12 +59,9 @@ def getWeather():
 
     for element in bigSectionWeather:
         words = element.get('value')
-        print(words)
 
     for element in bigSectionTemp:
         temperature = element.get('value')
-        print(temperature)
-    # return {'weather':'test'}
     return f'{words}, {temperature}'
 
 
@@ -92,11 +97,17 @@ def inventory_page(request):
 
 
 def reports_page(request):
+    """
+        Renders the generic reports page when the reports button is clicked on the nav bar.
+    """
     print("testing")
     return render(request, 'reports.html')
 
 
 def menuItems(request):
+    """
+        Renders the menu items page with all the menu items on it.
+    """
     fullMenu = MenuItem.objects.all().values()
     print(fullMenu)
     content = {'menuTest': fullMenu}
@@ -224,30 +235,51 @@ def order_page(request):
 
 
 def salesReport(request):
+    """
+        Renders the base of the sales report page that takes inputs to be ready to generate reports
+    """
     return render(request, 'salesReport.html')
 
 
 def xReport(request):
+    """
+        Renders the base of the x report page has a button to generate reports
+    """
     return render(request, 'xReport.html')
 
 
 def zReport(request):
+    """
+        Renders the base of the x report page has a button to generate reports
+    """
     return render(request, 'zReport.html')
 
 
 def excessReport(request):
+    """
+        Renders the base of the excess report page that takes inputs to be ready to generate reports
+    """
     return render(request, 'excessReport.html')
 
 
 def restockReport(request):
+    """
+        Renders the base of the restock report page that takes inputs to be ready to generate reports
+    """
     return render(request, 'restockReport.html')
 
 
 def whatSalesTogetherReport(request):
+    """
+        Renders the base of the what sales together report page that takes inputs to be ready to generate reports
+    """
     return render(request, 'whatSalesTogetherReport.html')
 
 
 def salesReportGeneration(request):
+    """
+        Generates the appropriate data from the backend functions with the user's inputs to display on the reports page
+    """
     if request.method == 'POST':
         startDate = request.POST['startDate']
         endDate = request.POST['endDate']
@@ -271,6 +303,9 @@ def salesReportGeneration(request):
 
 
 def xReportGeneration(request):
+    """
+        Generates the appropriate data from the backend functions to display on the reports page
+    """
     if request.method == 'POST':
         try:
             total_sales = generateXReport()
@@ -286,6 +321,9 @@ def xReportGeneration(request):
 
 
 def zReportGeneration(request):
+    """
+        Generates the appropriate data from the backend functions to display on the reports page
+    """
     if request.method == 'POST':
         try:
             total_sales = generateZReport()
@@ -301,6 +339,9 @@ def zReportGeneration(request):
 
 
 def excessReportGeneration(request):
+    """
+        Generates the appropriate data from the backend functions with the user's inputs to display on the reports page
+    """
     if request.method == 'POST':
         datePlaced = request.POST['datePlaced']
         try:
@@ -322,6 +363,9 @@ def excessReportGeneration(request):
 
 
 def restockReportGeneration(request):
+    """
+        Generates the appropriate data from the backend functions with the user's inputs to display on the reports page
+    """
     if request.method == 'POST':
         threshold = int(request.POST['threshold'])
         if threshold > 0:
@@ -341,6 +385,9 @@ def restockReportGeneration(request):
 
 
 def whatSalesTogetherReportGeneration(request):
+    """
+        Generates the appropriate data from the backend functions with the user's inputs to display on the reports page
+    """
     if request.method == 'POST':
         startDate = request.POST['startDate']
         endDate = request.POST['endDate']
