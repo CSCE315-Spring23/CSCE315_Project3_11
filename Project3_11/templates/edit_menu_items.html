@@ -29,6 +29,7 @@
           <!-- Main Content -->
           <div class="col-md-8 justify-content-center">
             <h2 class = "mt-5 text-center">Edit Menu Items</h2>
+                <a href="{% url 'add_menu_item' %}">Add Item</a>
                 <form method="POST" action="{% url 'edit_this_menu_item' %}">
                     {% csrf_token %}
                 <div class="row justify-content-center">
