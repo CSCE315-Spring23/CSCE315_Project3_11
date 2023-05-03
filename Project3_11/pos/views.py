@@ -423,8 +423,8 @@ def editThisInventoryItem(request):
 
 def submitInventoryEdit(request):
     if request.method == 'POST':
-        editItem = request.POST.get('passedInventoryItem')
-        deleteItem = request.POST.get('deleteInventoryItem')
+        editItem = request.POST.get('passedInventoryItem', None)
+        deleteItem = request.POST.get('deleteInventoryItem', None)
         if deleteItem and not editItem:
             removeInventoryItem(deleteItem)
         editItem = InventoryItem.objects.get(Name=editItem)
@@ -493,6 +493,9 @@ def edit_this_menu_item(request):
 def submit_menu_edit(request):
     if request.method == 'POST':
         edit_item = request.POST.get('passed_menu_item', None)
+        delete_item = request.POST.get('delete_menu_item', None)
+        if delete_item and not edit_item:
+            removeMenuItem(delete_item)
         edit_item = MenuItem.objects.get(ItemName=edit_item)
         image = request.FILES.get('image')
         price = request.POST.get('price')
