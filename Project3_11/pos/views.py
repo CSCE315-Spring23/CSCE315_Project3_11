@@ -24,9 +24,9 @@ import requests
 
 
 def checkPermissions(user_email):
-    '''
+    """
     checks permissions of the users email
-    '''
+    """
     employee_emails = Employee.objects.values_list('Email', flat=True)
     # user_email = request.user.email
     if user_email in employee_emails:
@@ -108,7 +108,6 @@ def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.order_by('-Price')
     permissions = checkPermissions(request.user.email)
-    print(permissions, type(permissions))
     inventory_items = InventoryItem.objects.all()
     item_categories = {}
     for item in inventory_items:
@@ -131,7 +130,8 @@ def order_page(request):
                 order.delete()
                 del request.session['orderpk']
                 return render(request, 'order_page.html',
-                              {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories, 'permissions':permissions})
+                              {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories,
+                               'permissions': permissions})
         except ValueError:
             order = OrderInProgress()
     else:
@@ -168,7 +168,8 @@ def order_page(request):
             return HttpResponseRedirect(request.path_info)
     else:
         return render(request, 'order_page.html',
-                      {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather(), 'permissions':permissions})
+                      {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather(),
+                       'permissions': permissions})
 
 
 def salesReport(request):
@@ -333,7 +334,7 @@ def whatSalesTogetherReportGeneration(request):
                 timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
                 timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
         except ValueError:
-            context = {'whatSalesTogetherReportData': [['Please input a valid datetime','']]}
+            context = {'whatSalesTogetherReportData': [['Please input a valid datetime', '']]}
             return render(request, 'whatSalesTogetherReport.html', context)
 
         context = {'whatSalesTogetherReportData': sorted_pairs[0:5]}
@@ -343,6 +344,9 @@ def whatSalesTogetherReportGeneration(request):
 
 
 def editInventoryItems(request):
+    """
+        Generates the categories for the adding inventory item form and displays the form
+    """
     inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
     return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
 
@@ -359,6 +363,9 @@ def editThisInventoryItem(request):
 
 
 def submitInventoryEdit(request):
+    """
+        Processes the form's data and edits the inventory item based on it
+    """
     if request.method == 'POST':
         editItem = request.POST.get('passedInventoryItem', None)
         deleteItem = request.POST.get('deleteInventoryItem', None)
@@ -472,6 +479,9 @@ class ValidateUserView(ProtectedResourceView):
 
 
 def addInventoryItemPage(request):
+    """
+        Generates the categories for the adding inventory item form and displays the form
+    """
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
     categories = []
     for item in inventory_items:
@@ -481,6 +491,9 @@ def addInventoryItemPage(request):
 
 
 def submitInventoryAddition(request):
+    """
+        Processes the form's data and creates a new inventory item based on it
+    """
     if request.method == 'POST':
         # itemToAdd = request.POST.get('passedInventoryItem')
         itemName = request.POST.get('itemName')
@@ -503,13 +516,9 @@ def submitInventoryAddition(request):
 
 
 def menuBoard(request):
+    """
+        Generates a menu and displays the menu board
+    """
     menu = MenuItem.objects.order_by('-Price')
-    # inventory_items = InventoryItem.objects.all()
-    # item_categories = {}
-    # for item in inventory_items:
-    #     if item.Category not in item_categories:
-    #         item_categories[item.Category] = []
-    #     item_categories[item.Category].append(item.Name)
-    # # return render(request, 'menuBoard.html')
     return render(request, 'menuBoard.html',
                   {'menu': menu, 'weather': getWeather()})
