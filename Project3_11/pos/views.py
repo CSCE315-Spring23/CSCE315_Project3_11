@@ -23,6 +23,9 @@ from bs4 import BeautifulSoup
 import requests
 
 def checkPermissions(user_email):
+    '''
+    checks permissions of the users email
+    '''
     employee_emails = Employee.objects.values_list('Email', flat=True)
     # user_email = request.user.email
     if user_email in employee_emails:

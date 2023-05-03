@@ -6,8 +6,35 @@ from datetime import timedelta
 from decimal import Decimal
 from pos.common_functions import get_category
 
+"""
+Module containing Django models for the restaurant management system.
+
+Classes:
+
+Employee: A model representing an employee.
+ExpirationDate: A model representing the expiration date of an inventory item.
+InventoryItem: A model representing an inventory item.
+MenuItem: A model representing a menu item.
+Order: A model representing an order.
+OrderInProgress: A model representing an in-progress order.
+"""
 
 class Employee(models.Model):
+    """
+    A model representing an employee.
+    Attributes:
+    - EmployeeID: An integer representing the employee's ID.
+    - LastName: A string representing the employee's last name.
+    - FirstName: A string representing the employee's first name.
+    - HireDate: A date representing the employee's hire date.
+    - EmployeePIN: An integer representing the employee's PIN.
+    - PositionTitle: A string representing the employee's position title.
+    - Email: A string representing the employee's email address.
+    - HoursWorked: A decimal representing the number of hours worked by the employee.
+
+    Meta:
+    - db_table: The name of the database table to use for this model.
+    """
     EmployeeID = models.IntegerField(primary_key=True)
     LastName = models.CharField(max_length=50)
     FirstName = models.CharField(max_length=50)
@@ -22,6 +49,17 @@ class Employee(models.Model):
 
 
 class ExpirationDate(models.Model):
+    """
+    A model representing the expiration date of an inventory item.
+    Attributes:
+    - UniqueID: An integer representing the unique ID of the expiration date.
+    - ItemName: A string representing the name of the inventory item.
+    - ExpirationDate: A datetime representing the expiration date.
+    - RemainingServings: An integer representing the remaining servings of the inventory item.
+
+    Meta:
+    - db_table: The name of the database table to use for this model.
+    """
     UniqueID = models.IntegerField(primary_key=True)
     ItemName = models.TextField()
     ExpirationDate = models.DateTimeField()
@@ -32,6 +70,22 @@ class ExpirationDate(models.Model):
 
 
 class InventoryItem(models.Model):
+    """
+    A model representing an inventory item.
+    Attributes:
+    - Name: A string representing the name of the inventory item.
+    - Stock: An integer representing the current stock of the inventory item.
+    - NumberNeeded: An integer representing the number of items needed.
+    - OrderChance: A decimal representing the chance of an item being ordered.
+    - Units: A string representing the units of the inventory item.
+    - Category: A string representing the category of the inventory item.
+    - Servings: An integer representing the servings of the inventory item.
+    - RestockCost: An integer representing the cost of restocking the inventory item.
+    - Image: A binary field representing the image of the inventory item.
+
+    Meta:
+    - db_table: The name of the database table to use for this model.
+    """
     Name = models.TextField(primary_key=True)
     Stock = models.IntegerField()
     NumberNeeded = models.IntegerField()
