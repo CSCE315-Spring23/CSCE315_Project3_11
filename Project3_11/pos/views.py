@@ -106,6 +106,8 @@ def reports_page(request):
 
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
+    if button_clicked == 'back_button':
+        return HttpResponseRedirect(request.path_info)
     menu = MenuItem.objects.order_by('-Price')
     permissions = checkPermissions(request.user.email)
     inventory_items = InventoryItem.objects.all()
