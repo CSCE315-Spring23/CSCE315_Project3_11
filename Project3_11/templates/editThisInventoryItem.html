@@ -1,62 +1,103 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h2>Edit Inventory Items</h2>
 
-    {% block inventoryItemContent %}
-        <h2>Editing {{ inventoryItem.Name }}</h2>
-        <form method="POST" action="{% url 'submitInventoryEdit' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            <table>
-                <tr>
-                    <td>Image</td>
-                    <td>
-                        <label for="image">
-                            <img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px>
-                        </label>
-                        <input type="file" name="image" id="image" hidden>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Stock</td>
-                    <td><input type="number" name="stock" id="stock" placeholder="{{ inventoryItem.Stock }}"></td>
-                </tr>
-                <tr>
-                    <td>Number Needed</td>
-                    <td><input type="number" name="numNeeded" id="numNeeded" placeholder="{{ inventoryItem.NumberNeeded }}"></td>
-                </tr>
-                <tr>
-                    <td>Order Chance</td>
-                    <td><input type="number" name="orderChance" id="orderChance" placeholder="{{ inventoryItem.OrderChance }}"></td>
-                </tr>
-                <tr>
-                    <td>Units</td>
-                    <td><input type="text" name="units" id="units" placeholder="{{ inventoryItem.Units }}"></td>
-                </tr>
-                <tr>
-                    <td>Category</td>
-                    <td>
-                        <select name="category" id="category">
-                            {% for category in categories %}
-                                {% if category == inventoryItem.Category %}
-                                    <option value="{{ category }}" selected>{{ category }}</option>
-                                {% else %}
-                                    <option value="{{ category }}">{{ category }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Servings</td>
-                    <td><input type="number" name="servings" id="servings" placeholder="{{ inventoryItem.Servings }}"></td>
-                </tr>
-                <tr>
-                    <td>Restock Cost</td>
-                    <td><input type="number" name="restockCost" id="restockCost" placeholder="{{ inventoryItem.RestockCost }}"></td>
-                </tr>
-            </table>
-        <button type="submit" name="passedInventoryItem" value="{{ inventoryItem.Name }}">Submit Changes</button>
-        <button type="submit" name="deleteInventoryItem" value="{{ inventoryItem.Name }}">Delete Item</button>
-        </form>
-    {% endblock %}
+{% block content %}
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Orders Screen</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    </head>
+
+    <body>
+
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Sidebar -->
+          <div class="col-md-3 bg-light ">
+
+            <h4 class="text-center py-5">Navigate</h4>
+            <ul class="nav flex-column gap-3">
+
+                <a class="btn btn-primary btn-block btn-lg p-5" role="button">Order</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'edit_menu_items' %}" role="button">Menu Items</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'login' %}" role="button">Log Out</a>
+            </ul>
+          </div>
+          <!-- Main Content -->
+          <div class="col-md-8 justify-content-center">
+            <h2 class = "mt-5 text-center">Edit Inventory Items</h2>
+
+            {% block inventoryItemContent %}
+                <h3 class = "mt-5 text-center">Editing {{ inventoryItem.Name }}</h3>
+                <form method="POST" action="{% url 'submitInventoryEdit' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="row justify-content-center">
+                <div class="col-auto">
+                    <table class="table d-block text-center">
+                        <tr>
+                            <td>Image</td>
+                            <td>
+                                <label for="image">
+                                    <img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px>
+                                </label>
+                                <input type="file" name="image" id="image" hidden>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Stock</td>
+                            <td><input type="number" name="stock" id="stock" placeholder="{{ inventoryItem.Stock }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Number Needed</td>
+                            <td><input type="number" name="numNeeded" id="numNeeded" placeholder="{{ inventoryItem.NumberNeeded }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Order Chance</td>
+                            <td><input type="number" name="orderChance" id="orderChance" placeholder="{{ inventoryItem.OrderChance }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Units</td>
+                            <td><input type="text" name="units" id="units" placeholder="{{ inventoryItem.Units }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+                            <td>
+                                <select name="category" id="category">
+                                    {% for category in categories %}
+                                        {% if category == inventoryItem.Category %}
+                                            <option value="{{ category }}" selected>{{ category }}</option>
+                                        {% else %}
+                                            <option value="{{ category }}">{{ category }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Servings</td>
+                            <td><input type="number" name="servings" id="servings" placeholder="{{ inventoryItem.Servings }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Restock Cost</td>
+                            <td><input type="number" name="restockCost" id="restockCost" placeholder="{{ inventoryItem.RestockCost }}"></td>
+                        </tr>
+                    </table>
+                <button class= "btn btn-success btn-block" type="submit" name="passedInventoryItem" value="{{ inventoryItem.Name }}">Submit Changes</button>
+                <button class= "btn btn-danger btn-block" type="submit" name="deleteInventoryItem" value="{{ inventoryItem.Name }}">Delete Item</button>
+                <a class="btn btn-warning btn-block" href="{% url 'editInventoryItems' %}" role="button">Go Back To List</a>
+                </div>
+                </div>
+
+                </form>
+            {% endblock %}
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
 {% endblock %}
