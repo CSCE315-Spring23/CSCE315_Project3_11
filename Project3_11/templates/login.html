@@ -15,7 +15,7 @@
     <p style="color:red">{{ error }}</p>
     {% endif %}
     <section class="w-100 p-4 d-flex justify-content-center pb-4">
-    <form method="POST" enctype="multipart/form-data" action="{% url 'order' %}">
+    <form method="POST" enctype="multipart/form-data" action="{% url 'order_page' %}">
         {% csrf_token %}
         <!-- Email input -->
         <div class="form-outline mb-4">
@@ -41,14 +41,14 @@
     </div>
 
 
-    {% url 'order' as order_view %}
+    {% url 'order_page' as order_view %}
     <a class="btn btn-primary" href="{{ order_view }}" role="button">Orders Testing</a>
 
     <br>
 
     <a href="{{ order_view }}">Go to order(style test) page</a>
     <br>
-    {% url 'menuItems' as menuItems %}
+    {% url 'edit_menu_items' as menuItems %}
     <a href="{{ menuItems }}">Go to menu items page</a>
     <br>
     {% url 'reports' as reports %}

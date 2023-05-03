@@ -40,19 +40,19 @@
                         <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
                             {% for topping in toppings %}
                                 {% if topping in item.PossibleItems %}
-                                    {% if category == "base" %}
+                                    {% if category == "Base" %}
                                         <input type="radio" class="btn-check"  id="{{ item.ItemName }}_{{ topping }}" name="base_selected" value="{{ topping }}">
                                         <label class="btn btn-warning py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "protein" %}
+                                    {% elif category == "Protein" %}
                                         <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="protein_selected" value="{{ topping }}">
                                         <label class="btn btn-danger py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "toppings" %}
+                                    {% elif category == "Topping" %}
                                         <input type="checkbox" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="toppings_selected" value="{{ topping }}">
                                         <label class="btn btn-success py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "sauces" %}
+                                    {% elif category == "Sauce" %}
                                         <input type="radio"  class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="sauce_selected" value="{{ topping }}">
                                         <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "drinks" %}
+                                    {% elif category == "Drink" %}
                                         <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="drink_selected" value="{{ topping }}">
                                         <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
                                     {% endif %}

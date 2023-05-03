@@ -104,69 +104,6 @@ def reports_page(request):
     return render(request, 'reports.html')
 
 
-def menuItems(request):
-    """
-        Renders the menu items page with all the menu items on it.
-    """
-    fullMenu = MenuItem.objects.all().values()
-    print(fullMenu)
-    content = {'menuTest': fullMenu}
-    return HttpResponse(render(request, 'menuItems.html', content))
-
-
-def database_info(request):
-    if request.method == 'GET':
-        # Get database information
-        employees = Employee.objects.all()
-        menu_items = MenuItem.objects.all()
-        inventory_items = InventoryItem.objects.all()
-        for item in inventory_items:
-            print(item.Name)
-            print(item.Image)
-        for item in menu_items:
-            print(item.ItemName)
-            print(item.Image)
-
-        # Set other text
-        employee_header = 'Employees'
-        menu_header = 'Menu'
-        inventory_header = 'Inventory'
-        employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
-                                  'Hours Worked']
-        menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
-        inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category',
-                                   'Servings', 'RestockCost']
-
-        context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items,
-                   'employee_header': employee_header, 'inventory_header': inventory_header,
-                   'menu_header': menu_header, 'employee_headers': employee_table_headers,
-                   'inventory_table_headers': inventory_table_headers,
-                   'menu_headers': menu_table_headers}
-        return render(request, 'database_info.html', context)
-
-
-def button_testing(request):
-    order_total = request.session.get('order_total', 0)
-    menu = MenuItem.objects.all()
-    if request.method == 'POST':
-        button_clicked = request.POST.get('button_clicked', None)
-        if button_clicked == 'reset':
-            order_total = '0'
-        else:
-            item_clicked = request.POST.get('item_clicked', None)
-            if item_clicked:
-                item = MenuItem.objects.get(ItemName=item_clicked)
-                order_total = str(Decimal(order_total) + item.Price)
-        request.session['order_total'] = order_total
-    return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
-
-
-def button_testing_page2(request):
-    # How to redirect to next page passing name of item to edit
-    edit_item = request.POST.get('edit_item', None)
-    return render(request, 'button_testing_page2.html', {'edit_item': edit_item})
-
-
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
     menu = MenuItem.objects.order_by('-Price')
