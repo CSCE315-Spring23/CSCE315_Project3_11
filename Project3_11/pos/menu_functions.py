@@ -1,7 +1,7 @@
 from pos.models import MenuItem, InventoryItem
 
 
-def add_to_menu(item_name, price, definite_items, possible_items):
+def add_to_menu(item_name, price, definite_items, possible_items, image):
     """
     Adds a new item to the menu.
 
@@ -10,11 +10,12 @@ def add_to_menu(item_name, price, definite_items, possible_items):
         price (float): The price of the item.
         definite_items (list): A list of definite items that must be included in the item.
         possible_items (list): A list of possible items that can be included in the item.
+        image (binary field): the image associated with the menu item.
 
     Returns:
         None
     """
-    new_item = MenuItem(ItemName=item_name, Price=price, DefiniteItems=definite_items, PossibleItems=possible_items)
+    new_item = MenuItem(ItemName=item_name, Price=price, DefiniteItems=definite_items, PossibleItems=possible_items, Image=image)
     new_item.save()
 
 def removeMenuItem(name):
