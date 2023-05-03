@@ -9,6 +9,12 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     </head>
 
+    <style>
+        .point-cursor {
+            cursor: pointer;
+        }
+    </style>
+
     <body>
 
       <div class="container-fluid">
@@ -40,7 +46,7 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <label for="image">
+                                <label class="point-cursor" for="image">
                                     <img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px>
                                 </label>
                                 <input type="file" name="image" id="image" hidden>
