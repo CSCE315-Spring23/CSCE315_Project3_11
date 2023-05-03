@@ -24,9 +24,9 @@ import requests
 
 
 def checkPermissions(user_email):
-    '''
+    """
     checks permissions of the users email
-    '''
+    """
     employee_emails = Employee.objects.values_list('Email', flat=True)
     # user_email = request.user.email
     if user_email in employee_emails:
@@ -104,74 +104,12 @@ def reports_page(request):
     return render(request, 'reports.html')
 
 
-def menuItems(request):
-    """
-        Renders the menu items page with all the menu items on it.
-    """
-    fullMenu = MenuItem.objects.all().values()
-    print(fullMenu)
-    content = {'menuTest': fullMenu}
-    return HttpResponse(render(request, 'menuItems.html', content))
-
-
-def database_info(request):
-    if request.method == 'GET':
-        # Get database information
-        employees = Employee.objects.all()
-        menu_items = MenuItem.objects.all()
-        inventory_items = InventoryItem.objects.all()
-        for item in inventory_items:
-            print(item.Name)
-            print(item.Image)
-        for item in menu_items:
-            print(item.ItemName)
-            print(item.Image)
-
-        # Set other text
-        employee_header = 'Employees'
-        menu_header = 'Menu'
-        inventory_header = 'Inventory'
-        employee_table_headers = ['Employee ID', 'Last Name', 'First Name', 'Hire Date', 'PIN', 'Position',
-                                  'Hours Worked']
-        menu_table_headers = ['Image', 'Item Name', 'Price', 'Definite Items', 'Possible Items']
-        inventory_table_headers = ['Image', 'Name', 'Stock', 'NumberNeeded', 'OrderChance', 'Units', 'Category',
-                                   'Servings', 'RestockCost']
-
-        context = {'employees': employees, 'menu_items': menu_items, 'inventory_items': inventory_items,
-                   'employee_header': employee_header, 'inventory_header': inventory_header,
-                   'menu_header': menu_header, 'employee_headers': employee_table_headers,
-                   'inventory_table_headers': inventory_table_headers,
-                   'menu_headers': menu_table_headers}
-        return render(request, 'database_info.html', context)
-
-
-def button_testing(request):
-    order_total = request.session.get('order_total', 0)
-    menu = MenuItem.objects.all()
-    if request.method == 'POST':
-        button_clicked = request.POST.get('button_clicked', None)
-        if button_clicked == 'reset':
-            order_total = '0'
-        else:
-            item_clicked = request.POST.get('item_clicked', None)
-            if item_clicked:
-                item = MenuItem.objects.get(ItemName=item_clicked)
-                order_total = str(Decimal(order_total) + item.Price)
-        request.session['order_total'] = order_total
-    return render(request, 'button_testing.html', {'order_total': order_total, 'menu': menu})
-
-
-def button_testing_page2(request):
-    # How to redirect to next page passing name of item to edit
-    edit_item = request.POST.get('edit_item', None)
-    return render(request, 'button_testing_page2.html', {'edit_item': edit_item})
-
-
 def order_page(request):
     button_clicked = request.POST.get('button_clicked', None)
+    if button_clicked == 'back_button':
+        return HttpResponseRedirect(request.path_info)
     menu = MenuItem.objects.order_by('-Price')
     permissions = checkPermissions(request.user.email)
-    print(permissions, type(permissions))
     inventory_items = InventoryItem.objects.all()
     item_categories = {}
     for item in inventory_items:
@@ -194,7 +132,8 @@ def order_page(request):
                 order.delete()
                 del request.session['orderpk']
                 return render(request, 'order_page.html',
-                              {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories, 'permissions':permissions})
+                              {'order': OrderInProgress(), 'menu': menu, 'item_categories': item_categories,
+                               'permissions': permissions})
         except ValueError:
             order = OrderInProgress()
     else:
@@ -231,7 +170,8 @@ def order_page(request):
             return HttpResponseRedirect(request.path_info)
     else:
         return render(request, 'order_page.html',
-                      {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather(), 'permissions':permissions})
+                      {'order': order, 'menu': menu, 'item_categories': item_categories, 'weather': getWeather(),
+                       'permissions': permissions})
 
 
 def salesReport(request):
@@ -396,7 +336,7 @@ def whatSalesTogetherReportGeneration(request):
                 timezone.make_aware(dt.datetime.strptime(startDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()),
                 timezone.make_aware(dt.datetime.strptime(endDate, '%Y-%m-%dT%H:%M'), timezone.get_current_timezone()))
         except ValueError:
-            context = {'whatSalesTogetherReportData': [['Please input a valid datetime','']]}
+            context = {'whatSalesTogetherReportData': [['Please input a valid datetime', '']]}
             return render(request, 'whatSalesTogetherReport.html', context)
 
         context = {'whatSalesTogetherReportData': sorted_pairs[0:5]}
@@ -406,6 +346,9 @@ def whatSalesTogetherReportGeneration(request):
 
 
 def editInventoryItems(request):
+    """
+        Generates the categories for the adding inventory item form and displays the form
+    """
     inventoryItems = InventoryItem.objects.order_by('Category', 'Name')
     return render(request, 'inventoryItems.html', {'inventoryItems': inventoryItems})
 
@@ -422,6 +365,9 @@ def editThisInventoryItem(request):
 
 
 def submitInventoryEdit(request):
+    """
+        Processes the form's data and edits the inventory item based on it
+    """
     if request.method == 'POST':
         editItem = request.POST.get('passedInventoryItem', None)
         deleteItem = request.POST.get('deleteInventoryItem', None)
@@ -535,6 +481,9 @@ class ValidateUserView(ProtectedResourceView):
 
 
 def addInventoryItemPage(request):
+    """
+        Generates the categories for the adding inventory item form and displays the form
+    """
     inventory_items = InventoryItem.objects.order_by('Category', 'Name')
     categories = []
     for item in inventory_items:
@@ -544,6 +493,9 @@ def addInventoryItemPage(request):
 
 
 def submitInventoryAddition(request):
+    """
+        Processes the form's data and creates a new inventory item based on it
+    """
     if request.method == 'POST':
         # itemToAdd = request.POST.get('passedInventoryItem')
         itemName = request.POST.get('itemName')
@@ -566,13 +518,9 @@ def submitInventoryAddition(request):
 
 
 def menuBoard(request):
+    """
+        Generates a menu and displays the menu board
+    """
     menu = MenuItem.objects.order_by('-Price')
-    # inventory_items = InventoryItem.objects.all()
-    # item_categories = {}
-    # for item in inventory_items:
-    #     if item.Category not in item_categories:
-    #         item_categories[item.Category] = []
-    #     item_categories[item.Category].append(item.Name)
-    # # return render(request, 'menuBoard.html')
     return render(request, 'menuBoard.html',
                   {'menu': menu, 'weather': getWeather()})

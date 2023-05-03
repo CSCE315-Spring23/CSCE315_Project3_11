@@ -40,19 +40,19 @@
                         <div id="{{ item.ItemName }}_{{ category }}_div" style="display: none;">
                             {% for topping in toppings %}
                                 {% if topping in item.PossibleItems %}
-                                    {% if category == "base" %}
+                                    {% if category == "Base" %}
                                         <input type="radio" class="btn-check"  id="{{ item.ItemName }}_{{ topping }}" name="base_selected" value="{{ topping }}">
                                         <label class="btn btn-warning py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "protein" %}
+                                    {% elif category == "Protein" %}
                                         <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="protein_selected" value="{{ topping }}">
                                         <label class="btn btn-danger py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "toppings" %}
+                                    {% elif category == "Topping" %}
                                         <input type="checkbox" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="toppings_selected" value="{{ topping }}">
                                         <label class="btn btn-success py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "sauces" %}
+                                    {% elif category == "Sauce" %}
                                         <input type="radio"  class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="sauce_selected" value="{{ topping }}">
                                         <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
-                                    {% elif category == "drinks" %}
+                                    {% elif category == "Drink" %}
                                         <input type="radio" class="btn-check" id="{{ item.ItemName }}_{{ topping }}" name="drink_selected" value="{{ topping }}">
                                         <label class="btn btn-info py-3 mx-2 my-1" style="width: 30%;" for="{{ item.ItemName }}_{{ topping }}">{{ topping }}</label>
                                     {% endif %}
@@ -67,7 +67,7 @@
                         <button class="btn btn-success btn-block btn-lg " type="submit" name="button_clicked" value="add_to_order">Add to Order</button>
                     </div>
                 {% endfor %}
-                <button id="back-button">Back</button>
+                <button id="back-button" name="button_clicked" value="back_button">Back</button>
                 </form>
           </div>
     {#        Orders Table#}
@@ -95,11 +95,11 @@
 
     <script>
     const menuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]');
-        menuItems.forEach(function(menuItem) {
-            menuItem.addEventListener('change', function() {
-                const menuItemName = this.value;
-                const addOnDivs = document.querySelectorAll('[id^="' + menuItemName + '"]');
-                addOnDivs.forEach(function(addOnDiv) {
+    menuItems.forEach(function(menuItem) {
+        menuItem.addEventListener('change', function() {
+            const menuItemName = this.value;
+            const addOnDivs = document.querySelectorAll('[id^="' + menuItemName + '"]');
+            addOnDivs.forEach(function(addOnDiv) {
                 addOnDiv.style.display = 'inline';
             });
             const otherMenuItems = document.querySelectorAll('input[type=radio][name=menu_item_selected]:not(:checked)');
@@ -113,24 +113,6 @@
         });
     });
     </script>
-
-    <script>
-        // Get references to the radio buttons and back button elements
-        const menuButtons = document.getElementsByName("menu_item_selected");
-        const backButton = document.getElementById("back_button");
-
-        // Add an event listener to the radio buttons that checks their values
-        for (let i = 0; i < menuButtons.length; i++) {
-          menuButtons[i].addEventListener("change", () => {
-            // Check if any radio button is checked
-            const isChecked = Array.from(menuButtons).some(button => button.checked);
-
-            // Show the back button if a radio button is checked
-            backButton.style.display = isChecked ? "block" : "none";
-          });
-        }
-    </script>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
             integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
