@@ -350,10 +350,8 @@ def whatSalesTogetherReportGeneration(request):
         except ValueError:
             context = {'whatSalesTogetherReportData': 'Please input a valid datetime'}
             return render(request, 'whatSalesTogetherReport.html', context)
-        # sales will be the list of menu items ordered
-        print(sorted_pairs)
 
-        context = {'whatSalesTogetherReportData': sorted_pairs}
+        context = {'whatSalesTogetherReportData': sorted_pairs[0:5]}
         return render(request, 'whatSalesTogetherReport.html', context)
     else:
         return render(request, 'whatSalesTogetherReport.html')
