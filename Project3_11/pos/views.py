@@ -461,6 +461,32 @@ def submit_menu_edit(request):
         return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
 
 
+def add_menu_item(request):
+    menu_items = MenuItem.objects.order_by('-Price')
+    inventory_items = InventoryItem.objects.order_by('Category', 'Name')
+
+    categories = []
+    for item in inventory_items:
+        if item.Category not in categories:
+            categories.append(item.Category)
+
+    sorted_inventory = get_sorted_inventory(inventory_items, categories)
+
+    return render(request, 'add_menu_item.html', {'menu_items': menu_items, 'inventory_items': inventory_items, 'categories': categories, 'sorted_inventory': sorted_inventory})
+
+
+def submit_menu_item_addition(request):
+    if request.method == 'POST':
+        item_name = request.POST.get('item_name')
+        price = request.POST.get('price')
+        definite_items = request.POST.getlist('selected_definite_items')
+        possible_items = request.POST.getlist('selected_possible_items')
+        add_to_menu(item_name, price, definite_items, possible_items)
+        return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+    else:
+        return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
+
+
 class ValidateUserView(ProtectedResourceView):
     def temp(self):
         print()

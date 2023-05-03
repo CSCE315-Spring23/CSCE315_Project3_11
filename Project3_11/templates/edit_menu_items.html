@@ -19,7 +19,7 @@
             <h4 class="text-center py-5">Navigate</h4>
             <ul class="nav flex-column gap-3">
 
-                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order' %}" role="button">Order</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order_page' %}" role="button">Order</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'edit_menu_items' %}" role="button">Menu Items</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
@@ -29,6 +29,7 @@
           <!-- Main Content -->
           <div class="col-md-8 justify-content-center">
             <h2 class = "mt-5 text-center">Edit Menu Items</h2>
+                <a href="{% url 'add_menu_item' %}">Add Item</a>
                 <form method="POST" action="{% url 'edit_this_menu_item' %}">
                     {% csrf_token %}
                 <div class="row justify-content-center">
