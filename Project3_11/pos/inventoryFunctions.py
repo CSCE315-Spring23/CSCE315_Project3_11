@@ -26,7 +26,7 @@ def findInventoryItem(name):
     except InventoryItem.DoesNotExist:
         return None
 
-def addInventoryItem(name="null", stock=-1, number_needed=-1, order_chance=-1.0, units="null", category="null", servings=-1, restock_cost=-1):
+def addInventoryItem(name="null", stock=-1, number_needed=-1, order_chance=-1.0, units="null", category="null", servings=-1, restock_cost=-1, image=""):
     """
     Adds a new inventory item to the database with the given attributes.
 
@@ -39,6 +39,7 @@ def addInventoryItem(name="null", stock=-1, number_needed=-1, order_chance=-1.0,
         category (str): The category to which the new inventory item belongs. Defaults to "null".
         servings (int): The number of servings that can be made from the new inventory item. Defaults to -1.
         restock_cost (float): The cost of restocking the new inventory item. Defaults to -1.
+        image(binary field): the image that will be associated with the new inventory item.
     """
     # create a new inventory item object with the given attributes
     new_item = InventoryItem(
@@ -49,7 +50,8 @@ def addInventoryItem(name="null", stock=-1, number_needed=-1, order_chance=-1.0,
         Units=units,
         Category=category,
         Servings=servings,
-        RestockCost=restock_cost
+        RestockCost=restock_cost,
+        Image=image
     )
     # save the new item to the database
     new_item.save()
