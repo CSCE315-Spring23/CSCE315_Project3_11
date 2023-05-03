@@ -113,7 +113,7 @@ from pos.menu_functions import *
 #     for item in items:
 #         item_image_file = "pos/images/Default Image.png"
 #         if os.path.isfile("pos/images/" + item.Name + ".png"):
-#             item_image_file = item.Name + ".png"
+#             item_image_file = "pos/images/" + item.Name + ".png"
 #         with open(item_image_file, "rb") as image_file:
 #             image_str = str(base64.b64encode(image_file.read()))
 #             image_str = image_str[2:len(image_str) - 1]
@@ -125,7 +125,7 @@ from pos.menu_functions import *
 #     for item in menu_items:
 #         item_image_file = "pos/images/Default Image.png"
 #         if os.path.isfile("pos/images/" + item.ItemName + ".png"):
-#             item_image_file = item.ItemName + ".png"
+#             item_image_file = "pos/images/" + item.ItemName + ".png"
 #         with open(item_image_file, "rb") as image_file:
 #             image_str = str(base64.b64encode(image_file.read()))
 #             image_str = image_str[2:len(image_str) - 1]
