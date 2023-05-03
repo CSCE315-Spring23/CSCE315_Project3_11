@@ -1,29 +1,71 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <h2>Edit Inventory Items</h2>
-    <a href="{% url 'addInventoryItemPage' %}">Add Item</a>
-    <form method="POST" action="{% url 'editThisInventoryItem' %}">
-        {% csrf_token %}
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Stock</th>
-            <th>Number Needed</th>
-            <th>Units</th>
-        </tr>
-    {% for item in inventoryItems %}
-        <tr>
-            <td><img src="data:image/png;base64,{{ item.Image|safe }}" alt="{{ item.Name }}" width=50px height=50px></td>
-            <td>{{ item.Name }}</td>
-            <td>{{ item.Stock }}</td>
-            <td>{{ item.NumberNeeded }}</td>
-            <td>{{ item.Units }}</td>
-            <td>
-                <button type="submit" name="inventoryItem" value="{{ item.Name }}">Edit/Delete {{ item.Name }}</button>
-            </td>
-        </tr>
-    {% endfor %}
-    </table>
-    </form>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Orders Screen</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    </head>
+
+    <body>
+
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Sidebar -->
+          <div class="col-md-3 bg-light ">
+
+            <h4 class="text-center py-5">Navigate</h4>
+            <ul class="nav flex-column gap-3">
+
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order' %}" role="button">Order</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'edit_menu_items' %}" role="button">Menu Items</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'login' %}" role="button">Log Out</a>
+            </ul>
+          </div>
+          <!-- Main Content -->
+          <div class="col-md-8 justify-content-center">
+            <h2 class = "mt-5 text-center">Edit Inventory Items</h2>
+                <a href="{% url 'addInventoryItemPage' %}">Add Item</a>
+                <form method="POST" action="{% url 'editThisInventoryItem' %}">
+                    {% csrf_token %}
+                <div class="row justify-content-center">
+                <div class="col-auto">
+                <table class="table d-block text-center">
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Stock</th>
+                        <th>Number Needed</th>
+                        <th>Units</th>
+                        <th>Edit/Delete Button</th>
+                    </tr>
+                {% for item in inventoryItems %}
+                    <tr>
+                        <td><img src="data:image/png;base64,{{ item.Image|safe }}" alt="{{ item.Name }}" width=50px height=50px></td>
+                        <td>{{ item.Name }}</td>
+                        <td>{{ item.Stock }}</td>
+                        <td>{{ item.NumberNeeded }}</td>
+                        <td>{{ item.Units }}</td>
+                        <td>
+                            <button type="submit" name="inventoryItem" value="{{ item.Name }}">Edit/Delete {{ item.Name }}</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+                </div>
+                </div>
+                </form>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
 {% endblock %}
