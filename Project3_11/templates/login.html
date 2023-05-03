@@ -10,17 +10,17 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     </head>
 
-<div class="bg-white border rounded-5">
+<div class="bg-white">
     {% if error %}
     <p style="color:red">{{ error }}</p>
     {% endif %}
     <section class="w-100 p-4 d-flex justify-content-center pb-4">
     <div class="text-center">
         {% if user.is_authenticated %}
-            <h1>Pom & Honey Employee Logout</h1>
-            <a href="{% url 'logout' %}">Logout from Google</a>
+            <h1 class="text-center mb-5">Pom & Honey Logout</h1>
+            <a class="btn btn-info text-center btn-lg" href="{% url 'logout' %}">Logout from Google</a>
         {% else %}
-          <h1 class="text-center mb-5">Pom & Honey Employee Login </h1>
+          <h1 class="text-center mb-5">Pom & Honey Login </h1>
           <a class="btn btn-info text-center btn-lg" href="{% provider_login_url 'google' %}">Login with Google</a>
         {% endif %}
     </div>

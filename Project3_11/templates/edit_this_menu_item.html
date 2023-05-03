@@ -136,6 +136,7 @@
                 </table>
                 <button class= "btn btn-success btn-block" type="submit" name="passed_menu_item" value="{{ menu_item.ItemName }}">Submit Changes</button>
                 <button class= "btn btn-danger btn-block" type="submit" name="delete_menu_item" value="{{ menu_item.ItemName }}">Delete Item</button>
+                <a class="btn btn-warning btn-block" href="{% url 'edit_menu_items' %}" role="button">Go Back To List</a>
                 </div>
                 </div>
             </form>

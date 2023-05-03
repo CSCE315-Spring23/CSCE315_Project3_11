@@ -42,10 +42,10 @@
                     {% csrf_token %}
                 <div class="row justify-content-center">
                 <div class="col-auto">
-                    <table class="table d-block text-center">
+                    <table class="table d-block">
                         <tr>
                             <td>Image</td>
-                            <td>
+                            <td class="text-center">
                                 <label class="point-cursor" for="image">
                                     <img src="data:image/png;base64,{{ inventoryItem.Image|safe }}" alt="{{ inventoryItem.Name }}" width=50px height=50px>
                                 </label>
