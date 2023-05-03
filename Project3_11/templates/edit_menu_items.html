@@ -19,7 +19,7 @@
             <h4 class="text-center py-5">Navigate</h4>
             <ul class="nav flex-column gap-3">
 
-                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order' %}" role="button">Order</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order_page' %}" role="button">Order</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'edit_menu_items' %}" role="button">Menu Items</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
@@ -38,6 +38,7 @@
                             <th>Image</th>
                             <th>Item Name</th>
                             <th>Price</th>
+                            <th>Edit/Delete</th>
                         </tr>
                         {% for item in menu_items %}
                             <tr>
@@ -45,7 +46,7 @@
                                 <td>{{ item.ItemName }}</td>
                                 <td>{{ item.Price }}</td>
                                 <td>
-                                    <button type="submit" name="menu_item" value="{{ item.ItemName }}">Edit {{ item.ItemName }}</button>
+                                    <button class= "btn btn-info btn-block" type="submit" name="menu_item" value="{{ item.ItemName }}">Edit {{ item.ItemName }}</button>
                                 </td>
                             </tr>
                         {% endfor %}

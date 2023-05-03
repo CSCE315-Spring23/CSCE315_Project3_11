@@ -19,7 +19,7 @@
             <h4 class="text-center py-5">Navigate</h4>
             <ul class="nav flex-column gap-3">
 
-                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order' %}" role="button">Order</a>
+                <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'order_page' %}" role="button">Order</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'editInventoryItems' %}" role="button">Inventory Items</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'edit_menu_items' %}" role="button">Menu Items</a>
                 <a class="btn btn-primary btn-block btn-lg p-5" href="{% url 'reports' %}" role="button">Reports</a>
@@ -41,7 +41,7 @@
                         <th>Stock</th>
                         <th>Number Needed</th>
                         <th>Units</th>
-                        <th>Edit/Delete Button</th>
+                        <th>Edit/Delete</th>
                     </tr>
                 {% for item in inventoryItems %}
                     <tr>
@@ -51,7 +51,7 @@
                         <td>{{ item.NumberNeeded }}</td>
                         <td>{{ item.Units }}</td>
                         <td>
-                            <button type="submit" name="inventoryItem" value="{{ item.Name }}">Edit/Delete {{ item.Name }}</button>
+                            <button class= "btn btn-info btn-block" type="submit" name="inventoryItem" value="{{ item.Name }}">Edit/Delete {{ item.Name }}</button>
                         </td>
                     </tr>
                 {% endfor %}
