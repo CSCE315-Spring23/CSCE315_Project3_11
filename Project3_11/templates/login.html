@@ -15,58 +15,45 @@
     <p style="color:red">{{ error }}</p>
     {% endif %}
     <section class="w-100 p-4 d-flex justify-content-center pb-4">
-    <form method="POST" enctype="multipart/form-data" action="{% url 'order_page' %}">
-        {% csrf_token %}
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-          <h1>Login</h1>
-        </div>
-        <div class="form-outline mb-4">
-            <label for="employee_id">Employee ID</label>
-          <input type="text" id="employee_id" class="form-control" name="employee_id" placeholder="Employee ID"/>
-
-        </div>
-
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-            <label for="employee_pin">Password</label>
-          <input name="employee_pin" type="password" id="employee_pin" class="form-control" placeholder="Password" />
-
-        </div>
-
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" value="Log In">Sign in</button>
-    </form>
-    </section>
+    <div class="text-center">
+        {% if user.is_authenticated %}
+            <h1>Pom & Honey Employee Logout</h1>
+            <a href="{% url 'logout' %}">Logout from Google</a>
+        {% else %}
+          <h1 class="text-center mb-5">Pom & Honey Employee Login </h1>
+          <a class="btn btn-info text-center btn-lg" href="{% provider_login_url 'google' %}">Login with Google</a>
+        {% endif %}
     </div>
 
+{#    <form method="POST" enctype="multipart/form-data" action="{% url 'order_page' %}">#}
+{#        {% csrf_token %}#}
+{#        <!-- Email input -->#}
+{#        <div class="form-outline mb-4">#}
+{#          <h1>Login</h1>#}
+{#        </div>#}
+{#        <div class="form-outline mb-4">#}
+{#            <label for="employee_id">Employee ID</label>#}
+{#          <input type="text" id="employee_id" class="form-control" name="employee_id" placeholder="Employee ID"/>#}
+{##}
+{#        </div>#}
+{##}
+{#        <!-- Password input -->#}
+{#        <div class="form-outline mb-4">#}
+{#            <label for="employee_pin">Password</label>#}
+{#          <input name="employee_pin" type="password" id="employee_pin" class="form-control" placeholder="Password" />#}
+{##}
+{#        </div>#}
+{##}
+{#        <!-- Submit button -->#}
+{#        <button type="submit" class="btn btn-primary btn-block mb-4" value="Log In">Sign in</button>#}
+{#    </form>#}
 
-    {% url 'order_page' as order_view %}
-    <a class="btn btn-primary" href="{{ order_view }}" role="button">Orders Testing</a>
 
-    <br>
-
-    <a href="{{ order_view }}">Go to order(style test) page</a>
-    <br>
-    {% url 'edit_menu_items' as menuItems %}
-    <a href="{{ menuItems }}">Go to menu items page</a>
-    <br>
-    {% url 'reports' as reports %}
-    <a href="{{ reports }}">Go to reports page</a>
-    <br>
-    {% url 'editInventoryItems' as editInventoryItems %}
-    <a href="{{ editInventoryItems }}">Go to edit inventory items page</a>
+    </section>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
             integrity="sha384-qr+kzX9AdfeZvUDdZn2EuOXiTE1Fj4BvadPhM7NGuPbsUp4L4VvoABRTHC29++pK" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-
-    {% if user.is_authenticated %}
-        <h1>Pom & Honey Employee Logout</h1>
-        <a href="{% url 'logout' %}">Logout from Google</a>
-    {% else %}
-      <h1>Pom & Honey Employee Login </h1>
-      <a href="{% provider_login_url 'google' %}">Login with Google</a>
-    {% endif %}
 {% endblock %}
