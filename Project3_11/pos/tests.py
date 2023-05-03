@@ -112,8 +112,8 @@ from pos.menu_functions import *
 # with open ("pos/images/update_inventory_pictures.sql", "w") as sql_file:
 #     for item in items:
 #         item_image_file = "pos/images/Default Image.png"
-#         if os.path.isfile("pos/images/" + item.Name + ".png"):
-#             item_image_file = item.Name + ".png"
+#         if os.path.isfile("pos/images/output/" + item.Name + ".png"):
+#             item_image_file = "pos/images/output/" + item.Name + ".png"
 #         with open(item_image_file, "rb") as image_file:
 #             image_str = str(base64.b64encode(image_file.read()))
 #             image_str = image_str[2:len(image_str) - 1]
@@ -124,8 +124,8 @@ from pos.menu_functions import *
 # with open ("pos/images/update_menu_pictures.sql", "w") as sql_file:
 #     for item in menu_items:
 #         item_image_file = "pos/images/Default Image.png"
-#         if os.path.isfile("pos/images/" + item.ItemName + ".png"):
-#             item_image_file = item.ItemName + ".png"
+#         if os.path.isfile("pos/images/output/" + item.ItemName + ".png"):
+#             item_image_file = "pos/images/output/" + item.ItemName + ".png"
 #         with open(item_image_file, "rb") as image_file:
 #             image_str = str(base64.b64encode(image_file.read()))
 #             image_str = image_str[2:len(image_str) - 1]
