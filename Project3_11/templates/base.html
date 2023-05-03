@@ -11,18 +11,49 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-light bg-dark justify-content-between">
-        <a class="navbar-brand">Navbar</a>
-        <img src="{% static 'Pom and Honey Icon.png' %}" alt="Pom and Honey Logo" height=50>
+{#    <nav class="navbar navbar-expand-lg navbar-light bg-dark ">#}
+{#      <div class="container">#}
+{#        <a class="navbar-brand d-flex justify-items-center" href="#">#}
+{#          <img src="{% static 'Pom and Honey Icon.png' %}" alt="Pom and Honey Logo" height=50>#}
+{#        </a>#}
+{#          <a class="navbar-brand d-flex align-items-left" href="#">#}
+{#          {% if weather %}#}
+{#                <p>Current weather: {{ weather }}</p>#}
+{#            {% endif %}#}
+{#        </a>#}
+{#          <a class="navbar-brand d-flex align-items-right" href="#">#}
+{#              {% load google_translate %}#}
+{#                {% google_translate type='vertical' language='en' %}#}
+{#        </a>#}
+{#      </div>#}
+{#    </nav>#}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <div class="container-fluid d-flex justify-content-between">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="{% static 'Pom and Honey Icon.png' %}" alt="Pom and Honey Logo" height=50>
+        </a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            {% if weather %}
+                <p>Current weather: {{ weather }}</p>
+            {% endif %}
+          </li>
+          <li class="nav-item">
+            {% load google_translate %}
+              {% google_translate type='vertical' language='en' %}
+          </li>
+        </ul>
+      </div>
     </nav>
 
-    <header>
-        {% if weather %}
-            <p>Current weather: {{ weather }}</p>
-        {% endif %}
-        {% load google_translate %}
-        {% google_translate type='vertical' language='en' %}
-    </header>
+{#    <header>#}
+{#        {% if weather %}#}
+{#            <p>Current weather: {{ weather }}</p>#}
+{#        {% endif %}#}
+{#        {% load google_translate %}#}
+{#        {% google_translate type='vertical' language='en' %}#}
+{#    </header>#}
 
     <header>
 

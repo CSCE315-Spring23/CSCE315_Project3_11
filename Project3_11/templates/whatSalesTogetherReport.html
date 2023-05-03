@@ -19,8 +19,27 @@
     <div class="text-center my-3"><button class="btn btn-primary" type="submit">Generate What Sales Together Report</button></div>
     </form>
     {% block whatSalesTogetherReportContent %}
+        <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="table d-block text-center">
+                <thead>
+                  <tr>
+                    <th>Ordered Pair</th>
+                    <th>Numbered Ordered</th>
+                  </tr>
+                </thead>
+            <tbody>
+            {% for i in whatSalesTogetherReportData %}
+                <tr class="text-center">
+                    <td class="text-center">{{ i.0 }}</td>
+                    <td class="text-center">{{ i.1 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        </div>
+        </div>
 
-        <div class="text-center"><label>Total: ${{ whatSalesTogetherReportData }}</label></div>
 
     {% endblock %}
 {% endblock %}

@@ -16,7 +16,25 @@
     <div class="text-center my-3"><button class="btn btn-primary" type="submit">Generate Restock Report</button></div>
     </form>
     {% block restockReportContent %}
-        <div class="text-center"><label>Total: ${{ restockReportData }}</label></div>
+        <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="table d-block text-center">
+                <thead>
+                  <tr>
+                    <th>Report Results</th>
+                  </tr>
+                </thead>
+            <tbody>
+            {% for i in restockReportData %}
+                {% if forloop.counter0|divisibleby:"7" %}
+                    <tr></tr>
+                {% endif %}
+                <tc><td>{{ i }}</td></tc>
+            {% endfor %}
+            </tbody>
+            </table>
+        </div>
+        </div>
     {% endblock %}
 {% endblock %}
 
