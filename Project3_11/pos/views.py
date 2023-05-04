@@ -615,7 +615,9 @@ def submit_menu_item_addition(request):
         price = request.POST.get('price')
         definite_items = request.POST.getlist('selected_definite_items')
         possible_items = request.POST.getlist('selected_possible_items')
-        add_to_menu(item_name, price, definite_items, possible_items)
+        image = request.FILES.get('image')
+        image = base64.b64encode(image.read()).decode('utf-8')
+        add_to_menu(item_name, price, definite_items, possible_items, bytes(image, 'utf-8'))
         return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
     else:
         return render(request, 'edit_menu_items.html', {'menu_items': MenuItem.objects.order_by('-Price')})
